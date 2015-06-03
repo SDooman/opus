@@ -56,3 +56,5 @@ Style, Best Practices, References
 * [Objective C Style Guide](https://github.com/NYTimes/objective-c-style-guide)
 * [Best Practices](https://github.com/futurice/ios-good-practices)
 * [SemVer](http://semver.org/)
+* [Git Branching Model](http://nvie.com/posts/a-successful-git-branching-model/)
+
