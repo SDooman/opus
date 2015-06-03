@@ -27,11 +27,11 @@ Git Workflow
 * Create a feature branch -- `git checkout -b your-feature-branch`
 * Push all commits to origin/your-feature-branch at github
 * When your branch meets the requirements to merge against development,
-	issue a pull request -- `hub pull-request -base development`
+ use `hub pull-request -b develop`
 * Once your branch is discussed & approved:
-* Rebase your branch -- `git fetch origin && git rebase origin/development`
-* Squash your branch -- `git rebase -i origin/development`
-* Merge branch -- `git checkout development && git pull origin development && git merge your-feature-branch`
+* Rebase your branch -- `git fetch origin && git rebase origin/develop`
+* Squash your branch -- `git rebase -i origin/develop`
+* Merge branch -- `git checkout development && git pull origin develop && git merge your-feature-branch`
 * push your branch -- `git push`
 
 Whenever you commit changes to a branch, use the following
@@ -56,3 +56,5 @@ Style, Best Practices, References
 * [Objective C Style Guide](https://github.com/NYTimes/objective-c-style-guide)
 * [Best Practices](https://github.com/futurice/ios-good-practices)
 * [SemVer](http://semver.org/)
+* [Git Branching Model](http://nvie.com/posts/a-successful-git-branching-model/)
+
