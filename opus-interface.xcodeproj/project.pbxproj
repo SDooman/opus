@@ -14,6 +14,7 @@
 		225D21621B1F8AB0007DD37B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 225D21611B1F8AB0007DD37B /* Images.xcassets */; };
 		225D21651B1F8AB0007DD37B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225D21631B1F8AB0007DD37B /* LaunchScreen.xib */; };
 		225D21711B1F8AB0007DD37B /* opus_interfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D21701B1F8AB0007DD37B /* opus_interfaceTests.swift */; };
+		225D21861B1F9902007DD37B /* MIKMIDI.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 225D21801B1F988F007DD37B /* MIKMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,7 +25,42 @@
 			remoteGlobalIDString = 225D21511B1F8AB0007DD37B;
 			remoteInfo = "opus-interface";
 		};
+		225D217F1B1F988F007DD37B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 225D217A1B1F988F007DD37B /* MIKMIDI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9D74EEA517A7129300BEE89F;
+			remoteInfo = MIKMIDI;
+		};
+		225D21811B1F988F007DD37B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 225D217A1B1F988F007DD37B /* MIKMIDI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9DAF8B061A7AFF1100F46528;
+			remoteInfo = "MIKMIDI-iOS";
+		};
+		225D21831B1F98DE007DD37B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 225D217A1B1F988F007DD37B /* MIKMIDI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DAF8B051A7AFF1100F46528;
+			remoteInfo = "MIKMIDI-iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		225D21851B1F98E9007DD37B /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				225D21861B1F9902007DD37B /* MIKMIDI.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		225D21521B1F8AB0007DD37B /* opus-interface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "opus-interface.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +74,7 @@
 		225D216A1B1F8AB0007DD37B /* opus-interfaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "opus-interfaceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		225D216F1B1F8AB0007DD37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		225D21701B1F8AB0007DD37B /* opus_interfaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = opus_interfaceTests.swift; sourceTree = "<group>"; };
+		225D217A1B1F988F007DD37B /* MIKMIDI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MIKMIDI.xcodeproj; path = "../../../Developer/XCode/opus-interface/MIKMIDI/Framework/MIKMIDI.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +101,7 @@
 				225D21541B1F8AB0007DD37B /* opus-interface */,
 				225D216D1B1F8AB0007DD37B /* opus-interfaceTests */,
 				225D21531B1F8AB0007DD37B /* Products */,
+				225D217A1B1F988F007DD37B /* MIKMIDI.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +117,7 @@
 		225D21541B1F8AB0007DD37B /* opus-interface */ = {
 			isa = PBXGroup;
 			children = (
+				225D21871B1F99E7007DD37B /* midi-player */,
 				225D21571B1F8AB0007DD37B /* AppDelegate.swift */,
 				225D215C1B1F8AB0007DD37B /* ViewController.swift */,
 				225D215E1B1F8AB0007DD37B /* Main.storyboard */,
@@ -115,6 +154,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		225D217B1B1F988F007DD37B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				225D21801B1F988F007DD37B /* MIKMIDI.framework */,
+				225D21821B1F988F007DD37B /* MIKMIDI.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		225D21871B1F99E7007DD37B /* midi-player */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "midi-player";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,10 +180,12 @@
 				225D214E1B1F8AB0007DD37B /* Sources */,
 				225D214F1B1F8AB0007DD37B /* Frameworks */,
 				225D21501B1F8AB0007DD37B /* Resources */,
+				225D21851B1F98E9007DD37B /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				225D21841B1F98DE007DD37B /* PBXTargetDependency */,
 			);
 			name = "opus-interface";
 			productName = "opus-interface";
@@ -182,6 +239,12 @@
 			mainGroup = 225D21491B1F8AB0007DD37B;
 			productRefGroup = 225D21531B1F8AB0007DD37B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 225D217B1B1F988F007DD37B /* Products */;
+					ProjectRef = 225D217A1B1F988F007DD37B /* MIKMIDI.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				225D21511B1F8AB0007DD37B /* opus-interface */,
@@ -189,6 +252,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		225D21801B1F988F007DD37B /* MIKMIDI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MIKMIDI.framework;
+			remoteRef = 225D217F1B1F988F007DD37B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		225D21821B1F988F007DD37B /* MIKMIDI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MIKMIDI.framework;
+			remoteRef = 225D21811B1F988F007DD37B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		225D21501B1F8AB0007DD37B /* Resources */ = {
@@ -236,6 +316,11 @@
 			isa = PBXTargetDependency;
 			target = 225D21511B1F8AB0007DD37B /* opus-interface */;
 			targetProxy = 225D216B1B1F8AB0007DD37B /* PBXContainerItemProxy */;
+		};
+		225D21841B1F98DE007DD37B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "MIKMIDI-iOS";
+			targetProxy = 225D21831B1F98DE007DD37B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
