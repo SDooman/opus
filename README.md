@@ -48,7 +48,6 @@ Tools
 ============================
 
 * [hub](http://github.com/github/hub)
-* [git-flow](http://github.com/nvie/gitflow)
 
 Style, Best Practices, References
 ============================
