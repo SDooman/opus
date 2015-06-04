@@ -26,12 +26,12 @@ Git Workflow
 
 * Create a feature branch -- `git checkout -b your-feature-branch`
 * Push all commits to origin/your-feature-branch at github
-* When your branch meets the requirements to merge against development,
+* When your branch meets the requirements to merge against development branch,
  use `hub pull-request -b develop`
 * Once your branch is discussed & approved:
 * Rebase your branch -- `git fetch origin && git rebase origin/develop`
 * Squash your branch -- `git rebase -i origin/develop`
-* Merge branch -- `git checkout development && git pull origin develop && git merge your-feature-branch`
+* Merge branch -- `git checkout develop && git pull origin develop && git merge your-feature-branch`
 * push your branch -- `git push`
 
 Whenever you commit changes to a branch, use the following
