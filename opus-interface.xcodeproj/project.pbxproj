@@ -498,6 +498,7 @@
 				225D21761B1F8AB0007DD37B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		225D21771B1F8AB0007DD37B /* Build configuration list for PBXNativeTarget "opus-interfaceTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +507,7 @@
 				225D21791B1F8AB0007DD37B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
