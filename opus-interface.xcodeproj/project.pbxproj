@@ -15,6 +15,7 @@
 		225D21651B1F8AB0007DD37B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225D21631B1F8AB0007DD37B /* LaunchScreen.xib */; };
 		225D21711B1F8AB0007DD37B /* opus_interfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D21701B1F8AB0007DD37B /* opus_interfaceTests.swift */; };
 		225D21861B1F9902007DD37B /* MIKMIDI.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 225D21801B1F988F007DD37B /* MIKMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2297E9E21B22373F002CC72B /* MusicKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2297E9DB1B2236E1002CC72B /* MusicKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,41 @@
 			remoteGlobalIDString = 9DAF8B051A7AFF1100F46528;
 			remoteInfo = "MIKMIDI-iOS";
 		};
+		2297E9D81B2236E1002CC72B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 96F299221A5663E500D7B006;
+			remoteInfo = MusicKit_OSX;
+		};
+		2297E9DA1B2236E1002CC72B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9693F6531A57C403006270F4;
+			remoteInfo = MusicKit_iOS;
+		};
+		2297E9DC1B2236E1002CC72B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 96F2992D1A5663E500D7B006;
+			remoteInfo = MusicKit_OSXTests;
+		};
+		2297E9DE1B2236E1002CC72B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9691BB241A57C75500421B56;
+			remoteInfo = MusicKit_iOSTests;
+		};
+		2297E9E01B223730002CC72B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9693F6521A57C403006270F4;
+			remoteInfo = MusicKit_iOS;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +91,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				2297E9E21B22373F002CC72B /* MusicKit.framework in Copy Frameworks */,
 				225D21861B1F9902007DD37B /* MIKMIDI.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -75,6 +112,7 @@
 		225D216F1B1F8AB0007DD37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		225D21701B1F8AB0007DD37B /* opus_interfaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = opus_interfaceTests.swift; sourceTree = "<group>"; };
 		225D217A1B1F988F007DD37B /* MIKMIDI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MIKMIDI.xcodeproj; path = "../../../Developer/XCode/opus-interface/MIKMIDI/Framework/MIKMIDI.xcodeproj"; sourceTree = "<group>"; };
+		2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MusicKit.xcodeproj; path = "../../../Developer/XCode/opus-interface/MusicKit/MusicKit.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +140,7 @@
 				225D216D1B1F8AB0007DD37B /* opus-interfaceTests */,
 				225D21531B1F8AB0007DD37B /* Products */,
 				225D217A1B1F988F007DD37B /* MIKMIDI.xcodeproj */,
+				2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,7 +156,10 @@
 		225D21541B1F8AB0007DD37B /* opus-interface */ = {
 			isa = PBXGroup;
 			children = (
-				225D21871B1F99E7007DD37B /* midi-player */,
+				2297E9C11B223381002CC72B /* view-models */,
+				2297E9C01B223376002CC72B /* views */,
+				2297E9BF1B223372002CC72B /* models */,
+				2297E9BE1B22336B002CC72B /* audio */,
 				225D21571B1F8AB0007DD37B /* AppDelegate.swift */,
 				225D215C1B1F8AB0007DD37B /* ViewController.swift */,
 				225D215E1B1F8AB0007DD37B /* Main.storyboard */,
@@ -163,11 +205,43 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		225D21871B1F99E7007DD37B /* midi-player */ = {
+		2297E9BE1B22336B002CC72B /* audio */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = "midi-player";
+			name = audio;
+			sourceTree = "<group>";
+		};
+		2297E9BF1B223372002CC72B /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		2297E9C01B223376002CC72B /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		2297E9C11B223381002CC72B /* view-models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "view-models";
+			sourceTree = "<group>";
+		};
+		2297E9D21B2236E1002CC72B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2297E9D91B2236E1002CC72B /* MusicKit.framework */,
+				2297E9DB1B2236E1002CC72B /* MusicKit.framework */,
+				2297E9DD1B2236E1002CC72B /* MusicKit_OSXTests.xctest */,
+				2297E9DF1B2236E1002CC72B /* MusicKit_iOSTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +259,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2297E9E11B223730002CC72B /* PBXTargetDependency */,
 				225D21841B1F98DE007DD37B /* PBXTargetDependency */,
 			);
 			name = "opus-interface";
@@ -244,6 +319,10 @@
 					ProductGroup = 225D217B1B1F988F007DD37B /* Products */;
 					ProjectRef = 225D217A1B1F988F007DD37B /* MIKMIDI.xcodeproj */;
 				},
+				{
+					ProductGroup = 2297E9D21B2236E1002CC72B /* Products */;
+					ProjectRef = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -266,6 +345,34 @@
 			fileType = wrapper.framework;
 			path = MIKMIDI.framework;
 			remoteRef = 225D21811B1F988F007DD37B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2297E9D91B2236E1002CC72B /* MusicKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MusicKit.framework;
+			remoteRef = 2297E9D81B2236E1002CC72B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2297E9DB1B2236E1002CC72B /* MusicKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MusicKit.framework;
+			remoteRef = 2297E9DA1B2236E1002CC72B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2297E9DD1B2236E1002CC72B /* MusicKit_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MusicKit_OSXTests.xctest;
+			remoteRef = 2297E9DC1B2236E1002CC72B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2297E9DF1B2236E1002CC72B /* MusicKit_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MusicKit_iOSTests.xctest;
+			remoteRef = 2297E9DE1B2236E1002CC72B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -321,6 +428,11 @@
 			isa = PBXTargetDependency;
 			name = "MIKMIDI-iOS";
 			targetProxy = 225D21831B1F98DE007DD37B /* PBXContainerItemProxy */;
+		};
+		2297E9E11B223730002CC72B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MusicKit_iOS;
+			targetProxy = 2297E9E01B223730002CC72B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
