@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		221997271B2B15EA007BF9E6 /* AudioToolboxError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221997261B2B15EA007BF9E6 /* AudioToolboxError.swift */; };
+		2219972D1B2B1A97007BF9E6 /* OpusStaffObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2219972C1B2B1A97007BF9E6 /* OpusStaffObject.swift */; };
+		2219972F1B2B1C7E007BF9E6 /* OpusRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2219972E1B2B1C7E007BF9E6 /* OpusRest.swift */; };
+		221997341B2B2264007BF9E6 /* OpusAUGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221997331B2B2264007BF9E6 /* OpusAUGraph.swift */; };
+		2257DA691B27396700466F2A /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA681B27396700466F2A /* AudioManager.swift */; };
+		2257DA771B275DF100466F2A /* OpusKeySignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA761B275DF100466F2A /* OpusKeySignature.swift */; };
+		2257DA791B275DFE00466F2A /* OpusTimeSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA781B275DFE00466F2A /* OpusTimeSignature.swift */; };
 		225D21581B1F8AB0007DD37B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D21571B1F8AB0007DD37B /* AppDelegate.swift */; };
 		225D215B1B1F8AB0007DD37B /* opus_interface.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 225D21591B1F8AB0007DD37B /* opus_interface.xcdatamodeld */; };
 		225D215D1B1F8AB0007DD37B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D215C1B1F8AB0007DD37B /* ViewController.swift */; };
@@ -14,7 +21,23 @@
 		225D21621B1F8AB0007DD37B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 225D21611B1F8AB0007DD37B /* Images.xcassets */; };
 		225D21651B1F8AB0007DD37B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225D21631B1F8AB0007DD37B /* LaunchScreen.xib */; };
 		225D21711B1F8AB0007DD37B /* opus_interfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D21701B1F8AB0007DD37B /* opus_interfaceTests.swift */; };
-		225D21861B1F9902007DD37B /* MIKMIDI.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 225D21801B1F988F007DD37B /* MIKMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		226C4DEA1B238583005DD6A3 /* grand_piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 226C4DE91B238583005DD6A3 /* grand_piano.sf2 */; };
+		2297E9E21B22373F002CC72B /* MusicKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2297E9DB1B2236E1002CC72B /* MusicKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2297E9F41B224ACD002CC72B /* OpusStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9F31B224ACD002CC72B /* OpusStaff.swift */; };
+		2297E9F51B224ACD002CC72B /* OpusStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9F31B224ACD002CC72B /* OpusStaff.swift */; };
+		2297E9F71B224AE7002CC72B /* OpusNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9F61B224AE7002CC72B /* OpusNote.swift */; };
+		2297E9F81B224AE7002CC72B /* OpusNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9F61B224AE7002CC72B /* OpusNote.swift */; };
+		2297EA001B224F4F002CC72B /* StaffViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9FF1B224F4F002CC72B /* StaffViewModel.swift */; };
+		2297EA011B224F4F002CC72B /* StaffViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9FF1B224F4F002CC72B /* StaffViewModel.swift */; };
+		22AE6F3C1B2B28A800C47111 /* OpusRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2219972E1B2B1C7E007BF9E6 /* OpusRest.swift */; };
+		22AE6F3D1B2B28A800C47111 /* OpusKeySignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA761B275DF100466F2A /* OpusKeySignature.swift */; };
+		22AE6F3E1B2B28A800C47111 /* OpusTimeSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA781B275DFE00466F2A /* OpusTimeSignature.swift */; };
+		22AE6F3F1B2B28A800C47111 /* OpusStaffObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2219972C1B2B1A97007BF9E6 /* OpusStaffObject.swift */; };
+		22AE6F401B2B28AF00C47111 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA681B27396700466F2A /* AudioManager.swift */; };
+		22AE6F421B2B28AF00C47111 /* OpusAUGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221997331B2B2264007BF9E6 /* OpusAUGraph.swift */; };
+		22AE6F431B2B28AF00C47111 /* AudioToolboxError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221997261B2B15EA007BF9E6 /* AudioToolboxError.swift */; };
+		22AE6F451B2B68ED00C47111 /* OpusMIDIEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F441B2B68ED00C47111 /* OpusMIDIEditor.swift */; };
+		22AE6F471B2B723700C47111 /* OpusMIDIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,26 +48,40 @@
 			remoteGlobalIDString = 225D21511B1F8AB0007DD37B;
 			remoteInfo = "opus-interface";
 		};
-		225D217F1B1F988F007DD37B /* PBXContainerItemProxy */ = {
+		2297E9D81B2236E1002CC72B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 225D217A1B1F988F007DD37B /* MIKMIDI.xcodeproj */;
+			containerPortal = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 9D74EEA517A7129300BEE89F;
-			remoteInfo = MIKMIDI;
+			remoteGlobalIDString = 96F299221A5663E500D7B006;
+			remoteInfo = MusicKit_OSX;
 		};
-		225D21811B1F988F007DD37B /* PBXContainerItemProxy */ = {
+		2297E9DA1B2236E1002CC72B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 225D217A1B1F988F007DD37B /* MIKMIDI.xcodeproj */;
+			containerPortal = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 9DAF8B061A7AFF1100F46528;
-			remoteInfo = "MIKMIDI-iOS";
+			remoteGlobalIDString = 9693F6531A57C403006270F4;
+			remoteInfo = MusicKit_iOS;
 		};
-		225D21831B1F98DE007DD37B /* PBXContainerItemProxy */ = {
+		2297E9DC1B2236E1002CC72B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 225D217A1B1F988F007DD37B /* MIKMIDI.xcodeproj */;
+			containerPortal = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 96F2992D1A5663E500D7B006;
+			remoteInfo = MusicKit_OSXTests;
+		};
+		2297E9DE1B2236E1002CC72B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9691BB241A57C75500421B56;
+			remoteInfo = MusicKit_iOSTests;
+		};
+		2297E9E01B223730002CC72B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 9DAF8B051A7AFF1100F46528;
-			remoteInfo = "MIKMIDI-iOS";
+			remoteGlobalIDString = 9693F6521A57C403006270F4;
+			remoteInfo = MusicKit_iOS;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -55,7 +92,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				225D21861B1F9902007DD37B /* MIKMIDI.framework in Copy Frameworks */,
+				2297E9E21B22373F002CC72B /* MusicKit.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,6 +100,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		221997261B2B15EA007BF9E6 /* AudioToolboxError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioToolboxError.swift; sourceTree = "<group>"; };
+		2219972C1B2B1A97007BF9E6 /* OpusStaffObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusStaffObject.swift; sourceTree = "<group>"; };
+		2219972E1B2B1C7E007BF9E6 /* OpusRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusRest.swift; sourceTree = "<group>"; };
+		221997331B2B2264007BF9E6 /* OpusAUGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusAUGraph.swift; sourceTree = "<group>"; };
+		2257DA681B27396700466F2A /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		2257DA761B275DF100466F2A /* OpusKeySignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusKeySignature.swift; sourceTree = "<group>"; };
+		2257DA781B275DFE00466F2A /* OpusTimeSignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusTimeSignature.swift; sourceTree = "<group>"; };
 		225D21521B1F8AB0007DD37B /* opus-interface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "opus-interface.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		225D21561B1F8AB0007DD37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		225D21571B1F8AB0007DD37B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +118,13 @@
 		225D216A1B1F8AB0007DD37B /* opus-interfaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "opus-interfaceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		225D216F1B1F8AB0007DD37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		225D21701B1F8AB0007DD37B /* opus_interfaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = opus_interfaceTests.swift; sourceTree = "<group>"; };
-		225D217A1B1F988F007DD37B /* MIKMIDI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MIKMIDI.xcodeproj; path = "../../../Developer/XCode/opus-interface/MIKMIDI/Framework/MIKMIDI.xcodeproj"; sourceTree = "<group>"; };
+		226C4DE91B238583005DD6A3 /* grand_piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = grand_piano.sf2; sourceTree = "<group>"; };
+		2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MusicKit.xcodeproj; path = "../../../Developer/XCode/opus-interface/MusicKit/MusicKit.xcodeproj"; sourceTree = "<group>"; };
+		2297E9F31B224ACD002CC72B /* OpusStaff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusStaff.swift; sourceTree = "<group>"; };
+		2297E9F61B224AE7002CC72B /* OpusNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusNote.swift; sourceTree = "<group>"; };
+		2297E9FF1B224F4F002CC72B /* StaffViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffViewModel.swift; sourceTree = "<group>"; };
+		22AE6F441B2B68ED00C47111 /* OpusMIDIEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusMIDIEditor.swift; sourceTree = "<group>"; };
+		22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusMIDIPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,13 +145,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		221997301B2B1EAB007BF9E6 /* model-tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "model-tests";
+			sourceTree = "<group>";
+		};
+		221997311B2B1EBD007BF9E6 /* view-model-tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "view-model-tests";
+			sourceTree = "<group>";
+		};
+		221997321B2B1ED5007BF9E6 /* audio-tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "audio-tests";
+			sourceTree = "<group>";
+		};
 		225D21491B1F8AB0007DD37B = {
 			isa = PBXGroup;
 			children = (
+				226C4DE71B238583005DD6A3 /* resources */,
 				225D21541B1F8AB0007DD37B /* opus-interface */,
 				225D216D1B1F8AB0007DD37B /* opus-interfaceTests */,
 				225D21531B1F8AB0007DD37B /* Products */,
-				225D217A1B1F988F007DD37B /* MIKMIDI.xcodeproj */,
+				2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,7 +189,10 @@
 		225D21541B1F8AB0007DD37B /* opus-interface */ = {
 			isa = PBXGroup;
 			children = (
-				225D21871B1F99E7007DD37B /* midi-player */,
+				2297E9C11B223381002CC72B /* view-models */,
+				2297E9C01B223376002CC72B /* views */,
+				2297E9BF1B223372002CC72B /* models */,
+				2297E9BE1B22336B002CC72B /* audio */,
 				225D21571B1F8AB0007DD37B /* AppDelegate.swift */,
 				225D215C1B1F8AB0007DD37B /* ViewController.swift */,
 				225D215E1B1F8AB0007DD37B /* Main.storyboard */,
@@ -141,6 +216,9 @@
 			isa = PBXGroup;
 			children = (
 				225D21701B1F8AB0007DD37B /* opus_interfaceTests.swift */,
+				221997321B2B1ED5007BF9E6 /* audio-tests */,
+				221997311B2B1EBD007BF9E6 /* view-model-tests */,
+				221997301B2B1EAB007BF9E6 /* model-tests */,
 				225D216E1B1F8AB0007DD37B /* Supporting Files */,
 			);
 			path = "opus-interfaceTests";
@@ -154,20 +232,71 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		225D217B1B1F988F007DD37B /* Products */ = {
+		226C4DE71B238583005DD6A3 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				225D21801B1F988F007DD37B /* MIKMIDI.framework */,
-				225D21821B1F988F007DD37B /* MIKMIDI.framework */,
+				226C4DE81B238583005DD6A3 /* instruments */,
 			);
-			name = Products;
+			path = resources;
+			sourceTree = SOURCE_ROOT;
+		};
+		226C4DE81B238583005DD6A3 /* instruments */ = {
+			isa = PBXGroup;
+			children = (
+				226C4DE91B238583005DD6A3 /* grand_piano.sf2 */,
+			);
+			path = instruments;
 			sourceTree = "<group>";
 		};
-		225D21871B1F99E7007DD37B /* midi-player */ = {
+		2297E9BE1B22336B002CC72B /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				2257DA681B27396700466F2A /* AudioManager.swift */,
+				22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */,
+				221997331B2B2264007BF9E6 /* OpusAUGraph.swift */,
+				22AE6F441B2B68ED00C47111 /* OpusMIDIEditor.swift */,
+				221997261B2B15EA007BF9E6 /* AudioToolboxError.swift */,
+			);
+			name = audio;
+			sourceTree = "<group>";
+		};
+		2297E9BF1B223372002CC72B /* models */ = {
+			isa = PBXGroup;
+			children = (
+				2297E9F31B224ACD002CC72B /* OpusStaff.swift */,
+				2297E9F61B224AE7002CC72B /* OpusNote.swift */,
+				2219972E1B2B1C7E007BF9E6 /* OpusRest.swift */,
+				2257DA761B275DF100466F2A /* OpusKeySignature.swift */,
+				2257DA781B275DFE00466F2A /* OpusTimeSignature.swift */,
+				2219972C1B2B1A97007BF9E6 /* OpusStaffObject.swift */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		2297E9C01B223376002CC72B /* views */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = "midi-player";
+			name = views;
+			sourceTree = "<group>";
+		};
+		2297E9C11B223381002CC72B /* view-models */ = {
+			isa = PBXGroup;
+			children = (
+				2297E9FF1B224F4F002CC72B /* StaffViewModel.swift */,
+			);
+			name = "view-models";
+			sourceTree = "<group>";
+		};
+		2297E9D21B2236E1002CC72B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2297E9D91B2236E1002CC72B /* MusicKit.framework */,
+				2297E9DB1B2236E1002CC72B /* MusicKit.framework */,
+				2297E9DD1B2236E1002CC72B /* MusicKit_OSXTests.xctest */,
+				2297E9DF1B2236E1002CC72B /* MusicKit_iOSTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,7 +314,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				225D21841B1F98DE007DD37B /* PBXTargetDependency */,
+				2297E9E11B223730002CC72B /* PBXTargetDependency */,
 			);
 			name = "opus-interface";
 			productName = "opus-interface";
@@ -241,8 +370,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 225D217B1B1F988F007DD37B /* Products */;
-					ProjectRef = 225D217A1B1F988F007DD37B /* MIKMIDI.xcodeproj */;
+					ProductGroup = 2297E9D21B2236E1002CC72B /* Products */;
+					ProjectRef = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -254,18 +383,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		225D21801B1F988F007DD37B /* MIKMIDI.framework */ = {
+		2297E9D91B2236E1002CC72B /* MusicKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = MIKMIDI.framework;
-			remoteRef = 225D217F1B1F988F007DD37B /* PBXContainerItemProxy */;
+			path = MusicKit.framework;
+			remoteRef = 2297E9D81B2236E1002CC72B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		225D21821B1F988F007DD37B /* MIKMIDI.framework */ = {
+		2297E9DB1B2236E1002CC72B /* MusicKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = MIKMIDI.framework;
-			remoteRef = 225D21811B1F988F007DD37B /* PBXContainerItemProxy */;
+			path = MusicKit.framework;
+			remoteRef = 2297E9DA1B2236E1002CC72B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2297E9DD1B2236E1002CC72B /* MusicKit_OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MusicKit_OSXTests.xctest;
+			remoteRef = 2297E9DC1B2236E1002CC72B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2297E9DF1B2236E1002CC72B /* MusicKit_iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MusicKit_iOSTests.xctest;
+			remoteRef = 2297E9DE1B2236E1002CC72B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -277,6 +420,7 @@
 			files = (
 				225D21601B1F8AB0007DD37B /* Main.storyboard in Resources */,
 				225D21651B1F8AB0007DD37B /* LaunchScreen.xib in Resources */,
+				226C4DEA1B238583005DD6A3 /* grand_piano.sf2 in Resources */,
 				225D21621B1F8AB0007DD37B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,9 +439,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22AE6F451B2B68ED00C47111 /* OpusMIDIEditor.swift in Sources */,
 				225D215D1B1F8AB0007DD37B /* ViewController.swift in Sources */,
+				2257DA791B275DFE00466F2A /* OpusTimeSignature.swift in Sources */,
+				2257DA691B27396700466F2A /* AudioManager.swift in Sources */,
+				2257DA771B275DF100466F2A /* OpusKeySignature.swift in Sources */,
+				2297E9F41B224ACD002CC72B /* OpusStaff.swift in Sources */,
+				2219972D1B2B1A97007BF9E6 /* OpusStaffObject.swift in Sources */,
+				22AE6F471B2B723700C47111 /* OpusMIDIPlayer.swift in Sources */,
+				2219972F1B2B1C7E007BF9E6 /* OpusRest.swift in Sources */,
+				221997271B2B15EA007BF9E6 /* AudioToolboxError.swift in Sources */,
 				225D215B1B1F8AB0007DD37B /* opus_interface.xcdatamodeld in Sources */,
+				2297E9F71B224AE7002CC72B /* OpusNote.swift in Sources */,
 				225D21581B1F8AB0007DD37B /* AppDelegate.swift in Sources */,
+				2297EA001B224F4F002CC72B /* StaffViewModel.swift in Sources */,
+				221997341B2B2264007BF9E6 /* OpusAUGraph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +461,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22AE6F401B2B28AF00C47111 /* AudioManager.swift in Sources */,
+				22AE6F421B2B28AF00C47111 /* OpusAUGraph.swift in Sources */,
+				22AE6F431B2B28AF00C47111 /* AudioToolboxError.swift in Sources */,
+				22AE6F3C1B2B28A800C47111 /* OpusRest.swift in Sources */,
+				22AE6F3D1B2B28A800C47111 /* OpusKeySignature.swift in Sources */,
+				22AE6F3E1B2B28A800C47111 /* OpusTimeSignature.swift in Sources */,
+				22AE6F3F1B2B28A800C47111 /* OpusStaffObject.swift in Sources */,
+				2297E9F81B224AE7002CC72B /* OpusNote.swift in Sources */,
 				225D21711B1F8AB0007DD37B /* opus_interfaceTests.swift in Sources */,
+				2297EA011B224F4F002CC72B /* StaffViewModel.swift in Sources */,
+				2297E9F51B224ACD002CC72B /* OpusStaff.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,10 +483,10 @@
 			target = 225D21511B1F8AB0007DD37B /* opus-interface */;
 			targetProxy = 225D216B1B1F8AB0007DD37B /* PBXContainerItemProxy */;
 		};
-		225D21841B1F98DE007DD37B /* PBXTargetDependency */ = {
+		2297E9E11B223730002CC72B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "MIKMIDI-iOS";
-			targetProxy = 225D21831B1F98DE007DD37B /* PBXContainerItemProxy */;
+			name = MusicKit_iOS;
+			targetProxy = 2297E9E01B223730002CC72B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -429,9 +595,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "opus-interface/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -439,6 +607,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "opus-interface/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -449,6 +618,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -460,6 +630,7 @@
 				INFOPLIST_FILE = "opus-interfaceTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/opus-interface.app/opus-interface";
 			};
 			name = Debug;
@@ -468,6 +639,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
