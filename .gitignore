@@ -24,3 +24,6 @@ xcuserdata
 *.hmap
 *.ipa
 
+## Sound font files
+*.sf2
+
