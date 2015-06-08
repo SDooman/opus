@@ -15,13 +15,12 @@
 		225D21651B1F8AB0007DD37B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225D21631B1F8AB0007DD37B /* LaunchScreen.xib */; };
 		225D21711B1F8AB0007DD37B /* opus_interfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D21701B1F8AB0007DD37B /* opus_interfaceTests.swift */; };
 		225D21861B1F9902007DD37B /* MIKMIDI.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 225D21801B1F988F007DD37B /* MIKMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		226C4DEA1B238583005DD6A3 /* grand_piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 226C4DE91B238583005DD6A3 /* grand_piano.sf2 */; };
 		2297E9E21B22373F002CC72B /* MusicKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2297E9DB1B2236E1002CC72B /* MusicKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2297E9F41B224ACD002CC72B /* OpusStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9F31B224ACD002CC72B /* OpusStaff.swift */; };
 		2297E9F51B224ACD002CC72B /* OpusStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9F31B224ACD002CC72B /* OpusStaff.swift */; };
 		2297E9F71B224AE7002CC72B /* OpusNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9F61B224AE7002CC72B /* OpusNote.swift */; };
 		2297E9F81B224AE7002CC72B /* OpusNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9F61B224AE7002CC72B /* OpusNote.swift */; };
-		2297E9FD1B224B56002CC72B /* OpusMIDISequencer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9FC1B224B56002CC72B /* OpusMIDISequencer.m */; };
-		2297E9FE1B224B56002CC72B /* OpusMIDISequencer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9FC1B224B56002CC72B /* OpusMIDISequencer.m */; };
 		2297EA001B224F4F002CC72B /* StaffViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9FF1B224F4F002CC72B /* StaffViewModel.swift */; };
 		2297EA011B224F4F002CC72B /* StaffViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9FF1B224F4F002CC72B /* StaffViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -120,13 +119,10 @@
 		225D216F1B1F8AB0007DD37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		225D21701B1F8AB0007DD37B /* opus_interfaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = opus_interfaceTests.swift; sourceTree = "<group>"; };
 		225D217A1B1F988F007DD37B /* MIKMIDI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MIKMIDI.xcodeproj; path = "../../../Developer/XCode/opus-interface/MIKMIDI/Framework/MIKMIDI.xcodeproj"; sourceTree = "<group>"; };
+		226C4DE91B238583005DD6A3 /* grand_piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = grand_piano.sf2; sourceTree = "<group>"; };
 		2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MusicKit.xcodeproj; path = "../../../Developer/XCode/opus-interface/MusicKit/MusicKit.xcodeproj"; sourceTree = "<group>"; };
 		2297E9F31B224ACD002CC72B /* OpusStaff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusStaff.swift; sourceTree = "<group>"; };
 		2297E9F61B224AE7002CC72B /* OpusNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusNote.swift; sourceTree = "<group>"; };
-		2297E9F91B224B55002CC72B /* opus-interface-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "opus-interface-Bridging-Header.h"; sourceTree = "<group>"; };
-		2297E9FA1B224B55002CC72B /* opus-interfaceTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "opus-interfaceTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		2297E9FB1B224B56002CC72B /* OpusMIDISequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpusMIDISequencer.h; sourceTree = "<group>"; };
-		2297E9FC1B224B56002CC72B /* OpusMIDISequencer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpusMIDISequencer.m; sourceTree = "<group>"; };
 		2297E9FF1B224F4F002CC72B /* StaffViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +147,7 @@
 		225D21491B1F8AB0007DD37B = {
 			isa = PBXGroup;
 			children = (
+				226C4DE71B238583005DD6A3 /* resources */,
 				225D21541B1F8AB0007DD37B /* opus-interface */,
 				225D216D1B1F8AB0007DD37B /* opus-interfaceTests */,
 				225D21531B1F8AB0007DD37B /* Products */,
@@ -220,13 +217,25 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		226C4DE71B238583005DD6A3 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				226C4DE81B238583005DD6A3 /* instruments */,
+			);
+			path = resources;
+			sourceTree = SOURCE_ROOT;
+		};
+		226C4DE81B238583005DD6A3 /* instruments */ = {
+			isa = PBXGroup;
+			children = (
+				226C4DE91B238583005DD6A3 /* grand_piano.sf2 */,
+			);
+			path = instruments;
+			sourceTree = "<group>";
+		};
 		2297E9BE1B22336B002CC72B /* audio */ = {
 			isa = PBXGroup;
 			children = (
-				2297E9FB1B224B56002CC72B /* OpusMIDISequencer.h */,
-				2297E9FC1B224B56002CC72B /* OpusMIDISequencer.m */,
-				2297E9F91B224B55002CC72B /* opus-interface-Bridging-Header.h */,
-				2297E9FA1B224B55002CC72B /* opus-interfaceTests-Bridging-Header.h */,
 			);
 			name = audio;
 			sourceTree = "<group>";
@@ -406,6 +415,7 @@
 			files = (
 				225D21601B1F8AB0007DD37B /* Main.storyboard in Resources */,
 				225D21651B1F8AB0007DD37B /* LaunchScreen.xib in Resources */,
+				226C4DEA1B238583005DD6A3 /* grand_piano.sf2 in Resources */,
 				225D21621B1F8AB0007DD37B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,7 +437,6 @@
 				225D215D1B1F8AB0007DD37B /* ViewController.swift in Sources */,
 				2297E9F41B224ACD002CC72B /* OpusStaff.swift in Sources */,
 				225D215B1B1F8AB0007DD37B /* opus_interface.xcdatamodeld in Sources */,
-				2297E9FD1B224B56002CC72B /* OpusMIDISequencer.m in Sources */,
 				2297E9F71B224AE7002CC72B /* OpusNote.swift in Sources */,
 				225D21581B1F8AB0007DD37B /* AppDelegate.swift in Sources */,
 				2297EA001B224F4F002CC72B /* StaffViewModel.swift in Sources */,
@@ -442,7 +451,6 @@
 				225D21711B1F8AB0007DD37B /* opus_interfaceTests.swift in Sources */,
 				2297EA011B224F4F002CC72B /* StaffViewModel.swift in Sources */,
 				2297E9F51B224ACD002CC72B /* OpusStaff.swift in Sources */,
-				2297E9FE1B224B56002CC72B /* OpusMIDISequencer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

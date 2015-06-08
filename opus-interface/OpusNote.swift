@@ -7,7 +7,15 @@
 //
 
 import UIKit
+import MusicKit
 
 class OpusNote: NSObject {
-   
+  
+  let pitch : Pitch
+  let duration : Float32
+  
+  init() {
+    
+  }
+  
 }

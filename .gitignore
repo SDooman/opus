@@ -24,6 +24,7 @@ xcuserdata
 *.hmap
 *.ipa
 
-## Sound font files
+## Sound font and MIDI files
 *.sf2
-
+*.mid
+*.midi
