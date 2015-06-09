@@ -6,55 +6,60 @@
 //  Copyright (c) 2015 Sam Dooman. All rights reserved.
 //
 
-import UIKit
+import AudioToolbox
+
+//TODO: Make sure to replace all Audio playback with
+//      Error throwing methods
 
 class StaffViewModel: NSObject {
   
   
   //MARK: Staff Modification
-  func insertNote(noteToInsert : OpusNote) -> Bool {
+  func insertNote(noteToInsert: OpusNote) -> Bool {
     
   }
   
-  func editNote(previousNote : OpusNote, newNote : OpusNote) -> Bool {
+  func editNote(noteToEdit: OpusNote, newPitch: Pitch,
+    newBeat: MusicTimeStamp) -> Bool {
+    
     
   }
   
-  func removeNote(noteToRemove : OpusNote) -> Bool {
+  func removeNote(noteToRemove: OpusNote) -> Bool {
     
   }
   
   //MARK: Audio Playback
   
-  func preparePlayback() throws {
+  func preparePlayback() -> Bool {
   
   }
   
-  func startPlayback() throws {
+  func startPlayback() -> Bool {
     
   }
   
-  func stopPlayback() throws {
+  func stopPlayback() -> Bool {
     
   }
   
-  func resumePlayback() throws {
+  func resumePlayback() -> Bool {
     
   }
   
-  func getPlaybackTime() throws {
+  func getPlaybackTime() -> Bool {
     
   }
   
-  func setPlaybackTime() throws {
+  func setPlaybackTime() -> Bool {
     
   }
   
-  func resetPlayback() throws {
+  func resetPlayback() -> Bool {
     
   }
   
-  func isPlaying() throws -> Bool {
+  func isPlaying() -> Bool {
     
   }
   
