@@ -12,45 +12,49 @@ class StaffViewModel: NSObject {
   
   
   //MARK: Staff Modification
-  func insertNote(noteToInsert : OpusNote) {
+  func insertNote(noteToInsert : OpusNote) -> Bool {
     
   }
   
-  func editNote(noteToEdit : OpusNote) {
+  func editNote(previousNote : OpusNote, newNote : OpusNote) -> Bool {
     
   }
   
-  func removeNote(noteToRemove : OpusNote) {
+  func removeNote(noteToRemove : OpusNote) -> Bool {
     
   }
   
   //MARK: Audio Playback
   
-  func startPlayback() {
+  func preparePlayback() throws {
+  
+  }
+  
+  func startPlayback() throws {
     
   }
   
-  func stopPlayback() {
+  func stopPlayback() throws {
     
   }
   
-  func resumePlayback() {
+  func resumePlayback() throws {
     
   }
   
-  func getPlaybackTime() {
+  func getPlaybackTime() throws {
     
   }
   
-  func setPlaybackTime() {
+  func setPlaybackTime() throws {
     
   }
   
-  func resetPlayback() {
+  func resetPlayback() throws {
     
   }
   
-  func isPlaying() {
+  func isPlaying() throws -> Bool {
     
   }
   

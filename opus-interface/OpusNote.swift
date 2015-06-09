@@ -6,11 +6,10 @@
 //  Copyright (c) 2015 Sam Dooman. All rights reserved.
 //
 
-import UIKit
 import MusicKit
 import AudioToolbox
 
-class OpusNote: NSObject {
+class OpusNote {
   
   let pitch : Pitch
   
