@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2257DA691B27396700466F2A /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA681B27396700466F2A /* AudioManager.swift */; };
+		2257DA6B1B2739CD00466F2A /* MIDIPlaybackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA6A1B2739CD00466F2A /* MIDIPlaybackManager.swift */; };
 		225D21581B1F8AB0007DD37B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D21571B1F8AB0007DD37B /* AppDelegate.swift */; };
 		225D215B1B1F8AB0007DD37B /* opus_interface.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 225D21591B1F8AB0007DD37B /* opus_interface.xcdatamodeld */; };
 		225D215D1B1F8AB0007DD37B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D215C1B1F8AB0007DD37B /* ViewController.swift */; };
@@ -107,6 +109,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2257DA681B27396700466F2A /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		2257DA6A1B2739CD00466F2A /* MIDIPlaybackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDIPlaybackManager.swift; sourceTree = "<group>"; };
 		225D21521B1F8AB0007DD37B /* opus-interface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "opus-interface.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		225D21561B1F8AB0007DD37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		225D21571B1F8AB0007DD37B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 		2297E9BE1B22336B002CC72B /* audio */ = {
 			isa = PBXGroup;
 			children = (
+				2257DA681B27396700466F2A /* AudioManager.swift */,
+				2257DA6A1B2739CD00466F2A /* MIDIPlaybackManager.swift */,
 			);
 			name = audio;
 			sourceTree = "<group>";
@@ -435,6 +441,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				225D215D1B1F8AB0007DD37B /* ViewController.swift in Sources */,
+				2257DA6B1B2739CD00466F2A /* MIDIPlaybackManager.swift in Sources */,
+				2257DA691B27396700466F2A /* AudioManager.swift in Sources */,
 				2297E9F41B224ACD002CC72B /* OpusStaff.swift in Sources */,
 				225D215B1B1F8AB0007DD37B /* opus_interface.xcdatamodeld in Sources */,
 				2297E9F71B224AE7002CC72B /* OpusNote.swift in Sources */,

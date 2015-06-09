@@ -8,10 +8,14 @@
 
 import UIKit
 import MusicKit
+import AudioToolbox
 
 class OpusNote: NSObject {
   
   let pitch : Pitch
+  
+  let beat : MusicTimeStamp
+  
   let duration : Float32
   
   init() {
