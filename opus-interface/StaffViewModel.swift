@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Sam Dooman. All rights reserved.
 //
 
+import MusicKit
 import AudioToolbox
 
 //TODO: Make sure to replace all Audio playback with
@@ -15,52 +16,65 @@ class StaffViewModel: NSObject {
   
   
   //MARK: Staff Modification
-  func insertNote(noteToInsert: OpusNote) -> Bool {
+  func insertNote(pitch: Pitch, beat: MusicTimeStamp,
+    duration: Float32) -> Bool {
     
+      //TODO:(Sam) Fill out method stub
+      return false
   }
   
-  func editNote(noteToEdit: OpusNote, newPitch: Pitch,
-    newBeat: MusicTimeStamp) -> Bool {
-    
-    
+  func insertRest(beat: MusicTimeStamp,
+    duration: Float32) -> Bool {
+      
+      //TODO(Sam) Fill out method stub
+      return false
   }
   
-  func removeNote(noteToRemove: OpusNote) -> Bool {
+  func editNote(oldNote: OpusStaffObject, newNote: OpusStaffObject) -> Bool {
+    return true
+  }
+  
+  func removeNote(noteToRemove: OpusRest) -> Bool {
     
+    return true
   }
   
   //MARK: Audio Playback
   
   func preparePlayback() -> Bool {
-  
+    return true
   }
   
   func startPlayback() -> Bool {
-    
+    return true
   }
   
   func stopPlayback() -> Bool {
-    
+    return true
   }
   
   func resumePlayback() -> Bool {
-    
+    return true
   }
   
   func getPlaybackTime() -> Bool {
     
+    return true
   }
   
   func setPlaybackTime() -> Bool {
     
+    return true
   }
   
   func resetPlayback() -> Bool {
     
+    return true
   }
   
   func isPlaying() -> Bool {
     
+    return true
   }
   
   //MARK: Exercise Management

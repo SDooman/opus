@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Sam Dooman. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class OpusKeySignature: NSObject {
 
