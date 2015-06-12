@@ -9,7 +9,7 @@
 import UIKit
 import AudioToolbox
 
-class AudioToolboxErrorHandler: NSObject {
+class AudioToolboxError: NSObject {
   
   class func handle(error: OSStatus) {
     if error == 0 {return}
