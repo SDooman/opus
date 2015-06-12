@@ -14,21 +14,24 @@ import MusicKit
 
 class StaffViewModel: NSObject {
   
+  override init() {
+    
+  }
   
   //MARK: Staff Modification
-  func insertNote(newObject: OpusStaffObject) -> Bool {
+  func insert(newStaffObject: OpusStaffObject) -> Bool {
       
     //TODO:(Sam) Fill out method stub
     return false
   }
   
-  func editNote(oldNote: OpusStaffObject, newNote: OpusStaffObject) -> Bool {
+  func edit(oldNote: OpusStaffObject, newNote: OpusStaffObject) -> Bool {
     
     //TODO:(Sam) Fill out method stub
     return true
   }
   
-  func removeNote(noteToRemove: OpusStaffObject) -> Bool {
+  func remove(staffObject: OpusStaffObject) -> Bool {
     
     //TODO:(Sam) Fill out method stub
     return true
