@@ -9,7 +9,7 @@
 import UIKit
 import AudioToolbox
 
-class AudioGraphManager: NSObject {
+class OpusAUGraph: NSObject {
   var _processingGraph: AUGraph
   var _samplerUnit: AudioUnit
   
@@ -113,6 +113,9 @@ class AudioGraphManager: NSObject {
         AudioToolboxError.handle(status)
       }
     }
-    
+  }
+  
+  func getAUGraph() -> AUGraph {
+    return _processingGraph
   }
 }

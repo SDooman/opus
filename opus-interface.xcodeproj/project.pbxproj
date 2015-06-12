@@ -10,7 +10,7 @@
 		221997271B2B15EA007BF9E6 /* AudioToolboxError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221997261B2B15EA007BF9E6 /* AudioToolboxError.swift */; };
 		2219972D1B2B1A97007BF9E6 /* OpusStaffObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2219972C1B2B1A97007BF9E6 /* OpusStaffObject.swift */; };
 		2219972F1B2B1C7E007BF9E6 /* OpusRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2219972E1B2B1C7E007BF9E6 /* OpusRest.swift */; };
-		221997341B2B2264007BF9E6 /* AudioGraphManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221997331B2B2264007BF9E6 /* AudioGraphManager.swift */; };
+		221997341B2B2264007BF9E6 /* OpusAUGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221997331B2B2264007BF9E6 /* OpusAUGraph.swift */; };
 		2257DA691B27396700466F2A /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA681B27396700466F2A /* AudioManager.swift */; };
 		2257DA6B1B2739CD00466F2A /* MIDIPlaybackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA6A1B2739CD00466F2A /* MIDIPlaybackManager.swift */; };
 		2257DA771B275DF100466F2A /* OpusKeySignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA761B275DF100466F2A /* OpusKeySignature.swift */; };
@@ -37,7 +37,7 @@
 		22AE6F3F1B2B28A800C47111 /* OpusStaffObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2219972C1B2B1A97007BF9E6 /* OpusStaffObject.swift */; };
 		22AE6F401B2B28AF00C47111 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA681B27396700466F2A /* AudioManager.swift */; };
 		22AE6F411B2B28AF00C47111 /* MIDIPlaybackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA6A1B2739CD00466F2A /* MIDIPlaybackManager.swift */; };
-		22AE6F421B2B28AF00C47111 /* AudioGraphManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221997331B2B2264007BF9E6 /* AudioGraphManager.swift */; };
+		22AE6F421B2B28AF00C47111 /* OpusAUGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221997331B2B2264007BF9E6 /* OpusAUGraph.swift */; };
 		22AE6F431B2B28AF00C47111 /* AudioToolboxError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221997261B2B15EA007BF9E6 /* AudioToolboxError.swift */; };
 /* End PBXBuildFile section */
 
@@ -126,7 +126,7 @@
 		221997261B2B15EA007BF9E6 /* AudioToolboxError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioToolboxError.swift; sourceTree = "<group>"; };
 		2219972C1B2B1A97007BF9E6 /* OpusStaffObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusStaffObject.swift; sourceTree = "<group>"; };
 		2219972E1B2B1C7E007BF9E6 /* OpusRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusRest.swift; sourceTree = "<group>"; };
-		221997331B2B2264007BF9E6 /* AudioGraphManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioGraphManager.swift; sourceTree = "<group>"; };
+		221997331B2B2264007BF9E6 /* OpusAUGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusAUGraph.swift; sourceTree = "<group>"; };
 		2257DA681B27396700466F2A /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		2257DA6A1B2739CD00466F2A /* MIDIPlaybackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDIPlaybackManager.swift; sourceTree = "<group>"; };
 		2257DA761B275DF100466F2A /* OpusKeySignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusKeySignature.swift; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 			children = (
 				2257DA681B27396700466F2A /* AudioManager.swift */,
 				2257DA6A1B2739CD00466F2A /* MIDIPlaybackManager.swift */,
-				221997331B2B2264007BF9E6 /* AudioGraphManager.swift */,
+				221997331B2B2264007BF9E6 /* OpusAUGraph.swift */,
 				221997261B2B15EA007BF9E6 /* AudioToolboxError.swift */,
 			);
 			name = audio;
@@ -503,7 +503,7 @@
 				2297E9F71B224AE7002CC72B /* OpusNote.swift in Sources */,
 				225D21581B1F8AB0007DD37B /* AppDelegate.swift in Sources */,
 				2297EA001B224F4F002CC72B /* StaffViewModel.swift in Sources */,
-				221997341B2B2264007BF9E6 /* AudioGraphManager.swift in Sources */,
+				221997341B2B2264007BF9E6 /* OpusAUGraph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,7 +513,7 @@
 			files = (
 				22AE6F401B2B28AF00C47111 /* AudioManager.swift in Sources */,
 				22AE6F411B2B28AF00C47111 /* MIDIPlaybackManager.swift in Sources */,
-				22AE6F421B2B28AF00C47111 /* AudioGraphManager.swift in Sources */,
+				22AE6F421B2B28AF00C47111 /* OpusAUGraph.swift in Sources */,
 				22AE6F431B2B28AF00C47111 /* AudioToolboxError.swift in Sources */,
 				22AE6F3C1B2B28A800C47111 /* OpusRest.swift in Sources */,
 				22AE6F3D1B2B28A800C47111 /* OpusKeySignature.swift in Sources */,

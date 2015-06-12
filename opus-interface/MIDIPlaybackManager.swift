@@ -9,17 +9,33 @@
 import UIKit
 import AudioToolbox
 
-class MIDIPlaybackManager: NSObject, AudioManager {
+class MIDIPlaybackManager: AudioManager {
   
-  var _audioGraphManager: AudioGraphManager
-  var _musicPlayer: MusicPlayer
-  var _musicSequence: MusicSequence
+  var _audioGraphManager: OpusAUGraph
+  var _musicPlayer: MusicPlayer = nil
+  var _musicSequence: MusicSequence = nil
   
-  override init() {
-    _audioGraphManager = AudioGraphManager()
-    _musicPlayer = nil
-    _musicSequence = nil
+  init() {
+    _audioGraphManager = OpusAUGraph()
+    
+    _musicSequence = createMusicSequence()
   }
   
+  func createMusicSequence() -> MusicSequence {
+    var musicSequence = MusicSequence()
+    var status: OSStatus = NewMusicSequence(&musicSequence)
+    
+    AudioToolboxError.handle(status)
+    
+    var track = MusicTrack()
+    status = MusicSequenceNewTrack(_musicSequence, &track)
+    
+    AudioToolboxError.handle(status)
+    
+    //Associate AUGraph 
+    MusicSequenceSetAUGraph(musicSequence, _audioGraphManager.getAUGraph())
+    
+    return musicSequence
+  }
   
 }
