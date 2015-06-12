@@ -7,6 +7,7 @@
 //
 
 import AudioToolbox
+import MusicKit
 
 //TODO: Make sure to replace all Audio playback with
 //      Error throwing methods
@@ -15,63 +16,63 @@ class StaffViewModel: NSObject {
   
   
   //MARK: Staff Modification
-  func insertNote(OpusNote) -> Bool {
-    
-      //TODO:(Sam) Fill out method stub
-      return false
-  }
-  
-  func insertRest(beat: MusicTimeStamp,
-    duration: Float32) -> Bool {
+  func insertNote(newObject: OpusStaffObject) -> Bool {
       
-      //TODO(Sam) Fill out method stub
-      return false
+    //TODO:(Sam) Fill out method stub
+    return false
   }
   
   func editNote(oldNote: OpusStaffObject, newNote: OpusStaffObject) -> Bool {
+    
+    //TODO:(Sam) Fill out method stub
     return true
   }
   
-  func removeNote(noteToRemove: OpusRest) -> Bool {
+  func removeNote(noteToRemove: OpusStaffObject) -> Bool {
     
+    //TODO:(Sam) Fill out method stub
     return true
   }
   
   //MARK: Audio Playback
   
   func preparePlayback() -> Bool {
+    //TODO:(Sam) Fill out method stub
     return true
   }
   
   func startPlayback() -> Bool {
+    //TODO:(Sam) Fill out method stub
     return true
   }
   
   func stopPlayback() -> Bool {
+    //TODO:(Sam) Fill out method stub
     return true
   }
   
   func resumePlayback() -> Bool {
+    //TODO:(Sam) Fill out method stub
     return true
   }
   
   func getPlaybackTime() -> Bool {
-    
+    //TODO:(Sam) Fill out method stub
     return true
   }
   
   func setPlaybackTime() -> Bool {
-    
+    //TODO:(Sam) Fill out method stub
     return true
   }
   
   func resetPlayback() -> Bool {
-    
+    //TODO:(Sam) Fill out method stub
     return true
   }
   
   func isPlaying() -> Bool {
-    
+    //TODO:(Sam) Fill out method stub
     return true
   }
   

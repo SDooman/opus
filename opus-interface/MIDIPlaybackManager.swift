@@ -19,8 +19,10 @@ class MIDIPlaybackManager: AudioManager {
     _audioGraphManager = OpusAUGraph()
     
     _musicSequence = createMusicSequence()
+    _musicPlayer = createMusicPlayer()
   }
   
+  //MARK: MusicSequence Creation/Editing
   func createMusicSequence() -> MusicSequence {
     var musicSequence = MusicSequence()
     var status: OSStatus = NewMusicSequence(&musicSequence)
@@ -37,5 +39,34 @@ class MIDIPlaybackManager: AudioManager {
     
     return musicSequence
   }
+  
+  //MARK: MusicPlayer Functionality
+  func createMusicPlayer() -> MusicPlayer {
+    var musicPlayer = MusicPlayer()
+    var status = OSStatus(noErr)
+    status = NewMusicPlayer(&musicPlayer)
+    
+    if status != OSStatus(noErr) {
+      println("bad status \(status) creating player")
+      AudioToolboxError.handle(status)
+    }
+    
+    status = MusicPlayerSetSequence(musicPlayer, _musicSequence)
+    
+    if status != OSStatus(noErr) {
+      println("setting sequence \(status)")
+      AudioToolboxError.handle(status)
+    }
+    
+    status = MusicPlayerPreroll(musicPlayer)
+    
+    if status != OSStatus(noErr) {
+      println("prerolling player \(status)")
+      AudioToolboxError.handle(status)
+    }
+
+    return musicPlayer
+  }
+  
   
 }
