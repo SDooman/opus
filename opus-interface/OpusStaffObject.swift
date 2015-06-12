@@ -6,6 +6,12 @@
 //  Copyright (c) 2015 Sam Dooman. All rights reserved.
 //
 
+import AudioToolbox
+
 protocol OpusStaffObject {
+  
+  func getBeat() -> MusicTimeStamp
+  
+  func getDuration() -> Float32
   
 }

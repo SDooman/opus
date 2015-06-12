@@ -10,15 +10,13 @@ import UIKit
 import MusicKit
 import AudioToolbox
 
-class OpusNote: NSObject {
+class OpusNote: NSObject, OpusStaffObject {
   
-  let _pitch : Pitch
+  var _pitch : Pitch
   
-  let _beat : MusicTimeStamp
+  var _beat : MusicTimeStamp
   
-  let _duration : Float32
-  
-  let _isRest : Bool
+  var _duration : Float32
   
   init(pitch: Pitch, beat: MusicTimeStamp,
     duration: Float32, isRest: Bool) {
@@ -26,9 +24,22 @@ class OpusNote: NSObject {
       _pitch = pitch
       _beat = beat
       _duration = duration
-      _isRest = isRest
   }
   
   //TODO: (Sam) Fill out any methods that might be necessary
+  func getPitch() -> Pitch {
+    return _pitch
+  }
   
+  func getMIDINote() -> Float {
+    return _pitch.midi
+  }
+  
+  func getBeat() -> MusicTimeStamp {
+    return _beat
+  }
+  
+  func getDuration() -> Float32 {
+    return _duration
+  }
 }
