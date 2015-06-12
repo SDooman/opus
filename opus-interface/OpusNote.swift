@@ -10,7 +10,7 @@ import UIKit
 import MusicKit
 import AudioToolbox
 
-class OpusNote: NSObject, OpusStaffObject {
+class OpusNote: NSObject {
   
   let _pitch : Pitch
   

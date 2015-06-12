@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Sam Dooman. All rights reserved.
 //
 
-import MusicKit
 import AudioToolbox
 
 //TODO: Make sure to replace all Audio playback with
@@ -16,8 +15,7 @@ class StaffViewModel: NSObject {
   
   
   //MARK: Staff Modification
-  func insertNote(pitch: Pitch, beat: MusicTimeStamp,
-    duration: Float32) -> Bool {
+  func insertNote(OpusNote) -> Bool {
     
       //TODO:(Sam) Fill out method stub
       return false

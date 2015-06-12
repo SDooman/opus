@@ -31,6 +31,14 @@
 		2297E9F81B224AE7002CC72B /* OpusNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9F61B224AE7002CC72B /* OpusNote.swift */; };
 		2297EA001B224F4F002CC72B /* StaffViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9FF1B224F4F002CC72B /* StaffViewModel.swift */; };
 		2297EA011B224F4F002CC72B /* StaffViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9FF1B224F4F002CC72B /* StaffViewModel.swift */; };
+		22AE6F3C1B2B28A800C47111 /* OpusRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2219972E1B2B1C7E007BF9E6 /* OpusRest.swift */; };
+		22AE6F3D1B2B28A800C47111 /* OpusKeySignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA761B275DF100466F2A /* OpusKeySignature.swift */; };
+		22AE6F3E1B2B28A800C47111 /* OpusTimeSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA781B275DFE00466F2A /* OpusTimeSignature.swift */; };
+		22AE6F3F1B2B28A800C47111 /* OpusStaffObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2219972C1B2B1A97007BF9E6 /* OpusStaffObject.swift */; };
+		22AE6F401B2B28AF00C47111 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA681B27396700466F2A /* AudioManager.swift */; };
+		22AE6F411B2B28AF00C47111 /* MIDIPlaybackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA6A1B2739CD00466F2A /* MIDIPlaybackManager.swift */; };
+		22AE6F421B2B28AF00C47111 /* AudioGraphManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221997331B2B2264007BF9E6 /* AudioGraphManager.swift */; };
+		22AE6F431B2B28AF00C47111 /* AudioToolboxError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221997261B2B15EA007BF9E6 /* AudioToolboxError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -503,6 +511,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22AE6F401B2B28AF00C47111 /* AudioManager.swift in Sources */,
+				22AE6F411B2B28AF00C47111 /* MIDIPlaybackManager.swift in Sources */,
+				22AE6F421B2B28AF00C47111 /* AudioGraphManager.swift in Sources */,
+				22AE6F431B2B28AF00C47111 /* AudioToolboxError.swift in Sources */,
+				22AE6F3C1B2B28A800C47111 /* OpusRest.swift in Sources */,
+				22AE6F3D1B2B28A800C47111 /* OpusKeySignature.swift in Sources */,
+				22AE6F3E1B2B28A800C47111 /* OpusTimeSignature.swift in Sources */,
+				22AE6F3F1B2B28A800C47111 /* OpusStaffObject.swift in Sources */,
 				2297E9F81B224AE7002CC72B /* OpusNote.swift in Sources */,
 				225D21711B1F8AB0007DD37B /* opus_interfaceTests.swift in Sources */,
 				2297EA011B224F4F002CC72B /* StaffViewModel.swift in Sources */,
@@ -670,7 +686,6 @@
 				INFOPLIST_FILE = "opus-interfaceTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "opus-interface/opus-interfaceTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/opus-interface.app/opus-interface";
 			};
@@ -688,7 +703,6 @@
 				INFOPLIST_FILE = "opus-interfaceTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "opus-interface/opus-interfaceTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/opus-interface.app/opus-interface";
 			};
 			name = Release;

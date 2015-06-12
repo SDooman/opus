@@ -96,5 +96,23 @@ class AudioGraphManager: NSObject {
       AudioToolboxError.handle(status)
     }
     
+    func loadPresets() {
+      if let bankURL = NSBundle.mainBundle().URLForResource("gs_instruments", withExtension: "dls") {
+        var instdata = AUSamplerInstrumentData(fileURL: Unmanaged.passUnretained(bankURL),
+          instrumentType: UInt8(kInstrumentType_DLSPreset),
+          bankMSB: UInt8(kAUSampler_DefaultMelodicBankMSB),
+          bankLSB: UInt8(kAUSampler_DefaultBankLSB),
+          presetID: 0)
+        var status = AudioUnitSetProperty(
+          _samplerUnit,
+          UInt32(kAUSamplerProperty_LoadInstrument),
+          UInt32(kAudioUnitScope_Global),
+          0,
+          &instdata,
+          UInt32(sizeof(AUSamplerInstrumentData)))
+        AudioToolboxError.handle(status)
+      }
+    }
+    
   }
 }
