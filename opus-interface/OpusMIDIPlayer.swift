@@ -32,7 +32,7 @@ class OpusMIDIPlayer {
   }
   
   func editMIDINote(currNote: UInt8, currBeat: MusicTimeStamp,
-    currDuration: Float32, newNote: Uint8,
+    currDuration: Float32, newNote: UInt8,
     newBeat: MusicTimeStamp, newDuration: Float32) {
     
       

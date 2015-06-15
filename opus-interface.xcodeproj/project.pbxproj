@@ -38,6 +38,8 @@
 		22AE6F431B2B28AF00C47111 /* AudioToolboxError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221997261B2B15EA007BF9E6 /* AudioToolboxError.swift */; };
 		22AE6F451B2B68ED00C47111 /* OpusMIDIEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F441B2B68ED00C47111 /* OpusMIDIEditor.swift */; };
 		22AE6F471B2B723700C47111 /* OpusMIDIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */; };
+		22AE6F661B2F405A00C47111 /* OpusMIDIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */; };
+		22AE6F671B2F405A00C47111 /* OpusMIDIEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F441B2B68ED00C47111 /* OpusMIDIEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -461,6 +463,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22AE6F661B2F405A00C47111 /* OpusMIDIPlayer.swift in Sources */,
+				22AE6F671B2F405A00C47111 /* OpusMIDIEditor.swift in Sources */,
 				22AE6F401B2B28AF00C47111 /* AudioManager.swift in Sources */,
 				22AE6F421B2B28AF00C47111 /* OpusAUGraph.swift in Sources */,
 				22AE6F431B2B28AF00C47111 /* AudioToolboxError.swift in Sources */,

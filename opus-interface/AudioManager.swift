@@ -17,7 +17,7 @@ class OpusAudioManager {
   init() {
     _audioGraph = OpusAUGraph()
     _midiSequenceEditor = OpusMIDIEditor(auGraph: _audioGraph.getAUGraph())
-    _midiPlayer = OpusMIDIEditor(_midiSequenceEditor)
+    _midiPlayer = OpusMIDIPlayer(sequence: _midiSequenceEditor.getSequence())
     
   }
   

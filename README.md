@@ -17,8 +17,8 @@ Local Setup
 * Clone the repo
 
 ```
-git clone git@github.com:SDooman/opus.git
-cd ./opus
+git clone --recursive git@github.com:SDooman/opus-interface.git
+cd ./opus-interface
 ```
 
 Git Workflow
