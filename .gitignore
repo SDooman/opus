@@ -28,3 +28,7 @@ xcuserdata
 *.sf2
 *.mid
 *.midi
+
+## Apples DS_Store
+.DS_Store
+
