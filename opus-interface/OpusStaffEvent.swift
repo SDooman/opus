@@ -8,10 +8,8 @@
 
 import AudioToolbox
 
-protocol OpusStaffObject {
+protocol OpusStaffEvent {
   
-  func getBeat() -> MusicTimeStamp
-  
-  func getDuration() -> Float32
+  func beatLocation() -> MusicTimeStamp
   
 }

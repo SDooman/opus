@@ -13,6 +13,7 @@ class OpusAUGraph: NSObject {
   var _processingGraph: AUGraph
   var _samplerUnit: AudioUnit
   
+  //MARK: Lifecycle
   override init() {
 
     _processingGraph = AUGraph()
@@ -113,6 +114,13 @@ class OpusAUGraph: NSObject {
         AudioToolboxError.handle(status)
       }
     }
+  }
+  
+  deinit {
+    var status = OSStatus(noErr)
+    status = DisposeAUGraph(_processingGraph)
+    AudioToolboxError.handle(status)
+    
   }
   
   func getAUGraph() -> AUGraph {

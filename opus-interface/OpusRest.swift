@@ -6,28 +6,44 @@
 //  Copyright (c) 2015 Sam Dooman. All rights reserved.
 //
 
-import UIKit
 import AudioToolbox
+import MusicKit
 
-class OpusRest: NSObject, OpusStaffObject {
+public class OpusRest: NSObject, OpusStaffEvent, Equatable {
   
-  var _beat : MusicTimeStamp
+  var _pitch : Pitch
   
-  var _duration : Float32
+  var _beatLocation : MusicTimeStamp
   
-  init(beat: MusicTimeStamp, duration: Float32,
-    isRest: Bool) {
+  var _noteValue : OpusNoteValue
+  
+  init(pitch: Pitch, beatLocation: MusicTimeStamp,
+    noteValue: OpusNoteValue) {
       
-      _beat = beat
-      _duration = duration
+      _pitch = pitch
+      _beatLocation = beatLocation
+      _noteValue = noteValue
   }
   
-  //TODO:(Sam) Fill in any other method stubs
-  func getBeat() -> MusicTimeStamp {
-    return _beat
+  func pitch() -> Pitch {
+    return _pitch
   }
   
-  func getDuration() -> Float32 {
-    return _duration
+  func midiNote() -> Float {
+    return _pitch.midi
   }
+  
+  func beatLocation() -> MusicTimeStamp {
+    return _beatLocation
+  }
+  
+  func noteValue() -> OpusNoteValue {
+    return _noteValue
+  }
+}
+
+public func ==(lhs: OpusRest, rhs: OpusRest) -> Bool {
+  return lhs.pitch() == rhs.pitch()
+    && lhs.beatLocation() == rhs.beatLocation()
+    && lhs.noteValue() == rhs.noteValue()
 }

@@ -14,69 +14,96 @@ import MusicKit
 
 class StaffViewModel: NSObject {
   
+  var _staff : OpusStaff
+  var _audioAdapter : AudioAdapter
+  
   override init() {
     
-  }
-  
-  //MARK: Staff Modification
-  func insert(newStaffObject: OpusStaffObject) -> Bool {
-      
-    //TODO:(Sam) Fill out method stub
-    return false
-  }
-  
-  func edit(oldNote: OpusStaffObject, newNote: OpusStaffObject) -> Bool {
+    _staff = OpusStaff(timeSignature: OpusTimeSignature.commonTime(),
+      keySignature: OpusKeySignature.noAccidentals())
     
-    //TODO:(Sam) Fill out method stub
+    _audioAdapter = AudioAdapter()
+  }
+  
+  //MARK: Accessing Staff Information
+  
+  
+  //MARK: Modifying Staff Contents
+  //TODO: Refactor for all kinds of Staff Event
+  func insert(newStaffEvent: OpusStaffEvent) -> Bool {
+      
+    let note = newStaffEvent as! OpusNote
+    
+    _staff.insert(note)
+    _audioAdapter.insert(
+      Convert.opusNoteToMIDIInformation(note,
+        timeSignature: _staff.timeSignature()))
+    
     return true
   }
   
-  func remove(staffObject: OpusStaffObject) -> Bool {
+  func edit(oldStaffEvent: OpusStaffEvent,
+    newStaffEvent: OpusStaffEvent) -> Bool {
     
-    //TODO:(Sam) Fill out method stub
+      let oldNote = oldStaffEvent as! OpusNote
+      let newNote = newStaffEvent as! OpusNote
+      
+      _staff.edit(oldNote, newStaffEvent: newNote)
+      
+      _audioAdapter.edit(
+        Convert.opusNoteToMIDIInformation(oldNote,
+          timeSignature: _staff.timeSignature()),
+        newNoteInformation:
+        Convert.opusNoteToMIDIInformation(newNote,
+          timeSignature: _staff.timeSignature()))
+      
+      return true
+  }
+  
+  func remove(staffEvent: OpusStaffEvent) -> Bool {
+    
+    let note = staffEvent as! OpusNote
+    
+    _staff.remove(note)
+    
+    _audioAdapter.remove(Convert.opusNoteToMIDIInformation(note,
+      timeSignature: _staff.timeSignature()))
+    
     return true
   }
   
   //MARK: Audio Playback
   
   func preparePlayback() -> Bool {
-    //TODO:(Sam) Fill out method stub
-    return true
+    return _audioAdapter.preparePlayback()
   }
   
   func startPlayback() -> Bool {
-    //TODO:(Sam) Fill out method stub
-    return true
+    return _audioAdapter.startPlayback()
   }
   
   func stopPlayback() -> Bool {
-    //TODO:(Sam) Fill out method stub
-    return true
+    return _audioAdapter.stopPlayback()
   }
   
   func resumePlayback() -> Bool {
-    //TODO:(Sam) Fill out method stub
-    return true
+    return _audioAdapter.resumePlayback()
   }
   
-  func getPlaybackTime() -> Bool {
-    //TODO:(Sam) Fill out method stub
-    return true
+  func getPlaybackTime() -> MusicTimeStamp {
+    return _audioAdapter.getPlaybackTime()
   }
   
-  func setPlaybackTime() -> Bool {
-    //TODO:(Sam) Fill out method stub
-    return true
+  func setPlaybackTime(time: MusicTimeStamp) -> Bool {
+    return _audioAdapter.setPlaybackTime(time)
   }
   
   func resetPlayback() -> Bool {
-    //TODO:(Sam) Fill out method stub
-    return true
+    return _audioAdapter.resetPlaybackTime()
   }
   
   func isPlaying() -> Bool {
-    //TODO:(Sam) Fill out method stub
-    return true
+    return _audioAdapter.isPlaying()
   }
   
   //MARK: Exercise Management
