@@ -42,6 +42,25 @@ class OpusMIDIEditor {
   
   //MARK: Adding/Editing/Removing events
   
+  func hasMIDINote(note: UInt8, beat: MusicTimeStamp,
+    duration: Float32) -> Bool {
+      
+      
+  }
+  
+  func insertMIDINote(note: UInt8, beat: MusicTimeStamp,
+    duration: Float32) {
+      
+      
+  }
+  
+  func editMIDINote(currNote: UInt8, currBeat: MusicTimeStamp,
+    currDuration: Float32, newNote: UInt8,
+    newBeat: MusicTimeStamp, newDuration: Float32) {
+      
+      
+  }
+  
   //MARK: Accessors
   func getSequence() -> MusicSequence {
     return _musicSequence

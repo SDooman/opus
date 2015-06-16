@@ -11,30 +11,151 @@ import AudioToolbox
 class OpusMIDIPlayer {
   
   var _sequence : MusicSequence
-  
+  var _player : MusicPlayer
   
   //MARK: Lifecycle
   
   init(sequence: MusicSequence) {
     _sequence = sequence
+    
+    _player = createPlayerWithSequence(_sequence)
+  }
+  
+  func createPlayerWithSequence(sequence : MusicSequence) -> MusicSequence {
+    var player = MusicPlayer()
+    
+    var status = OSStatus(noErr)
+    status = NewMusicPlayer(&player)
+    if status != OSStatus(noErr) {
+      println("bad status \(status) creating player")
+      AudioToolboxError.handle(status)
+    }
+    
+    status = MusicPlayerSetSequence(player, sequence)
+    if status != OSStatus(noErr) {
+      println("setting sequence \(status)")
+      AudioToolboxError.handle(status)
+    }
+    
+    status = MusicPlayerPreroll(player)
+    if status != OSStatus(noErr) {
+      println("prerolling player \(status)")
+      AudioToolboxError.handle(status)
+    }
+    
+    return player
   }
   
   deinit {
     
   }
   
-  //MARK: Inserting/Editing/Deleting MIDI events
+  //MARK: Playback functionality
   
-  func insertMIDINote(note: UInt8, beat: MusicTimeStamp,
-    duration: Float32) {
-      
-      
+  func preparePlayback() -> Bool {
+    var status = OSStatus(noErr)
+    status = MusicPlayerPreroll(_player)
+    
+    if status != OSStatus(noErr) {
+      AudioToolboxError.handle(status)
+      return false
+    }
+    
+    return true
   }
   
-  func editMIDINote(currNote: UInt8, currBeat: MusicTimeStamp,
-    currDuration: Float32, newNote: UInt8,
-    newBeat: MusicTimeStamp, newDuration: Float32) {
+  func startPlaybackFromBeginning() -> Bool {
+    var status = OSStatus(noErr)
     
-      
+    status = MusicPlayerSetTime(_player, 0)
+    
+    if status != OSStatus(noErr) {
+      AudioToolboxError.handle(status)
+      return false
+    }
+    
+    status = MusicPlayerStart(_player)
+    
+    if status != OSStatus(noErr) {
+      AudioToolboxError.handle(status)
+      return false
+    }
+    
+    return true
+  }
+  
+  func stopPlayback() -> Bool {
+    var status = OSStatus(noErr)
+    status = MusicPlayerStop(_player)
+    
+    if status != OSStatus(noErr) {
+      AudioToolboxError.handle(status)
+      return false
+    }
+    
+    return true
+  }
+  
+  func resumePlayback() -> Bool {
+    var status = OSStatus(noErr)
+    status = MusicPlayerStart(_player)
+    
+    if status != OSStatus(noErr) {
+      AudioToolboxError.handle(status)
+      return false
+    }
+    
+    return true
+  }
+  
+  func getPlaybackTime() -> MusicTimeStamp {
+    var time = MusicTimeStamp()
+    
+    var status = OSStatus(noErr)
+    status = MusicPlayerGetTime(_player, &time)
+    
+    if status != OSStatus(noErr) {
+      AudioToolboxError.handle(status)
+    }
+    
+    return time
+  }
+  
+  func setPlaybackTime(intime: MusicTimeStamp) -> Bool {
+    var status = OSStatus(noErr)
+    status = MusicPlayerSetTime(_player, intime)
+    
+    if status != OSStatus(noErr) {
+      AudioToolboxError.handle(status)
+      return false
+    }
+    
+    return true
+  }
+  
+  func resetPlayback() -> Bool {
+    var status = OSStatus(noErr)
+    
+    status = MusicPlayerSetTime(_player, 0)
+    
+    if status != OSStatus(noErr) {
+      AudioToolboxError.handle(status)
+      return false
+    }
+    
+    return true
+  }
+  
+  func isPlaying() -> Bool {
+    var isPlaying = Boolean()
+    var status = OSStatus(noErr)
+    
+    status = MusicPlayerIsPlaying(_player, &isPlaying)
+    
+    if status != OSStatus(noErr) {
+      AudioToolboxError.handle(status)
+    }
+    
+    return isPlaying
   }
 }
