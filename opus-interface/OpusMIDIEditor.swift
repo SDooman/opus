@@ -45,7 +45,8 @@ class OpusMIDIEditor {
   func hasMIDINote(note: UInt8, beat: MusicTimeStamp,
     duration: Float32) -> Bool {
       
-      
+      //TODO: (Sam) Fill in method stub
+      return false
   }
   
   func insertMIDINote(note: UInt8, beat: MusicTimeStamp,

@@ -10,8 +10,8 @@ import AudioToolbox
 
 class OpusMIDIPlayer {
   
-  var _sequence : MusicSequence
-  var _player : MusicPlayer
+  var _sequence : MusicSequence = nil
+  var _player : MusicPlayer = nil
   
   //MARK: Lifecycle
   
@@ -156,6 +156,11 @@ class OpusMIDIPlayer {
       AudioToolboxError.handle(status)
     }
     
-    return isPlaying
+    if isPlaying != 0 {
+      return false
+    }
+    else {
+      return true
+    }
   }
 }
