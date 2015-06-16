@@ -11,12 +11,14 @@ import AudioToolbox
 class OpusMIDIEditor {
   
   var _musicSequence: MusicSequence = nil
+  var _track: MusicTrack = nil
   
   //MARK: Lifecycle
   
   init(auGraph: AUGraph) {
     
     _musicSequence = createMusicSequence(auGraph)
+    
   }
 
   func createMusicSequence(auGraph: AUGraph) -> MusicSequence {
@@ -25,8 +27,8 @@ class OpusMIDIEditor {
     
     AudioToolboxError.handle(status)
     
-    var track = MusicTrack()
-    status = MusicSequenceNewTrack(_musicSequence, &track)
+    _track = MusicTrack()
+    status = MusicSequenceNewTrack(_musicSequence, &_track)
     
     AudioToolboxError.handle(status)
     
@@ -40,12 +42,44 @@ class OpusMIDIEditor {
     
   }
   
+  //MARK: Accessors
+  
+  func getSequence() -> MusicSequence {
+    return _musicSequence
+  }
+  
   //MARK: Adding/Editing/Removing events
   
   func hasMIDINote(note: UInt8, beat: MusicTimeStamp,
     duration: Float32) -> Bool {
       
-      //TODO: (Sam) Fill in method stub
+      var iterator = MusicEventIterator()
+      
+      var status = OSStatus(noErr)
+      status = NewMusicEventIterator(_track, &iterator)
+      
+      if status != OSStatus(noErr) {
+        AudioToolboxError.handle(status)
+        return false
+      }
+      
+      var hasCurrentEvent = Boolean()
+      status = MusicEventIteratorHasCurrentEvent(iterator, &hasCurrentEvent)
+      
+      while hasCurrentEvent != 0 {
+        
+        //Do Work here
+        
+        
+        
+        //Go to next event
+        MusicEventIteratorNextEvent(iterator)
+        AudioToolboxError.handle(status)
+        
+        MusicEventIteratorHasCurrentEvent(iterator, &hasCurrentEvent)
+        AudioToolboxError.handle(status)
+      }
+      
       return false
   }
   
@@ -60,10 +94,5 @@ class OpusMIDIEditor {
     newBeat: MusicTimeStamp, newDuration: Float32) {
       
       
-  }
-  
-  //MARK: Accessors
-  func getSequence() -> MusicSequence {
-    return _musicSequence
   }
 }

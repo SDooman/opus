@@ -8,7 +8,7 @@
 
 import AudioToolbox
 
-class OpusAudioManager {
+class AudioManager {
   
   var _audioGraph: OpusAUGraph
   var _midiSequenceEditor: OpusMIDIEditor

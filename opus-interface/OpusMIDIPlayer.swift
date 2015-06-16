@@ -156,7 +156,7 @@ class OpusMIDIPlayer {
       AudioToolboxError.handle(status)
     }
     
-    if isPlaying != 0 {
+    if isPlaying == 0 {
       return false
     }
     else {
