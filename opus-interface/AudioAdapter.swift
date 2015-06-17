@@ -8,15 +8,15 @@
 
 import AudioToolbox
 
-class AudioManager {
+class AudioAdapter {
   
   var _audioGraph: OpusAUGraph
-  var _midiSequenceEditor: OpusMIDIEditor
+  var _midiSequenceEditor: OpusMIDIAdapter
   var _midiPlayer: OpusMIDIPlayer
   
   init() {
     _audioGraph = OpusAUGraph()
-    _midiSequenceEditor = OpusMIDIEditor(auGraph: _audioGraph.getAUGraph())
+    _midiSequenceEditor = OpusMIDIAdapter(auGraph: _audioGraph.getAUGraph())
     _midiPlayer = OpusMIDIPlayer(sequence: _midiSequenceEditor.getSequence())
     
   }
@@ -24,6 +24,7 @@ class AudioManager {
   //MARK: Lifecycle
   
   //MARK: Edit MIDI Sequence
+  
   
   //MARK: Music Playback
   
