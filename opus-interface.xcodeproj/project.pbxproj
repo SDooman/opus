@@ -22,7 +22,6 @@
 		225D21651B1F8AB0007DD37B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225D21631B1F8AB0007DD37B /* LaunchScreen.xib */; };
 		225D21711B1F8AB0007DD37B /* opus_interfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D21701B1F8AB0007DD37B /* opus_interfaceTests.swift */; };
 		226C4DEA1B238583005DD6A3 /* grand_piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 226C4DE91B238583005DD6A3 /* grand_piano.sf2 */; };
-		2297E9E21B22373F002CC72B /* MusicKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2297E9DB1B2236E1002CC72B /* MusicKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2297E9F41B224ACD002CC72B /* OpusStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9F31B224ACD002CC72B /* OpusStaff.swift */; };
 		2297E9F51B224ACD002CC72B /* OpusStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9F31B224ACD002CC72B /* OpusStaff.swift */; };
 		2297E9F71B224AE7002CC72B /* OpusNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2297E9F61B224AE7002CC72B /* OpusNote.swift */; };
@@ -40,6 +39,12 @@
 		22AE6F471B2B723700C47111 /* OpusMIDIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */; };
 		22AE6F661B2F405A00C47111 /* OpusMIDIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */; };
 		22AE6F671B2F405A00C47111 /* OpusMIDIEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F441B2B68ED00C47111 /* OpusMIDIEditor.swift */; };
+		BB94626B1B31D5A600B0B530 /* DMDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB94626A1B31D5A600B0B530 /* DMDynamicViewController.swift */; };
+		BBFCACB11B307471003E0BDD /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFCACB01B307471003E0BDD /* LaunchViewController.swift */; };
+		BBFCACB31B307485003E0BDD /* StaffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFCACB21B307485003E0BDD /* StaffViewController.swift */; };
+		BBFCACB51B30748D003E0BDD /* MeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFCACB41B30748D003E0BDD /* MeasureViewController.swift */; };
+		BBFCACB71B3077F8003E0BDD /* UINote.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFCACB61B3077F8003E0BDD /* UINote.swift */; };
+		BBFCACD61B307CA3003E0BDD /* MusicKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = BBFCACD11B307C8B003E0BDD /* MusicKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,40 +55,33 @@
 			remoteGlobalIDString = 225D21511B1F8AB0007DD37B;
 			remoteInfo = "opus-interface";
 		};
-		2297E9D81B2236E1002CC72B /* PBXContainerItemProxy */ = {
+		BBFCACCE1B307C8B003E0BDD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
+			containerPortal = BBFCACC71B307C8B003E0BDD /* MusicKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 96F299221A5663E500D7B006;
 			remoteInfo = MusicKit_OSX;
 		};
-		2297E9DA1B2236E1002CC72B /* PBXContainerItemProxy */ = {
+		BBFCACD01B307C8B003E0BDD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
+			containerPortal = BBFCACC71B307C8B003E0BDD /* MusicKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 9693F6531A57C403006270F4;
 			remoteInfo = MusicKit_iOS;
 		};
-		2297E9DC1B2236E1002CC72B /* PBXContainerItemProxy */ = {
+		BBFCACD21B307C8B003E0BDD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
+			containerPortal = BBFCACC71B307C8B003E0BDD /* MusicKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 96F2992D1A5663E500D7B006;
 			remoteInfo = MusicKit_OSXTests;
 		};
-		2297E9DE1B2236E1002CC72B /* PBXContainerItemProxy */ = {
+		BBFCACD41B307C8B003E0BDD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
+			containerPortal = BBFCACC71B307C8B003E0BDD /* MusicKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 9691BB241A57C75500421B56;
 			remoteInfo = MusicKit_iOSTests;
-		};
-		2297E9E01B223730002CC72B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9693F6521A57C403006270F4;
-			remoteInfo = MusicKit_iOS;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -94,7 +92,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2297E9E21B22373F002CC72B /* MusicKit.framework in Copy Frameworks */,
+				BBFCACD61B307CA3003E0BDD /* MusicKit.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,12 +119,17 @@
 		225D216F1B1F8AB0007DD37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		225D21701B1F8AB0007DD37B /* opus_interfaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = opus_interfaceTests.swift; sourceTree = "<group>"; };
 		226C4DE91B238583005DD6A3 /* grand_piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = grand_piano.sf2; sourceTree = "<group>"; };
-		2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MusicKit.xcodeproj; path = "../../../Developer/XCode/opus-interface/MusicKit/MusicKit.xcodeproj"; sourceTree = "<group>"; };
 		2297E9F31B224ACD002CC72B /* OpusStaff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusStaff.swift; sourceTree = "<group>"; };
 		2297E9F61B224AE7002CC72B /* OpusNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusNote.swift; sourceTree = "<group>"; };
 		2297E9FF1B224F4F002CC72B /* StaffViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffViewModel.swift; sourceTree = "<group>"; };
 		22AE6F441B2B68ED00C47111 /* OpusMIDIEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusMIDIEditor.swift; sourceTree = "<group>"; };
 		22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusMIDIPlayer.swift; sourceTree = "<group>"; };
+		BB94626A1B31D5A600B0B530 /* DMDynamicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDynamicViewController.swift; sourceTree = "<group>"; };
+		BBFCACB01B307471003E0BDD /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		BBFCACB21B307485003E0BDD /* StaffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffViewController.swift; sourceTree = "<group>"; };
+		BBFCACB41B30748D003E0BDD /* MeasureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureViewController.swift; sourceTree = "<group>"; };
+		BBFCACB61B3077F8003E0BDD /* UINote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINote.swift; sourceTree = "<group>"; };
+		BBFCACC71B307C8B003E0BDD /* MusicKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MusicKit.xcodeproj; path = MusicKit/MusicKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,11 +174,11 @@
 		225D21491B1F8AB0007DD37B = {
 			isa = PBXGroup;
 			children = (
+				BBFCACC71B307C8B003E0BDD /* MusicKit.xcodeproj */,
 				226C4DE71B238583005DD6A3 /* resources */,
 				225D21541B1F8AB0007DD37B /* opus-interface */,
 				225D216D1B1F8AB0007DD37B /* opus-interfaceTests */,
 				225D21531B1F8AB0007DD37B /* Products */,
-				2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -278,6 +281,11 @@
 		2297E9C01B223376002CC72B /* views */ = {
 			isa = PBXGroup;
 			children = (
+				BBFCACB01B307471003E0BDD /* LaunchViewController.swift */,
+				BBFCACB21B307485003E0BDD /* StaffViewController.swift */,
+				BBFCACB41B30748D003E0BDD /* MeasureViewController.swift */,
+				BB94626A1B31D5A600B0B530 /* DMDynamicViewController.swift */,
+				BBFCACB61B3077F8003E0BDD /* UINote.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -290,13 +298,13 @@
 			name = "view-models";
 			sourceTree = "<group>";
 		};
-		2297E9D21B2236E1002CC72B /* Products */ = {
+		BBFCACC81B307C8B003E0BDD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2297E9D91B2236E1002CC72B /* MusicKit.framework */,
-				2297E9DB1B2236E1002CC72B /* MusicKit.framework */,
-				2297E9DD1B2236E1002CC72B /* MusicKit_OSXTests.xctest */,
-				2297E9DF1B2236E1002CC72B /* MusicKit_iOSTests.xctest */,
+				BBFCACCF1B307C8B003E0BDD /* MusicKit.framework */,
+				BBFCACD11B307C8B003E0BDD /* MusicKit.framework */,
+				BBFCACD31B307C8B003E0BDD /* MusicKit_OSXTests.xctest */,
+				BBFCACD51B307C8B003E0BDD /* MusicKit_iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -316,7 +324,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2297E9E11B223730002CC72B /* PBXTargetDependency */,
 			);
 			name = "opus-interface";
 			productName = "opus-interface";
@@ -372,8 +379,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 2297E9D21B2236E1002CC72B /* Products */;
-					ProjectRef = 2297E9D11B2236E1002CC72B /* MusicKit.xcodeproj */;
+					ProductGroup = BBFCACC81B307C8B003E0BDD /* Products */;
+					ProjectRef = BBFCACC71B307C8B003E0BDD /* MusicKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -385,32 +392,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2297E9D91B2236E1002CC72B /* MusicKit.framework */ = {
+		BBFCACCF1B307C8B003E0BDD /* MusicKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = MusicKit.framework;
-			remoteRef = 2297E9D81B2236E1002CC72B /* PBXContainerItemProxy */;
+			remoteRef = BBFCACCE1B307C8B003E0BDD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2297E9DB1B2236E1002CC72B /* MusicKit.framework */ = {
+		BBFCACD11B307C8B003E0BDD /* MusicKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = MusicKit.framework;
-			remoteRef = 2297E9DA1B2236E1002CC72B /* PBXContainerItemProxy */;
+			remoteRef = BBFCACD01B307C8B003E0BDD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2297E9DD1B2236E1002CC72B /* MusicKit_OSXTests.xctest */ = {
+		BBFCACD31B307C8B003E0BDD /* MusicKit_OSXTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = MusicKit_OSXTests.xctest;
-			remoteRef = 2297E9DC1B2236E1002CC72B /* PBXContainerItemProxy */;
+			remoteRef = BBFCACD21B307C8B003E0BDD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2297E9DF1B2236E1002CC72B /* MusicKit_iOSTests.xctest */ = {
+		BBFCACD51B307C8B003E0BDD /* MusicKit_iOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = MusicKit_iOSTests.xctest;
-			remoteRef = 2297E9DE1B2236E1002CC72B /* PBXContainerItemProxy */;
+			remoteRef = BBFCACD41B307C8B003E0BDD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -446,6 +453,7 @@
 				2257DA791B275DFE00466F2A /* OpusTimeSignature.swift in Sources */,
 				2257DA691B27396700466F2A /* AudioManager.swift in Sources */,
 				2257DA771B275DF100466F2A /* OpusKeySignature.swift in Sources */,
+				BB94626B1B31D5A600B0B530 /* DMDynamicViewController.swift in Sources */,
 				2297E9F41B224ACD002CC72B /* OpusStaff.swift in Sources */,
 				2219972D1B2B1A97007BF9E6 /* OpusStaffObject.swift in Sources */,
 				22AE6F471B2B723700C47111 /* OpusMIDIPlayer.swift in Sources */,
@@ -454,8 +462,12 @@
 				225D215B1B1F8AB0007DD37B /* opus_interface.xcdatamodeld in Sources */,
 				2297E9F71B224AE7002CC72B /* OpusNote.swift in Sources */,
 				225D21581B1F8AB0007DD37B /* AppDelegate.swift in Sources */,
+				BBFCACB71B3077F8003E0BDD /* UINote.swift in Sources */,
+				BBFCACB31B307485003E0BDD /* StaffViewController.swift in Sources */,
 				2297EA001B224F4F002CC72B /* StaffViewModel.swift in Sources */,
+				BBFCACB51B30748D003E0BDD /* MeasureViewController.swift in Sources */,
 				221997341B2B2264007BF9E6 /* OpusAUGraph.swift in Sources */,
+				BBFCACB11B307471003E0BDD /* LaunchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,11 +498,6 @@
 			isa = PBXTargetDependency;
 			target = 225D21511B1F8AB0007DD37B /* opus-interface */;
 			targetProxy = 225D216B1B1F8AB0007DD37B /* PBXContainerItemProxy */;
-		};
-		2297E9E11B223730002CC72B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MusicKit_iOS;
-			targetProxy = 2297E9E01B223730002CC72B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
