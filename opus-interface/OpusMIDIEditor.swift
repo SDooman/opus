@@ -50,8 +50,7 @@ class OpusMIDIEditor {
   
   //MARK: Adding/Editing/Removing events
   
-  func hasMIDINote(note: UInt8, beat: MusicTimeStamp,
-    duration: Float32) -> Bool {
+  func hasMIDINote() -> Bool {
       
       var iterator = MusicEventIterator()
       
@@ -69,8 +68,17 @@ class OpusMIDIEditor {
       while hasCurrentEvent != 0 {
         
         //Do Work here
+        var currentTimeStamp : MusicTimeStamp = 0
+        var currentEventType : MusicEventType = 0
+        var currentEventData : UnsafePointer<Void> = nil
+        var currentDataSize : UInt32 = 0
         
+        MusicEventIteratorGetEventInfo(iterator, &currentTimeStamp,
+          &currentEventType, &currentEventData, &currentDataSize)
         
+        if(currentEventType == kMusicEventType_MIDINoteMessage){
+          
+        }
         
         //Go to next event
         MusicEventIteratorNextEvent(iterator)
@@ -83,16 +91,42 @@ class OpusMIDIEditor {
       return false
   }
   
-  func insertMIDINote(note: UInt8, beat: MusicTimeStamp,
-    duration: Float32) {
+  func insertMIDINote(note: MIDINoteMessage, beat: MusicTimeStamp) -> Bool {
+    var iterator = MusicEventIterator()
+    
+    var status = OSStatus(noErr)
+    status = NewMusicEventIterator(_track, &iterator)
+    
+    if status != OSStatus(noErr) {
+      AudioToolboxError.handle(status)
+      return false
+    }
+    
+    var hasCurrentEvent = Boolean()
+    status = MusicEventIteratorHasCurrentEvent(iterator, &hasCurrentEvent)
+    
+    while hasCurrentEvent != 0 {
+      
+      //Do Work here
+      
+      
+      
+      //Go to next event
+      MusicEventIteratorNextEvent(iterator)
+      AudioToolboxError.handle(status)
+      
+      MusicEventIteratorHasCurrentEvent(iterator, &hasCurrentEvent)
+      AudioToolboxError.handle(status)
+    }
+    
+    return false
+    
+  }
+  
+  func editMIDINote() {
       
       
   }
   
-  func editMIDINote(currNote: UInt8, currBeat: MusicTimeStamp,
-    currDuration: Float32, newNote: UInt8,
-    newBeat: MusicTimeStamp, newDuration: Float32) {
-      
-      
-  }
+  
 }
