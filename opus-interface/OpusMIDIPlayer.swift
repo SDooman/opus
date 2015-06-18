@@ -47,7 +47,9 @@ class OpusMIDIPlayer {
   }
   
   deinit {
-    
+    var status = OSStatus(noErr)
+    status = DisposeMusicPlayer(_player)
+    AudioToolboxError.handle(status)
   }
   
   //MARK: Playback functionality

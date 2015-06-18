@@ -39,6 +39,12 @@ class OpusMIDIAdapter {
     return musicSequence
   }
   
+  deinit {
+    var status = OSStatus(noErr)
+    DisposeMusicSequence(_musicSequence)
+    AudioToolboxError.handle(status)
+  }
+  
   //MARK: Accessors
   
   func getSequence() -> MusicSequence {
@@ -90,7 +96,6 @@ class OpusMIDIAdapter {
   func insertNote(note: MIDINoteMessage, time: MusicTimeStamp) -> Bool {
     
     if hasNote(note, time: time) {
-      //TODO: (Sam) Clean up with error handling
       println("note already exists")
       return false
       
