@@ -93,6 +93,7 @@ class OpusMIDIAdapter {
       //TODO: (Sam) Clean up with error handling
       println("note already exists")
       return false
+      
     } else {
       
       var status = OSStatus(noErr)
@@ -114,7 +115,33 @@ class OpusMIDIAdapter {
   
   func deleteNote(note: MIDINoteMessage, time: MusicTimeStamp) -> Bool {
     
-    return false
+    func removeTargetNote(
+      currentMIDINoteMessage: UnsafePointer<MIDINoteMessage>,
+      currentTime: MusicTimeStamp,
+      iterator: MusicEventIterator,
+      noteInformation: [(MIDINoteMessage, MusicTimeStamp)]) -> Bool {
+        
+        var currentNote = currentMIDINoteMessage.memory.note
+        var currentDuration = currentMIDINoteMessage.memory.note
+        
+        var targetNote = noteInformation[0].0.note
+        var targetDuration = noteInformation[0].0.note
+        var targetTime = noteInformation[0].1
+        
+        if currentNote == targetNote && currentTime == targetTime
+          && currentDuration == targetDuration {
+            
+            var status = OSStatus(noErr)
+            status = MusicEventIteratorDeleteEvent(iterator)
+            AudioToolboxError.handle(status)
+            
+            return true
+        }
+        
+        return false
+    }
+    
+    return forEachMIDIEvent(removeTargetNote, midiEventData: (note, time))
   }
   
   func forEachMIDIEvent(
