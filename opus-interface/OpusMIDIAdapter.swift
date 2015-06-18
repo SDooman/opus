@@ -110,7 +110,48 @@ class OpusMIDIAdapter {
   func editNote(note: MIDINoteMessage, time: MusicTimeStamp,
     newNote: MIDINoteMessage, newTime: MusicTimeStamp) -> Bool {
       
-      return false
+      func editTargetNode(
+        currentMIDINoteMessage: UnsafePointer<MIDINoteMessage>,
+        currentTime: MusicTimeStamp,
+        iterator: MusicEventIterator,
+        noteInformation: [(MIDINoteMessage, MusicTimeStamp)]) -> Bool {
+          
+          var currentNote = currentMIDINoteMessage.memory.note
+          var currentDuration = currentMIDINoteMessage.memory.note
+          
+          var targetNote = noteInformation[0].0.note
+          var targetDuration = noteInformation[0].0.note
+          var targetTime = noteInformation[0].1
+          
+          var updatedNote = noteInformation[1].0.note
+          var updatedDuration = noteInformation[1].0.duration
+          var updatedTime = noteInformation[1].1
+          
+          var musicEventType = MusicEventType(kMusicEventType_MIDINoteMessage)
+          
+          if currentNote == targetNote && currentTime == targetTime
+            && currentDuration == targetDuration {
+              
+              var status = OSStatus(noErr)
+              status = MusicEventIteratorSetEventTime(iterator, updatedTime)
+              AudioToolboxError.handle(status)
+              
+              var updatedMIDINote = MIDINoteMessage(channel: 0,
+                note: updatedNote, velocity: 64,
+                releaseVelocity: 0, duration: updatedDuration)
+              
+              status = MusicEventIteratorSetEventInfo(iterator,
+                musicEventType, &updatedMIDINote)
+              AudioToolboxError.handle(status)
+              
+              return true
+          }
+          
+          return false
+      }
+      
+      return forEachMIDIEvent(editTargetNode,
+        midiEventData: (note, time), (newNote, newTime))
   }
   
   func deleteNote(note: MIDINoteMessage, time: MusicTimeStamp) -> Bool {
