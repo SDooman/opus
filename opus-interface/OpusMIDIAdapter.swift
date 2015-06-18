@@ -22,6 +22,7 @@ class OpusMIDIAdapter {
   }
 
   func createMusicSequence(auGraph: AUGraph) -> MusicSequence {
+    
     var musicSequence = MusicSequence()
     var status: OSStatus = NewMusicSequence(&musicSequence)
     
@@ -49,24 +50,60 @@ class OpusMIDIAdapter {
   //
   func hasNote(note: MIDINoteMessage, time: MusicTimeStamp) -> Bool {
     
-    func ifNoteExists(currentNote: MIDINoteMessage,
+    func doesNoteExist(currentMIDINoteMessage: UnsafePointer<MIDINoteMessage>,
       currentTime: MusicTimeStamp,
       iterator: MusicEventIterator,
       noteInformation: [(MIDINoteMessage, MusicTimeStamp)]) -> Bool {
         
+        var currentNote = currentMIDINoteMessage.memory.note
         
-        return false
+        var targetNote = noteInformation[0].0.note
+        var targetTime = noteInformation[0].1
+        
+        return currentNote == targetNote && currentTime == targetTime
     }
     
-    return false
+    return forEachMIDIEvent(doesNoteExist, midiEventData: (note, time))
   }
   
   func hasExactNote(note: MIDINoteMessage, time: MusicTimeStamp) -> Bool {
-    return false
+    
+    func doesExactNoteExist(currentMIDINoteMessage: UnsafePointer<MIDINoteMessage>,
+      currentTime: MusicTimeStamp,
+      iterator: MusicEventIterator,
+      noteInformation: [(MIDINoteMessage, MusicTimeStamp)]) -> Bool {
+        
+        var currentNote = currentMIDINoteMessage.memory.note
+        var currentDuration = currentMIDINoteMessage.memory.note
+        
+        var targetNote = noteInformation[0].0.note
+        var targetDuration = noteInformation[0].0.note
+        var targetTime = noteInformation[0].1
+        
+        return currentNote == targetNote && currentTime == targetTime
+          && currentDuration == targetDuration
+    }
+    
+    return forEachMIDIEvent(doesExactNoteExist, midiEventData: (note, time))
   }
   
   func insertNote(note: MIDINoteMessage, time: MusicTimeStamp) -> Bool {
-    return false
+    
+    if hasNote(note, time: time) {
+      //TODO: (Sam) Clean up with error handling
+      println("note already exists")
+      return false
+    } else {
+      
+      var status = OSStatus(noErr)
+      var noteToInsert = MIDINoteMessage(channel: 0, note: note.note,
+        velocity: 64, releaseVelocity: 0, duration: note.duration)
+      
+      status = MusicTrackNewMIDINoteEvent(_track, time, &noteToInsert)
+      AudioToolboxError.handle(status)
+      
+      return true
+    }
   }
   
   func editNote(note: MIDINoteMessage, time: MusicTimeStamp,
@@ -114,7 +151,6 @@ class OpusMIDIAdapter {
           var currentMIDINoteMessage =
             UnsafePointer<MIDINoteMessage>(eventData)
           
-          //TODO: (Sam) Finish this later
           
           hasPerformedTargetAction = modifier(currentMIDINoteMessage,
             currentTimeStamp, iterator, midiEventData)
