@@ -7,8 +7,11 @@
 //
 
 import AudioToolbox
+import MusicKit
 
 protocol OpusStaffObject {
+  
+  func getPitch() -> Pitch
   
   func getBeat() -> MusicTimeStamp
   

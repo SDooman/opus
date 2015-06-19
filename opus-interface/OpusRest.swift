@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Sam Dooman. All rights reserved.
 //
 
-import UIKit
 import AudioToolbox
+import MusicKit
 
 class OpusRest: NSObject, OpusStaffObject {
   
@@ -15,9 +15,12 @@ class OpusRest: NSObject, OpusStaffObject {
   
   var _duration : Float32
   
-  init(beat: MusicTimeStamp, duration: Float32,
-    isRest: Bool) {
+  var _pitch : Pitch
+  
+  init(beat: MusicTimeStamp,
+    duration: Float32, pitch: Pitch) {
       
+      _pitch = pitch
       _beat = beat
       _duration = duration
   }
@@ -29,5 +32,9 @@ class OpusRest: NSObject, OpusStaffObject {
   
   func getDuration() -> Float32 {
     return _duration
+  }
+  
+  func getPitch() -> Pitch {
+    return _pitch
   }
 }
