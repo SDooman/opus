@@ -49,12 +49,23 @@ class MeasureViewController: UIViewController, Printable {
         if (event.allTouches()!.count != 1){
             return
         }
+        
         var touch: UITouch = touches.first as! UITouch
         var location = touch.locationInView(self.view)
+        println(location)
     
-        if location.y < 300 && location.y > 50{
+        if location.y < 30000 && location.y > 0{ // formerly 300 and 50
             for note in noteArray {
                 if isTouchingNote(note, location: location) && locationIsOnStaff(location){
+                    
+                    /*
+                    Used for menu popup that is now on hold while I fix the UI
+                    if touch.tapCount == 2{
+                        self.showMenuOnNote(note)
+                        return
+                    }
+                    */
+                    
                     currentNote = note
                     touchingNow = true
                     currentNote?.setLocation(location)
@@ -67,6 +78,21 @@ class MeasureViewController: UIViewController, Printable {
             }
         }
     }
+    
+    func showMenuOnNote(uiNote: UINote) {
+        /*
+        var popView = NoteSelectedPopViewController(nibName: "NoteSelectedPopView", bundle: nil)
+        var popController = UIPopoverController(contentViewController: popView)
+        let myWidth = uiNote.imageView?.frame.width
+        let myHeight = uiNote.imageView?.frame.height
+        let myFrame = uiNote.imageView?.frame
+        
+
+        
+        popController.popoverContentSize = CGSize(width: myWidth!, height: myHeight!)
+        popController.presentPopoverFromRect((uiNote.imageView?.frame)!, inView: self.view, permittedArrowDirections: UIPopoverArrowDirection.Right, animated: true) */
+        
+    }
  
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
         if (event.allTouches()!.count != 1){
@@ -74,6 +100,7 @@ class MeasureViewController: UIViewController, Printable {
         }
         var touch: UITouch = touches.first as! UITouch
         var location = touch.locationInView(self.view)
+
         if touchingNow && locationIsOnStaff(location){
             currentNote!.setLocation(location)
         }
@@ -103,7 +130,7 @@ class MeasureViewController: UIViewController, Printable {
  
     func createNote(location: CGPoint) -> UINote{
         let newNote = UINote(value: selectedValue!)
-        newNote.imageView?.frame = CGRect(origin: location, size: newNote.image!.size)
+        newNote.imageView?.frame = CGRect(origin: location, size: newNote.mySize!)
         newNote.setLocation(location) // redundancy here because setLocation adjusts for each note's individual sizes
         view.addSubview(newNote.imageView!)
         noteArray.append(newNote)
@@ -154,7 +181,12 @@ class MeasureViewController: UIViewController, Printable {
         let imageName = _staffImageName
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image)
-        imageView.frame = CGRectMake(0, 200, 600, 200)
+        
+        let screenBounds = UIScreen.mainScreen().bounds
+        imageView.frame = screenBounds
+        
+        
+        //imageView.frame = CGRectMake(0, 200, 600, 200)
         view.addSubview(imageView)
     
         imageView.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -170,6 +202,10 @@ class MeasureViewController: UIViewController, Printable {
     
         var constB = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.TrailingMargin, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview!, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0)
         view.addConstraint(constB)
+
+        var constC = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview!, attribute: NSLayoutAttribute.Height, multiplier: 0.5, constant: 0)
+        view.addConstraint(constC)
+        
     }
     
     func createClearMeasureButton() {

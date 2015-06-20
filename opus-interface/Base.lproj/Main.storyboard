@@ -9,8 +9,8 @@
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="LaunchViewController" customModule="opus_interface" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                        <viewControllerLayoutGuide type="top" id="3Nj-q5-PRZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="guL-RS-rgR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -22,14 +22,14 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vfB-9Q-BVW" kind="show" id="qJa-Kt-uRc"/>
+                                    <segue destination="vfB-9Q-BVW" kind="presentation" id="qJa-Kt-uRc"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="j4u-KK-ijx" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="W8s-k3-y5T"/>
-                            <constraint firstItem="j4u-KK-ijx" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="eaL-yB-I8K"/>
+                            <constraint firstItem="j4u-KK-ijx" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="ekE-Xj-u9a"/>
+                            <constraint firstItem="j4u-KK-ijx" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="rn4-hs-5p7"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -42,8 +42,8 @@
             <objects>
                 <viewController id="vfB-9Q-BVW" customClass="StaffViewController" customModule="opus_interface" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ohu-hX-ZwZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="RCC-DP-viC"/>
+                        <viewControllerLayoutGuide type="top" id="Q1k-ab-n6g"/>
+                        <viewControllerLayoutGuide type="bottom" id="nU9-gB-HYx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="I1J-Fh-5jq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
