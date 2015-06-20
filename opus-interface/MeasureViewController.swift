@@ -52,7 +52,6 @@ class MeasureViewController: UIViewController, Printable {
         
         var touch: UITouch = touches.first as! UITouch
         var location = touch.locationInView(self.view)
-        println(location)
     
         if location.y < 30000 && location.y > 0{ // formerly 300 and 50
             for note in noteArray {
@@ -78,15 +77,40 @@ class MeasureViewController: UIViewController, Printable {
     
     func showMenuOnNote(uiNote: UINote) {
         
-        var popView = NoteSelectedPopViewController(nibName: "NoteSelectedPopView", bundle: nil)
+        var popView = NoteSelectedPopViewController(nibName: "NoteSelectedPopView", bundle: nil, measureView: self)
         var popController = UIPopoverController(contentViewController: popView)
         let myWidth = uiNote.imageView?.frame.width
         let myHeight = uiNote.imageView?.frame.height
         let myFrame = uiNote.imageView?.frame
         
-        popController.popoverContentSize = CGSize(width: myWidth!, height: myHeight!)
-        popController.presentPopoverFromRect((uiNote.imageView?.frame)!, inView: self.view, permittedArrowDirections: UIPopoverArrowDirection.Right, animated: true)
+        // well doesn't this look gross? This is my current solution to a non-fatal error message I got when I started working with the popover view controller. "Presenting view controllers on detached view controllers is discouraged." It has to do with our storyboard - because we're doing most of the views programmatically, the Storyboard actually sees this VC - the measure view controller, as detached from the storyboard. So, the measure view controller is "detached." The following code makes the actual target VC the Staff View Controller.
+        let targetVC = self.view.superview!.superview!.superview!
         
+        popController.popoverContentSize = CGSize(width: myWidth!, height: myHeight!)
+        popController.presentPopoverFromRect((uiNote.imageView?.frame)!, inView: targetVC, permittedArrowDirections: UIPopoverArrowDirection.Right, animated: true)
+        
+        // need to set current note to passed parameter uiNote
+        
+    }
+    
+    
+    // should we be passing strings here, or some sort of enum?
+    func notifyMeasureViewAccidentalSelected(selectedAccidental: String) {
+        switch selectedAccidental {
+        case "sharp":
+            // make current note sharp
+            println("Note Sharped!")
+        case "natural":
+            // make current note natural
+            println("Note Naturaled!")
+        case "flat":
+            // make current note flat
+            println("Note Flatted!")
+        default:
+            return
+        }
+        
+        // need to set current note to nil
     }
  
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
