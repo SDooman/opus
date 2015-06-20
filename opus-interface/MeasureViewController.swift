@@ -58,13 +58,10 @@ class MeasureViewController: UIViewController, Printable {
             for note in noteArray {
                 if isTouchingNote(note, location: location) && locationIsOnStaff(location){
                     
-                    /*
-                    Used for menu popup that is now on hold while I fix the UI
                     if touch.tapCount == 2{
                         self.showMenuOnNote(note)
                         return
                     }
-                    */
                     
                     currentNote = note
                     touchingNow = true
@@ -80,17 +77,15 @@ class MeasureViewController: UIViewController, Printable {
     }
     
     func showMenuOnNote(uiNote: UINote) {
-        /*
+        
         var popView = NoteSelectedPopViewController(nibName: "NoteSelectedPopView", bundle: nil)
         var popController = UIPopoverController(contentViewController: popView)
         let myWidth = uiNote.imageView?.frame.width
         let myHeight = uiNote.imageView?.frame.height
         let myFrame = uiNote.imageView?.frame
         
-
-        
         popController.popoverContentSize = CGSize(width: myWidth!, height: myHeight!)
-        popController.presentPopoverFromRect((uiNote.imageView?.frame)!, inView: self.view, permittedArrowDirections: UIPopoverArrowDirection.Right, animated: true) */
+        popController.presentPopoverFromRect((uiNote.imageView?.frame)!, inView: self.view, permittedArrowDirections: UIPopoverArrowDirection.Right, animated: true)
         
     }
  
