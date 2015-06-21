@@ -12,14 +12,14 @@ class AudioAdapter {
   
   var _audioGraph: OpusAUGraph
   var _midiSequenceEditor: OpusMIDIAdapter
-  var _midiPlayer: OpusMIDIPlayer
+  var _midiPlayer: OpusAudioPlayer
   
   //MARK: Lifecycle
   
   init() {
     _audioGraph = OpusAUGraph()
     _midiSequenceEditor = OpusMIDIAdapter(auGraph: _audioGraph.getAUGraph())
-    _midiPlayer = OpusMIDIPlayer(sequence: _midiSequenceEditor.getSequence())
+    _midiPlayer = OpusAudioPlayer(sequence: _midiSequenceEditor.getSequence())
     
   }
   

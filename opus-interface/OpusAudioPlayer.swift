@@ -8,7 +8,7 @@
 
 import AudioToolbox
 
-class OpusMIDIPlayer {
+class OpusAudioPlayer {
   
   var _sequence : MusicSequence = nil
   var _player : MusicPlayer = nil

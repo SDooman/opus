@@ -37,8 +37,8 @@
 		22AE6F421B2B28AF00C47111 /* OpusAUGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221997331B2B2264007BF9E6 /* OpusAUGraph.swift */; };
 		22AE6F431B2B28AF00C47111 /* AudioToolboxError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221997261B2B15EA007BF9E6 /* AudioToolboxError.swift */; };
 		22AE6F451B2B68ED00C47111 /* OpusMIDIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F441B2B68ED00C47111 /* OpusMIDIAdapter.swift */; };
-		22AE6F471B2B723700C47111 /* OpusMIDIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */; };
-		22AE6F661B2F405A00C47111 /* OpusMIDIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */; };
+		22AE6F471B2B723700C47111 /* OpusAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F461B2B723700C47111 /* OpusAudioPlayer.swift */; };
+		22AE6F661B2F405A00C47111 /* OpusAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F461B2B723700C47111 /* OpusAudioPlayer.swift */; };
 		22AE6F671B2F405A00C47111 /* OpusMIDIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F441B2B68ED00C47111 /* OpusMIDIAdapter.swift */; };
 /* End PBXBuildFile section */
 
@@ -126,7 +126,7 @@
 		2297E9F61B224AE7002CC72B /* OpusNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusNote.swift; sourceTree = "<group>"; };
 		2297E9FF1B224F4F002CC72B /* StaffViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffViewModel.swift; sourceTree = "<group>"; };
 		22AE6F441B2B68ED00C47111 /* OpusMIDIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusMIDIAdapter.swift; sourceTree = "<group>"; };
-		22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusMIDIPlayer.swift; sourceTree = "<group>"; };
+		22AE6F461B2B723700C47111 /* OpusAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusAudioPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,7 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				2257DA681B27396700466F2A /* AudioAdapter.swift */,
-				22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */,
+				22AE6F461B2B723700C47111 /* OpusAudioPlayer.swift */,
 				221997331B2B2264007BF9E6 /* OpusAUGraph.swift */,
 				22AE6F441B2B68ED00C47111 /* OpusMIDIAdapter.swift */,
 				221997261B2B15EA007BF9E6 /* AudioToolboxError.swift */,
@@ -448,7 +448,7 @@
 				2257DA771B275DF100466F2A /* OpusKeySignature.swift in Sources */,
 				2297E9F41B224ACD002CC72B /* OpusStaff.swift in Sources */,
 				2219972D1B2B1A97007BF9E6 /* OpusStaffObject.swift in Sources */,
-				22AE6F471B2B723700C47111 /* OpusMIDIPlayer.swift in Sources */,
+				22AE6F471B2B723700C47111 /* OpusAudioPlayer.swift in Sources */,
 				2219972F1B2B1C7E007BF9E6 /* OpusRest.swift in Sources */,
 				221997271B2B15EA007BF9E6 /* AudioToolboxError.swift in Sources */,
 				225D215B1B1F8AB0007DD37B /* opus_interface.xcdatamodeld in Sources */,
@@ -463,7 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22AE6F661B2F405A00C47111 /* OpusMIDIPlayer.swift in Sources */,
+				22AE6F661B2F405A00C47111 /* OpusAudioPlayer.swift in Sources */,
 				22AE6F671B2F405A00C47111 /* OpusMIDIAdapter.swift in Sources */,
 				22AE6F401B2B28AF00C47111 /* AudioAdapter.swift in Sources */,
 				22AE6F421B2B28AF00C47111 /* OpusAUGraph.swift in Sources */,
