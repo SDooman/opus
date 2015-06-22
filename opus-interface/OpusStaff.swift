@@ -16,6 +16,10 @@ class OpusStaff: NSObject {
   
   let _staffEvents: [OpusStaffEvent]
   
+  init() {
+    
+  }
+  
   init(timeSignature: OpusTimeSignature,
     keySignature: OpusKeySignature) {
     
@@ -25,5 +29,15 @@ class OpusStaff: NSObject {
       _staffEvents = []
   }
   
+  init(timeSignature: OpusTimeSignature,
+    keySignature: OpusKeySignature,
+    staffEvents: [OpusStaffEvent]) {
+    
+      _timeSignature = timeSignature
+      _keySignature = keySignature
+      _staffEvents = staffEvents
+  }
+  
   //MARK: Accessing/Modifying Staff Events
+  
 }

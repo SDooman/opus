@@ -28,4 +28,13 @@ class OpusTimeSignature: NSObject {
   func getNoteValue() -> OpusNoteValue {
     return _noteValue
   }
+  
+  //MARK: Useful Time Signature Defaults
+  class func commonTime() -> OpusTimeSignature {
+    return OpusTimeSignature(beats: 4, noteValue: OpusNoteValue.Quarter)
+  }
+  
+  class func cutTime() -> OpusTimeSignature {
+    return OpusTimeSignature(beats: 2, noteValue: OpusNoteValue.Half)
+  }
 }

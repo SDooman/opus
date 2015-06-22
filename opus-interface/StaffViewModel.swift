@@ -22,19 +22,19 @@ class StaffViewModel: NSObject {
   
   
   //MARK: Modifying Staff Contents
-  func insert(newStaffObject: OpusStaffObject) -> Bool {
+  func insert(newStaffObject: OpusStaffEvent) -> Bool {
       
     //TODO:(Sam) Fill out method stub
     return false
   }
   
-  func edit(oldNote: OpusStaffObject, newNote: OpusStaffObject) -> Bool {
+  func edit(oldNote: OpusStaffEvent, newNote: OpusStaffEvent) -> Bool {
     
     //TODO:(Sam) Fill out method stub
     return true
   }
   
-  func remove(staffObject: OpusStaffObject) -> Bool {
+  func remove(staffObject: OpusStaffEvent) -> Bool {
     
     //TODO:(Sam) Fill out method stub
     return true
