@@ -10,12 +10,14 @@ import Foundation
 import UIKit
 
 let Constants: GraphicConstants = GraphicConstants()
-let spaces: [Float] = Constants.myLineSpaceArray!
+let vertSpaces: [Float] = Constants.myVertLineSpaceArray!
+let horizontalSpaces: [Float] = Constants.myHorizontalGridArray!
 
 // Saving the following as the original non-programmatic calculation of the space array (I just found them manually, some are off slightly, but work fine.)
 //let spaces: [Double] = [207.0, 230.0, 253.0, 276.0, 298.0, 321.0, 344.0, 367.0, 390.0, 413.0, 437.0]
 
 let verticalNoteCushion:Double = 7
+let horizontalNoteCushion:Double = 12
 let screenSizeWidth = UIScreen.mainScreen().bounds.width
 let screenSizeHeight = UIScreen.mainScreen().bounds.height
 
@@ -105,17 +107,45 @@ class UINote {
     }
     
     func getVerticalPosition(clickLocation: CGPoint) -> CGPoint {
+        let clickX: Float = Float(clickLocation.x)
+        let adjX: Float = Float(noteAdjust!.x)
         let clickY:Float = Float(clickLocation.y)
         let adjY:Float = Float(noteAdjust!.y)
         var newY: CGFloat?
         
-        for index in 0...spaces.count - 1 {
-            if (clickY - adjY) < (spaces[index] + Float(verticalNoteCushion)) {
-                self.vertIndex = index // temporary fix, not extensible to key signature situations.
-                return CGPoint(x: clickLocation.x, y: CGFloat(spaces[index]))
+        var returnX: CGFloat? = nil
+        var returnY: CGFloat? = nil
+        
+        for index in 0...vertSpaces.count - 1 {
+            if (clickY - adjY) < (vertSpaces[index] + Float(verticalNoteCushion)) {
+                //self.vertIndex = index // temporary fix, not extensible to key signature situations.
+                //return CGPoint(x: clickLocation.x, y: CGFloat(vertSpaces[index]))
+                returnY = CGFloat(vertSpaces[index])
+                break
             }
         }
-        return CGPoint(x: clickLocation.x, y: CGFloat(spaces[spaces.count-1]))
+    
+        for index in 0...horizontalSpaces.count - 1{
+            if (clickX - adjX) < (horizontalSpaces[index] + Float(horizontalNoteCushion)) {
+                returnX = CGFloat(horizontalSpaces[index])
+                break
+            }
+        }
+        
+        println(returnX)
+        println(returnY)
+        
+        
+        if returnY == nil{
+            returnY = CGFloat(vertSpaces[vertSpaces.count-1])
+            println("max y")
+        }
+        if returnX == nil{
+            returnX = CGFloat(horizontalSpaces[horizontalSpaces.count - 1])
+            println("max X")
+        }
+        
+        return CGPoint(x: returnX!, y: returnY!)
     }
     
 }

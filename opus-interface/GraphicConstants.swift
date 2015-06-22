@@ -19,8 +19,14 @@ struct GraphicConstants {
     let myMidline: Float?
     let myNoteHeight: Float?
     let myNoteWidth: Float?
-    let myLineSpaceArray: [Float]?
-    private var myTempLineSpaceArray: [Float]?
+    let myVertLineSpaceArray: [Float]?
+    private var myTempVertLineSpaceArray: [Float]?
+    
+    let numberOfHorizontalBuckets:Int?
+    let myLeftWallCushion: Float?
+    let myHorizontalGridArray: [Float]?
+    private var myTempHorizontalGridArray:[Float]?
+    
     
     
     init() {
@@ -34,12 +40,31 @@ struct GraphicConstants {
         myNoteHeight = (1 / 4.5) * screenHeight! * myScreenHeightMultiplier!
         myNoteWidth = (1 / 17) * screenWidth!
         
-        myTempLineSpaceArray = [Float]()
+        numberOfHorizontalBuckets = 16
+        myLeftWallCushion = 40.0
+        
+        
+        myTempVertLineSpaceArray = [Float]()
 
         for i in -5...5 {
             var toAdd = Float(i) * myVerticalLineSpacing! + myMidline!
-            myTempLineSpaceArray?.append(toAdd)
+            myTempVertLineSpaceArray?.append(toAdd)
         }
-        myLineSpaceArray = myTempLineSpaceArray
+        myVertLineSpaceArray = myTempVertLineSpaceArray
+        
+        let bucketSize: Float = (screenWidth! - myLeftWallCushion!) / Float(numberOfHorizontalBuckets!)
+        myTempHorizontalGridArray = [Float]()
+        myTempHorizontalGridArray?.append(myLeftWallCushion!)
+        
+        for i in 0...(numberOfHorizontalBuckets! - 1) {
+            let toAdd = (Float(i) * bucketSize) + myLeftWallCushion!
+            myTempHorizontalGridArray?.append(toAdd)
+        }
+        
+        myHorizontalGridArray = myTempHorizontalGridArray
+        println(myTempHorizontalGridArray)
+        
+        
+        
     }
 }

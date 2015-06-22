@@ -188,7 +188,7 @@ class MeasureViewController: UIViewController, Printable {
  
     func locationIsOnStaff(location: CGPoint) -> Bool{
         let clickX = Double(location.x)
-        let lowerLim = Double(staffImage.frame.minX) + 120 // to create space for key/time signature
+        let lowerLim = Double(staffImage.frame.minX) + 20 // to create space for key/time signature
         let upperLim = Double(staffImage.frame.maxX) // -40 at one point - before adding the trailing staff
     
         return clickX >= lowerLim && clickX <= upperLim
