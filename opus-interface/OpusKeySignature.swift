@@ -15,10 +15,8 @@ class OpusKeySignature: NSObject {
   
   let _numberOfAccidentals : UInt16
   
-  //TODO: [SD] Fill out
-  var _pitches : PitchSet {
-    
-  }
+  //TODO: [SD] Create pitches field for
+  //      getting pitches in a scale
   
   init(typeOfAccidental: Accidental, numberOfAccidentals: UInt16) {
     
@@ -33,10 +31,6 @@ class OpusKeySignature: NSObject {
   
   func numberOfAccidentals() -> UInt16 {
     return _numberOfAccidentals
-  }
-  
-  func pitches() -> PitchSet {
-    return _pitches
   }
   
   //MARK: Useful Default
