@@ -9,8 +9,7 @@
 import AudioToolbox
 import MusicKit
 
-protocol OpusStaffObject {
+protocol OpusStaffEvent {
   
-  func getBeat() -> MusicTimeStamp
-  
+  func beatLocation() -> MusicTimeStamp
 }
