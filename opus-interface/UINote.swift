@@ -132,10 +132,6 @@ class UINote {
             }
         }
         
-        println(returnX)
-        println(returnY)
-        
-        
         if returnY == nil{
             returnY = CGFloat(vertSpaces[vertSpaces.count-1])
             println("max y")
