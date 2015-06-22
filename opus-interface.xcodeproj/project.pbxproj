@@ -39,6 +39,8 @@
 		22AE6F471B2B723700C47111 /* OpusMIDIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */; };
 		22AE6F661B2F405A00C47111 /* OpusMIDIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */; };
 		22AE6F671B2F405A00C47111 /* OpusMIDIEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F441B2B68ED00C47111 /* OpusMIDIEditor.swift */; };
+		BB20296B1B38481F0014077F /* FloatingMenuPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB20296A1B38481F0014077F /* FloatingMenuPopView.xib */; };
+		BB2029711B38482F0014077F /* FloatingMenuPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2029701B38482F0014077F /* FloatingMenuPopViewController.swift */; };
 		BB94626B1B31D5A600B0B530 /* DMDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB94626A1B31D5A600B0B530 /* DMDynamicViewController.swift */; };
 		BBC010F01B3478AE00940C8A /* NoteSelectedPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBC010EF1B3478AE00940C8A /* NoteSelectedPopView.xib */; };
 		BBC010F61B3478BF00940C8A /* NoteSelectedPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC010F51B3478BF00940C8A /* NoteSelectedPopViewController.swift */; };
@@ -127,6 +129,8 @@
 		2297E9FF1B224F4F002CC72B /* StaffViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffViewModel.swift; sourceTree = "<group>"; };
 		22AE6F441B2B68ED00C47111 /* OpusMIDIEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusMIDIEditor.swift; sourceTree = "<group>"; };
 		22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusMIDIPlayer.swift; sourceTree = "<group>"; };
+		BB20296A1B38481F0014077F /* FloatingMenuPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatingMenuPopView.xib; sourceTree = "<group>"; };
+		BB2029701B38482F0014077F /* FloatingMenuPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingMenuPopViewController.swift; sourceTree = "<group>"; };
 		BB94626A1B31D5A600B0B530 /* DMDynamicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDynamicViewController.swift; sourceTree = "<group>"; };
 		BBC010EF1B3478AE00940C8A /* NoteSelectedPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteSelectedPopView.xib; sourceTree = "<group>"; };
 		BBC010F51B3478BF00940C8A /* NoteSelectedPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteSelectedPopViewController.swift; sourceTree = "<group>"; };
@@ -293,6 +297,8 @@
 				BBFCACB21B307485003E0BDD /* StaffViewController.swift */,
 				BBC011251B34A56800940C8A /* GraphicConstants.swift */,
 				BBFCACB41B30748D003E0BDD /* MeasureViewController.swift */,
+				BB20296A1B38481F0014077F /* FloatingMenuPopView.xib */,
+				BB2029701B38482F0014077F /* FloatingMenuPopViewController.swift */,
 				BB94626A1B31D5A600B0B530 /* DMDynamicViewController.swift */,
 				BBFCACB61B3077F8003E0BDD /* UINote.swift */,
 			);
@@ -437,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				225D21601B1F8AB0007DD37B /* Main.storyboard in Resources */,
+				BB20296B1B38481F0014077F /* FloatingMenuPopView.xib in Resources */,
 				225D21651B1F8AB0007DD37B /* LaunchScreen.xib in Resources */,
 				BBC010F01B3478AE00940C8A /* NoteSelectedPopView.xib in Resources */,
 				226C4DEA1B238583005DD6A3 /* grand_piano.sf2 in Resources */,
@@ -472,6 +479,7 @@
 				2219972F1B2B1C7E007BF9E6 /* OpusRest.swift in Sources */,
 				221997271B2B15EA007BF9E6 /* AudioToolboxError.swift in Sources */,
 				225D215B1B1F8AB0007DD37B /* opus_interface.xcdatamodeld in Sources */,
+				BB2029711B38482F0014077F /* FloatingMenuPopViewController.swift in Sources */,
 				2297E9F71B224AE7002CC72B /* OpusNote.swift in Sources */,
 				225D21581B1F8AB0007DD37B /* AppDelegate.swift in Sources */,
 				BBFCACB71B3077F8003E0BDD /* UINote.swift in Sources */,

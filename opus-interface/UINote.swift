@@ -41,6 +41,7 @@ class UINote {
     let noteAdjust: CGPoint?
     var vertIndex: Int? = nil
     var mySize: CGSize? = nil
+    var myLocation: CGPoint? = nil
 
     init(value: NoteValue){
         self.value = value
@@ -99,6 +100,8 @@ class UINote {
         let locY = getVerticalPosition(clickAt).y
         let adjX = noteAdjust!.x
         let adjY = noteAdjust!.y
+        
+        myLocation = clickAt
         
         let setTo:CGPoint = CGPoint(x: locX - adjX , y: locY)
         imageView!.center = setTo

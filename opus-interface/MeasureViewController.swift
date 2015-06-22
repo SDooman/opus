@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeasureViewController: UIViewController, Printable {
+class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Printable {
  
     @IBOutlet weak var staffImage: UIImageView!
     let _staffImageName = "Music-staff"
@@ -30,6 +30,29 @@ class MeasureViewController: UIViewController, Printable {
         self.view.backgroundColor = UIColor.whiteColor()
         setupStaff()
         createClearMeasureButton()
+        
+        
+        let singleSelector: Selector = "singleTap:"
+        var singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: singleSelector)
+        singleTap.numberOfTapsRequired = 1
+        singleTap.delegate = self
+        self.view.addGestureRecognizer(singleTap)
+        
+        let doubleSelector: Selector = "doubleTap:"
+        var doubleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: doubleSelector)
+        doubleTap.numberOfTapsRequired = 2
+        doubleTap.delegate = self
+        self.view.addGestureRecognizer(doubleTap)
+        
+        let dragSelector: Selector = "dragGesture:"
+        var dragRecognizer: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: dragSelector)
+        dragRecognizer.delegate = self
+        self.view.addGestureRecognizer(dragRecognizer)
+        
+        
+        singleTap.requireGestureRecognizerToFail(doubleTap)
+        dragRecognizer.requireGestureRecognizerToFail(singleTap)
+        
     
         /*
         // SideBar Code Elided
@@ -39,6 +62,75 @@ class MeasureViewController: UIViewController, Printable {
     
         // Do any additional setup after loading the view.
     }
+    
+    func dragGesture(gestureRecognizer: UIPanGestureRecognizer){
+        if(gestureRecognizer.state == UIGestureRecognizerState.Began){
+            let location = gestureRecognizer.locationInView(self.view)
+            for note in noteArray {
+                if isTouchingNote(note, location: location) && locationIsOnStaff(location){
+                    currentNote = note
+                    touchingNow = true
+                    //currentNote?.setLocation(location)
+                    break // first one found is the note. Good?
+                }
+            }
+            if currentNote == nil && locationIsOnStaff(location){
+                let dummyNote = UINote(value: selectedValue!)
+                currentNote = createNote(location)
+            }
+        }
+        
+        if(gestureRecognizer.state == UIGestureRecognizerState.Ended) {
+            currentNote = nil
+            return
+        }
+        
+        if currentNote != nil{
+            var translation = gestureRecognizer.translationInView(self.view)
+            let currentLocation = currentNote?.myLocation
+            
+            let newX: CGFloat = (translation.x + currentLocation!.x)
+            let newY: CGFloat = (translation.y + currentLocation!.y)
+            
+            let newLocation = CGPoint(x: newX, y: newY)
+            gestureRecognizer.setTranslation(CGPointZero, inView: self.view)
+            currentNote?.setLocation(newLocation)
+        }
+    }
+    
+    func singleTap(gestureRecognizer: UITapGestureRecognizer) {
+        if (gestureRecognizer.state == UIGestureRecognizerState.Ended){
+            currentNote = nil
+        }
+        let location = gestureRecognizer.locationInView(self.view)
+        
+        if location.y < 30000 && location.y > 0{ // formerly 300 and 50
+            for note in noteArray {
+                if isTouchingNote(note, location: location) && locationIsOnStaff(location){
+                    currentNote = note
+                    touchingNow = true
+                    currentNote?.setLocation(location)
+                    break // first one found is the note. Good?
+                }
+            }
+            if currentNote == nil && locationIsOnStaff(location){
+                let dummyNote = UINote(value: selectedValue!)
+                currentNote = createNote(location)
+            }
+        }
+    }
+    
+    func doubleTap(gestureRecognizer: UITapGestureRecognizer) {
+        let location = gestureRecognizer.locationInView(self.view)
+        for note in noteArray {
+            if isTouchingNote(note, location: location) && locationIsOnStaff(location){
+                self.showMenuOnNote(note)
+                break
+            }
+        }
+        
+
+    }
  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,7 +138,7 @@ class MeasureViewController: UIViewController, Printable {
     }
  
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if (event.allTouches()!.count != 1){
+        /*if (event.allTouches()!.count != 1){
             return
         }
         
@@ -68,11 +160,11 @@ class MeasureViewController: UIViewController, Printable {
                     break // first one found is the note. Good?
                 }
             }
-        if currentNote == nil && locationIsOnStaff(location) {
+        if currentNote == nil && locationIsOnStaff(location) && touch.tapCount == 1 {
             let dummyNote = UINote(value: selectedValue!)
             createNote(location)
             }
-        }
+        }*/
     }
     
     func showMenuOnNote(uiNote: UINote) {
@@ -91,6 +183,18 @@ class MeasureViewController: UIViewController, Printable {
         
         // need to set current note to passed parameter uiNote
         
+    }
+    
+    func showFloatingMenuAtPoint(location: CGPoint) {
+        var popView = FloatingMenuPopViewController(nibName: "FloatingMenuPopView", bundle: nil, measureView:self)
+        var popController = UIPopoverController(contentViewController: popView)
+        let myWidth: CGFloat = 100.0
+        let myHeight: CGFloat = 200.0
+        let myFrame = CGRectMake(location.x, location.y, myWidth, myHeight)
+        
+        let targetVC = self.view.superview!.superview!.superview!
+        popController.popoverContentSize = CGSize(width: myWidth, height: myHeight)
+        popController.presentPopoverFromRect(myFrame, inView: targetVC, permittedArrowDirections: UIPopoverArrowDirection.allZeros, animated: true)
     }
     
     
@@ -114,7 +218,7 @@ class MeasureViewController: UIViewController, Printable {
     }
  
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if (event.allTouches()!.count != 1){
+        /*if (event.allTouches()!.count != 1){
             return
         }
         var touch: UITouch = touches.first as! UITouch
@@ -122,12 +226,12 @@ class MeasureViewController: UIViewController, Printable {
 
         if touchingNow && locationIsOnStaff(location){
             currentNote!.setLocation(location)
-        }
+        } */
     }
- 
+    
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        touchingNow = false
-        currentNote = nil
+        /*touchingNow = false
+        currentNote = nil */
     }
  
     func isTouchingNote(note: UINote, location: CGPoint) -> Bool {
