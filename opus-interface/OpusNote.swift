@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Sam Dooman. All rights reserved.
 //
 
-import UIKit
 import MusicKit
 import AudioToolbox
 
@@ -16,17 +15,16 @@ class OpusNote: NSObject, OpusStaffObject {
   
   var _beat : MusicTimeStamp
   
-  var _duration : Float32
+  var _noteValue : OpusNoteValue
   
   init(pitch: Pitch, beat: MusicTimeStamp,
-    duration: Float32, isRest: Bool) {
+    noteValue: OpusNoteValue) {
     
       _pitch = pitch
       _beat = beat
-      _duration = duration
+      _noteValue = noteValue
   }
   
-  //TODO: (Sam) Fill out any methods that might be necessary
   func getPitch() -> Pitch {
     return _pitch
   }
@@ -39,7 +37,7 @@ class OpusNote: NSObject, OpusStaffObject {
     return _beat
   }
   
-  func getDuration() -> Float32 {
-    return _duration
+  func getNoteValue() -> OpusNoteValue {
+    return _noteValue
   }
 }

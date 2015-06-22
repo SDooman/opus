@@ -18,7 +18,10 @@ class StaffViewModel: NSObject {
     
   }
   
-  //MARK: Staff Modification
+  //MARK: Accessing Staff Information
+  
+  
+  //MARK: Modifying Staff Contents
   func insert(newStaffObject: OpusStaffObject) -> Bool {
       
     //TODO:(Sam) Fill out method stub

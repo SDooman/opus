@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MusicKit
 
 class OpusKeySignature: NSObject {
 

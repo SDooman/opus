@@ -10,4 +10,22 @@ import UIKit
 
 class OpusTimeSignature: NSObject {
   
+  let _beats : UInt16
+  
+  let _noteValue : OpusNoteValue
+  
+  init(beats: UInt16, noteValue: OpusNoteValue) {
+    _beats = beats
+    _noteValue = noteValue
+  }
+  
+  //MARK: Accessors
+  
+  func getBeats() -> UInt16 {
+    return _beats
+  }
+  
+  func getNoteValue() -> OpusNoteValue {
+    return _noteValue
+  }
 }

@@ -11,10 +11,6 @@ import MusicKit
 
 protocol OpusStaffObject {
   
-  func getPitch() -> Pitch
-  
   func getBeat() -> MusicTimeStamp
-  
-  func getDuration() -> Float32
   
 }
