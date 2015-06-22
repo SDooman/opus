@@ -16,10 +16,6 @@ class OpusStaff: NSObject {
   
   let _staffEvents: [OpusStaffEvent]
   
-  init() {
-    
-  }
-  
   init(timeSignature: OpusTimeSignature,
     keySignature: OpusKeySignature) {
     
@@ -40,4 +36,26 @@ class OpusStaff: NSObject {
   
   //MARK: Accessing/Modifying Staff Events
   
+  func hasEvent(staffEvent: OpusStaffEvent) -> Bool {
+    for event in _staffEvents {
+      
+    }
+  }
+  
+  func doesNotHaveEvent(staffEvent: OpusStaffEvent) -> Bool {
+    return !hasEvent(staffEvent)
+  }
+  
+  func insert(staffEvent: OpusStaffEvent) -> Bool {
+    
+  }
+  
+  func edit(staffEvent: OpusStaffEvent,
+    newStaffEvent: OpusStaffEvent) -> Bool {
+    
+  }
+  
+  func remove(staffEvent: OpusStaffEvent) {
+    
+  }
 }
