@@ -8,7 +8,8 @@
 
 import AudioToolbox
 
-protocol OpusStaffEvent: Comparable {
+protocol OpusStaffEvent {
   
   func beatLocation() -> MusicTimeStamp
+  
 }

@@ -12,6 +12,7 @@
 		2219972F1B2B1C7E007BF9E6 /* OpusRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2219972E1B2B1C7E007BF9E6 /* OpusRest.swift */; };
 		221997341B2B2264007BF9E6 /* OpusAUGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221997331B2B2264007BF9E6 /* OpusAUGraph.swift */; };
 		22297DB01B378262003AC1FE /* OpusNoteValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297DAF1B378262003AC1FE /* OpusNoteValue.swift */; };
+		22297DBA1B38BA53003AC1FE /* OpusNoteValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22297DAF1B378262003AC1FE /* OpusNoteValue.swift */; };
 		2257DA691B27396700466F2A /* AudioAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA681B27396700466F2A /* AudioAdapter.swift */; };
 		2257DA771B275DF100466F2A /* OpusKeySignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA761B275DF100466F2A /* OpusKeySignature.swift */; };
 		2257DA791B275DFE00466F2A /* OpusTimeSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DA781B275DFE00466F2A /* OpusTimeSignature.swift */; };
@@ -467,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22297DBA1B38BA53003AC1FE /* OpusNoteValue.swift in Sources */,
 				22AE6F661B2F405A00C47111 /* OpusAudioPlayer.swift in Sources */,
 				22AE6F671B2F405A00C47111 /* OpusMIDIAdapter.swift in Sources */,
 				22AE6F401B2B28AF00C47111 /* AudioAdapter.swift in Sources */,

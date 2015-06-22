@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Sam Dooman. All rights reserved.
 //
 
-import UIKit
 import MusicKit
 
 class OpusKeySignature: NSObject {
@@ -34,7 +33,7 @@ class OpusKeySignature: NSObject {
   }
   
   //MARK: Useful Default
-  class func noAccidentals() -> OpusKeySignature {
+  class func simpleKey() -> OpusKeySignature {
     return OpusKeySignature(typeOfAccidental: Accidental.Natural,
       numberOfAccidentals: 0)
   }

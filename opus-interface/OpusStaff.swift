@@ -14,7 +14,10 @@ class OpusStaff: NSObject {
   
   let _keySignature: OpusKeySignature
   
-  let _staffEvents: [OpusStaffEvent]
+  //TODO: Replace with array of OpusStaffEvents if possible
+  var _staffEvents: Set<OpusNote>
+  
+  //let _staffEvents: [OpusStaffEvent]
   
   init(timeSignature: OpusTimeSignature,
     keySignature: OpusKeySignature) {
@@ -22,24 +25,50 @@ class OpusStaff: NSObject {
       
       _timeSignature = timeSignature
       _keySignature = keySignature
-      _staffEvents = []
+      _staffEvents = Set<OpusNote>()
   }
   
-  init(timeSignature: OpusTimeSignature,
-    keySignature: OpusKeySignature,
-    staffEvents: [OpusStaffEvent]) {
-    
-      _timeSignature = timeSignature
-      _keySignature = keySignature
-      _staffEvents = staffEvents
+  //MARK: Dummy Methods
+  //TODO: Replace these
+  private func containsNote(targetNote: OpusNote) -> OpusNote? {
+    for note in _staffEvents {
+      if note == targetNote {
+        return note
+      }
+    }
+    return nil
+  }
+  
+  func hasNote(targetNote: OpusNote) -> Bool {
+    return containsNote(targetNote) != nil
+  }
+  
+  func insert(note: OpusNote) -> Bool {
+    if let target = containsNote(note) {
+      return false
+      
+    } else {
+      
+      _staffEvents.insert(note)
+      return true
+    }
+  }
+  
+  func remove(note: OpusNote) -> Bool {
+    if let target = containsNote(note) {
+      _staffEvents.remove(note)
+      return true
+      
+    } else {
+      return false
+    }
   }
   
   //MARK: Accessing/Modifying Staff Events
   
   func hasEvent(staffEvent: OpusStaffEvent) -> Bool {
-    for event in _staffEvents {
-      
-    }
+    //TODO: (Sam) implement
+    return true
   }
   
   func doesNotHaveEvent(staffEvent: OpusStaffEvent) -> Bool {
@@ -47,15 +76,19 @@ class OpusStaff: NSObject {
   }
   
   func insert(staffEvent: OpusStaffEvent) -> Bool {
-    
+    //TODO: (Sam) implement
+    return true
   }
   
   func edit(staffEvent: OpusStaffEvent,
     newStaffEvent: OpusStaffEvent) -> Bool {
     
+      return insert(newStaffEvent) && remove(staffEvent)
   }
   
-  func remove(staffEvent: OpusStaffEvent) {
+  func remove(staffEvent: OpusStaffEvent) -> Bool {
     
+    //TODO: (Sam) implement
+    return true
   }
 }
