@@ -14,7 +14,7 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
     let _staffImageName = "Music-staff"
     override var description: String {get {return self.updateDescription()}} // Overwriting println return
  
-    let sensitivity = CGFloat(20.0)    // how wide around note's center will a click = note selection
+    let sensitivity = CGFloat(40.0)    // how wide around note's center will a click = note selection
     var touchingNow:Bool = false       // used in touches Moved method
     var noteArray: [UINote] = [UINote]()
     var currentNote: UINote?
@@ -43,6 +43,7 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         doubleTap.numberOfTapsRequired = 2
         doubleTap.delegate = self
         self.view.addGestureRecognizer(doubleTap)
+
         
         let dragSelector: Selector = "dragGesture:"
         var dragRecognizer: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: dragSelector)
@@ -51,7 +52,7 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         
         
         singleTap.requireGestureRecognizerToFail(doubleTap)
-        dragRecognizer.requireGestureRecognizerToFail(singleTap)
+        singleTap.requireGestureRecognizerToFail(dragRecognizer)
         
     
         /*
@@ -65,9 +66,11 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
     
     func dragGesture(gestureRecognizer: UIPanGestureRecognizer){
         if(gestureRecognizer.state == UIGestureRecognizerState.Began){
+            println("began")
             let location = gestureRecognizer.locationInView(self.view)
             for note in noteArray {
                 if isTouchingNote(note, location: location) && locationIsOnStaff(location){
+                    println("touch occured")
                     currentNote = note
                     touchingNow = true
                     //currentNote?.setLocation(location)
@@ -81,6 +84,7 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         }
         
         if(gestureRecognizer.state == UIGestureRecognizerState.Ended) {
+            println("ended")
             currentNote = nil
             return
         }
@@ -115,7 +119,7 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
             }
             if currentNote == nil && locationIsOnStaff(location){
                 let dummyNote = UINote(value: selectedValue!)
-                currentNote = createNote(location)
+                createNote(location)
             }
         }
     }
@@ -291,6 +295,7 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
  
  
     func locationIsOnStaff(location: CGPoint) -> Bool{
+        return true
         let clickX = Double(location.x)
         let lowerLim = Double(staffImage.frame.minX) + 120 // to create space for key/time signature
         let upperLim = Double(staffImage.frame.maxX) // -40 at one point - before adding the trailing staff
