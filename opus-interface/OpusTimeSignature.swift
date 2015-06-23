@@ -26,15 +26,15 @@ class OpusTimeSignature: NSObject {
   
   //MARK: Accessors
   
-  func getBeatsPerMeasure() -> UInt16 {
+  func beatsPerMeasure() -> UInt16 {
     return _beatsPerMeasure
   }
   
-  func getNoteValue() -> OpusNoteValue {
+  func noteValue() -> OpusNoteValue {
     return _noteValue
   }
   
-  func getBeatsPerMinute() -> UInt8 {
+  func beatsPerMinute() -> UInt8 {
     return _beatsPerMinute
   }
   

@@ -28,16 +28,26 @@ class AudioAdapter {
   }
   
   //MARK: Edit MIDI Sequence
-  func insert(note: OpusNote) -> Bool {
-    return false
+  func insert(
+    noteInformation: (UInt8, Float32, MusicTimeStamp)) -> Bool {
+    
+      return _midiSequenceEditor.insertNote(noteInformation.0,
+        duration: noteInformation.1, time: noteInformation.2)
   }
   
-  func edit(note: OpusNote, newNote: OpusNote) -> Bool {
-    return false
+  func edit(noteInformation: (UInt8, Float32, MusicTimeStamp),
+    newNoteInformation: (UInt8, Float32, MusicTimeStamp)) -> Bool {
+      
+      return _midiSequenceEditor.editNote(noteInformation.0,
+        duration: noteInformation.1, time: noteInformation.2,
+        newNote: newNoteInformation.0,
+        newDuration: newNoteInformation.1, newTime: newNoteInformation.2)
   }
   
-  func remove(note: OpusNote) -> Bool {
-    return false
+  func remove(noteInformation: (UInt8, Float32, MusicTimeStamp)) -> Bool {
+    
+    return _midiSequenceEditor.deleteNote(noteInformation.0,
+      duration: noteInformation.1, time: noteInformation.2)
   }
   
   //MARK: Music Playback

@@ -21,11 +21,20 @@ class OpusStaff: NSObject {
   
   init(timeSignature: OpusTimeSignature,
     keySignature: OpusKeySignature) {
-    
       
       _timeSignature = timeSignature
       _keySignature = keySignature
       _staffEvents = Set<OpusNote>()
+  }
+  
+  //MARK: Accessing Meta Information
+  
+  func timeSignature() -> OpusTimeSignature {
+    return _timeSignature
+  }
+  
+  func keySignature() -> OpusKeySignature {
+    return _keySignature
   }
   
   //MARK: Dummy Methods

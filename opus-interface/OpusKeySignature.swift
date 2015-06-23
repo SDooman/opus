@@ -33,7 +33,7 @@ class OpusKeySignature: NSObject {
   }
   
   //MARK: Useful Default
-  class func simpleKey() -> OpusKeySignature {
+  class func noAccidentals() -> OpusKeySignature {
     return OpusKeySignature(typeOfAccidental: Accidental.Natural,
       numberOfAccidentals: 0)
   }
