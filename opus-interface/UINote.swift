@@ -71,23 +71,6 @@ class UINote {
         let myHeight = screenSizeHeight / 4.5
         let myWidth = screenSizeWidth / 17
         mySize = CGSizeMake(myWidth, myHeight)
-        
-        /*
-        println("------BEGIN------")
-        println()
-        
-        println("My height: \(myHeight)")
-        println("My width: \(myWidth)")
-        println("My height / screen height \(myHeight / screenSizeHeight)")
-        println("My width / screen width \(myWidth / screenSizeWidth)")
-        println("Middle line: 321")
-        println("Spaces \(spaces)")
-        println("Screen Height: \(screenSizeHeight)")
-        println("Screen Width: \(screenSizeWidth)")
-        println(Constants.myVerticalLineSpacing!)
-        println()
-        println("------END------")
-        */
     }
     
     func getNoteCenter() -> CGPoint {
@@ -124,14 +107,13 @@ class UINote {
                 break
             }
         }
-    
+        
         for index in 0...horizontalSpaces.count - 1{
             if (clickX - adjX) < (horizontalSpaces[index] + Float(horizontalNoteCushion)) {
                 returnX = CGFloat(horizontalSpaces[index])
                 break
             }
         }
-        
         if returnY == nil{
             returnY = CGFloat(vertSpaces[vertSpaces.count-1])
             println("max y")

@@ -64,7 +64,5 @@ struct GraphicConstants {
         myHorizontalGridArray = myTempHorizontalGridArray
         println(myTempHorizontalGridArray)
         
-        
-        
     }
 }

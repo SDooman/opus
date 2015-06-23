@@ -29,7 +29,7 @@ protocol DMDynamicPageViewControllerDelegate {
 
 class DMDynamicViewController: UIViewController, UIScrollViewDelegate {
     
-    //var containerScrollView: UIScrollView! = nil
+    //var containerScrollView: UIScrollView! = nil // old code before class override - Now OpusMenuUIScrollView
     var containerScrollView: OpusMenuUIScrollView! = nil
     var pageWidth: CGFloat = 1.0
     var viewControllers:Array<UIViewController>? = nil {
@@ -200,18 +200,9 @@ class DMDynamicViewController: UIViewController, UIScrollViewDelegate {
         }
         
         // ADDED BY NDEMARCO BELOW
-        
         var scrollViewWidth = containerScrollView.frame.size.width
         var scrollContentSize = containerScrollView.contentSize.width
         var scrollOffset = containerScrollView.contentOffset.x
-        
-        /*
-        println("-------")
-        println(scrollViewWidth)
-        println(scrollContentSize)
-        println(scrollOffset)
-        println("-------")
-        */
         
         if (scrollOffset + scrollViewWidth >= scrollContentSize - 100){
             // we've hit the far right
@@ -229,8 +220,3 @@ class DMDynamicViewController: UIViewController, UIScrollViewDelegate {
         return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
     }
 }
-
-
-
-
-

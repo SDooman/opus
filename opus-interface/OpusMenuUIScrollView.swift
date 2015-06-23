@@ -44,13 +44,13 @@ class OpusMenuUIScrollView: UIScrollView {
         button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         
         _headerBar.addSubview(button)
-        
+        /*
         var constY = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: _headerBar, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
         _headerBar.addConstraint(constY)
         
         var constX = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: _headerBar, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
         _headerBar.addConstraint(constX)
-        
+        */
         
     }
 
