@@ -22,9 +22,7 @@ class OpusMenuUIScrollView: UIScrollView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        self.setupMenu()
-        
+    
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         _headerBar.frame.size = CGSize(width: screenSize.width, height: screenSize.height/10.0)
         _headerBar.backgroundColor = UIColor(red: 127.0, green: 0.0, blue: 0.0, alpha: 0.5)
@@ -32,6 +30,8 @@ class OpusMenuUIScrollView: UIScrollView {
         let size = _headerBar.frame.size
         _headerBar.frame = CGRect(origin: location, size: size)
         self.superview!.superview!.addSubview(_headerBar) // staff, right?
+        
+        self.setupMenu()
         
     }
     
@@ -44,6 +44,13 @@ class OpusMenuUIScrollView: UIScrollView {
         button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         
         _headerBar.addSubview(button)
+        
+        var constY = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: _headerBar, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+        _headerBar.addConstraint(constY)
+        
+        var constX = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: _headerBar, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
+        _headerBar.addConstraint(constX)
+        
         
     }
 

@@ -205,11 +205,13 @@ class DMDynamicViewController: UIViewController, UIScrollViewDelegate {
         var scrollContentSize = containerScrollView.contentSize.width
         var scrollOffset = containerScrollView.contentOffset.x
         
+        /*
         println("-------")
         println(scrollViewWidth)
         println(scrollContentSize)
         println(scrollOffset)
         println("-------")
+        */
         
         if (scrollOffset + scrollViewWidth >= scrollContentSize - 100){
             // we've hit the far right
