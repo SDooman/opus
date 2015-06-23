@@ -29,7 +29,8 @@ protocol DMDynamicPageViewControllerDelegate {
 
 class DMDynamicViewController: UIViewController, UIScrollViewDelegate {
     
-    var containerScrollView: UIScrollView! = nil
+    //var containerScrollView: UIScrollView! = nil
+    var containerScrollView: OpusMenuUIScrollView! = nil
     var pageWidth: CGFloat = 1.0
     var viewControllers:Array<UIViewController>? = nil {
         didSet {
@@ -147,7 +148,8 @@ class DMDynamicViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        containerScrollView = UIScrollView(frame: self.view.bounds)
+        //containerScrollView = UIScrollView(frame: self.view.bounds)
+        containerScrollView = OpusMenuUIScrollView(frame: self.view.bounds)
         containerScrollView.pagingEnabled = false
         containerScrollView.alwaysBounceVertical = false
         containerScrollView.showsHorizontalScrollIndicator = false

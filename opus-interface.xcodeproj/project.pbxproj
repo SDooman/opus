@@ -40,6 +40,7 @@
 		22AE6F661B2F405A00C47111 /* OpusMIDIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */; };
 		22AE6F671B2F405A00C47111 /* OpusMIDIEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F441B2B68ED00C47111 /* OpusMIDIEditor.swift */; };
 		BB94626B1B31D5A600B0B530 /* DMDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB94626A1B31D5A600B0B530 /* DMDynamicViewController.swift */; };
+		BB96FA291B39D6A400B9766B /* OpusMenuUIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB96FA281B39D6A400B9766B /* OpusMenuUIScrollView.swift */; };
 		BBC010F01B3478AE00940C8A /* NoteSelectedPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBC010EF1B3478AE00940C8A /* NoteSelectedPopView.xib */; };
 		BBC010F61B3478BF00940C8A /* NoteSelectedPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC010F51B3478BF00940C8A /* NoteSelectedPopViewController.swift */; };
 		BBC011261B34A56900940C8A /* GraphicConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC011251B34A56800940C8A /* GraphicConstants.swift */; };
@@ -128,6 +129,7 @@
 		22AE6F441B2B68ED00C47111 /* OpusMIDIEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusMIDIEditor.swift; sourceTree = "<group>"; };
 		22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusMIDIPlayer.swift; sourceTree = "<group>"; };
 		BB94626A1B31D5A600B0B530 /* DMDynamicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDynamicViewController.swift; sourceTree = "<group>"; };
+		BB96FA281B39D6A400B9766B /* OpusMenuUIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusMenuUIScrollView.swift; sourceTree = "<group>"; };
 		BBC010EF1B3478AE00940C8A /* NoteSelectedPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteSelectedPopView.xib; sourceTree = "<group>"; };
 		BBC010F51B3478BF00940C8A /* NoteSelectedPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteSelectedPopViewController.swift; sourceTree = "<group>"; };
 		BBC011251B34A56800940C8A /* GraphicConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicConstants.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				BBC011251B34A56800940C8A /* GraphicConstants.swift */,
 				BBFCACB41B30748D003E0BDD /* MeasureViewController.swift */,
 				BB94626A1B31D5A600B0B530 /* DMDynamicViewController.swift */,
+				BB96FA281B39D6A400B9766B /* OpusMenuUIScrollView.swift */,
 				BBFCACB61B3077F8003E0BDD /* UINote.swift */,
 			);
 			name = views;
@@ -469,6 +472,7 @@
 				BBC010F61B3478BF00940C8A /* NoteSelectedPopViewController.swift in Sources */,
 				2219972D1B2B1A97007BF9E6 /* OpusStaffObject.swift in Sources */,
 				22AE6F471B2B723700C47111 /* OpusMIDIPlayer.swift in Sources */,
+				BB96FA291B39D6A400B9766B /* OpusMenuUIScrollView.swift in Sources */,
 				2219972F1B2B1C7E007BF9E6 /* OpusRest.swift in Sources */,
 				221997271B2B15EA007BF9E6 /* AudioToolboxError.swift in Sources */,
 				225D215B1B1F8AB0007DD37B /* opus_interface.xcdatamodeld in Sources */,
