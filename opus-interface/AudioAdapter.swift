@@ -28,15 +28,15 @@ class AudioAdapter {
   }
   
   //MARK: Edit MIDI Sequence
-  func insert() -> Bool {
+  func insert(note: OpusNote) -> Bool {
     return false
   }
   
-  func edit() -> Bool {
+  func edit(note: OpusNote, newNote: OpusNote) -> Bool {
     return false
   }
   
-  func remove() -> Bool {
+  func remove(note: OpusNote) -> Bool {
     return false
   }
   

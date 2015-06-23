@@ -51,59 +51,61 @@ class OpusMIDIAdapter {
     return _musicSequence
   }
   
-  //MARK: Adding/Editing/Removing events
   
-  //
-  func hasNote(note: MIDINoteMessage, time: MusicTimeStamp) -> Bool {
+  //MARK: Adding/Editing/Removing events
+  func hasNote(note: UInt8, duration: Float32, time: MusicTimeStamp) -> Bool {
     
-    func doesNoteExist(currentMIDINoteMessage: UnsafePointer<MIDINoteMessage>,
-      currentTime: MusicTimeStamp,
+    func doesNoteExist(currentMIDINoteInfo: (UInt8, Float32, MusicTimeStamp),
       iterator: MusicEventIterator,
-      noteInformation: [(MIDINoteMessage, MusicTimeStamp)]) -> Bool {
+      targetNoteInformation: [(UInt8, Float32, MusicTimeStamp)]) -> Bool {
         
-        var currentNote = currentMIDINoteMessage.memory.note
+        var currentNote : UInt8 = currentMIDINoteInfo.0
+        var currentDuration : Float32 = currentMIDINoteInfo.1
+        var currentTime : MusicTimeStamp = currentMIDINoteInfo.2
         
-        var targetNote = noteInformation[0].0.note
-        var targetTime = noteInformation[0].1
+        var targetNote : UInt8 = targetNoteInformation[0].0
+        var targetTime : MusicTimeStamp = targetNoteInformation[0].2
         
         return currentNote == targetNote && currentTime == targetTime
     }
     
-    return forEachMIDIEvent(doesNoteExist, midiEventData: (note, time))
+    return forEachMIDIEvent(doesNoteExist,
+      midiEventData: (note, duration, time))
   }
   
-  func hasExactNote(note: MIDINoteMessage, time: MusicTimeStamp) -> Bool {
+  func hasExactNote(note: UInt8, duration: Float32, time: MusicTimeStamp) -> Bool {
     
-    func doesExactNoteExist(currentMIDINoteMessage: UnsafePointer<MIDINoteMessage>,
-      currentTime: MusicTimeStamp,
+    func doesExactNoteExist(currentMIDINoteInfo: (UInt8, Float32, MusicTimeStamp),
       iterator: MusicEventIterator,
-      noteInformation: [(MIDINoteMessage, MusicTimeStamp)]) -> Bool {
+      targetNoteInformation: [(UInt8, Float32, MusicTimeStamp)]) -> Bool {
         
-        var currentNote = currentMIDINoteMessage.memory.note
-        var currentDuration = currentMIDINoteMessage.memory.note
+        var currentNote : UInt8 = currentMIDINoteInfo.0
+        var currentDuration : Float32 = currentMIDINoteInfo.1
+        var currentTime : MusicTimeStamp = currentMIDINoteInfo.2
         
-        var targetNote = noteInformation[0].0.note
-        var targetDuration = noteInformation[0].0.note
-        var targetTime = noteInformation[0].1
+        var targetNote : UInt8 = targetNoteInformation[0].0
+        var targetDuration : Float32 = targetNoteInformation[0].1
+        var targetTime : MusicTimeStamp = targetNoteInformation[0].2
         
         return currentNote == targetNote && currentTime == targetTime
           && currentDuration == targetDuration
     }
     
-    return forEachMIDIEvent(doesExactNoteExist, midiEventData: (note, time))
+    return forEachMIDIEvent(doesExactNoteExist,
+      midiEventData: (note, duration, time))
   }
   
-  func insertNote(note: MIDINoteMessage, time: MusicTimeStamp) -> Bool {
+  func insertNote(note: UInt8, duration: Float32, time: MusicTimeStamp) -> Bool {
     
-    if hasNote(note, time: time) {
+    if hasNote(note, duration: duration, time: time) {
       println("note already exists")
       return false
       
     } else {
       
       var status = OSStatus(noErr)
-      var noteToInsert = MIDINoteMessage(channel: 0, note: note.note,
-        velocity: 64, releaseVelocity: 0, duration: note.duration)
+      var noteToInsert = MIDINoteMessage(channel: 0, note: note,
+        velocity: 64, releaseVelocity: 0, duration: duration)
       
       status = MusicTrackNewMIDINoteEvent(_track, time, &noteToInsert)
       AudioToolboxError.handle(status)
@@ -112,25 +114,24 @@ class OpusMIDIAdapter {
     }
   }
   
-  func editNote(note: MIDINoteMessage, time: MusicTimeStamp,
-    newNote: MIDINoteMessage, newTime: MusicTimeStamp) -> Bool {
+  func editNote(note: UInt8, duration: Float32, time: MusicTimeStamp,
+    newNote: UInt8, newDuration: Float32, newTime: MusicTimeStamp) -> Bool {
       
-      func editTargetNode(
-        currentMIDINoteMessage: UnsafePointer<MIDINoteMessage>,
-        currentTime: MusicTimeStamp,
+      func editTargetNode(currentMIDINoteInfo: (UInt8, Float32, MusicTimeStamp),
         iterator: MusicEventIterator,
-        noteInformation: [(MIDINoteMessage, MusicTimeStamp)]) -> Bool {
+        targetNoteInformation: [(UInt8, Float32, MusicTimeStamp)]) -> Bool {
           
-          var currentNote = currentMIDINoteMessage.memory.note
-          var currentDuration = currentMIDINoteMessage.memory.note
+          var currentNote : UInt8 = currentMIDINoteInfo.0
+          var currentDuration : Float32 = currentMIDINoteInfo.1
+          var currentTime : MusicTimeStamp = currentMIDINoteInfo.2
           
-          var targetNote = noteInformation[0].0.note
-          var targetDuration = noteInformation[0].0.note
-          var targetTime = noteInformation[0].1
+          var targetNote = targetNoteInformation[0].0
+          var targetDuration = targetNoteInformation[0].1
+          var targetTime = targetNoteInformation[0].2
           
-          var updatedNote = noteInformation[1].0.note
-          var updatedDuration = noteInformation[1].0.duration
-          var updatedTime = noteInformation[1].1
+          var updatedNote = targetNoteInformation[1].0
+          var updatedDuration = targetNoteInformation[1].1
+          var updatedTime = targetNoteInformation[1].2
           
           var musicEventType = MusicEventType(kMusicEventType_MIDINoteMessage)
           
@@ -156,23 +157,22 @@ class OpusMIDIAdapter {
       }
       
       return forEachMIDIEvent(editTargetNode,
-        midiEventData: (note, time), (newNote, newTime))
+        midiEventData: (note, duration, time), (newNote, newDuration, newTime))
   }
   
-  func deleteNote(note: MIDINoteMessage, time: MusicTimeStamp) -> Bool {
+  func deleteNote(note: UInt8, duration: Float32, time: MusicTimeStamp) -> Bool {
     
-    func removeTargetNote(
-      currentMIDINoteMessage: UnsafePointer<MIDINoteMessage>,
-      currentTime: MusicTimeStamp,
+    func removeTargetNote(currentMIDINoteInfo: (UInt8, Float32, MusicTimeStamp),
       iterator: MusicEventIterator,
-      noteInformation: [(MIDINoteMessage, MusicTimeStamp)]) -> Bool {
+      targetNoteInformation: [(UInt8, Float32, MusicTimeStamp)]) -> Bool {
+      
+        var currentNote : UInt8 = currentMIDINoteInfo.0
+        var currentDuration : Float32 = currentMIDINoteInfo.1
+        var currentTime : MusicTimeStamp = currentMIDINoteInfo.2
         
-        var currentNote = currentMIDINoteMessage.memory.note
-        var currentDuration = currentMIDINoteMessage.memory.note
-        
-        var targetNote = noteInformation[0].0.note
-        var targetDuration = noteInformation[0].0.note
-        var targetTime = noteInformation[0].1
+        var targetNote = targetNoteInformation[0].0
+        var targetDuration = targetNoteInformation[0].1
+        var targetTime = targetNoteInformation[0].2
         
         if currentNote == targetNote && currentTime == targetTime
           && currentDuration == targetDuration {
@@ -187,13 +187,14 @@ class OpusMIDIAdapter {
         return false
     }
     
-    return forEachMIDIEvent(removeTargetNote, midiEventData: (note, time))
+    return forEachMIDIEvent(removeTargetNote,
+      midiEventData: (note, duration, time))
   }
   
   func forEachMIDIEvent(
-    modifier: (UnsafePointer<MIDINoteMessage>, MusicTimeStamp,
-    MusicEventIterator, [(MIDINoteMessage, MusicTimeStamp)]) -> Bool,
-    midiEventData: (MIDINoteMessage, MusicTimeStamp)...)
+    modifier: ((UInt8, Float32, MusicTimeStamp),
+    MusicEventIterator, [(UInt8, Float32, MusicTimeStamp)]) -> Bool,
+    midiEventData: (UInt8, Float32, MusicTimeStamp)...)
     -> Bool {
       
       var iterator = MusicEventIterator()
@@ -201,7 +202,7 @@ class OpusMIDIAdapter {
       var status = OSStatus(noErr)
       status = NewMusicEventIterator(_track, &iterator)
       AudioToolboxError.handle(status)
-
+      
       var hasCurrentEvent = Boolean()
       var hasPerformedTargetAction = false
       
@@ -221,12 +222,16 @@ class OpusMIDIAdapter {
         
         if(Int(eventType) == Int(kMusicEventType_MIDINoteMessage)) {
           
-          var currentMIDINoteMessage =
-            UnsafePointer<MIDINoteMessage>(eventData)
+          var midiEvent =
+          UnsafePointer<MIDINoteMessage>(eventData)
           
           
-          hasPerformedTargetAction = modifier(currentMIDINoteMessage,
-            currentTimeStamp, iterator, midiEventData)
+          hasPerformedTargetAction = modifier(
+            (midiEvent.memory.note,
+              midiEvent.memory.duration,
+              currentTimeStamp),
+            iterator,
+            midiEventData)
         }
         
         status = MusicEventIteratorNextEvent(iterator)

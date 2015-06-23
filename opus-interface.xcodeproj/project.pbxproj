@@ -171,6 +171,13 @@
 			name = "audio-tests";
 			sourceTree = "<group>";
 		};
+		22297DBD1B39CEA1003AC1FE /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = helpers;
+			sourceTree = "<group>";
+		};
 		225D21491B1F8AB0007DD37B = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +201,7 @@
 		225D21541B1F8AB0007DD37B /* opus-interface */ = {
 			isa = PBXGroup;
 			children = (
+				22297DBD1B39CEA1003AC1FE /* helpers */,
 				2297E9C11B223381002CC72B /* view-models */,
 				2297E9C01B223376002CC72B /* views */,
 				2297E9BF1B223372002CC72B /* models */,
