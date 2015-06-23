@@ -10,31 +10,42 @@ import UIKit
 
 class OpusTimeSignature: NSObject {
   
-  let _beats : UInt16
+  var _beatsPerMeasure : UInt16
   
-  let _noteValue : OpusNoteValue
+  var _beatsPerMinute : UInt8
   
-  init(beats: UInt16, noteValue: OpusNoteValue) {
-    _beats = beats
-    _noteValue = noteValue
+  var _noteValue : OpusNoteValue
+  
+  init(beatsPerMeasure: UInt16, beatsPerMinute: UInt8,
+    noteValue: OpusNoteValue) {
+      
+      _beatsPerMeasure = beatsPerMeasure
+      _beatsPerMinute = beatsPerMinute
+      _noteValue = noteValue
   }
   
   //MARK: Accessors
   
-  func getBeats() -> UInt16 {
-    return _beats
+  func getBeatsPerMeasure() -> UInt16 {
+    return _beatsPerMeasure
   }
   
   func getNoteValue() -> OpusNoteValue {
     return _noteValue
   }
   
+  func getBeatsPerMinute() -> UInt8 {
+    return _beatsPerMinute
+  }
+  
   //MARK: Useful Time Signature Defaults
   class func commonTime() -> OpusTimeSignature {
-    return OpusTimeSignature(beats: 4, noteValue: OpusNoteValue.Quarter)
+    return OpusTimeSignature(beatsPerMeasure: 4,
+      beatsPerMinute: 120, noteValue: OpusNoteValue.Quarter)
   }
   
   class func cutTime() -> OpusTimeSignature {
-    return OpusTimeSignature(beats: 2, noteValue: OpusNoteValue.Half)
+    return OpusTimeSignature(beatsPerMeasure: 2,
+      beatsPerMinute: 120, noteValue: OpusNoteValue.Half)
   }
 }
