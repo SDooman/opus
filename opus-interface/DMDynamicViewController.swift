@@ -126,8 +126,8 @@ class DMDynamicViewController: UIViewController, UIScrollViewDelegate {
     func insertPage(viewController: UIViewController, atIndex index: Int) {
         self.viewControllers?.insert(viewController, atIndex: index)
         self.layoutPages()
-        self.currentPage = index
-        self.notifyDelegateDidChangeControllers()
+        //self.currentPage = index
+        //self.notifyDelegateDidChangeControllers()
         
     }
     
@@ -148,7 +148,7 @@ class DMDynamicViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         containerScrollView = UIScrollView(frame: self.view.bounds)
-        containerScrollView.pagingEnabled = true
+        containerScrollView.pagingEnabled = false
         containerScrollView.alwaysBounceVertical = false
         containerScrollView.showsHorizontalScrollIndicator = false
         containerScrollView.delegate = self
@@ -196,5 +196,37 @@ class DMDynamicViewController: UIViewController, UIScrollViewDelegate {
         {
             self.fullySwitchedPage = self.currentPage;
         }
+        
+        // ADDED BY NDEMARCO BELOW
+        
+        var scrollViewWidth = containerScrollView.frame.size.width
+        var scrollContentSize = containerScrollView.contentSize.width
+        var scrollOffset = containerScrollView.contentOffset.x
+        
+        println("-------")
+        println(scrollViewWidth)
+        println(scrollContentSize)
+        println(scrollOffset)
+        println("-------")
+        
+        if (scrollOffset + scrollViewWidth >= scrollContentSize - 100){
+            // we've hit the far right
+            let newMeasure = MeasureViewController()
+            newMeasure.view.backgroundColor = self.getRandomColor()
+            self.insertPage(newMeasure, atIndex: self.viewControllers!.count)
+            
+        }
+    }
+    
+    func getRandomColor() -> UIColor {
+        var red: CGFloat = CGFloat(drand48())
+        var green: CGFloat = CGFloat(drand48())
+        var blue: CGFloat = CGFloat(drand48())
+        return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
     }
 }
+
+
+
+
+

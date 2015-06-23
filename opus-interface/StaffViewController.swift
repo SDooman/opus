@@ -11,7 +11,7 @@ import UIKit
 class StaffViewController: ViewController, Printable {
     
     //override var description: String {get {return updateDescription()}}
-    var currentButton: UIButton? = nil
+    //var currentButton: UIButton? = nil
     var pageController: DMDynamicViewController? = nil
     
     override func viewDidLoad() {
@@ -25,7 +25,7 @@ class StaffViewController: ViewController, Printable {
         self.view.addSubview(pageController!.view)
         self.view.window?.rootViewController = pageController
         
-        currentButton = createNewMeasureButton(viewController2)
+        //currentButton = createNewMeasureButton(viewController2)
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +37,7 @@ class StaffViewController: ViewController, Printable {
     func updateDescription() -> String {
         return "Nothing set"
     }
-    
+    /*
     func createNewMeasureButton(viewController: UIViewController) -> UIButton {
         let button   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
         button.frame = CGRectMake(100, 100, 100, 50)
@@ -49,7 +49,8 @@ class StaffViewController: ViewController, Printable {
         viewController.view.addSubview(button)
         return button
     }
-    
+    */
+    /*
     func newMeasureButtonAction(sender: UIButton!){
         let newViewController = MeasureViewController()
         newViewController.view.backgroundColor = UIColor.whiteColor()
@@ -66,6 +67,7 @@ class StaffViewController: ViewController, Printable {
         
         pageController?.insertPage(newViewController, atIndex: pageController!.count())
     }
+    */
 
     
 
