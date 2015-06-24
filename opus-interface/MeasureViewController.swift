@@ -12,7 +12,6 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
  
     @IBOutlet weak var staffImage: UIImageView!
     let _staffImageName = "Music-staff"
-    override var description: String {get {return self.updateDescription()}} // Overwriting println return
  
     let sensitivity = CGFloat(40.0)    // how wide around note's center will a click = note selection
     var touchingNow:Bool = false       // used in touches Moved method
@@ -38,21 +37,27 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         singleTap.delegate = self
         self.view.addGestureRecognizer(singleTap)
         
+        let twoFingerSingleTapSelector: Selector = "twoFingerSingleTap:"
+        var twoFingerSingleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: twoFingerSingleTapSelector)
+        twoFingerSingleTap.numberOfTouchesRequired = 2
+        twoFingerSingleTap.delegate = self
+        self.view.addGestureRecognizer(twoFingerSingleTap)
+        
         let doubleSelector: Selector = "doubleTap:"
         var doubleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: doubleSelector)
         doubleTap.numberOfTapsRequired = 2
         doubleTap.delegate = self
         self.view.addGestureRecognizer(doubleTap)
-
         
         let dragSelector: Selector = "dragGesture:"
         var dragRecognizer: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: dragSelector)
         dragRecognizer.delegate = self
+        
         self.view.addGestureRecognizer(dragRecognizer)
         
         
-        singleTap.requireGestureRecognizerToFail(doubleTap)
-        singleTap.requireGestureRecognizerToFail(dragRecognizer)
+        //singleTap.requireGestureRecognizerToFail(doubleTap)
+        //singleTap.requireGestureRecognizerToFail(dragRecognizer)
         
     
         /*
@@ -64,17 +69,36 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         // Do any additional setup after loading the view.
     }
     
+    func twoFingerSingleTap(gestureRecognizer: UITapGestureRecognizer){
+        let location = gestureRecognizer.locationInView(self.view)
+        let touch1Location = gestureRecognizer.locationOfTouch(0, inView: self.view)
+        let touch2Location = gestureRecognizer.locationOfTouch(1, inView: self.view)
+        
+        if self.twoTouchesAreAdjacent(touch1Location, location2: touch2Location){
+            for note in noteArray {
+                if isTouchingNote(note, location: location) && locationIsOnStaff(location){
+                    self.showMenuOnNote(note)
+                    return
+                }
+            }
+            self.showFloatingMenuAtPoint(location)
+        }
+
+    }
+    
+    func twoTouchesAreAdjacent(location1: CGPoint, location2: CGPoint) -> Bool {
+        let distance = pow((location1.x - location2.x), 2) + pow((location1.y - location2.y), 2)
+        return sqrt(distance) < 60.0
+    }
+    
     func dragGesture(gestureRecognizer: UIPanGestureRecognizer){
         if(gestureRecognizer.state == UIGestureRecognizerState.Began){
-            println("began")
             let location = gestureRecognizer.locationInView(self.view)
             for note in noteArray {
                 if isTouchingNote(note, location: location) && locationIsOnStaff(location){
-                    println("touch occured")
                     currentNote = note
                     touchingNow = true
-                    //currentNote?.setLocation(location)
-                    break // first one found is the note. Good?
+                    break
                 }
             }
             if currentNote == nil && locationIsOnStaff(location){
@@ -84,7 +108,6 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         }
         
         if(gestureRecognizer.state == UIGestureRecognizerState.Ended) {
-            println("ended")
             currentNote = nil
             return
         }
@@ -140,36 +163,6 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
- 
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        /*if (event.allTouches()!.count != 1){
-            return
-        }
-        
-        var touch: UITouch = touches.first as! UITouch
-        var location = touch.locationInView(self.view)
-    
-        if location.y < 30000 && location.y > 0{ // formerly 300 and 50
-            for note in noteArray {
-                if isTouchingNote(note, location: location) && locationIsOnStaff(location){
-                    
-                    if touch.tapCount == 2{
-                        self.showMenuOnNote(note)
-                        return
-                    }
-                    
-                    currentNote = note
-                    touchingNow = true
-                    currentNote?.setLocation(location)
-                    break // first one found is the note. Good?
-                }
-            }
-        if currentNote == nil && locationIsOnStaff(location) && touch.tapCount == 1 {
-            let dummyNote = UINote(value: selectedValue!)
-            createNote(location)
-            }
-        }*/
-    }
     
     func showMenuOnNote(uiNote: UINote) {
         
@@ -201,7 +194,6 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         popController.presentPopoverFromRect(myFrame, inView: targetVC, permittedArrowDirections: UIPopoverArrowDirection.allZeros, animated: true)
     }
     
-    
     // should we be passing strings here, or some sort of enum?
     func notifyMeasureViewAccidentalSelected(selectedAccidental: String) {
         switch selectedAccidental {
@@ -220,24 +212,7 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         
         // need to set current note to nil
     }
- 
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        /*if (event.allTouches()!.count != 1){
-            return
-        }
-        var touch: UITouch = touches.first as! UITouch
-        var location = touch.locationInView(self.view)
 
-        if touchingNow && locationIsOnStaff(location){
-            currentNote!.setLocation(location)
-        } */
-    }
-    
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        /*touchingNow = false
-        currentNote = nil */
-    }
- 
     func isTouchingNote(note: UINote, location: CGPoint) -> Bool {
         let noteX = note.getNoteCenter().x
         let noteY = note.getNoteCenter().y
@@ -272,28 +247,6 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         noteArray = sortedArray
     }
     
- 
-    /*
-    // Sidebar code elided for now
-    func sideBarDidSelectButtonAtIndex(index: Int) {
-        switch index {
-            case 0:
-                selectedValue = Note(value: .Whole).value
-            case 1:
-                selectedValue = Note(value: .Half).value
-            case 2:
-                selectedValue = Note(value: .Quarter).value
-            case 3:
-                selectedValue = Note(value: .Eighth).value
-            case 4:
-                selectedValue = Note(value: .Sixteenth).value
-            default:
-                selectedValue = Note(value: .Quarter).value
-        }
-    }
-    */
- 
- 
     func locationIsOnStaff(location: CGPoint) -> Bool{
         return true
         let clickX = Double(location.x)
@@ -302,7 +255,6 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
     
         return clickX >= lowerLim && clickX <= upperLim
     }
- 
  
     func setupStaff() {
     
@@ -355,35 +307,6 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         noteArray = [UINote]()
     }
     
-    // ignore this for now.
-    func updateDescription() -> String {
-        if noteArray.count == 0  {
-            // return empty thing
-        }
-        var toReturnArray: [String] = []
-        var toReturn: String = ""
-        self.sortNoteArray()
-        for index in 0...noteArray.count-1{
-            let noteIndex: String = String(index)
-            let noteValue: String = noteArray[index].value!.description
-            let noteVertical: String = String(noteArray[index].vertIndex!)
-            toReturnArray.append("Index: \(noteIndex), Beat Value: \(noteValue), VertIndex: \(noteVertical) \n")
-            
-        }
-        for subString in toReturnArray {
-            toReturn += subString
-        }
-        return toReturn
-    }
- 
-    /*
-    // MARK: - Navigation
- 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
+
  
 }
