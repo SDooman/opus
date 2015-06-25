@@ -39,6 +39,7 @@ structure to maximize the readibility of our repo's git logs.
 `git commit -a -m "[*x*] *y* *z*"`
 
 *x* is your initials (ex. [SD])
+
 *y* is one of the following present tense verbs describing the commit:
 * tests - writes tests for feature's functionality
 * implements - fills out stencils of methods for target functionality
