@@ -34,7 +34,7 @@ enum NoteValue : Printable {
     }
 }
 
-class UINote {
+class UINote: NilLiteralConvertible{
     
     let value: NoteValue?
     let imageName: String?
@@ -43,6 +43,16 @@ class UINote {
     let noteAdjust: CGPoint?
     var vertIndex: Int? = nil
     var mySize: CGSize? = nil
+    
+    required init(nilLiteral: ()){
+        value = nil
+        imageName = nil
+        image = nil
+        imageView = nil
+        noteAdjust = nil
+        vertIndex = nil
+        mySize = nil
+    }
 
     init(value: NoteValue){
         self.value = value
@@ -116,11 +126,9 @@ class UINote {
         }
         if returnY == nil{
             returnY = CGFloat(vertSpaces[vertSpaces.count-1])
-            println("max y")
         }
         if returnX == nil{
             returnX = CGFloat(horizontalSpaces[horizontalSpaces.count - 1])
-            println("max X")
         }
         
         return CGPoint(x: returnX!, y: returnY!)

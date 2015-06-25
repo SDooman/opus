@@ -105,6 +105,14 @@ class MeasureViewController: UIViewController, Printable {
     }
     
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        if let myCenter = currentNote?.imageView?.center {
+            for note in noteArray{
+                if (myCenter == note.imageView?.center) && !(note === currentNote){
+                    //println("OVERLAP")
+                    // do action we want to deal with overlaps, either color red, show error, etc
+                }
+            }
+        }
         touchingNow = false
         currentNote = nil
     }
@@ -113,6 +121,13 @@ class MeasureViewController: UIViewController, Printable {
         let newNote = UINote(value: selectedValue!)
         newNote.imageView?.frame = CGRect(origin: location, size: newNote.mySize!)
         newNote.setLocation(location) // redundancy here because setLocation adjusts for each note's individual sizes
+        
+        let myCenter = newNote.imageView?.center
+        for note in noteArray {
+            if note.imageView?.center == myCenter{
+                return nil
+            }
+        }
         view.addSubview(newNote.imageView!)
         noteArray.append(newNote)
         return newNote
@@ -196,7 +211,9 @@ class MeasureViewController: UIViewController, Printable {
         button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         button.addTarget(self, action: "clearMeasure", forControlEvents: UIControlEvents.TouchUpInside)
         
-        button.center = CGPointMake(100, 250)
+        let screenSize = UIScreen.mainScreen().bounds
+        
+        button.center = CGPointMake(100, screenSize.height - 200)
         self.view.addSubview(button)
     }
     
