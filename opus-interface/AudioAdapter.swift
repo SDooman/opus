@@ -35,11 +35,11 @@ class AudioAdapter {
         duration: noteInformation.1, time: noteInformation.2)
   }
   
-  func edit(noteInformation: (UInt8, Float32, MusicTimeStamp),
+  func edit(oldNoteInformation: (UInt8, Float32, MusicTimeStamp),
     newNoteInformation: (UInt8, Float32, MusicTimeStamp)) -> Bool {
       
-      return _midiSequenceEditor.editNote(noteInformation.0,
-        duration: noteInformation.1, time: noteInformation.2,
+      return _midiSequenceEditor.editNote(oldNoteInformation.0,
+        duration: oldNoteInformation.1, time: oldNoteInformation.2,
         newNote: newNoteInformation.0,
         newDuration: newNoteInformation.1, newTime: newNoteInformation.2)
   }
