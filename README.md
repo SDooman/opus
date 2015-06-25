@@ -14,8 +14,6 @@ be able to design the app architecture around them.
 Local Setup
 ============================
 
-* Clone the repo
-
 ```
 git clone --recursive git@github.com:SDooman/opus-interface.git
 cd ./opus-interface
@@ -33,16 +31,29 @@ Git Workflow
 * Squash your branch -- `git rebase -i origin/develop`
 * Merge branch -- `git checkout develop && git pull origin develop && git merge your-feature-branch`
 * push your branch -- `git push`
+* (Optional) Delete your branch using `git branch -d your-feature-branch && git push origin :your-feature-branch`
 
 Whenever you commit changes to a branch, use the following
 structure to maximize the readibility of our repo's git logs.
 
-`git commit -a -m "[Your Initials] Intelligent commit message"`
+`git commit -a -m "[*x*] *y* *z*"`
 
-Here's an example.  You should be able to read a commit message and
-immediately know "this commit does [x]"
+*x* is your initials (ex. [SD])
+*y* is one of the following present tense verbs describing the commit:
+* tests - writes tests for feature's functionality
+* implements - fills out stencils of methods for target functionality
+* finishes - feature is tested and implemented
+* stencils - creates classes and method signatures for target functionality
+* fixes - fixes a bug in particular feature
+* refactors - redesigns program structure to remove technical debt
+* hacks - implements, but with known technial debt
+* edits - reserved for changing project files without code (README.md, .gitignore)
 
-`git commit -a -m "[SD] Initializes REAMDE.md and xcode project"`
+*z* is the desired feature/group of files that implement a feature
+
+Below is an example:
+
+`git commit -a -m "[SD] implements audio playback "`
 
 Tools
 ============================
