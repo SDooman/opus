@@ -8,150 +8,117 @@
 
 import UIKit
 
-class MeasureViewController: UIViewController, Printable {
+class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Printable {
  
     @IBOutlet weak var staffImage: UIImageView!
     let _staffImageName = "Music-staff"
  
-    let sensitivity = CGFloat(20.0)    // how wide around note's center will a click = note selection
-    var touchingNow:Bool = false       // used in touches Moved method
+    let sensitivity = CGFloat(40.0)    // how wide around note's center will a click = note selection
     var noteArray: [UINote] = [UINote]()
     var currentNote: UINote?
     var selectedValue = UINote(value: .Quarter).value
+    var startingOnNote:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
-        setupStaff()
-        createClearMeasureButton()
+        self.setupStaff()
+        self.createClearMeasureButton()
+        self.setupGestureRecognizers()
 
+    }
+    
+    func twoFingerSingleTap(gestureRecognizer: UITapGestureRecognizer){
+        let location = gestureRecognizer.locationInView(self.view)
+        let touch1Location = gestureRecognizer.locationOfTouch(0, inView: self.view)
+        let touch2Location = gestureRecognizer.locationOfTouch(1, inView: self.view)
+        
+        if self.twoTouchesAreAdjacent(touch1Location, location2: touch2Location){
+            for note in noteArray {
+                if isTouchingNote(note, location: location) && locationIsOnStaff(location){
+                    self.showMenuOnNote(note)
+                    return
+                }
+            }
+            self.showFloatingMenuAtPoint(location)
+        }
+    }
+    
+    func twoTouchesAreAdjacent(location1: CGPoint, location2: CGPoint) -> Bool {
+        let distance = pow((location1.x - location2.x), 2) + pow((location1.y - location2.y), 2)
+        return sqrt(distance) < 60.0
+    }
+    
+    func dragGesture(gestureRecognizer: UIPanGestureRecognizer){
+        let location = gestureRecognizer.locationInView(self.view)
+
+        if gestureRecognizer.state == UIGestureRecognizerState.Began {
+            
+            for note in noteArray {
+                if isTouchingNote(note, location: location) && locationIsOnStaff(location){
+                    currentNote = note
+                    return
+                }
+            }
+        }
+
+        if currentNote == nil && !self.startingOnNote{
+            let dummyNote = UINote(value: selectedValue!)
+            currentNote = createNote(location)
+        }
+        else if currentNote != nil {
+            var translation = gestureRecognizer.translationInView(self.view)
+            let currentLocation = currentNote!.myLocation
+            
+            let newX: CGFloat = (translation.x + currentLocation!.x)
+            let newY: CGFloat = (translation.y + currentLocation!.y)
+            
+            let newLocation = CGPoint(x: newX, y: newY)
+            gestureRecognizer.setTranslation(CGPointZero, inView: self.view)
+            currentNote!.setLocation(newLocation)
+        }
+        
+        if(gestureRecognizer.state == UIGestureRecognizerState.Ended) {
+            currentNote = nil
+            self.startingOnNote = false
+            return
+        }
+    }
+    
+    func singleTap(gestureRecognizer: UITapGestureRecognizer) {
+        let location = gestureRecognizer.locationInView(self.view)
+        for note in noteArray {
+            if isTouchingNote(note, location: location) && locationIsOnStaff(location){
+                currentNote = note
+                currentNote?.setLocation(location)
+                break
+            }
+        }
+        if currentNote == nil && locationIsOnStaff(location){
+            let dummyNote = UINote(value: selectedValue!)
+            createNote(location)
+        }
+        if (gestureRecognizer.state == UIGestureRecognizerState.Ended){
+            currentNote = nil
+            self.startingOnNote = false
+        }
+    }
+    
+    func doubleTap(gestureRecognizer: UITapGestureRecognizer) {
+        let location = gestureRecognizer.locationInView(self.view)
+        for note in noteArray {
+            if isTouchingNote(note, location: location) && locationIsOnStaff(location){
+                self.showMenuOnNote(note)
+                break
+            }
+        }
     }
  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func setupStaff() {
-        
-        let imageName = _staffImageName
-        let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image)
-        
-        let screenBounds = UIScreen.mainScreen().bounds
-        imageView.frame = screenBounds
-
-        view.addSubview(imageView)
-        imageView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        staffImage = imageView
-        
-        // BUG: Staff images go over the edge of the View, causing there to be an 
-        // "overlap" at the connection between Measure VCs.
-        
-        var constY = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview!, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
-        view.addConstraint(constY)
-        
-        var constA = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.LeadingMargin, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview!, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0)
-        view.addConstraint(constA)
-        
-        var constB = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.TrailingMargin, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview!, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0)
-        view.addConstraint(constB)
-        
-        var constC = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview!, attribute: NSLayoutAttribute.Height, multiplier: 0.5, constant: 0)
-        view.addConstraint(constC)
-        
-    }
-    
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if (event.allTouches()!.count != 1){
-            return
-        }
-        
-        var touch: UITouch = touches.first as! UITouch
-        var location = touch.locationInView(self.view)
-        
-        if location.y < 30000 && location.y > 0{ // formerly 300 and 50
-            for note in noteArray {
-                if isTouchingNote(note, location: location) && locationIsOnStaff(location){
-                    
-                    if touch.tapCount == 2{
-                        self.showMenuOnNote(note)
-                        return
-                    }
-                    
-                    currentNote = note
-                    touchingNow = true
-                    currentNote?.setLocation(location)
-                    break // first one found is the note. Good?
-                }
-            }
-            if currentNote == nil && locationIsOnStaff(location) {
-                let dummyNote = UINote(value: selectedValue!)
-                createNote(location)
-            }
-        }
-    }
-    
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if (event.allTouches()!.count != 1){
-            return
-        }
-        var touch: UITouch = touches.first as! UITouch
-        var location = touch.locationInView(self.view)
-        
-        if touchingNow && locationIsOnStaff(location){
-            currentNote!.setLocation(location)
-        }
-    }
-    
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if let myCenter = currentNote?.imageView?.center {
-            for note in noteArray{
-                if (myCenter == note.imageView?.center) && !(note === currentNote){
-                    //println("OVERLAP")
-                    // do action we want to deal with overlaps, either color red, show error, etc
-                }
-            }
-        }
-        touchingNow = false
-        currentNote = nil
-    }
-    
-    func createNote(location: CGPoint) -> UINote{
-        let newNote = UINote(value: selectedValue!)
-        newNote.imageView?.frame = CGRect(origin: location, size: newNote.mySize!)
-        newNote.setLocation(location) // redundancy here because setLocation adjusts for each note's individual sizes
-        
-        let myCenter = newNote.imageView?.center
-        for note in noteArray {
-            if note.imageView?.center == myCenter{
-                return nil
-            }
-        }
-        view.addSubview(newNote.imageView!)
-        noteArray.append(newNote)
-        return newNote
-    }
-    
-    func isTouchingNote(note: UINote, location: CGPoint) -> Bool {
-        let noteX = note.getNoteCenter().x
-        let noteY = note.getNoteCenter().y
-        let touchX = location.x
-        let touchY = location.y
-        var withinX = false
-        var withinY = false
-        
-        if touchX >= noteX - sensitivity && touchX <= noteX + sensitivity {
-            withinX = true
-        }
-        if touchY >= noteY - sensitivity && touchY <= noteY + sensitivity {
-            withinY = true
-        }
-        return withinX && withinY
     }
     
     func showMenuOnNote(uiNote: UINote) {
-        
         var popView = NoteSelectedPopViewController(nibName: "NoteSelectedPopView", bundle: nil, measureView: self)
         var popController = UIPopoverController(contentViewController: popView)
         let myWidth = uiNote.imageView?.frame.width
@@ -164,8 +131,20 @@ class MeasureViewController: UIViewController, Printable {
         popController.popoverContentSize = CGSize(width: myWidth!, height: myHeight!)
         popController.presentPopoverFromRect((uiNote.imageView?.frame)!, inView: targetVC, permittedArrowDirections: UIPopoverArrowDirection.Right, animated: true)
         
-        // need to set current note to passed parameter uiNote
+        // need to set current note to passed parameter uiNote to sharp/flat it
         
+    }
+    
+    func showFloatingMenuAtPoint(location: CGPoint) {
+        var popView = FloatingMenuPopViewController(nibName: "FloatingMenuPopView", bundle: nil, measureView:self)
+        var popController = UIPopoverController(contentViewController: popView)
+        let myWidth: CGFloat = 100.0
+        let myHeight: CGFloat = 200.0
+        let myFrame = CGRectMake(location.x, location.y, myWidth, myHeight)
+        
+        let targetVC = self.view.superview!.superview!.superview!
+        popController.popoverContentSize = CGSize(width: myWidth, height: myHeight)
+        popController.presentPopoverFromRect(myFrame, inView: targetVC, permittedArrowDirections: UIPopoverArrowDirection.allZeros, animated: true)
     }
     
     // should we be passing strings here, or some sort of enum?
@@ -184,7 +163,33 @@ class MeasureViewController: UIViewController, Printable {
             return
         }
         
-        // need to set current note to nil
+        // need to set current note to nil after sharping or flatting it
+    }
+
+    func isTouchingNote(note: UINote, location: CGPoint) -> Bool {
+        let noteX = note.getNoteCenter().x
+        let noteY = note.getNoteCenter().y
+        let touchX = location.x
+        let touchY = location.y
+        var withinX = false
+        var withinY = false
+    
+        if touchX >= noteX - sensitivity && touchX <= noteX + sensitivity {
+            withinX = true
+        }
+        if touchY >= noteY - sensitivity && touchY <= noteY + sensitivity {
+            withinY = true
+        }
+        return withinX && withinY
+    }
+ 
+    func createNote(location: CGPoint) -> UINote{
+        let newNote = UINote(value: selectedValue!)
+        newNote.imageView?.frame = CGRect(origin: location, size: newNote.mySize!)
+        newNote.setLocation(location)
+        view.addSubview(newNote.imageView!)
+        noteArray.append(newNote)
+        return newNote
     }
     
     func sortNoteArray() {
@@ -194,15 +199,91 @@ class MeasureViewController: UIViewController, Printable {
         })
         noteArray = sortedArray
     }
- 
-    func locationIsOnStaff(location: CGPoint) -> Bool{
-        let clickX = Double(location.x)
-        let lowerLim = Double(staffImage.frame.minX) + 20 // to create space for key/time signature
-        let upperLim = Double(staffImage.frame.maxX) // -40 at one point - before adding the trailing staff
     
-        return clickX >= lowerLim && clickX <= upperLim
+    func locationIsOnStaff(location: CGPoint) -> Bool{
+        return CGRectContainsPoint(staffImage.frame, location)
     }
  
+    func setupStaff() {
+        let imageName = _staffImageName
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image)
+        let screenBounds = UIScreen.mainScreen().bounds
+        imageView.frame = screenBounds
+
+        view.addSubview(imageView)
+    
+        imageView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        staffImage = imageView
+        
+        // BUG: Some staff images go to the edge of the screen / frame, others do not.
+    
+        var constY = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview!, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+        view.addConstraint(constY)
+    
+        var constA = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.LeadingMargin, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview!, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0)
+        view.addConstraint(constA)
+    
+        var constB = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.TrailingMargin, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview!, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0)
+        view.addConstraint(constB)
+
+        var constC = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview!, attribute: NSLayoutAttribute.Height, multiplier: 0.5, constant: 0)
+        view.addConstraint(constC)
+        
+    }
+    
+    func setupGestureRecognizers() {
+        let singleSelector: Selector = "singleTap:"
+        var singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: singleSelector)
+        singleTap.numberOfTapsRequired = 1
+        singleTap.delegate = self
+        self.view.addGestureRecognizer(singleTap)
+        
+        let twoFingerSingleTapSelector: Selector = "twoFingerSingleTap:"
+        var twoFingerSingleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: twoFingerSingleTapSelector)
+        twoFingerSingleTap.numberOfTouchesRequired = 2
+        twoFingerSingleTap.delegate = self
+        self.view.addGestureRecognizer(twoFingerSingleTap)
+        
+        let doubleSelector: Selector = "doubleTap:"
+        var doubleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: doubleSelector)
+        doubleTap.numberOfTapsRequired = 2
+        doubleTap.delegate = self
+        self.view.addGestureRecognizer(doubleTap)
+        
+        let dragSelector: Selector = "dragGesture:"
+        var dragRecognizer: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: dragSelector)
+        dragRecognizer.minimumNumberOfTouches = 1
+        dragRecognizer.maximumNumberOfTouches = 1
+        dragRecognizer.delegate = self
+        
+        self.view.addGestureRecognizer(dragRecognizer)
+
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        let touch = touches.first as! UITouch
+        let location = touch.locationInView(self.view)
+        for note in noteArray {
+            if self.isTouchingNote(note, location: location){
+                self.startingOnNote = true
+                return
+            }
+        }
+    }
+    
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        if let myCenter = currentNote?.imageView?.center {
+            for note in noteArray{
+                if (myCenter == note.imageView?.center) && !(note === currentNote){
+                    //println("OVERLAP")
+                    // do action we want to deal with overlaps, either color red, show error, etc
+                }
+            }
+        }
+        self.startingOnNote = false
+    }
+    
     func createClearMeasureButton() {
         let button = UIButton.buttonWithType(UIButtonType.System) as! UIButton
         button.frame = CGRectMake(100,250, 100, 50)
@@ -211,9 +292,7 @@ class MeasureViewController: UIViewController, Printable {
         button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         button.addTarget(self, action: "clearMeasure", forControlEvents: UIControlEvents.TouchUpInside)
         
-        let screenSize = UIScreen.mainScreen().bounds
-        
-        button.center = CGPointMake(100, screenSize.height - 200)
+        button.center = CGPointMake(100, 250)
         self.view.addSubview(button)
     }
     
@@ -223,5 +302,7 @@ class MeasureViewController: UIViewController, Printable {
         }
         noteArray = [UINote]()
     }
+    
+
  
 }
