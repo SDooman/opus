@@ -12,12 +12,12 @@ import UIKit
 let Constants: GraphicConstants = GraphicConstants()
 let vertSpaces: [Float] = Constants.myVertLineSpaceArray!
 let horizontalSpaces: [Float] = Constants.myHorizontalGridArray!
+let horizontalNoteCushion:Double = 12
 
 // Saving the following as the original non-programmatic calculation of the space array (I just found them manually, some are off slightly, but work fine.)
 //let spaces: [Double] = [207.0, 230.0, 253.0, 276.0, 298.0, 321.0, 344.0, 367.0, 390.0, 413.0, 437.0]
 
 let verticalNoteCushion:Double = 7
-let horizontalNoteCushion:Double = 12
 let screenSizeWidth = UIScreen.mainScreen().bounds.width
 let screenSizeHeight = UIScreen.mainScreen().bounds.height
 
@@ -34,7 +34,7 @@ enum NoteValue : Printable {
     }
 }
 
-class UINote: NilLiteralConvertible{
+class UINote {
     
     let value: NoteValue?
     let imageName: String?
@@ -43,16 +43,7 @@ class UINote: NilLiteralConvertible{
     let noteAdjust: CGPoint?
     var vertIndex: Int? = nil
     var mySize: CGSize? = nil
-    
-    required init(nilLiteral: ()){
-        value = nil
-        imageName = nil
-        image = nil
-        imageView = nil
-        noteAdjust = nil
-        vertIndex = nil
-        mySize = nil
-    }
+    var myLocation: CGPoint? = nil
 
     init(value: NoteValue){
         self.value = value
@@ -81,6 +72,23 @@ class UINote: NilLiteralConvertible{
         let myHeight = screenSizeHeight / 4.5
         let myWidth = screenSizeWidth / 17
         mySize = CGSizeMake(myWidth, myHeight)
+        
+        /*
+        println("------BEGIN------")
+        println()
+        
+        println("My height: \(myHeight)")
+        println("My width: \(myWidth)")
+        println("My height / screen height \(myHeight / screenSizeHeight)")
+        println("My width / screen width \(myWidth / screenSizeWidth)")
+        println("Middle line: 321")
+        println("Spaces \(spaces)")
+        println("Screen Height: \(screenSizeHeight)")
+        println("Screen Width: \(screenSizeWidth)")
+        println(Constants.myVerticalLineSpacing!)
+        println()
+        println("------END------")
+        */
     }
     
     func getNoteCenter() -> CGPoint {
@@ -94,6 +102,8 @@ class UINote: NilLiteralConvertible{
         let locY = getVerticalPosition(clickAt).y
         let adjX = noteAdjust!.x
         let adjY = noteAdjust!.y
+        
+        myLocation = clickAt
         
         let setTo:CGPoint = CGPoint(x: locX - adjX , y: locY)
         imageView!.center = setTo

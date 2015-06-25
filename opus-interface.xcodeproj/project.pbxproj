@@ -41,6 +41,8 @@
 		22AE6F671B2F405A00C47111 /* OpusMIDIEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE6F441B2B68ED00C47111 /* OpusMIDIEditor.swift */; };
 		BB94626B1B31D5A600B0B530 /* DMDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB94626A1B31D5A600B0B530 /* DMDynamicViewController.swift */; };
 		BB96FA291B39D6A400B9766B /* OpusMenuUIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB96FA281B39D6A400B9766B /* OpusMenuUIScrollView.swift */; };
+		BBA690521B3C954800ECA746 /* FloatingMenuPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA690501B3C954800ECA746 /* FloatingMenuPopView.xib */; };
+		BBA690531B3C954800ECA746 /* FloatingMenuPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA690511B3C954800ECA746 /* FloatingMenuPopViewController.swift */; };
 		BBC010F01B3478AE00940C8A /* NoteSelectedPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBC010EF1B3478AE00940C8A /* NoteSelectedPopView.xib */; };
 		BBC010F61B3478BF00940C8A /* NoteSelectedPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC010F51B3478BF00940C8A /* NoteSelectedPopViewController.swift */; };
 		BBC011261B34A56900940C8A /* GraphicConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC011251B34A56800940C8A /* GraphicConstants.swift */; };
@@ -130,6 +132,8 @@
 		22AE6F461B2B723700C47111 /* OpusMIDIPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusMIDIPlayer.swift; sourceTree = "<group>"; };
 		BB94626A1B31D5A600B0B530 /* DMDynamicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDynamicViewController.swift; sourceTree = "<group>"; };
 		BB96FA281B39D6A400B9766B /* OpusMenuUIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusMenuUIScrollView.swift; sourceTree = "<group>"; };
+		BBA690501B3C954800ECA746 /* FloatingMenuPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatingMenuPopView.xib; sourceTree = "<group>"; };
+		BBA690511B3C954800ECA746 /* FloatingMenuPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingMenuPopViewController.swift; sourceTree = "<group>"; };
 		BBC010EF1B3478AE00940C8A /* NoteSelectedPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteSelectedPopView.xib; sourceTree = "<group>"; };
 		BBC010F51B3478BF00940C8A /* NoteSelectedPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteSelectedPopViewController.swift; sourceTree = "<group>"; };
 		BBC011251B34A56800940C8A /* GraphicConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicConstants.swift; sourceTree = "<group>"; };
@@ -289,6 +293,8 @@
 		2297E9C01B223376002CC72B /* views */ = {
 			isa = PBXGroup;
 			children = (
+				BBA690501B3C954800ECA746 /* FloatingMenuPopView.xib */,
+				BBA690511B3C954800ECA746 /* FloatingMenuPopViewController.swift */,
 				BBFCACB01B307471003E0BDD /* LaunchViewController.swift */,
 				BBC010EF1B3478AE00940C8A /* NoteSelectedPopView.xib */,
 				BBC010F51B3478BF00940C8A /* NoteSelectedPopViewController.swift */,
@@ -440,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				225D21601B1F8AB0007DD37B /* Main.storyboard in Resources */,
+				BBA690521B3C954800ECA746 /* FloatingMenuPopView.xib in Resources */,
 				225D21651B1F8AB0007DD37B /* LaunchScreen.xib in Resources */,
 				BBC010F01B3478AE00940C8A /* NoteSelectedPopView.xib in Resources */,
 				226C4DEA1B238583005DD6A3 /* grand_piano.sf2 in Resources */,
@@ -482,6 +489,7 @@
 				BBFCACB31B307485003E0BDD /* StaffViewController.swift in Sources */,
 				2297EA001B224F4F002CC72B /* StaffViewModel.swift in Sources */,
 				BBFCACB51B30748D003E0BDD /* MeasureViewController.swift in Sources */,
+				BBA690531B3C954800ECA746 /* FloatingMenuPopViewController.swift in Sources */,
 				221997341B2B2264007BF9E6 /* OpusAUGraph.swift in Sources */,
 				BBFCACB11B307471003E0BDD /* LaunchViewController.swift in Sources */,
 			);
