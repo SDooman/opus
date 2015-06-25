@@ -14,7 +14,6 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
     let _staffImageName = "Music-staff"
  
     let sensitivity = CGFloat(40.0)    // how wide around note's center will a click = note selection
-    var touchingNow:Bool = false       // used in touches Moved method
     var noteArray: [UINote] = [UINote]()
     var currentNote: UINote?
  
@@ -50,7 +49,9 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         self.view.addGestureRecognizer(doubleTap)
         
         let dragSelector: Selector = "dragGesture:"
-        var dragRecognizer: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: dragSelector)
+        var dragRecognizer: UIPanGestureRecognizer = ImmediatePanGestureRecognizer(target: self, action: dragSelector)
+        dragRecognizer.minimumNumberOfTouches = 1
+        dragRecognizer.maximumNumberOfTouches = 1
         dragRecognizer.delegate = self
         
         self.view.addGestureRecognizer(dragRecognizer)
@@ -92,58 +93,67 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
     }
     
     func dragGesture(gestureRecognizer: UIPanGestureRecognizer){
-        if(gestureRecognizer.state == UIGestureRecognizerState.Began){
-            let location = gestureRecognizer.locationInView(self.view)
+        println("---")
+        println("called drag")
+        println("current note exists = \(currentNote)")
+        
+        let location = gestureRecognizer.locationInView(self.view)
+        println("Drag Location: \(location)")
+        if gestureRecognizer.state == UIGestureRecognizerState.Began {
+            println("drag began")
             for note in noteArray {
                 if isTouchingNote(note, location: location) && locationIsOnStaff(location){
                     currentNote = note
-                    touchingNow = true
-                    break
+                    println("current assigned in drag")
+                    return // break before
                 }
             }
-            if currentNote == nil && locationIsOnStaff(location){
-                let dummyNote = UINote(value: selectedValue!)
-                currentNote = createNote(location)
-            }
         }
-        
-        if(gestureRecognizer.state == UIGestureRecognizerState.Ended) {
-            currentNote = nil
-            return
+        println("drag past began")
+        if currentNote == nil && locationIsOnStaff(location){
+            let dummyNote = UINote(value: selectedValue!)
+            currentNote = createNote(location)
+            println("created note in drag")
         }
-        
-        if currentNote != nil{
+        else {
             var translation = gestureRecognizer.translationInView(self.view)
-            let currentLocation = currentNote?.myLocation
+            let currentLocation = currentNote!.myLocation
             
             let newX: CGFloat = (translation.x + currentLocation!.x)
             let newY: CGFloat = (translation.y + currentLocation!.y)
             
             let newLocation = CGPoint(x: newX, y: newY)
             gestureRecognizer.setTranslation(CGPointZero, inView: self.view)
-            currentNote?.setLocation(newLocation)
+            currentNote!.setLocation(newLocation)
+        }
+        
+        if(gestureRecognizer.state == UIGestureRecognizerState.Ended) {
+            currentNote = nil
+            println("current deassigned in drag")
+            return
         }
     }
     
     func singleTap(gestureRecognizer: UITapGestureRecognizer) {
-        if (gestureRecognizer.state == UIGestureRecognizerState.Ended){
-            currentNote = nil
-        }
         let location = gestureRecognizer.locationInView(self.view)
-        
         if location.y < 30000 && location.y > 0{ // formerly 300 and 50
             for note in noteArray {
                 if isTouchingNote(note, location: location) && locationIsOnStaff(location){
                     currentNote = note
-                    touchingNow = true
                     currentNote?.setLocation(location)
+                    println("current note assigned in singleTap")
                     break // first one found is the note. Good?
                 }
             }
             if currentNote == nil && locationIsOnStaff(location){
                 let dummyNote = UINote(value: selectedValue!)
                 createNote(location)
+                println("created note in singleTap")
             }
+        }
+        if (gestureRecognizer.state == UIGestureRecognizerState.Ended){
+            currentNote = nil
+            println("current deassigned in singleTap")
         }
     }
     
@@ -155,8 +165,6 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
                 break
             }
         }
-        
-
     }
  
     override func didReceiveMemoryWarning() {
@@ -236,6 +244,7 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         newNote.setLocation(location) // redundancy here because setLocation adjusts for each note's individual sizes
         view.addSubview(newNote.imageView!)
         noteArray.append(newNote)
+        println("Note created at location: \(location)")
         return newNote
     }
     

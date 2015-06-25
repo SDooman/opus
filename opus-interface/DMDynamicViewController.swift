@@ -154,6 +154,7 @@ class DMDynamicViewController: UIViewController, UIScrollViewDelegate {
         containerScrollView.delegate = self
         containerScrollView.backgroundColor = UIColor.grayColor()
         
+        // created by nDeMarco
         var gestureRecognizers = containerScrollView.gestureRecognizers as! [UIGestureRecognizer]
         for gesture in gestureRecognizers {
             if let panGesture = gesture as? UIPanGestureRecognizer{
@@ -161,6 +162,7 @@ class DMDynamicViewController: UIViewController, UIScrollViewDelegate {
                 panGesture.minimumNumberOfTouches = 2
             }
         }
+        // end create
         
         self.pageWidth = self.view.frame.size.width
         self.view.addSubview(containerScrollView)
