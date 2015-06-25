@@ -271,6 +271,7 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
             }
         }
     }
+    
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.startingOnNote = false
     }
