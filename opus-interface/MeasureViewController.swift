@@ -16,58 +16,16 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
     let sensitivity = CGFloat(40.0)    // how wide around note's center will a click = note selection
     var noteArray: [UINote] = [UINote]()
     var currentNote: UINote?
- 
-    // Waiting to implement SideBar functionality - commented out for now
-    //var sideBar = SideBar()
-    //let noteValues = ["Whole Note", "Half Note", "Quarter Note", "Eighth Note", "Sixteenth Note"]
-    
     var selectedValue = UINote(value: .Quarter).value
+    var startingOnNote:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
-        setupStaff()
-        createClearMeasureButton()
-        
-        
-        let singleSelector: Selector = "singleTap:"
-        var singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: singleSelector)
-        singleTap.numberOfTapsRequired = 1
-        singleTap.delegate = self
-        self.view.addGestureRecognizer(singleTap)
-        
-        let twoFingerSingleTapSelector: Selector = "twoFingerSingleTap:"
-        var twoFingerSingleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: twoFingerSingleTapSelector)
-        twoFingerSingleTap.numberOfTouchesRequired = 2
-        twoFingerSingleTap.delegate = self
-        self.view.addGestureRecognizer(twoFingerSingleTap)
-        
-        let doubleSelector: Selector = "doubleTap:"
-        var doubleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: doubleSelector)
-        doubleTap.numberOfTapsRequired = 2
-        doubleTap.delegate = self
-        self.view.addGestureRecognizer(doubleTap)
-        
-        let dragSelector: Selector = "dragGesture:"
-        var dragRecognizer: UIPanGestureRecognizer = ImmediatePanGestureRecognizer(target: self, action: dragSelector)
-        dragRecognizer.minimumNumberOfTouches = 1
-        dragRecognizer.maximumNumberOfTouches = 1
-        dragRecognizer.delegate = self
-        
-        self.view.addGestureRecognizer(dragRecognizer)
-        
-        
-        //singleTap.requireGestureRecognizerToFail(doubleTap)
-        //singleTap.requireGestureRecognizerToFail(dragRecognizer)
-        
-    
-        /*
-        // SideBar Code Elided
-        sideBar = SideBar(sourceView: self.view, menuItems: noteValues)
-        sideBar.delegate = self
-        */
-    
-        // Do any additional setup after loading the view.
+        self.setupStaff()
+        self.createClearMeasureButton()
+        self.setupGestureRecognizers()
+
     }
     
     func twoFingerSingleTap(gestureRecognizer: UITapGestureRecognizer){
@@ -84,7 +42,6 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
             }
             self.showFloatingMenuAtPoint(location)
         }
-
     }
     
     func twoTouchesAreAdjacent(location1: CGPoint, location2: CGPoint) -> Bool {
@@ -93,29 +50,23 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
     }
     
     func dragGesture(gestureRecognizer: UIPanGestureRecognizer){
-        println("---")
-        println("called drag")
-        println("current note exists = \(currentNote)")
-        
         let location = gestureRecognizer.locationInView(self.view)
-        println("Drag Location: \(location)")
+
         if gestureRecognizer.state == UIGestureRecognizerState.Began {
-            println("drag began")
+            
             for note in noteArray {
                 if isTouchingNote(note, location: location) && locationIsOnStaff(location){
                     currentNote = note
-                    println("current assigned in drag")
-                    return // break before
+                    return
                 }
             }
         }
-        println("drag past began")
-        if currentNote == nil && locationIsOnStaff(location){
+
+        if currentNote == nil && !self.startingOnNote{
             let dummyNote = UINote(value: selectedValue!)
             currentNote = createNote(location)
-            println("created note in drag")
         }
-        else {
+        else if currentNote != nil {
             var translation = gestureRecognizer.translationInView(self.view)
             let currentLocation = currentNote!.myLocation
             
@@ -129,31 +80,27 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         
         if(gestureRecognizer.state == UIGestureRecognizerState.Ended) {
             currentNote = nil
-            println("current deassigned in drag")
+            self.startingOnNote = false
             return
         }
     }
     
     func singleTap(gestureRecognizer: UITapGestureRecognizer) {
         let location = gestureRecognizer.locationInView(self.view)
-        if location.y < 30000 && location.y > 0{ // formerly 300 and 50
-            for note in noteArray {
-                if isTouchingNote(note, location: location) && locationIsOnStaff(location){
-                    currentNote = note
-                    currentNote?.setLocation(location)
-                    println("current note assigned in singleTap")
-                    break // first one found is the note. Good?
-                }
+        for note in noteArray {
+            if isTouchingNote(note, location: location) && locationIsOnStaff(location){
+                currentNote = note
+                currentNote?.setLocation(location)
+                break
             }
-            if currentNote == nil && locationIsOnStaff(location){
-                let dummyNote = UINote(value: selectedValue!)
-                createNote(location)
-                println("created note in singleTap")
-            }
+        }
+        if currentNote == nil && locationIsOnStaff(location){
+            let dummyNote = UINote(value: selectedValue!)
+            createNote(location)
         }
         if (gestureRecognizer.state == UIGestureRecognizerState.Ended){
             currentNote = nil
-            println("current deassigned in singleTap")
+            self.startingOnNote = false
         }
     }
     
@@ -169,11 +116,9 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func showMenuOnNote(uiNote: UINote) {
-        
         var popView = NoteSelectedPopViewController(nibName: "NoteSelectedPopView", bundle: nil, measureView: self)
         var popController = UIPopoverController(contentViewController: popView)
         let myWidth = uiNote.imageView?.frame.width
@@ -186,7 +131,7 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         popController.popoverContentSize = CGSize(width: myWidth!, height: myHeight!)
         popController.presentPopoverFromRect((uiNote.imageView?.frame)!, inView: targetVC, permittedArrowDirections: UIPopoverArrowDirection.Right, animated: true)
         
-        // need to set current note to passed parameter uiNote
+        // need to set current note to passed parameter uiNote to sharp/flat it
         
     }
     
@@ -218,7 +163,7 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
             return
         }
         
-        // need to set current note to nil
+        // need to set current note to nil after sharping or flatting it
     }
 
     func isTouchingNote(note: UINote, location: CGPoint) -> Bool {
@@ -241,10 +186,9 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
     func createNote(location: CGPoint) -> UINote{
         let newNote = UINote(value: selectedValue!)
         newNote.imageView?.frame = CGRect(origin: location, size: newNote.mySize!)
-        newNote.setLocation(location) // redundancy here because setLocation adjusts for each note's individual sizes
+        newNote.setLocation(location)
         view.addSubview(newNote.imageView!)
         noteArray.append(newNote)
-        println("Note created at location: \(location)")
         return newNote
     }
     
@@ -257,25 +201,16 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
     }
     
     func locationIsOnStaff(location: CGPoint) -> Bool{
-        return true
-        let clickX = Double(location.x)
-        let lowerLim = Double(staffImage.frame.minX) + 120 // to create space for key/time signature
-        let upperLim = Double(staffImage.frame.maxX) // -40 at one point - before adding the trailing staff
-    
-        return clickX >= lowerLim && clickX <= upperLim
+        return CGRectContainsPoint(staffImage.frame, location)
     }
  
     func setupStaff() {
-    
         let imageName = _staffImageName
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image)
-        
         let screenBounds = UIScreen.mainScreen().bounds
         imageView.frame = screenBounds
-        
-        
-        //imageView.frame = CGRectMake(0, 200, 600, 200)
+
         view.addSubview(imageView)
     
         imageView.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -295,6 +230,49 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         var constC = NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: imageView.superview!, attribute: NSLayoutAttribute.Height, multiplier: 0.5, constant: 0)
         view.addConstraint(constC)
         
+    }
+    
+    func setupGestureRecognizers() {
+        let singleSelector: Selector = "singleTap:"
+        var singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: singleSelector)
+        singleTap.numberOfTapsRequired = 1
+        singleTap.delegate = self
+        self.view.addGestureRecognizer(singleTap)
+        
+        let twoFingerSingleTapSelector: Selector = "twoFingerSingleTap:"
+        var twoFingerSingleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: twoFingerSingleTapSelector)
+        twoFingerSingleTap.numberOfTouchesRequired = 2
+        twoFingerSingleTap.delegate = self
+        self.view.addGestureRecognizer(twoFingerSingleTap)
+        
+        let doubleSelector: Selector = "doubleTap:"
+        var doubleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: doubleSelector)
+        doubleTap.numberOfTapsRequired = 2
+        doubleTap.delegate = self
+        self.view.addGestureRecognizer(doubleTap)
+        
+        let dragSelector: Selector = "dragGesture:"
+        var dragRecognizer: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: dragSelector)
+        dragRecognizer.minimumNumberOfTouches = 1
+        dragRecognizer.maximumNumberOfTouches = 1
+        dragRecognizer.delegate = self
+        
+        self.view.addGestureRecognizer(dragRecognizer)
+
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        let touch = touches.first as! UITouch
+        let location = touch.locationInView(self.view)
+        for note in noteArray {
+            if self.isTouchingNote(note, location: location){
+                self.startingOnNote = true
+                return
+            }
+        }
+    }
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.startingOnNote = false
     }
     
     func createClearMeasureButton() {
