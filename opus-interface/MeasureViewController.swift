@@ -52,6 +52,7 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
     func dragGesture(gestureRecognizer: UIPanGestureRecognizer){
         let location = gestureRecognizer.locationInView(self.view)
 
+        println("\(gestureRecognizer.state == UIGestureRecognizerState.Changed)")
         if gestureRecognizer.state == UIGestureRecognizerState.Began {
             
             for note in noteArray {

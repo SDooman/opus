@@ -37,10 +37,10 @@
             </objects>
             <point key="canvasLocation" x="78" y="133"/>
         </scene>
-        <!--Staff View Controller-->
+        <!--Old Staff View Controller-->
         <scene sceneID="sLw-Rq-dqu">
             <objects>
-                <viewController id="vfB-9Q-BVW" customClass="StaffViewController" customModule="opus_interface" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vfB-9Q-BVW" customClass="OldStaffViewController" customModule="opus_interface" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q1k-ab-n6g"/>
                         <viewControllerLayoutGuide type="bottom" id="nU9-gB-HYx"/>

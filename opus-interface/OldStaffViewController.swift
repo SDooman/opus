@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StaffViewController: ViewController {
+class OldStaffViewController: ViewController {
     
 
     var pageController: DMDynamicViewController? = nil
@@ -21,6 +21,20 @@ class StaffViewController: ViewController {
         let viewControllers = [viewController1, viewController2]
         
         pageController = DMDynamicViewController(viewControllers: viewControllers)
+        
+        let testView = pageController!.view //as! OpusMenuUIScrollView
+        println(testView)
+        
+        let scrollView = pageController?.containerScrollView
+        
+        println("---")
+        
+        println(scrollView)
+        
+        println(testView === scrollView)
+        //testView.alwaysBounceHorizontal = true
+        
+        
         self.view.addSubview(pageController!.view)
         
         // Legacy code, might need later - taken out now with no apparent problems,
