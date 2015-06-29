@@ -19,13 +19,25 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
     var selectedValue = UINote(value: .Quarter).value
     var startingOnNote:Bool = false
     
+    var myStaff: StaffViewController? = nil
+    
+    init(staff: StaffViewController) {
+        super.init(nibName: nil, bundle: nil)
+        myStaff = staff
+        println(myStaff)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
+        
         self.setupStaff()
         self.createClearMeasureButton()
         self.setupGestureRecognizers()
-
     }
     
     func twoFingerSingleTap(gestureRecognizer: UITapGestureRecognizer){
@@ -187,7 +199,15 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         let newNote = UINote(value: selectedValue!)
         newNote.imageView?.frame = CGRect(origin: location, size: newNote.mySize!)
         newNote.setLocation(location)
-        view.addSubview(newNote.imageView!)
+        
+        //view.addSubview(newNote.imageView!)
+        //myStaff!.view.addSubview(newNote.imageView!)
+        
+        // ostensibly does the same as above :
+        // myStaff!.pageController!.view.addSubview(newNote.imageView!)
+        
+        myStaff!.createNote(newNote, location: newNote.myLocation!, caller: self)
+        
         noteArray.append(newNote)
         return newNote
     }

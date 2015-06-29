@@ -10,13 +10,12 @@ import UIKit
 
 class StaffViewController: ViewController {
     
-
     var pageController: DMDynamicViewController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let viewController1 = MeasureViewController()
-        let viewController2 = MeasureViewController()
+        let viewController1 = MeasureViewController(staff: self)
+        let viewController2 = MeasureViewController(staff: self)
         
         let viewControllers = [viewController1, viewController2]
         
@@ -28,6 +27,19 @@ class StaffViewController: ViewController {
         //self.view.window?.rootViewController = pageController
         
         
+    }
+    
+    func createNote(note: UINote, location: CGPoint, caller: MeasureViewController){
+        let array = pageController!.viewControllers!
+        var myIndex: Int
+        for index in 0...array.count - 1 {
+            if array[index] === caller {
+                myIndex = index
+                break
+            }
+        }
+        // assuming for now this returns something - otherwise the caller isn't in the array (impossible?)
+        var myLocation = CGPoint(x: location.x * CGFloat(myIndex), y: location.y)
     }
     
     override func didReceiveMemoryWarning() {

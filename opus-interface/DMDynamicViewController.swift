@@ -122,6 +122,8 @@ class DMDynamicViewController: UIViewController, UIScrollViewDelegate {
             page?.didMoveToParentViewController(self)
         }
         containerScrollView.contentSize = CGSizeMake(self.view.bounds.size.width * CGFloat(self.viewControllers!.count), 1.0)
+        //added by ndemarco
+        println(containerScrollView.contentSize.width)
     }
     
     func insertPage(viewController: UIViewController, atIndex index: Int) {
@@ -206,7 +208,8 @@ class DMDynamicViewController: UIViewController, UIScrollViewDelegate {
         
         if (scrollOffset + scrollViewWidth >= scrollContentSize - 100){
             // we've hit the far right
-            let newMeasure = MeasureViewController()
+            let theStaff = self.view.superview?.nextResponder() as! StaffViewController
+            let newMeasure = MeasureViewController(staff: theStaff)
             newMeasure.view.backgroundColor = self.getRandomColor()
             self.insertPage(newMeasure, atIndex: self.viewControllers!.count)
             
