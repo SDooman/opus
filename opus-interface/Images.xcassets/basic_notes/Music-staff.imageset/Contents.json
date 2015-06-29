@@ -1,17 +1,13 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "Music-staff.png"
+      "idiom" : "universal"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Music-staff.png",
+      "unassigned" : true,
+      "scale" : "1x"
     }
   ],
   "info" : {

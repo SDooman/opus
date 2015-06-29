@@ -32,3 +32,6 @@ xcuserdata
 ## Apples DS_Store
 .DS_Store
 
+## Resources
+resources/*
+

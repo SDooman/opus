@@ -1,17 +1,13 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "half_note.png"
+      "idiom" : "universal"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "half_note.png",
+      "unassigned" : true,
+      "scale" : "1x"
     }
   ],
   "info" : {
