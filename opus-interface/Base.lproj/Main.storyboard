@@ -48,6 +48,11 @@
                     <view key="view" contentMode="scaleToFill" id="I1J-Fh-5jq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="staff_vector" translatesAutoresizingMaskIntoConstraints="NO" id="dKd-qG-cjc">
+                                <rect key="frame" x="0.0" y="217" width="600" height="67"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
@@ -56,4 +61,7 @@
             <point key="canvasLocation" x="766" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="staff_vector" width="200" height="100"/>
+    </resources>
 </document>
