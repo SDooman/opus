@@ -16,8 +16,8 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   
   //  Graphics objects
   
-  var notes : [NewUINote] = [NewUINote]()
-  var selectedNote : NewUINote?
+  var notes : [UINote] = [UINote]()
+  var selectedNote : UINote?
   
   var container : StaffContainerViewController {
     
@@ -96,7 +96,7 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   //MARK: - Graphics Helper Functions
   //TODO: - Should these be in their own class?
   
-  /*func noteIsAtLocation(note: NewUINote, location: CGPoint) -> Bool {
+  /*func noteIsAtLocation(note: UINote, location: CGPoint) -> Bool {
     
     
     let noteX = note.getNoteCenter().x
@@ -130,7 +130,7 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     selectedNote = nil
   }
   
-  func noteIsAtLocation(note: NewUINote, location: CGPoint) -> Bool {
+  func noteIsAtLocation(note: UINote, location: CGPoint) -> Bool {
     return true
   }
   

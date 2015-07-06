@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class NewUINote {
+class UINote {
   
   let note : OpusNote
   
