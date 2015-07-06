@@ -34,7 +34,7 @@ enum NoteValue : Printable {
     }
 }
 
-class UINote {
+class OldUINote {
     
     let value: NoteValue?
     let imageName: String?

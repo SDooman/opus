@@ -14,9 +14,9 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
     let _staffImageName = "Music-staff"
  
     let sensitivity = CGFloat(40.0)    // how wide around note's center will a click = note selection
-    var noteArray: [UINote] = [UINote]()
-    var currentNote: UINote?
-    var selectedValue = UINote(value: .Quarter).value
+    var noteArray: [OldUINote] = [OldUINote]()
+    var currentNote: OldUINote?
+    var selectedValue = OldUINote(value: .Quarter).value
     var startingOnNote:Bool = false
     
     override func viewDidLoad() {
@@ -64,7 +64,7 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         }
 
         if currentNote == nil && !self.startingOnNote{
-            let dummyNote = UINote(value: selectedValue!)
+            let dummyNote = OldUINote(value: selectedValue!)
             currentNote = createNote(location)
         }
         else if currentNote != nil {
@@ -96,7 +96,7 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
             }
         }
         if currentNote == nil && locationIsOnStaff(location){
-            let dummyNote = UINote(value: selectedValue!)
+            let dummyNote = OldUINote(value: selectedValue!)
             createNote(location)
         }
         if (gestureRecognizer.state == UIGestureRecognizerState.Ended){
@@ -119,20 +119,20 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         super.didReceiveMemoryWarning()
     }
     
-    func showMenuOnNote(uiNote: UINote) {
+    func showMenuOnNote(oldUINote: OldUINote) {
         var popView = NoteSelectedPopViewController(nibName: "NoteSelectedPopView", bundle: nil, measureView: self)
         var popController = UIPopoverController(contentViewController: popView)
-        let myWidth = uiNote.imageView?.frame.width
-        let myHeight = uiNote.imageView?.frame.height
-        let myFrame = uiNote.imageView?.frame
+        let myWidth = oldUINote.imageView?.frame.width
+        let myHeight = oldUINote.imageView?.frame.height
+        let myFrame = oldUINote.imageView?.frame
         
         // well doesn't this look gross? This is my current solution to a non-fatal error message I got when I started working with the popover view controller. "Presenting view controllers on detached view controllers is discouraged." It has to do with our storyboard - because we're doing most of the views programmatically, the Storyboard actually sees this VC - the measure view controller, as detached from the storyboard. So, the measure view controller is "detached." The following code makes the actual target VC the Staff View Controller.
         let targetVC = self.view.superview!.superview!.superview!
         
         popController.popoverContentSize = CGSize(width: myWidth!, height: myHeight!)
-        popController.presentPopoverFromRect((uiNote.imageView?.frame)!, inView: targetVC, permittedArrowDirections: UIPopoverArrowDirection.Right, animated: true)
+        popController.presentPopoverFromRect((oldUINote.imageView?.frame)!, inView: targetVC, permittedArrowDirections: UIPopoverArrowDirection.Right, animated: true)
         
-        // need to set current note to passed parameter uiNote to sharp/flat it
+        // need to set current note to passed parameter OldUINote to sharp/flat it
         
     }
     
@@ -167,7 +167,7 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         // need to set current note to nil after sharping or flatting it
     }
 
-    func isTouchingNote(note: UINote, location: CGPoint) -> Bool {
+    func isTouchingNote(note: OldUINote, location: CGPoint) -> Bool {
         let noteX = note.getNoteCenter().x
         let noteY = note.getNoteCenter().y
         let touchX = location.x
@@ -184,8 +184,8 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         return withinX && withinY
     }
  
-    func createNote(location: CGPoint) -> UINote{
-        let newNote = UINote(value: selectedValue!)
+    func createNote(location: CGPoint) -> OldUINote{
+        let newNote = OldUINote(value: selectedValue!)
         newNote.imageView?.frame = CGRect(origin: location, size: newNote.mySize!)
         newNote.setLocation(location)
         view.addSubview(newNote.imageView!)
@@ -194,8 +194,8 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
     }
     
     func sortNoteArray() {
-        let sortedArray:[UINote] = sorted(noteArray, {
-            (note1: UINote, note2: UINote) -> Bool in
+        let sortedArray:[OldUINote] = sorted(noteArray, {
+            (note1: OldUINote, note2: OldUINote) -> Bool in
             return note1.imageView?.center.x > note2.imageView?.center.x
         })
         noteArray = sortedArray
@@ -301,7 +301,7 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         for note in noteArray {
             note.imageView?.removeFromSuperview()
         }
-        noteArray = [UINote]()
+        noteArray = [OldUINote]()
     }
     
 

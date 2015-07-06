@@ -52,8 +52,8 @@
 		22FE60FF1B4AFB6500310FBA /* StaffNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE60CB1B4AFB6500310FBA /* StaffNavigationViewController.swift */; };
 		22FE61001B4AFB6500310FBA /* StaffScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE60CC1B4AFB6500310FBA /* StaffScrollView.swift */; };
 		22FE61011B4AFB6500310FBA /* StaffScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE60CC1B4AFB6500310FBA /* StaffScrollView.swift */; };
-		22FE61021B4AFB6500310FBA /* UINote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE60CD1B4AFB6500310FBA /* UINote.swift */; };
-		22FE61031B4AFB6500310FBA /* UINote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE60CD1B4AFB6500310FBA /* UINote.swift */; };
+		22FE61021B4AFB6500310FBA /* OldUINote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE60CD1B4AFB6500310FBA /* OldUINote.swift */; };
+		22FE61031B4AFB6500310FBA /* OldUINote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE60CD1B4AFB6500310FBA /* OldUINote.swift */; };
 		22FE61041B4AFB6500310FBA /* AudioAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE60CE1B4AFB6500310FBA /* AudioAdapter.swift */; };
 		22FE61051B4AFB6500310FBA /* AudioAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE60CE1B4AFB6500310FBA /* AudioAdapter.swift */; };
 		22FE61061B4AFB6500310FBA /* AudioToolboxError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE60CF1B4AFB6500310FBA /* AudioToolboxError.swift */; };
@@ -170,7 +170,7 @@
 		22FE60CA1B4AFB6500310FBA /* StaffEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffEditorViewController.swift; sourceTree = "<group>"; };
 		22FE60CB1B4AFB6500310FBA /* StaffNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffNavigationViewController.swift; sourceTree = "<group>"; };
 		22FE60CC1B4AFB6500310FBA /* StaffScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffScrollView.swift; sourceTree = "<group>"; };
-		22FE60CD1B4AFB6500310FBA /* UINote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINote.swift; sourceTree = "<group>"; };
+		22FE60CD1B4AFB6500310FBA /* OldUINote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldUINote.swift; sourceTree = "<group>"; };
 		22FE60CE1B4AFB6500310FBA /* AudioAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioAdapter.swift; sourceTree = "<group>"; };
 		22FE60CF1B4AFB6500310FBA /* AudioToolboxError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioToolboxError.swift; sourceTree = "<group>"; };
 		22FE60D01B4AFB6500310FBA /* Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
@@ -357,7 +357,7 @@
 				22FE60C41B4AFB6500310FBA /* NoteSelectedPopViewController.swift */,
 				22FE60C51B4AFB6500310FBA /* OldStaffViewController.swift */,
 				22FE60C71B4AFB6500310FBA /* OpusMenuUIScrollView.swift */,
-				22FE60CD1B4AFB6500310FBA /* UINote.swift */,
+				22FE60CD1B4AFB6500310FBA /* OldUINote.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -576,7 +576,7 @@
 				22FE610E1B4AFB6500310FBA /* OpusAUGraph.swift in Sources */,
 				22FE60E41B4AFB6500310FBA /* GraphicConstants.swift in Sources */,
 				22FE61161B4AFB6500310FBA /* OpusNoteValue.swift in Sources */,
-				22FE61021B4AFB6500310FBA /* UINote.swift in Sources */,
+				22FE61021B4AFB6500310FBA /* OldUINote.swift in Sources */,
 				22FE60E81B4AFB6500310FBA /* LaunchViewController.swift in Sources */,
 				225D21581B1F8AB0007DD37B /* AppDelegate.swift in Sources */,
 				22FE61181B4AFB6500310FBA /* OpusRest.swift in Sources */,
@@ -617,7 +617,7 @@
 				22FE610F1B4AFB6500310FBA /* OpusAUGraph.swift in Sources */,
 				22FE60E51B4AFB6500310FBA /* GraphicConstants.swift in Sources */,
 				22FE61171B4AFB6500310FBA /* OpusNoteValue.swift in Sources */,
-				22FE61031B4AFB6500310FBA /* UINote.swift in Sources */,
+				22FE61031B4AFB6500310FBA /* OldUINote.swift in Sources */,
 				22FE60E91B4AFB6500310FBA /* LaunchViewController.swift in Sources */,
 				225D21711B1F8AB0007DD37B /* opus_interfaceTests.swift in Sources */,
 				22FE61191B4AFB6500310FBA /* OpusRest.swift in Sources */,
