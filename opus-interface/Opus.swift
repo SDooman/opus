@@ -11,9 +11,13 @@ import UIKit
 
 struct Opus {
   
-  //MARK: -
+  //MARK: - Radius allowed when touching note
   static let UINOTE_TOUCH_THRESHOLD : CGFloat = CGFloat(40.0)
   
+  //MARK: - Note dimensions
+  static let UINOTE_HEIGHT = UIScreen.mainScreen().bounds.height / 4.5
+  
+  static let UINOTE_WIDTH = UIScreen.mainScreen().bounds.width / 17
   
   //MARK: - Offsets for drawing notes to staff
   static let WHOLE_NOTE_OFFSET : CGPoint = CGPoint(x: 0, y: 0)

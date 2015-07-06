@@ -10,6 +10,4 @@ import AudioToolbox
 
 protocol OpusStaffEvent {
   
-  func beatLocation() -> MusicTimeStamp
-  
 }

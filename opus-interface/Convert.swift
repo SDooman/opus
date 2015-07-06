@@ -25,11 +25,11 @@ class Convert {
   class func opusNoteToMIDIInformation(opusNote: OpusNote,
     timeSignature: OpusTimeSignature) -> (UInt8, Float32, MusicTimeStamp) {
     
-      var note : UInt8 = UInt8(floor(opusNote.pitch().midi))
+      var note : UInt8 = UInt8(floor(opusNote.pitch.midi))
       
-      var noteValue = opusNote.noteValue()
+      var noteValue = opusNote.noteValue
       var duration = noteValueToDuration(noteValue, timeSignature: timeSignature)
       
-      return (note, duration, opusNote.beatLocation())
+      return (note, duration, opusNote.beatLocation)
   }
 }
