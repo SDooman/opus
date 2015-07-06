@@ -253,6 +253,7 @@
 		225D21541B1F8AB0007DD37B /* opus-interface */ = {
 			isa = PBXGroup;
 			children = (
+				22FE60C61B4AFB6500310FBA /* Opus.swift */,
 				22FE61281B4AFEF300310FBA /* view-models */,
 				22FE61271B4AFEE800310FBA /* audio */,
 				22FE61261B4AFEE100310FBA /* models */,
@@ -326,6 +327,7 @@
 		22FE61231B4AFEC700310FBA /* new-views */ = {
 			isa = PBXGroup;
 			children = (
+				22FE60C21B4AFB6500310FBA /* NewUINote.swift */,
 				22FE60C81B4AFB6500310FBA /* PlaybackMenuViewController.swift */,
 				22FE60C91B4AFB6500310FBA /* StaffContainerViewController.swift */,
 				22FE60CA1B4AFB6500310FBA /* StaffEditorViewController.swift */,
@@ -351,11 +353,9 @@
 				22FE60BE1B4AFB6500310FBA /* GraphicConstants.swift */,
 				22FE60C01B4AFB6500310FBA /* LaunchViewController.swift */,
 				22FE60C11B4AFB6500310FBA /* MeasureViewController.swift */,
-				22FE60C21B4AFB6500310FBA /* NewUINote.swift */,
 				22FE60C31B4AFB6500310FBA /* NoteSelectedPopView.xib */,
 				22FE60C41B4AFB6500310FBA /* NoteSelectedPopViewController.swift */,
 				22FE60C51B4AFB6500310FBA /* OldStaffViewController.swift */,
-				22FE60C61B4AFB6500310FBA /* Opus.swift */,
 				22FE60C71B4AFB6500310FBA /* OpusMenuUIScrollView.swift */,
 				22FE60CD1B4AFB6500310FBA /* UINote.swift */,
 			);
