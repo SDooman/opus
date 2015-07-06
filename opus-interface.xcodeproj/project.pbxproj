@@ -84,6 +84,10 @@
 		22FE611F1B4AFB6500310FBA /* OpusTimeSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE60DC1B4AFB6500310FBA /* OpusTimeSignature.swift */; };
 		22FE61201B4AFB6500310FBA /* StaffViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE60DD1B4AFB6500310FBA /* StaffViewModel.swift */; };
 		22FE61211B4AFB6500310FBA /* StaffViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE60DD1B4AFB6500310FBA /* StaffViewModel.swift */; };
+		22FE612A1B4B2B3B00310FBA /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61291B4B2B3B00310FBA /* Command.swift */; };
+		22FE612B1B4B2B3B00310FBA /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61291B4B2B3B00310FBA /* Command.swift */; };
+		22FE612D1B4B373D00310FBA /* InsertNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE612C1B4B373D00310FBA /* InsertNote.swift */; };
+		22FE612E1B4B373D00310FBA /* InsertNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE612C1B4B373D00310FBA /* InsertNote.swift */; };
 		BBFCACD61B307CA3003E0BDD /* MusicKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = BBFCACD11B307C8B003E0BDD /* MusicKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -186,6 +190,8 @@
 		22FE60DB1B4AFB6500310FBA /* OpusStaffEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusStaffEvent.swift; sourceTree = "<group>"; };
 		22FE60DC1B4AFB6500310FBA /* OpusTimeSignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusTimeSignature.swift; sourceTree = "<group>"; };
 		22FE60DD1B4AFB6500310FBA /* StaffViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffViewModel.swift; sourceTree = "<group>"; };
+		22FE61291B4B2B3B00310FBA /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		22FE612C1B4B373D00310FBA /* InsertNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertNote.swift; sourceTree = "<group>"; };
 		BBFCACC71B307C8B003E0BDD /* MusicKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MusicKit.xcodeproj; path = MusicKit/MusicKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -340,6 +346,8 @@
 		22FE61241B4AFED400310FBA /* commands */ = {
 			isa = PBXGroup;
 			children = (
+				22FE61291B4B2B3B00310FBA /* Command.swift */,
+				22FE612C1B4B373D00310FBA /* InsertNote.swift */,
 			);
 			name = commands;
 			sourceTree = "<group>";
@@ -561,6 +569,7 @@
 				22FE61101B4AFB6500310FBA /* OpusKeySignature.swift in Sources */,
 				22FE60EC1B4AFB6500310FBA /* UINote.swift in Sources */,
 				22FE610C1B4AFB6500310FBA /* OpusAudioPlayer.swift in Sources */,
+				22FE612D1B4B373D00310FBA /* InsertNote.swift in Sources */,
 				22FE61001B4AFB6500310FBA /* StaffScrollView.swift in Sources */,
 				22FE60FC1B4AFB6500310FBA /* StaffEditorViewController.swift in Sources */,
 				22FE60F41B4AFB6500310FBA /* Opus.swift in Sources */,
@@ -569,6 +578,7 @@
 				22FE60FA1B4AFB6500310FBA /* StaffContainerViewController.swift in Sources */,
 				22FE60E21B4AFB6500310FBA /* FloatingMenuPopViewController.swift in Sources */,
 				22FE61141B4AFB6500310FBA /* OpusNote.swift in Sources */,
+				22FE612A1B4B2B3B00310FBA /* Command.swift in Sources */,
 				22FE61121B4AFB6500310FBA /* OpusMIDIAdapter.swift in Sources */,
 				225D215B1B1F8AB0007DD37B /* opus_interface.xcdatamodeld in Sources */,
 				22FE60F81B4AFB6500310FBA /* PlaybackMenuViewController.swift in Sources */,
@@ -602,6 +612,7 @@
 				22FE61111B4AFB6500310FBA /* OpusKeySignature.swift in Sources */,
 				22FE60ED1B4AFB6500310FBA /* UINote.swift in Sources */,
 				22FE610D1B4AFB6500310FBA /* OpusAudioPlayer.swift in Sources */,
+				22FE612E1B4B373D00310FBA /* InsertNote.swift in Sources */,
 				22FE61011B4AFB6500310FBA /* StaffScrollView.swift in Sources */,
 				22FE60FD1B4AFB6500310FBA /* StaffEditorViewController.swift in Sources */,
 				22FE60F51B4AFB6500310FBA /* Opus.swift in Sources */,
@@ -610,6 +621,7 @@
 				22FE60FB1B4AFB6500310FBA /* StaffContainerViewController.swift in Sources */,
 				22FE60E31B4AFB6500310FBA /* FloatingMenuPopViewController.swift in Sources */,
 				22FE61151B4AFB6500310FBA /* OpusNote.swift in Sources */,
+				22FE612B1B4B2B3B00310FBA /* Command.swift in Sources */,
 				22FE61131B4AFB6500310FBA /* OpusMIDIAdapter.swift in Sources */,
 				22D60F4F1B45940C00755C8F /* ViewController.swift in Sources */,
 				22FE60F91B4AFB6500310FBA /* PlaybackMenuViewController.swift in Sources */,

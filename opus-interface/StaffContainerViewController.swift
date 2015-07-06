@@ -18,6 +18,12 @@ class StaffContainerViewController: UIViewController {
   private var editorIndex = 1
   private var playbackMenuIndex = 2
   
+  //TODO: Refactor so that Staff View Constructors
+  //      are constructed with a ViewModel passed in
+  //      useful for
+  
+  var staffViewModel : StaffViewModel = StaffViewModel()
+  
   var staffEditor : StaffEditorViewController {
     return childViewControllers[editorIndex]
       as! StaffEditorViewController

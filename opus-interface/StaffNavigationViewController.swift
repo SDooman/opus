@@ -17,6 +17,10 @@ class StaffNavigationViewController: UIViewController {
     return parentViewController as! StaffContainerViewController
   }
   
+  var staffViewModel : StaffViewModel {
+    return container.staffViewModel
+  }
+  
   //MARK: - Lifecycle
   
   override func viewDidLoad() {

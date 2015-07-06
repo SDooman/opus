@@ -12,17 +12,22 @@ import MusicKit
 //TODO: Make sure to replace all Audio playback with
 //      Error throwing methods
 
-class StaffViewModel: NSObject {
+class StaffViewModel {
   
   var _staff : OpusStaff
   var _audioAdapter : AudioAdapter
   
-  override init() {
+  var currentNoteValue : OpusNoteValue
+    = OpusNoteValue.Quarter
+  
+  init() {
     
     _staff = OpusStaff(timeSignature: OpusTimeSignature.commonTime(),
       keySignature: OpusKeySignature.noAccidentals())
     
     _audioAdapter = AudioAdapter()
+    
+    currentNoteValue = OpusNoteValue.Quarter
   }
   
   //MARK: Accessing Staff Information

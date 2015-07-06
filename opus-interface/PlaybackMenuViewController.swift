@@ -17,6 +17,10 @@ class PlaybackMenuViewController: UIViewController {
     return parentViewController as! StaffContainerViewController
   }
   
+  var staffViewModel : StaffViewModel {
+    return container.staffViewModel
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 

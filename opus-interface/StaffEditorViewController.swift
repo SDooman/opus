@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MusicKit
+import AudioToolbox
 
 class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   
@@ -23,6 +25,13 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     
     return parentViewController as! StaffContainerViewController
   }
+  
+  var staffViewModel : StaffViewModel {
+    return container.staffViewModel
+  }
+  
+  
+  //MARK: - Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -96,47 +105,47 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   //MARK: - Graphics Helper Functions
   //TODO: - Should these be in their own class?
   
-  /*func noteIsAtLocation(note: UINote, location: CGPoint) -> Bool {
+  func noteIsAtLocation(note: UINote, location: CGPoint) -> Bool {
     
-    
-    let noteX = note.getNoteCenter().x
-    let noteY = note.getNoteCenter().y
+    let noteX = note.noteCenter.x
+    let noteY = note.noteCenter.y
     
     let touchX = location.x
     let touchY = location.y
-
     
-    
-    if touchX >= noteX - sensitivity && touchX <= noteX + sensitivity {
-      withinX = true
-    }
-    if touchY >= noteY - sensitivity && touchY <= noteY + sensitivity {
-      withinY = true
-    }
-    return withinX && withinY
-  }*/
+    return abs(noteX - touchX) < Opus.UINOTE_TOUCH_THRESHOLD
+      && abs(noteY - touchY) < Opus.UINOTE_TOUCH_THRESHOLD
+  }
   
   func selectNoteAt(location: CGPoint) {
-    
     for note in notes {
-      
       if noteIsAtLocation(note, location: location){
-          
         selectedNote = note
         return
       }
     }
-    
     selectedNote = nil
   }
   
-  func noteIsAtLocation(note: UINote, location: CGPoint) -> Bool {
-    return true
+  func twoTouchesAreAdjacent(#touchOne: CGPoint, touchTwo: CGPoint) -> Bool {
+    //TODO: [ND] Implement implement this
+    return false
   }
   
-  func twoTouchesAreAdjacent(#touchOne: CGPoint, touchTwo: CGPoint) -> Bool {
-    //TODO: [ND] Implement
-    return false
+  //TODO: [ND] Implement this.  
+  //      Gives vertical and horizontal grid locked coordinate
+  func closestValidPositionFrom(#location: CGPoint) -> CGPoint {
+    return CGPoint(x: 0, y: 0)
+  }
+  
+  //TODO: [ND] Implement this
+  func pitchFromBarLineIndex(barLineIndex: Int) -> Pitch {
+    return Pitch(midi: 60)
+  }
+  
+  //TODO: [ND] Implement this
+  func beatLocationFrom(#location: CGPoint) -> MusicTimeStamp {
+    return 0
   }
   
   //MARK: - UIScrollViewDelegate
