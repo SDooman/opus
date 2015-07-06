@@ -152,40 +152,40 @@
 		225D216F1B1F8AB0007DD37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		225D21701B1F8AB0007DD37B /* opus_interfaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = opus_interfaceTests.swift; sourceTree = "<group>"; };
 		226C4DE91B238583005DD6A3 /* grand_piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = grand_piano.sf2; sourceTree = "<group>"; };
-		22FE60BB1B4AFB6500310FBA /* DMDynamicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DMDynamicViewController.swift; path = "opus-interface/DMDynamicViewController.swift"; sourceTree = "<group>"; };
-		22FE60BC1B4AFB6500310FBA /* FloatingMenuPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FloatingMenuPopView.xib; path = "opus-interface/FloatingMenuPopView.xib"; sourceTree = "<group>"; };
-		22FE60BD1B4AFB6500310FBA /* FloatingMenuPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatingMenuPopViewController.swift; path = "opus-interface/FloatingMenuPopViewController.swift"; sourceTree = "<group>"; };
-		22FE60BE1B4AFB6500310FBA /* GraphicConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraphicConstants.swift; path = "opus-interface/GraphicConstants.swift"; sourceTree = "<group>"; };
+		22FE60BB1B4AFB6500310FBA /* DMDynamicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDynamicViewController.swift; sourceTree = "<group>"; };
+		22FE60BC1B4AFB6500310FBA /* FloatingMenuPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatingMenuPopView.xib; sourceTree = "<group>"; };
+		22FE60BD1B4AFB6500310FBA /* FloatingMenuPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingMenuPopViewController.swift; sourceTree = "<group>"; };
+		22FE60BE1B4AFB6500310FBA /* GraphicConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicConstants.swift; sourceTree = "<group>"; };
 		22FE60BF1B4AFB6500310FBA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "opus-interface/Images.xcassets"; sourceTree = "<group>"; };
-		22FE60C01B4AFB6500310FBA /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchViewController.swift; path = "opus-interface/LaunchViewController.swift"; sourceTree = "<group>"; };
-		22FE60C11B4AFB6500310FBA /* MeasureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeasureViewController.swift; path = "opus-interface/MeasureViewController.swift"; sourceTree = "<group>"; };
-		22FE60C21B4AFB6500310FBA /* NewUINote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewUINote.swift; path = "opus-interface/NewUINote.swift"; sourceTree = "<group>"; };
-		22FE60C31B4AFB6500310FBA /* NoteSelectedPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoteSelectedPopView.xib; path = "opus-interface/NoteSelectedPopView.xib"; sourceTree = "<group>"; };
-		22FE60C41B4AFB6500310FBA /* NoteSelectedPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteSelectedPopViewController.swift; path = "opus-interface/NoteSelectedPopViewController.swift"; sourceTree = "<group>"; };
-		22FE60C51B4AFB6500310FBA /* OldStaffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OldStaffViewController.swift; path = "opus-interface/OldStaffViewController.swift"; sourceTree = "<group>"; };
-		22FE60C61B4AFB6500310FBA /* Opus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Opus.swift; path = "opus-interface/Opus.swift"; sourceTree = "<group>"; };
-		22FE60C71B4AFB6500310FBA /* OpusMenuUIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpusMenuUIScrollView.swift; path = "opus-interface/OpusMenuUIScrollView.swift"; sourceTree = "<group>"; };
-		22FE60C81B4AFB6500310FBA /* PlaybackMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaybackMenuViewController.swift; path = "opus-interface/PlaybackMenuViewController.swift"; sourceTree = "<group>"; };
-		22FE60C91B4AFB6500310FBA /* StaffContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StaffContainerViewController.swift; path = "opus-interface/StaffContainerViewController.swift"; sourceTree = "<group>"; };
-		22FE60CA1B4AFB6500310FBA /* StaffEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StaffEditorViewController.swift; path = "opus-interface/StaffEditorViewController.swift"; sourceTree = "<group>"; };
-		22FE60CB1B4AFB6500310FBA /* StaffNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StaffNavigationViewController.swift; path = "opus-interface/StaffNavigationViewController.swift"; sourceTree = "<group>"; };
-		22FE60CC1B4AFB6500310FBA /* StaffScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StaffScrollView.swift; path = "opus-interface/StaffScrollView.swift"; sourceTree = "<group>"; };
-		22FE60CD1B4AFB6500310FBA /* UINote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINote.swift; path = "opus-interface/UINote.swift"; sourceTree = "<group>"; };
-		22FE60CE1B4AFB6500310FBA /* AudioAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioAdapter.swift; path = "opus-interface/AudioAdapter.swift"; sourceTree = "<group>"; };
-		22FE60CF1B4AFB6500310FBA /* AudioToolboxError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioToolboxError.swift; path = "opus-interface/AudioToolboxError.swift"; sourceTree = "<group>"; };
-		22FE60D01B4AFB6500310FBA /* Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Convert.swift; path = "opus-interface/Convert.swift"; sourceTree = "<group>"; };
+		22FE60C01B4AFB6500310FBA /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		22FE60C11B4AFB6500310FBA /* MeasureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureViewController.swift; sourceTree = "<group>"; };
+		22FE60C21B4AFB6500310FBA /* NewUINote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUINote.swift; sourceTree = "<group>"; };
+		22FE60C31B4AFB6500310FBA /* NoteSelectedPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteSelectedPopView.xib; sourceTree = "<group>"; };
+		22FE60C41B4AFB6500310FBA /* NoteSelectedPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteSelectedPopViewController.swift; sourceTree = "<group>"; };
+		22FE60C51B4AFB6500310FBA /* OldStaffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldStaffViewController.swift; sourceTree = "<group>"; };
+		22FE60C61B4AFB6500310FBA /* Opus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opus.swift; sourceTree = "<group>"; };
+		22FE60C71B4AFB6500310FBA /* OpusMenuUIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusMenuUIScrollView.swift; sourceTree = "<group>"; };
+		22FE60C81B4AFB6500310FBA /* PlaybackMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackMenuViewController.swift; sourceTree = "<group>"; };
+		22FE60C91B4AFB6500310FBA /* StaffContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffContainerViewController.swift; sourceTree = "<group>"; };
+		22FE60CA1B4AFB6500310FBA /* StaffEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffEditorViewController.swift; sourceTree = "<group>"; };
+		22FE60CB1B4AFB6500310FBA /* StaffNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffNavigationViewController.swift; sourceTree = "<group>"; };
+		22FE60CC1B4AFB6500310FBA /* StaffScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffScrollView.swift; sourceTree = "<group>"; };
+		22FE60CD1B4AFB6500310FBA /* UINote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINote.swift; sourceTree = "<group>"; };
+		22FE60CE1B4AFB6500310FBA /* AudioAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioAdapter.swift; sourceTree = "<group>"; };
+		22FE60CF1B4AFB6500310FBA /* AudioToolboxError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioToolboxError.swift; sourceTree = "<group>"; };
+		22FE60D01B4AFB6500310FBA /* Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
 		22FE60D21B4AFB6500310FBA /* opus_interface.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = opus_interface.xcdatamodel; sourceTree = "<group>"; };
-		22FE60D31B4AFB6500310FBA /* OpusAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpusAudioPlayer.swift; path = "opus-interface/OpusAudioPlayer.swift"; sourceTree = "<group>"; };
-		22FE60D41B4AFB6500310FBA /* OpusAUGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpusAUGraph.swift; path = "opus-interface/OpusAUGraph.swift"; sourceTree = "<group>"; };
-		22FE60D51B4AFB6500310FBA /* OpusKeySignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpusKeySignature.swift; path = "opus-interface/OpusKeySignature.swift"; sourceTree = "<group>"; };
-		22FE60D61B4AFB6500310FBA /* OpusMIDIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpusMIDIAdapter.swift; path = "opus-interface/OpusMIDIAdapter.swift"; sourceTree = "<group>"; };
-		22FE60D71B4AFB6500310FBA /* OpusNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpusNote.swift; path = "opus-interface/OpusNote.swift"; sourceTree = "<group>"; };
-		22FE60D81B4AFB6500310FBA /* OpusNoteValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpusNoteValue.swift; path = "opus-interface/OpusNoteValue.swift"; sourceTree = "<group>"; };
-		22FE60D91B4AFB6500310FBA /* OpusRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpusRest.swift; path = "opus-interface/OpusRest.swift"; sourceTree = "<group>"; };
-		22FE60DA1B4AFB6500310FBA /* OpusStaff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpusStaff.swift; path = "opus-interface/OpusStaff.swift"; sourceTree = "<group>"; };
-		22FE60DB1B4AFB6500310FBA /* OpusStaffEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpusStaffEvent.swift; path = "opus-interface/OpusStaffEvent.swift"; sourceTree = "<group>"; };
-		22FE60DC1B4AFB6500310FBA /* OpusTimeSignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpusTimeSignature.swift; path = "opus-interface/OpusTimeSignature.swift"; sourceTree = "<group>"; };
-		22FE60DD1B4AFB6500310FBA /* StaffViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StaffViewModel.swift; path = "opus-interface/StaffViewModel.swift"; sourceTree = "<group>"; };
+		22FE60D31B4AFB6500310FBA /* OpusAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusAudioPlayer.swift; sourceTree = "<group>"; };
+		22FE60D41B4AFB6500310FBA /* OpusAUGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusAUGraph.swift; sourceTree = "<group>"; };
+		22FE60D51B4AFB6500310FBA /* OpusKeySignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusKeySignature.swift; sourceTree = "<group>"; };
+		22FE60D61B4AFB6500310FBA /* OpusMIDIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusMIDIAdapter.swift; sourceTree = "<group>"; };
+		22FE60D71B4AFB6500310FBA /* OpusNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusNote.swift; sourceTree = "<group>"; };
+		22FE60D81B4AFB6500310FBA /* OpusNoteValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusNoteValue.swift; sourceTree = "<group>"; };
+		22FE60D91B4AFB6500310FBA /* OpusRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusRest.swift; sourceTree = "<group>"; };
+		22FE60DA1B4AFB6500310FBA /* OpusStaff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusStaff.swift; sourceTree = "<group>"; };
+		22FE60DB1B4AFB6500310FBA /* OpusStaffEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusStaffEvent.swift; sourceTree = "<group>"; };
+		22FE60DC1B4AFB6500310FBA /* OpusTimeSignature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusTimeSignature.swift; sourceTree = "<group>"; };
+		22FE60DD1B4AFB6500310FBA /* StaffViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffViewModel.swift; sourceTree = "<group>"; };
 		BBFCACC71B307C8B003E0BDD /* MusicKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MusicKit.xcodeproj; path = MusicKit/MusicKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -231,40 +231,8 @@
 		225D21491B1F8AB0007DD37B = {
 			isa = PBXGroup;
 			children = (
-				22FE60BB1B4AFB6500310FBA /* DMDynamicViewController.swift */,
-				22FE60BC1B4AFB6500310FBA /* FloatingMenuPopView.xib */,
-				22FE60BD1B4AFB6500310FBA /* FloatingMenuPopViewController.swift */,
-				22FE60BE1B4AFB6500310FBA /* GraphicConstants.swift */,
 				22FE60BF1B4AFB6500310FBA /* Images.xcassets */,
-				22FE60C01B4AFB6500310FBA /* LaunchViewController.swift */,
-				22FE60C11B4AFB6500310FBA /* MeasureViewController.swift */,
-				22FE60C21B4AFB6500310FBA /* NewUINote.swift */,
-				22FE60C31B4AFB6500310FBA /* NoteSelectedPopView.xib */,
-				22FE60C41B4AFB6500310FBA /* NoteSelectedPopViewController.swift */,
-				22FE60C51B4AFB6500310FBA /* OldStaffViewController.swift */,
-				22FE60C61B4AFB6500310FBA /* Opus.swift */,
-				22FE60C71B4AFB6500310FBA /* OpusMenuUIScrollView.swift */,
-				22FE60C81B4AFB6500310FBA /* PlaybackMenuViewController.swift */,
-				22FE60C91B4AFB6500310FBA /* StaffContainerViewController.swift */,
-				22FE60CA1B4AFB6500310FBA /* StaffEditorViewController.swift */,
-				22FE60CB1B4AFB6500310FBA /* StaffNavigationViewController.swift */,
-				22FE60CC1B4AFB6500310FBA /* StaffScrollView.swift */,
-				22FE60CD1B4AFB6500310FBA /* UINote.swift */,
-				22FE60CE1B4AFB6500310FBA /* AudioAdapter.swift */,
-				22FE60CF1B4AFB6500310FBA /* AudioToolboxError.swift */,
-				22FE60D01B4AFB6500310FBA /* Convert.swift */,
 				22FE60D11B4AFB6500310FBA /* opus_interface.xcdatamodeld */,
-				22FE60D31B4AFB6500310FBA /* OpusAudioPlayer.swift */,
-				22FE60D41B4AFB6500310FBA /* OpusAUGraph.swift */,
-				22FE60D51B4AFB6500310FBA /* OpusKeySignature.swift */,
-				22FE60D61B4AFB6500310FBA /* OpusMIDIAdapter.swift */,
-				22FE60D71B4AFB6500310FBA /* OpusNote.swift */,
-				22FE60D81B4AFB6500310FBA /* OpusNoteValue.swift */,
-				22FE60D91B4AFB6500310FBA /* OpusRest.swift */,
-				22FE60DA1B4AFB6500310FBA /* OpusStaff.swift */,
-				22FE60DB1B4AFB6500310FBA /* OpusStaffEvent.swift */,
-				22FE60DC1B4AFB6500310FBA /* OpusTimeSignature.swift */,
-				22FE60DD1B4AFB6500310FBA /* StaffViewModel.swift */,
 				BBFCACC71B307C8B003E0BDD /* MusicKit.xcodeproj */,
 				226C4DE71B238583005DD6A3 /* resources */,
 				225D21541B1F8AB0007DD37B /* opus-interface */,
@@ -285,6 +253,13 @@
 		225D21541B1F8AB0007DD37B /* opus-interface */ = {
 			isa = PBXGroup;
 			children = (
+				22FE61281B4AFEF300310FBA /* view-models */,
+				22FE61271B4AFEE800310FBA /* audio */,
+				22FE61261B4AFEE100310FBA /* models */,
+				22FE61251B4AFEDB00310FBA /* views */,
+				22FE61241B4AFED400310FBA /* commands */,
+				22FE61231B4AFEC700310FBA /* new-views */,
+				22FE61221B4AFEC100310FBA /* helpers */,
 				225D21571B1F8AB0007DD37B /* AppDelegate.swift */,
 				225D215C1B1F8AB0007DD37B /* ViewController.swift */,
 				225D215E1B1F8AB0007DD37B /* Main.storyboard */,
@@ -338,6 +313,87 @@
 				226C4DE91B238583005DD6A3 /* grand_piano.sf2 */,
 			);
 			path = instruments;
+			sourceTree = "<group>";
+		};
+		22FE61221B4AFEC100310FBA /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				22FE60D01B4AFB6500310FBA /* Convert.swift */,
+			);
+			name = helpers;
+			sourceTree = "<group>";
+		};
+		22FE61231B4AFEC700310FBA /* new-views */ = {
+			isa = PBXGroup;
+			children = (
+				22FE60C81B4AFB6500310FBA /* PlaybackMenuViewController.swift */,
+				22FE60C91B4AFB6500310FBA /* StaffContainerViewController.swift */,
+				22FE60CA1B4AFB6500310FBA /* StaffEditorViewController.swift */,
+				22FE60CB1B4AFB6500310FBA /* StaffNavigationViewController.swift */,
+				22FE60CC1B4AFB6500310FBA /* StaffScrollView.swift */,
+			);
+			name = "new-views";
+			sourceTree = "<group>";
+		};
+		22FE61241B4AFED400310FBA /* commands */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = commands;
+			sourceTree = "<group>";
+		};
+		22FE61251B4AFEDB00310FBA /* views */ = {
+			isa = PBXGroup;
+			children = (
+				22FE60BB1B4AFB6500310FBA /* DMDynamicViewController.swift */,
+				22FE60BC1B4AFB6500310FBA /* FloatingMenuPopView.xib */,
+				22FE60BD1B4AFB6500310FBA /* FloatingMenuPopViewController.swift */,
+				22FE60BE1B4AFB6500310FBA /* GraphicConstants.swift */,
+				22FE60C01B4AFB6500310FBA /* LaunchViewController.swift */,
+				22FE60C11B4AFB6500310FBA /* MeasureViewController.swift */,
+				22FE60C21B4AFB6500310FBA /* NewUINote.swift */,
+				22FE60C31B4AFB6500310FBA /* NoteSelectedPopView.xib */,
+				22FE60C41B4AFB6500310FBA /* NoteSelectedPopViewController.swift */,
+				22FE60C51B4AFB6500310FBA /* OldStaffViewController.swift */,
+				22FE60C61B4AFB6500310FBA /* Opus.swift */,
+				22FE60C71B4AFB6500310FBA /* OpusMenuUIScrollView.swift */,
+				22FE60CD1B4AFB6500310FBA /* UINote.swift */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		22FE61261B4AFEE100310FBA /* models */ = {
+			isa = PBXGroup;
+			children = (
+				22FE60D51B4AFB6500310FBA /* OpusKeySignature.swift */,
+				22FE60D71B4AFB6500310FBA /* OpusNote.swift */,
+				22FE60D81B4AFB6500310FBA /* OpusNoteValue.swift */,
+				22FE60D91B4AFB6500310FBA /* OpusRest.swift */,
+				22FE60DA1B4AFB6500310FBA /* OpusStaff.swift */,
+				22FE60DB1B4AFB6500310FBA /* OpusStaffEvent.swift */,
+				22FE60DC1B4AFB6500310FBA /* OpusTimeSignature.swift */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		22FE61271B4AFEE800310FBA /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				22FE60CE1B4AFB6500310FBA /* AudioAdapter.swift */,
+				22FE60CF1B4AFB6500310FBA /* AudioToolboxError.swift */,
+				22FE60D31B4AFB6500310FBA /* OpusAudioPlayer.swift */,
+				22FE60D41B4AFB6500310FBA /* OpusAUGraph.swift */,
+				22FE60D61B4AFB6500310FBA /* OpusMIDIAdapter.swift */,
+			);
+			name = audio;
+			sourceTree = "<group>";
+		};
+		22FE61281B4AFEF300310FBA /* view-models */ = {
+			isa = PBXGroup;
+			children = (
+				22FE60DD1B4AFB6500310FBA /* StaffViewModel.swift */,
+			);
+			name = "view-models";
 			sourceTree = "<group>";
 		};
 		BBFCACC81B307C8B003E0BDD /* Products */ = {
