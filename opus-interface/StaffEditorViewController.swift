@@ -96,7 +96,7 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   //MARK: - Graphics Helper Functions
   //TODO: - Should these be in their own class?
   
-  func noteIsAtLocation(note: NewUINote, location: CGPoint) -> Bool {
+  /*func noteIsAtLocation(note: NewUINote, location: CGPoint) -> Bool {
     
     
     let noteX = note.getNoteCenter().x
@@ -114,7 +114,7 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
       withinY = true
     }
     return withinX && withinY
-  }
+  }*/
   
   func selectNoteAt(location: CGPoint) {
     
@@ -128,6 +128,10 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     }
     
     selectedNote = nil
+  }
+  
+  func noteIsAtLocation(note: NewUINote, location: CGPoint) -> Bool {
+    return true
   }
   
   func twoTouchesAreAdjacent(#touchOne: CGPoint, touchTwo: CGPoint) -> Bool {

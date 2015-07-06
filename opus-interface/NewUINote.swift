@@ -11,9 +11,4 @@ import UIKit
 
 class NewUINote {
   
-  let image: UIImage?
-  let imageView: UIImageView?
-  let noteAdjust: CGPoint?
-  
-  
 }
