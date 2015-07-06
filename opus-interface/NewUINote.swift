@@ -86,8 +86,8 @@ class NewUINote {
   func updateLocation(location: CGPoint) {
     self.location = location
     
-    imageView!.center = CGPoint(
-      x: location.x - noteValueOffset.x,
+    imageView.center = CGPoint(
+      x: location.x - noteValueOffset!.x,
       y: location.y)
   }
 }
