@@ -23,6 +23,7 @@ class InsertNote: Command {
       self.note = note
       self.invoker = invoker
       self.target = target
+      self.location = location
   }
   
   func run() {
