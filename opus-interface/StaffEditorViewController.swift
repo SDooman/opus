@@ -110,8 +110,7 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   //TODO: - Should these be in their own class?
   
   func displayNewNote(note: UINote) {
-    
-    notes.insert
+    notes.insert(note)
   }
   
   func noteIsAtLocation(note: UINote, location: CGPoint) -> Bool {
