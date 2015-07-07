@@ -8,7 +8,17 @@
 
 class DisplayAccidentalMenu: Command {
   
+  let note: UINote
+  let invoker: StaffEditorViewController
+  
+  init(note: UINote, invoker: StaffEditorViewController) {
+    self.note = note
+    self.invoker = invoker
+  }
+  
   func run() {
+    
+    invoker.presentAccidentalMenuOnNote(note)
     
   }
 }
