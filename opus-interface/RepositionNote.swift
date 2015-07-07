@@ -6,7 +6,11 @@
 //  Copyright (c) 2015 Sam Dooman. All rights reserved.
 //
 
+import UIKit
+
 class RepositionNote: Command {
+  
+  let translation : CGPoint
   
   func run() {
     
