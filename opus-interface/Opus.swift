@@ -33,30 +33,17 @@ struct Opus {
   
   //MARK: - Getting Valid Locations on TrebleClef [TECHNICAL DEBT HARD CODED HERE]
   
-  static let trebleClefRange: [Pitch] = [
-    Pitch(chroma: Chroma.D, octave: 4),
-    Pitch(chroma: Chroma.Ds, octave: 4),
-    Pitch(chroma: Chroma.E, octave: 4),
-    Pitch(chroma: Chroma.F, octave: 4),
-    Pitch(chroma: Chroma.Fs, octave: 4),
-    Pitch(chroma: Chroma.G, octave: 4),
-    Pitch(chroma: Chroma.Gs, octave: 4),
-    Pitch(chroma: Chroma.A, octave: 4),
-    Pitch(chroma: Chroma.As, octave: 4),
-    Pitch(chroma: Chroma.B, octave: 4),
-    Pitch(chroma: Chroma.C, octave: 5),
-    Pitch(chroma: Chroma.Cs, octave: 5),
-    Pitch(chroma: Chroma.D, octave: 5),
-    Pitch(chroma: Chroma.Ds, octave: 5),
-    Pitch(chroma: Chroma.E, octave: 5),
-    Pitch(chroma: Chroma.F, octave: 5),
-    Pitch(chroma: Chroma.Fs, octave: 5),
-    Pitch(chroma: Chroma.G, octave: 5)
-  ]
+  static let TREBLE_CLEF_MIDI_MIN : Int = 74 // D4
+  
+  static let TREBLE_CLEF_MIDI_MAX : Int = 91 // G5
+
+  //MARK: - Functions for calculating treble-limits to scale
   
   static func pitchesForScaleOnTrebleClef(#scale: PitchSet) -> [Pitch]{
     
     var myPitches: [Pitch] = []
+    
+    let trebleClefRange = createClefRangeFrom(minMidi: TREBLE_CLEF_MIDI_MIN, maxMidi: TREBLE_CLEF_MIDI_MAX)
     
     for possiblePitch in trebleClefRange {
       let possibleChroma = possiblePitch.chroma!
@@ -66,6 +53,7 @@ struct Opus {
         myPitches.append(possiblePitch)
       }
     }
+
     return myPitches
   }
   
@@ -76,5 +64,23 @@ struct Opus {
   println(Opus.pitchesForScaleOnTrebleClef(scale: cMajor))
   */
   
- 
+  static func createClefRangeFrom(#minMidi: Int, maxMidi: Int) -> [Pitch] {
+    var toReturn: [Pitch] = []
+    for midiIndex in minMidi...maxMidi + 1 {
+      let pitch = Pitch(midi: Float(midiIndex))
+      toReturn.append(pitch)
+    }
+    return toReturn
+  }
+  
+  static func createClefRangeFrom(#rangeArray: [Int]) -> [Pitch] {
+    assert(rangeArray.count == 2, "Range can only contain two integers")
+    var toReturn: [Pitch] = []
+    for midiIndex in rangeArray[0]...rangeArray[1] + 1 {
+      let pitch = Pitch(midi: Float(midiIndex))
+      toReturn.append(pitch)
+    }
+    return toReturn
+  }
+  
 }
