@@ -36,16 +36,26 @@ struct Opus {
   static let TREBLE_CLEF_MIDI_MIN : Int = 74 // D4
   
   static let TREBLE_CLEF_MIDI_MAX : Int = 91 // G5
+  
+  static let BASS_CLEF_MIDI_MIN : Int = -1 // TO BE IMPLEMENTED LATER
+  
+  static let BASS_CLEF_MIDI_MAX : Int = -1 // TO BE IMPLEMENTED LATER
 
   //MARK: - Functions for calculating treble-limits to scale
   
-  static func pitchesForScaleOnTrebleClef(#scale: PitchSet) -> [Pitch]{
+  static func pitchesForScaleOnClef(#scale: PitchSet, clef: Clef) -> [Pitch]{
     
     var myPitches: [Pitch] = []
+    let clefRange: [Pitch]
     
-    let trebleClefRange = createClefRangeFrom(minMidi: TREBLE_CLEF_MIDI_MIN, maxMidi: TREBLE_CLEF_MIDI_MAX)
+    switch clef {
+    case .Bass :
+      clefRange = createClefRangeFrom(minMidi: BASS_CLEF_MIDI_MIN, maxMidi: BASS_CLEF_MIDI_MAX)
+    case .Treble:
+      clefRange = createClefRangeFrom(minMidi: TREBLE_CLEF_MIDI_MIN, maxMidi: TREBLE_CLEF_MIDI_MAX)
+    }
     
-    for possiblePitch in trebleClefRange {
+    for possiblePitch in clefRange {
       let possibleChroma = possiblePitch.chroma!
       let checkPitch = Pitch(chroma: possibleChroma, octave: 1)
       let checkPitch2 = Pitch(chroma: possibleChroma, octave: 2) // C will be one octave higher in notation.
@@ -61,7 +71,7 @@ struct Opus {
   
   let major = Scale.Major
   let cMajor = major(Pitch(chroma: Chroma.C, octave: 1)) // Octave is arbitrary, checking on treble clef only.
-  println(Opus.pitchesForScaleOnTrebleClef(scale: cMajor))
+  println(Opus.pitchesForScaleOnTrebleClef(scale: cMajor, clef: .Treble))
   */
   
   static func createClefRangeFrom(#minMidi: Int, maxMidi: Int) -> [Pitch] {
@@ -83,4 +93,8 @@ struct Opus {
     return toReturn
   }
   
+}
+
+enum Clef {
+  case Bass, Treble
 }
