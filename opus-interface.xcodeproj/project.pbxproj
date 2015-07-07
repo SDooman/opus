@@ -104,6 +104,7 @@
 		22FE61431B4B6C4400310FBA /* ResetPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61411B4B6C4400310FBA /* ResetPlayback.swift */; };
 		22FE61451B4B6CF800310FBA /* StopPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61441B4B6CF800310FBA /* StopPlayback.swift */; };
 		22FE61461B4B6CF800310FBA /* StopPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61441B4B6CF800310FBA /* StopPlayback.swift */; };
+		BBDECB7A1B4C4DB800B29638 /* ClefKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB791B4C4DB800B29638 /* ClefKey.swift */; };
 		BBFCACD61B307CA3003E0BDD /* MusicKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = BBFCACD11B307C8B003E0BDD /* MusicKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -216,6 +217,7 @@
 		22FE613E1B4B6C2900310FBA /* StartPlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartPlayback.swift; sourceTree = "<group>"; };
 		22FE61411B4B6C4400310FBA /* ResetPlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPlayback.swift; sourceTree = "<group>"; };
 		22FE61441B4B6CF800310FBA /* StopPlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopPlayback.swift; sourceTree = "<group>"; };
+		BBDECB791B4C4DB800B29638 /* ClefKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClefKey.swift; sourceTree = "<group>"; };
 		BBFCACC71B307C8B003E0BDD /* MusicKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MusicKit.xcodeproj; path = MusicKit/MusicKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -350,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				22FE60D01B4AFB6500310FBA /* Convert.swift */,
+				BBDECB791B4C4DB800B29638 /* ClefKey.swift */,
 			);
 			name = helpers;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				22FE60F01B4AFB6500310FBA /* NoteSelectedPopViewController.swift in Sources */,
 				22FE611C1B4AFB6500310FBA /* OpusStaffEvent.swift in Sources */,
 				22FE60FA1B4AFB6500310FBA /* StaffContainerViewController.swift in Sources */,
+				BBDECB7A1B4C4DB800B29638 /* ClefKey.swift in Sources */,
 				22FE61451B4B6CF800310FBA /* StopPlayback.swift in Sources */,
 				22FE60E21B4AFB6500310FBA /* FloatingMenuPopViewController.swift in Sources */,
 				22FE61141B4AFB6500310FBA /* OpusNote.swift in Sources */,

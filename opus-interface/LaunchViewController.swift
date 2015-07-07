@@ -13,6 +13,10 @@ class LaunchViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      let major = Scale.Major
+      let cMajor = major(Pitch(chroma: Chroma.C, octave: 1)) // Octave is arbitrary, checking on treble clef only.
+      println(Opus.pitchesForScaleOnTrebleClef(scale: cMajor, clef: .Treble))
 
 
         // Do any additional setup after loading the view.
