@@ -92,8 +92,8 @@
 		22FE61311B4B68BC00310FBA /* SelectNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE612F1B4B68BC00310FBA /* SelectNote.swift */; };
 		22FE61331B4B6A4000310FBA /* RemoveNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61321B4B6A4000310FBA /* RemoveNote.swift */; };
 		22FE61341B4B6A4000310FBA /* RemoveNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61321B4B6A4000310FBA /* RemoveNote.swift */; };
-		22FE61361B4B6A7400310FBA /* RepositionNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61351B4B6A7400310FBA /* RepositionNote.swift */; };
-		22FE61371B4B6A7400310FBA /* RepositionNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61351B4B6A7400310FBA /* RepositionNote.swift */; };
+		22FE61361B4B6A7400310FBA /* RepositionSelectedNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61351B4B6A7400310FBA /* RepositionSelectedNote.swift */; };
+		22FE61371B4B6A7400310FBA /* RepositionSelectedNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61351B4B6A7400310FBA /* RepositionSelectedNote.swift */; };
 		22FE61391B4B6B3300310FBA /* DisplayAccidentalMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61381B4B6B3300310FBA /* DisplayAccidentalMenu.swift */; };
 		22FE613A1B4B6B3300310FBA /* DisplayAccidentalMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61381B4B6B3300310FBA /* DisplayAccidentalMenu.swift */; };
 		22FE613C1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE613B1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift */; };
@@ -211,7 +211,7 @@
 		22FE612C1B4B373D00310FBA /* InsertNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertNote.swift; sourceTree = "<group>"; };
 		22FE612F1B4B68BC00310FBA /* SelectNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectNote.swift; sourceTree = "<group>"; };
 		22FE61321B4B6A4000310FBA /* RemoveNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveNote.swift; sourceTree = "<group>"; };
-		22FE61351B4B6A7400310FBA /* RepositionNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositionNote.swift; sourceTree = "<group>"; };
+		22FE61351B4B6A7400310FBA /* RepositionSelectedNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositionSelectedNote.swift; sourceTree = "<group>"; };
 		22FE61381B4B6B3300310FBA /* DisplayAccidentalMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAccidentalMenu.swift; sourceTree = "<group>"; };
 		22FE613B1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayNoteSelectionMenu.swift; sourceTree = "<group>"; };
 		22FE613E1B4B6C2900310FBA /* StartPlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartPlayback.swift; sourceTree = "<group>"; };
@@ -377,7 +377,7 @@
 				22FE612C1B4B373D00310FBA /* InsertNote.swift */,
 				22FE612F1B4B68BC00310FBA /* SelectNote.swift */,
 				22FE61321B4B6A4000310FBA /* RemoveNote.swift */,
-				22FE61351B4B6A7400310FBA /* RepositionNote.swift */,
+				22FE61351B4B6A7400310FBA /* RepositionSelectedNote.swift */,
 				22FE61381B4B6B3300310FBA /* DisplayAccidentalMenu.swift */,
 				22FE613B1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift */,
 				22FE613E1B4B6C2900310FBA /* StartPlayback.swift */,
@@ -610,7 +610,7 @@
 				22FE612D1B4B373D00310FBA /* InsertNote.swift in Sources */,
 				22FE61001B4AFB6500310FBA /* StaffScrollView.swift in Sources */,
 				22FE60FC1B4AFB6500310FBA /* StaffEditorViewController.swift in Sources */,
-				22FE61361B4B6A7400310FBA /* RepositionNote.swift in Sources */,
+				22FE61361B4B6A7400310FBA /* RepositionSelectedNote.swift in Sources */,
 				22FE60F41B4AFB6500310FBA /* Opus.swift in Sources */,
 				22FE61331B4B6A4000310FBA /* RemoveNote.swift in Sources */,
 				22FE60F01B4AFB6500310FBA /* NoteSelectedPopViewController.swift in Sources */,
@@ -662,7 +662,7 @@
 				22FE612E1B4B373D00310FBA /* InsertNote.swift in Sources */,
 				22FE61011B4AFB6500310FBA /* StaffScrollView.swift in Sources */,
 				22FE60FD1B4AFB6500310FBA /* StaffEditorViewController.swift in Sources */,
-				22FE61371B4B6A7400310FBA /* RepositionNote.swift in Sources */,
+				22FE61371B4B6A7400310FBA /* RepositionSelectedNote.swift in Sources */,
 				22FE60F51B4AFB6500310FBA /* Opus.swift in Sources */,
 				22FE61341B4B6A4000310FBA /* RemoveNote.swift in Sources */,
 				22FE60F11B4AFB6500310FBA /* NoteSelectedPopViewController.swift in Sources */,
