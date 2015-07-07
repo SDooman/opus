@@ -22,7 +22,7 @@ class StaffViewController: ViewController {
         
         pageController = DMDynamicViewController(viewControllers: viewControllers)
         self.view.addSubview(pageController!.view)
-        
+      
         // Legacy code, might need later - taken out now with no apparent problems,
         // but wanted to keep in case of unexpected bugs.
         //self.view.window?.rootViewController = pageController
