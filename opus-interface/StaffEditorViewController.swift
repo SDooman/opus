@@ -140,7 +140,6 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     return sqrt(distance) < 60.0
   }
   
-  //TODO: [ND] Implement this.  
   //      Gives vertical and horizontal grid locked coordinate
   func closestValidPositionFrom(#location: CGPoint) -> CGPoint {
     let touchX = Float(location.x); let touchY = Float(location.y)
@@ -171,13 +170,19 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     return CGPoint(x: returnX!, y: returnY!)
   }
   
-  //TODO: [ND] Implement this
   func pitchFromBarLineIndex(barLineIndex: Int) -> Pitch {
+    // replace this with current harmonic
+    let key = Scale.Major
+
+    // replace this with current key
+    let cMajor = key(Pitch(chroma: Chroma.C, octave: 1))
+
     
-    return Opus.trebleCMajor[barLineIndex]
+    let trebleClefNotes = ClefKey.pitchesForScaleOnClef(scale: cMajor, clef: .Treble)
+    
+    return trebleClefNotes[barLineIndex]
   }
   
-  //TODO: [ND] Implement this
   func beatLocationFrom(#location: CGPoint) -> MusicTimeStamp {
     let adjustedLocation = closestValidPositionFrom(location: location)
     var myBucket: Int!
@@ -197,5 +202,18 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   //MARK: - UIScrollViewDelegate
   
   //MARK: - Drawing To Staff
+  
+  //MARK: - Presenting Modular Popover Menus
+  
+  func presentAccidentalMenuOnNote(note: UINote) {
+    var contentViewController = PopoverAccidentalMenuViewController(nibName: "PopoverAccidentalMenuView", bundle: nil)
+    var popController = UIPopoverController(contentViewController: contentViewController)
+    let frame = note.imageView.frame
+    
+    let targetView = self.view
+    
+    popController.popoverContentSize = CGSize(width: frame.width, height: frame.height)
+    popController.presentPopoverFromRect(frame, inView: targetView, permittedArrowDirections: UIPopoverArrowDirection.Right, animated: true)
+  }
   
 }
