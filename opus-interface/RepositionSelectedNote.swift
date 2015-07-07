@@ -8,9 +8,11 @@
 
 import UIKit
 
-class RepositionNote: Command {
+class RepositionSelectedNote: Command {
   
-  let translation : CGPoint
+  let translation: CGPoint
+  let invoker: StaffEditorViewController
+  
   
   func run() {
     
