@@ -10,11 +10,11 @@ import UIKit
 
 class InsertNote: Command {
   
-  var invoker: StaffEditorViewController
-  var target: StaffViewModel
+  let invoker: StaffEditorViewController
+  let target: StaffViewModel
   
-  var note: OpusNote
-  var location: CGPoint
+  let note: OpusNote
+  let location: CGPoint
   
   init(note: OpusNote, location: CGPoint,
     invoker: StaffEditorViewController,

@@ -10,8 +10,8 @@ import UIKit
 
 class SelectNoteAtLocation: Command {
   
-  var invoker: StaffEditorViewController
-  var location: CGPoint
+  let invoker: StaffEditorViewController
+  let location: CGPoint
   
   init(location: CGPoint, invoker: StaffEditorViewController) {
     self.location = location
