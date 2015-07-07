@@ -152,6 +152,7 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     for index in 0...verticalSpaces.count - 1 {
       if touchY < verticalSpaces[index]{
         returnY = CGFloat(verticalSpaces[index])
+        break
       }
     }
     
@@ -187,6 +188,7 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     return Float64(myBucket / 4)
     
   }
+
   
   //MARK: - UIScrollViewDelegate
   
