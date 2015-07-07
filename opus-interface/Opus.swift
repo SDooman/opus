@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MusicKit
 
 struct Opus {
   
@@ -29,5 +30,21 @@ struct Opus {
   static let EIGHTH_NOTE_OFFSET : CGPoint = CGPoint(x: -15, y: 35)
   
   static let SIXTEENTH_NOTE_OFFSET : CGPoint = CGPoint(x: -15, y: 35)
+  
+  //MARK: - [Technical Debt] - Hard coded Treble Clef CMajor Scale
+  
+  static let trebleCMajor: [Pitch] = [
+    Chroma.D*4,
+    Chroma.E*4,
+    Chroma.F*4,
+    Chroma.G*4,
+    Chroma.A*4,
+    Chroma.B*4,
+    Chroma.C*5,
+    Chroma.D*5,
+    Chroma.E*5,
+    Chroma.F*5,
+    Chroma.G*5
+  ]
 
 }

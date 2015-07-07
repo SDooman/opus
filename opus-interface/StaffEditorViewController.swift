@@ -21,6 +21,10 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   var notes : [UINote] = [UINote]()
   var selectedNote : UINote?
   
+  //  Constants
+  let horizontalSpaces = GraphicConstants().myHorizontalGridArray!
+  let verticalSpaces = GraphicConstants().myVertLineSpaceArray!
+  
   var container : StaffContainerViewController {
     
     return parentViewController as! StaffContainerViewController
@@ -128,24 +132,60 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   }
   
   func twoTouchesAreAdjacent(#touchOne: CGPoint, touchTwo: CGPoint) -> Bool {
-    //TODO: [ND] Implement implement this
-    return false
+    let distance = pow((touchOne.x - touchTwo.x), 2) + pow((touchOne.y - touchTwo.y), 2)
+    return sqrt(distance) < 60.0
   }
   
   //TODO: [ND] Implement this.  
   //      Gives vertical and horizontal grid locked coordinate
   func closestValidPositionFrom(#location: CGPoint) -> CGPoint {
-    return CGPoint(x: 0, y: 0)
+    let touchX = Float(location.x); let touchY = Float(location.y)
+    var returnX: CGFloat? = nil;    var returnY: CGFloat? = nil
+
+    for index in 0...horizontalSpaces.count - 1 {
+      if touchX < horizontalSpaces[index] {
+        returnX = CGFloat(horizontalSpaces[index])
+        break
+      }
+    }
+
+    for index in 0...verticalSpaces.count - 1 {
+      if touchY < verticalSpaces[index]{
+        returnY = CGFloat(verticalSpaces[index])
+      }
+    }
+    
+    if returnX == nil {
+      returnX = CGFloat(horizontalSpaces.last!)
+    }
+    
+    if returnY == nil {
+      returnY = CGFloat(verticalSpaces.last!)
+    }
+    
+    return CGPoint(x: returnX!, y: returnY!)
   }
   
   //TODO: [ND] Implement this
   func pitchFromBarLineIndex(barLineIndex: Int) -> Pitch {
-    return Pitch(midi: 60)
+    
+    return Opus.trebleCMajor[barLineIndex]
   }
   
   //TODO: [ND] Implement this
   func beatLocationFrom(#location: CGPoint) -> MusicTimeStamp {
-    return 0
+    let adjustedLocation = closestValidPositionFrom(location: location)
+    var myBucket: Int!
+    
+    for i in 0...horizontalSpaces.count - 1 {
+      if Float(adjustedLocation.x) == horizontalSpaces[i]{
+        myBucket = i
+        break
+      }
+    }
+    
+    return Float64(myBucket / 4)
+    
   }
   
   //MARK: - UIScrollViewDelegate
