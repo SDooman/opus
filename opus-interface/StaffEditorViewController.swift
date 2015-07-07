@@ -18,7 +18,7 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   
   //  Graphics objects
   
-  var notes : [UINote] = [UINote]()
+  var notes : Set<UINote> = []
   var selectedNote : UINote?
   
   //  Constants
@@ -108,6 +108,10 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   
   //MARK: - Graphics Helper Functions
   //TODO: - Should these be in their own class?
+  
+  func displayNewNote(note: UINote) {
+    notes.insert(note)
+  }
   
   func noteIsAtLocation(note: UINote, location: CGPoint) -> Bool {
     

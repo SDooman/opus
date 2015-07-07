@@ -13,7 +13,6 @@ class InsertNote: Command {
   var invoker: StaffEditorViewController
   var target: StaffViewModel
   
-  
   var note: OpusNote
   var location: CGPoint
   
