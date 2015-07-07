@@ -46,6 +46,7 @@
 		BBC010F01B3478AE00940C8A /* NoteSelectedPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBC010EF1B3478AE00940C8A /* NoteSelectedPopView.xib */; };
 		BBC010F61B3478BF00940C8A /* NoteSelectedPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC010F51B3478BF00940C8A /* NoteSelectedPopViewController.swift */; };
 		BBC011261B34A56900940C8A /* GraphicConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC011251B34A56800940C8A /* GraphicConstants.swift */; };
+		BBDECB731B4C293A00B29638 /* Opus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB721B4C293A00B29638 /* Opus.swift */; };
 		BBFCACB11B307471003E0BDD /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFCACB01B307471003E0BDD /* LaunchViewController.swift */; };
 		BBFCACB31B307485003E0BDD /* StaffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFCACB21B307485003E0BDD /* StaffViewController.swift */; };
 		BBFCACB51B30748D003E0BDD /* MeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFCACB41B30748D003E0BDD /* MeasureViewController.swift */; };
@@ -137,6 +138,7 @@
 		BBC010EF1B3478AE00940C8A /* NoteSelectedPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteSelectedPopView.xib; sourceTree = "<group>"; };
 		BBC010F51B3478BF00940C8A /* NoteSelectedPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteSelectedPopViewController.swift; sourceTree = "<group>"; };
 		BBC011251B34A56800940C8A /* GraphicConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicConstants.swift; sourceTree = "<group>"; };
+		BBDECB721B4C293A00B29638 /* Opus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opus.swift; sourceTree = "<group>"; };
 		BBFCACB01B307471003E0BDD /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		BBFCACB21B307485003E0BDD /* StaffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffViewController.swift; sourceTree = "<group>"; };
 		BBFCACB41B30748D003E0BDD /* MeasureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		225D21541B1F8AB0007DD37B /* opus-interface */ = {
 			isa = PBXGroup;
 			children = (
+				BBDECB721B4C293A00B29638 /* Opus.swift */,
 				2297E9C11B223381002CC72B /* view-models */,
 				2297E9C01B223376002CC72B /* views */,
 				2297E9BF1B223372002CC72B /* models */,
@@ -476,6 +479,7 @@
 				2257DA771B275DF100466F2A /* OpusKeySignature.swift in Sources */,
 				BB94626B1B31D5A600B0B530 /* DMDynamicViewController.swift in Sources */,
 				2297E9F41B224ACD002CC72B /* OpusStaff.swift in Sources */,
+				BBDECB731B4C293A00B29638 /* Opus.swift in Sources */,
 				BBC010F61B3478BF00940C8A /* NoteSelectedPopViewController.swift in Sources */,
 				2219972D1B2B1A97007BF9E6 /* OpusStaffObject.swift in Sources */,
 				22AE6F471B2B723700C47111 /* OpusMIDIPlayer.swift in Sources */,
