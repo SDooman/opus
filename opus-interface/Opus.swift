@@ -45,6 +45,5 @@ struct Opus {
     Chroma.E*5,
     Chroma.F*5,
     Chroma.G*5
-  ]
-
+  ]  
 }

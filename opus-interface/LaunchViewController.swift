@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MusicKit
 
 class LaunchViewController: ViewController {
 
