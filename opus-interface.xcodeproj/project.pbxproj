@@ -88,6 +88,22 @@
 		22FE612B1B4B2B3B00310FBA /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61291B4B2B3B00310FBA /* Command.swift */; };
 		22FE612D1B4B373D00310FBA /* InsertNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE612C1B4B373D00310FBA /* InsertNote.swift */; };
 		22FE612E1B4B373D00310FBA /* InsertNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE612C1B4B373D00310FBA /* InsertNote.swift */; };
+		22FE61301B4B68BC00310FBA /* SelectNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE612F1B4B68BC00310FBA /* SelectNote.swift */; };
+		22FE61311B4B68BC00310FBA /* SelectNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE612F1B4B68BC00310FBA /* SelectNote.swift */; };
+		22FE61331B4B6A4000310FBA /* RemoveNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61321B4B6A4000310FBA /* RemoveNote.swift */; };
+		22FE61341B4B6A4000310FBA /* RemoveNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61321B4B6A4000310FBA /* RemoveNote.swift */; };
+		22FE61361B4B6A7400310FBA /* RepositionNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61351B4B6A7400310FBA /* RepositionNote.swift */; };
+		22FE61371B4B6A7400310FBA /* RepositionNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61351B4B6A7400310FBA /* RepositionNote.swift */; };
+		22FE61391B4B6B3300310FBA /* DisplayAccidentalMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61381B4B6B3300310FBA /* DisplayAccidentalMenu.swift */; };
+		22FE613A1B4B6B3300310FBA /* DisplayAccidentalMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61381B4B6B3300310FBA /* DisplayAccidentalMenu.swift */; };
+		22FE613C1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE613B1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift */; };
+		22FE613D1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE613B1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift */; };
+		22FE613F1B4B6C2900310FBA /* StartPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE613E1B4B6C2900310FBA /* StartPlayback.swift */; };
+		22FE61401B4B6C2900310FBA /* StartPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE613E1B4B6C2900310FBA /* StartPlayback.swift */; };
+		22FE61421B4B6C4400310FBA /* ResetPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61411B4B6C4400310FBA /* ResetPlayback.swift */; };
+		22FE61431B4B6C4400310FBA /* ResetPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61411B4B6C4400310FBA /* ResetPlayback.swift */; };
+		22FE61451B4B6CF800310FBA /* StopPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61441B4B6CF800310FBA /* StopPlayback.swift */; };
+		22FE61461B4B6CF800310FBA /* StopPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61441B4B6CF800310FBA /* StopPlayback.swift */; };
 		BBFCACD61B307CA3003E0BDD /* MusicKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = BBFCACD11B307C8B003E0BDD /* MusicKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -192,6 +208,14 @@
 		22FE60DD1B4AFB6500310FBA /* StaffViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffViewModel.swift; sourceTree = "<group>"; };
 		22FE61291B4B2B3B00310FBA /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		22FE612C1B4B373D00310FBA /* InsertNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertNote.swift; sourceTree = "<group>"; };
+		22FE612F1B4B68BC00310FBA /* SelectNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectNote.swift; sourceTree = "<group>"; };
+		22FE61321B4B6A4000310FBA /* RemoveNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveNote.swift; sourceTree = "<group>"; };
+		22FE61351B4B6A7400310FBA /* RepositionNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositionNote.swift; sourceTree = "<group>"; };
+		22FE61381B4B6B3300310FBA /* DisplayAccidentalMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAccidentalMenu.swift; sourceTree = "<group>"; };
+		22FE613B1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayNoteSelectionMenu.swift; sourceTree = "<group>"; };
+		22FE613E1B4B6C2900310FBA /* StartPlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartPlayback.swift; sourceTree = "<group>"; };
+		22FE61411B4B6C4400310FBA /* ResetPlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPlayback.swift; sourceTree = "<group>"; };
+		22FE61441B4B6CF800310FBA /* StopPlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopPlayback.swift; sourceTree = "<group>"; };
 		BBFCACC71B307C8B003E0BDD /* MusicKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MusicKit.xcodeproj; path = MusicKit/MusicKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -348,6 +372,14 @@
 			children = (
 				22FE61291B4B2B3B00310FBA /* Command.swift */,
 				22FE612C1B4B373D00310FBA /* InsertNote.swift */,
+				22FE612F1B4B68BC00310FBA /* SelectNote.swift */,
+				22FE61321B4B6A4000310FBA /* RemoveNote.swift */,
+				22FE61351B4B6A7400310FBA /* RepositionNote.swift */,
+				22FE61381B4B6B3300310FBA /* DisplayAccidentalMenu.swift */,
+				22FE613B1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift */,
+				22FE613E1B4B6C2900310FBA /* StartPlayback.swift */,
+				22FE61411B4B6C4400310FBA /* ResetPlayback.swift */,
+				22FE61441B4B6CF800310FBA /* StopPlayback.swift */,
 			);
 			name = commands;
 			sourceTree = "<group>";
@@ -559,6 +591,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22FE61301B4B68BC00310FBA /* SelectNote.swift in Sources */,
+				22FE61391B4B6B3300310FBA /* DisplayAccidentalMenu.swift in Sources */,
 				22FE60F21B4AFB6500310FBA /* OldStaffViewController.swift in Sources */,
 				22FE61201B4AFB6500310FBA /* StaffViewModel.swift in Sources */,
 				22FE610A1B4AFB6500310FBA /* opus_interface.xcdatamodeld in Sources */,
@@ -566,25 +600,31 @@
 				225D215D1B1F8AB0007DD37B /* ViewController.swift in Sources */,
 				22FE60DE1B4AFB6500310FBA /* DMDynamicViewController.swift in Sources */,
 				22FE61061B4AFB6500310FBA /* AudioToolboxError.swift in Sources */,
+				22FE613C1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift in Sources */,
 				22FE61101B4AFB6500310FBA /* OpusKeySignature.swift in Sources */,
 				22FE60EC1B4AFB6500310FBA /* UINote.swift in Sources */,
 				22FE610C1B4AFB6500310FBA /* OpusAudioPlayer.swift in Sources */,
 				22FE612D1B4B373D00310FBA /* InsertNote.swift in Sources */,
 				22FE61001B4AFB6500310FBA /* StaffScrollView.swift in Sources */,
 				22FE60FC1B4AFB6500310FBA /* StaffEditorViewController.swift in Sources */,
+				22FE61361B4B6A7400310FBA /* RepositionNote.swift in Sources */,
 				22FE60F41B4AFB6500310FBA /* Opus.swift in Sources */,
+				22FE61331B4B6A4000310FBA /* RemoveNote.swift in Sources */,
 				22FE60F01B4AFB6500310FBA /* NoteSelectedPopViewController.swift in Sources */,
 				22FE611C1B4AFB6500310FBA /* OpusStaffEvent.swift in Sources */,
 				22FE60FA1B4AFB6500310FBA /* StaffContainerViewController.swift in Sources */,
+				22FE61451B4B6CF800310FBA /* StopPlayback.swift in Sources */,
 				22FE60E21B4AFB6500310FBA /* FloatingMenuPopViewController.swift in Sources */,
 				22FE61141B4AFB6500310FBA /* OpusNote.swift in Sources */,
 				22FE612A1B4B2B3B00310FBA /* Command.swift in Sources */,
 				22FE61121B4AFB6500310FBA /* OpusMIDIAdapter.swift in Sources */,
+				22FE613F1B4B6C2900310FBA /* StartPlayback.swift in Sources */,
 				225D215B1B1F8AB0007DD37B /* opus_interface.xcdatamodeld in Sources */,
 				22FE60F81B4AFB6500310FBA /* PlaybackMenuViewController.swift in Sources */,
 				22FE611A1B4AFB6500310FBA /* OpusStaff.swift in Sources */,
 				22FE610E1B4AFB6500310FBA /* OpusAUGraph.swift in Sources */,
 				22FE60E41B4AFB6500310FBA /* GraphicConstants.swift in Sources */,
+				22FE61421B4B6C4400310FBA /* ResetPlayback.swift in Sources */,
 				22FE61161B4AFB6500310FBA /* OpusNoteValue.swift in Sources */,
 				22FE61021B4AFB6500310FBA /* OldUINote.swift in Sources */,
 				22FE60E81B4AFB6500310FBA /* LaunchViewController.swift in Sources */,
@@ -602,6 +642,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22FE61311B4B68BC00310FBA /* SelectNote.swift in Sources */,
+				22FE613A1B4B6B3300310FBA /* DisplayAccidentalMenu.swift in Sources */,
 				22FE60F31B4AFB6500310FBA /* OldStaffViewController.swift in Sources */,
 				22FE61211B4AFB6500310FBA /* StaffViewModel.swift in Sources */,
 				22FE610B1B4AFB6500310FBA /* opus_interface.xcdatamodeld in Sources */,
@@ -609,25 +651,31 @@
 				22D60F4E1B45940C00755C8F /* AppDelegate.swift in Sources */,
 				22FE60DF1B4AFB6500310FBA /* DMDynamicViewController.swift in Sources */,
 				22FE61071B4AFB6500310FBA /* AudioToolboxError.swift in Sources */,
+				22FE613D1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift in Sources */,
 				22FE61111B4AFB6500310FBA /* OpusKeySignature.swift in Sources */,
 				22FE60ED1B4AFB6500310FBA /* UINote.swift in Sources */,
 				22FE610D1B4AFB6500310FBA /* OpusAudioPlayer.swift in Sources */,
 				22FE612E1B4B373D00310FBA /* InsertNote.swift in Sources */,
 				22FE61011B4AFB6500310FBA /* StaffScrollView.swift in Sources */,
 				22FE60FD1B4AFB6500310FBA /* StaffEditorViewController.swift in Sources */,
+				22FE61371B4B6A7400310FBA /* RepositionNote.swift in Sources */,
 				22FE60F51B4AFB6500310FBA /* Opus.swift in Sources */,
+				22FE61341B4B6A4000310FBA /* RemoveNote.swift in Sources */,
 				22FE60F11B4AFB6500310FBA /* NoteSelectedPopViewController.swift in Sources */,
 				22FE611D1B4AFB6500310FBA /* OpusStaffEvent.swift in Sources */,
 				22FE60FB1B4AFB6500310FBA /* StaffContainerViewController.swift in Sources */,
+				22FE61461B4B6CF800310FBA /* StopPlayback.swift in Sources */,
 				22FE60E31B4AFB6500310FBA /* FloatingMenuPopViewController.swift in Sources */,
 				22FE61151B4AFB6500310FBA /* OpusNote.swift in Sources */,
 				22FE612B1B4B2B3B00310FBA /* Command.swift in Sources */,
 				22FE61131B4AFB6500310FBA /* OpusMIDIAdapter.swift in Sources */,
+				22FE61401B4B6C2900310FBA /* StartPlayback.swift in Sources */,
 				22D60F4F1B45940C00755C8F /* ViewController.swift in Sources */,
 				22FE60F91B4AFB6500310FBA /* PlaybackMenuViewController.swift in Sources */,
 				22FE611B1B4AFB6500310FBA /* OpusStaff.swift in Sources */,
 				22FE610F1B4AFB6500310FBA /* OpusAUGraph.swift in Sources */,
 				22FE60E51B4AFB6500310FBA /* GraphicConstants.swift in Sources */,
+				22FE61431B4B6C4400310FBA /* ResetPlayback.swift in Sources */,
 				22FE61171B4AFB6500310FBA /* OpusNoteValue.swift in Sources */,
 				22FE61031B4AFB6500310FBA /* OldUINote.swift in Sources */,
 				22FE60E91B4AFB6500310FBA /* LaunchViewController.swift in Sources */,

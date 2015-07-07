@@ -20,7 +20,6 @@ class UINote {
   var location: CGPoint
   
   let size: CGSize
-  var barLineIndex: Int
   
   var noteCenter : CGPoint {
     return CGPoint(
@@ -30,8 +29,7 @@ class UINote {
   
   //MARK: - Lifecycle
   
-  init(note: OpusNote,
-    location: CGPoint, barLineIndex: Int) {
+  init(note: OpusNote, location: CGPoint) {
 
     self.note = note
     
@@ -79,7 +77,6 @@ class UINote {
       Opus.UINOTE_HEIGHT)
       
     self.location = location
-    self.barLineIndex = barLineIndex
   }
   
   //MARK: - Accessors

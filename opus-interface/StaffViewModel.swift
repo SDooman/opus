@@ -34,7 +34,7 @@ class StaffViewModel {
   
   
   //MARK: Modifying Staff Contents
-  //TODO: Refactor for all kinds of Staff Event
+  //TODO: Refactor for all kinds of Staff Events
   func insert(newStaffEvent: OpusStaffEvent) -> Bool {
       
     let note = newStaffEvent as! OpusNote
