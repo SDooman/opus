@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="29" id="ZA3-OJ-upE" customClass="NoteValueSelectionTableViewCell" customModule="opus_interface" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="319" height="29"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZA3-OJ-upE" id="Dqm-yz-N0D">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <segmentedControl autoresizesSubviews="NO" opaque="NO" contentMode="bottomRight" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Xey-fi-8qK">
+                        <rect key="frame" x="0.0" y="0.0" width="319" height="29"/>
+                        <segments>
+                            <segment title="" image="menu_eighth_note"/>
+                            <segment title="" image="menu_eighth_rest"/>
+                        </segments>
+                    </segmentedControl>
+                </subviews>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="beatRestSegment" destination="Xey-fi-8qK" id="9H5-TV-5ke"/>
+            </connections>
+            <point key="canvasLocation" x="566.5" y="237.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="menu_eighth_note" width="32" height="20"/>
+        <image name="menu_eighth_rest" width="36" height="20"/>
+    </resources>
+</document>

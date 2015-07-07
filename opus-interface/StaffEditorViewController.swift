@@ -21,6 +21,8 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   var notes : Set<UINote> = []
   var selectedNote : UINote?
   
+
+  
   //  Constants
   let horizontalSpaces = GraphicConstants().myHorizontalGridArray!
   let verticalSpaces = GraphicConstants().myVertLineSpaceArray!
@@ -34,19 +36,21 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     return container.staffViewModel
   }
   
+  // Used for NoteValueSelectionVC - indices for previously selected element.
+  var currentSegControlIndex: Int = -1
+  var currentSubSegControlIndex: Int = -1
+  
   
   //MARK: - Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    // Do any additional setup after loading the view.
-    
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+    
   }
   
   //TODO: Fill in method stub
@@ -111,6 +115,13 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   
   func displayNewNote(note: UINote) {
     notes.insert(note)
+    // TODO: - Handle graphics of removing note?
+
+  }
+  
+  func removeExistingNote(note: UINote){
+    notes.remove(note)
+    // TODO: - Handle graphics of removing note?
   }
   
   func noteIsAtLocation(note: UINote, location: CGPoint) -> Bool {
@@ -215,5 +226,22 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     popController.popoverContentSize = CGSize(width: frame.width, height: frame.height)
     popController.presentPopoverFromRect(frame, inView: targetView, permittedArrowDirections: UIPopoverArrowDirection.Right, animated: true)
   }
+  
+  func presentNoteValueSelectionMenuAt(#location: CGPoint) {
+    let contentViewController: NoteValueSelectionViewController = NoteValueSelectionViewController(currentSeg: currentSegControlIndex, currentSubSeg: currentSubSegControlIndex)
+    let targetRect = CGRectMake(location.x, location.y, 1, 1)
+    
+    var popoverController = UIPopoverController(contentViewController: contentViewController)
+    
+    popoverController.presentPopoverFromRect(targetRect, inView: self.view, permittedArrowDirections: UIPopoverArrowDirection.allZeros, animated: true)
+    
+  }
+  // Helper method for NoteValueSelection Menu - stores previously clicked element.
+  func setNoteValueMenuSelectedItem(segControlIndex: Int, subIndex: Int){
+    currentSegControlIndex = segControlIndex
+    currentSubSegControlIndex = subIndex
+  }
+  
+  
   
 }

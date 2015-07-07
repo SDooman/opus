@@ -107,6 +107,10 @@
 		BBDECB7A1B4C4DB800B29638 /* ClefKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB791B4C4DB800B29638 /* ClefKey.swift */; };
 		BBDECB811B4C531300B29638 /* PopoverAccidentalMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB7F1B4C531300B29638 /* PopoverAccidentalMenuViewController.swift */; };
 		BBDECB821B4C531400B29638 /* PopoverAccidentalMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBDECB801B4C531300B29638 /* PopoverAccidentalMenuViewController.xib */; };
+		BBDECB901B4C594200B29638 /* NoteValueSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB8D1B4C594200B29638 /* NoteValueSelectionTableViewCell.swift */; };
+		BBDECB911B4C594200B29638 /* NoteValueSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBDECB8E1B4C594200B29638 /* NoteValueSelectionTableViewCell.xib */; };
+		BBDECB921B4C594200B29638 /* NoteValueSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB8F1B4C594200B29638 /* NoteValueSelectionViewController.swift */; };
+		BBDECB951B4C603100B29638 /* UpdateNoteSelectionMenuValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB941B4C603100B29638 /* UpdateNoteSelectionMenuValue.swift */; };
 		BBFCACD61B307CA3003E0BDD /* MusicKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = BBFCACD11B307C8B003E0BDD /* MusicKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -222,6 +226,10 @@
 		BBDECB791B4C4DB800B29638 /* ClefKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClefKey.swift; sourceTree = "<group>"; };
 		BBDECB7F1B4C531300B29638 /* PopoverAccidentalMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAccidentalMenuViewController.swift; sourceTree = "<group>"; };
 		BBDECB801B4C531300B29638 /* PopoverAccidentalMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopoverAccidentalMenuViewController.xib; sourceTree = "<group>"; };
+		BBDECB8D1B4C594200B29638 /* NoteValueSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteValueSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		BBDECB8E1B4C594200B29638 /* NoteValueSelectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteValueSelectionTableViewCell.xib; sourceTree = "<group>"; };
+		BBDECB8F1B4C594200B29638 /* NoteValueSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteValueSelectionViewController.swift; sourceTree = "<group>"; };
+		BBDECB941B4C603100B29638 /* UpdateNoteSelectionMenuValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateNoteSelectionMenuValue.swift; sourceTree = "<group>"; };
 		BBFCACC71B307C8B003E0BDD /* MusicKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MusicKit.xcodeproj; path = MusicKit/MusicKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -385,6 +393,7 @@
 				22FE61351B4B6A7400310FBA /* RepositionNote.swift */,
 				22FE61381B4B6B3300310FBA /* DisplayAccidentalMenu.swift */,
 				22FE613B1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift */,
+				BBDECB941B4C603100B29638 /* UpdateNoteSelectionMenuValue.swift */,
 				22FE613E1B4B6C2900310FBA /* StartPlayback.swift */,
 				22FE61411B4B6C4400310FBA /* ResetPlayback.swift */,
 				22FE61441B4B6CF800310FBA /* StopPlayback.swift */,
@@ -449,8 +458,19 @@
 			children = (
 				BBDECB801B4C531300B29638 /* PopoverAccidentalMenuViewController.xib */,
 				BBDECB7F1B4C531300B29638 /* PopoverAccidentalMenuViewController.swift */,
+				BBDECB931B4C597A00B29638 /* note-value-selection */,
 			);
 			name = "popover-menus";
+			sourceTree = "<group>";
+		};
+		BBDECB931B4C597A00B29638 /* note-value-selection */ = {
+			isa = PBXGroup;
+			children = (
+				BBDECB8D1B4C594200B29638 /* NoteValueSelectionTableViewCell.swift */,
+				BBDECB8E1B4C594200B29638 /* NoteValueSelectionTableViewCell.xib */,
+				BBDECB8F1B4C594200B29638 /* NoteValueSelectionViewController.swift */,
+			);
+			name = "note-value-selection";
 			sourceTree = "<group>";
 		};
 		BBFCACC81B307C8B003E0BDD /* Products */ = {
@@ -582,6 +602,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBDECB911B4C594200B29638 /* NoteValueSelectionTableViewCell.xib in Resources */,
 				225D21601B1F8AB0007DD37B /* Main.storyboard in Resources */,
 				22FE60EE1B4AFB6500310FBA /* NoteSelectedPopView.xib in Resources */,
 				225D21651B1F8AB0007DD37B /* LaunchScreen.xib in Resources */,
@@ -609,6 +630,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBDECB951B4C603100B29638 /* UpdateNoteSelectionMenuValue.swift in Sources */,
 				22FE61301B4B68BC00310FBA /* SelectNote.swift in Sources */,
 				BBDECB811B4C531300B29638 /* PopoverAccidentalMenuViewController.swift in Sources */,
 				22FE61391B4B6B3300310FBA /* DisplayAccidentalMenu.swift in Sources */,
@@ -618,6 +640,7 @@
 				22FE611E1B4AFB6500310FBA /* OpusTimeSignature.swift in Sources */,
 				225D215D1B1F8AB0007DD37B /* ViewController.swift in Sources */,
 				22FE60DE1B4AFB6500310FBA /* DMDynamicViewController.swift in Sources */,
+				BBDECB921B4C594200B29638 /* NoteValueSelectionViewController.swift in Sources */,
 				22FE61061B4AFB6500310FBA /* AudioToolboxError.swift in Sources */,
 				22FE613C1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift in Sources */,
 				22FE61101B4AFB6500310FBA /* OpusKeySignature.swift in Sources */,
@@ -648,6 +671,7 @@
 				22FE61161B4AFB6500310FBA /* OpusNoteValue.swift in Sources */,
 				22FE61021B4AFB6500310FBA /* OldUINote.swift in Sources */,
 				22FE60E81B4AFB6500310FBA /* LaunchViewController.swift in Sources */,
+				BBDECB901B4C594200B29638 /* NoteValueSelectionTableViewCell.swift in Sources */,
 				225D21581B1F8AB0007DD37B /* AppDelegate.swift in Sources */,
 				22FE61181B4AFB6500310FBA /* OpusRest.swift in Sources */,
 				22FE61041B4AFB6500310FBA /* AudioAdapter.swift in Sources */,
