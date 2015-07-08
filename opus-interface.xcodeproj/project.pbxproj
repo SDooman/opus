@@ -455,8 +455,7 @@
 		BBDECB831B4C533900B29638 /* popover-menus */ = {
 			isa = PBXGroup;
 			children = (
-				BBDECB801B4C531300B29638 /* PopoverAccidentalMenuViewController.xib */,
-				BBDECB7F1B4C531300B29638 /* PopoverAccidentalMenuViewController.swift */,
+				BBDECB9F1B4D811300B29638 /* accidental-menu */,
 				BBDECB931B4C597A00B29638 /* note-value-selection */,
 			);
 			name = "popover-menus";
@@ -470,6 +469,15 @@
 				BBDECB8F1B4C594200B29638 /* NoteValueSelectionViewController.swift */,
 			);
 			name = "note-value-selection";
+			sourceTree = "<group>";
+		};
+		BBDECB9F1B4D811300B29638 /* accidental-menu */ = {
+			isa = PBXGroup;
+			children = (
+				BBDECB801B4C531300B29638 /* PopoverAccidentalMenuViewController.xib */,
+				BBDECB7F1B4C531300B29638 /* PopoverAccidentalMenuViewController.swift */,
+			);
+			name = "accidental-menu";
 			sourceTree = "<group>";
 		};
 		BBFCACC81B307C8B003E0BDD /* Products */ = {
