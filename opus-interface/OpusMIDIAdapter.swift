@@ -23,18 +23,22 @@ class OpusMIDIAdapter {
 
   func createMusicSequence(auGraph: AUGraph) -> MusicSequence {
     
+    println("create music sequence")
     var musicSequence = MusicSequence()
     var status: OSStatus = NewMusicSequence(&musicSequence)
     
     AudioToolboxError.handle(status)
     
+    println("create music track")
     _track = MusicTrack()
     status = MusicSequenceNewTrack(_musicSequence, &_track)
     
     AudioToolboxError.handle(status)
     
     //Associate AUGraph
-    MusicSequenceSetAUGraph(musicSequence, auGraph)
+    println("associating augraph")
+    status = MusicSequenceSetAUGraph(musicSequence, auGraph)
+    AudioToolboxError.handle(status)
     
     return musicSequence
   }

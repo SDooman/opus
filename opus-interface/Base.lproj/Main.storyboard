@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Launch View Controller-->
@@ -37,10 +37,10 @@
             </objects>
             <point key="canvasLocation" x="78" y="133"/>
         </scene>
-        <!--Old Staff View Controller-->
+        <!--Staff Container View Controller-->
         <scene sceneID="sLw-Rq-dqu">
             <objects>
-                <viewController id="vfB-9Q-BVW" customClass="OldStaffViewController" customModule="opus_interface" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vfB-9Q-BVW" customClass="StaffContainerViewController" customModule="opus_interface" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q1k-ab-n6g"/>
                         <viewControllerLayoutGuide type="bottom" id="nU9-gB-HYx"/>

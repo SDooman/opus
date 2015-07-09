@@ -31,4 +31,19 @@ struct Opus {
   
   static let SIXTEENTH_NOTE_OFFSET : CGPoint = CGPoint(x: -15, y: 35)
   
+  //MARK: - Screen and Editor/Navigator Dimensions
+  static let SCREEN_WIDTH = UIScreen.mainScreen().bounds.width
+  
+  static let SCREEN_HEIGHT = UIScreen.mainScreen().bounds.height
+  
+  static let EDITOR_WIDTH = SCREEN_WIDTH
+  
+  static let EDITOR_HEIGHT = SCREEN_HEIGHT / 3
+  
+  static let NAVIGATION_WIDTH = SCREEN_WIDTH
+  
+  static let NAVIGATION_HEIGHT = SCREEN_HEIGHT / 15
+  
+  static let STAFF_IMAGE_WIDTH_HEIGHT_RATIO = 4
+  
 }

@@ -64,7 +64,7 @@ class UINote: NSObject {
       
     default:
       //TODO: [SD] Implement error handling
-      println("huh?")
+      //println("huh?")
       imageName = ""
       noteValueOffset = nil
     }

@@ -21,6 +21,6 @@ class UpdateNoteSelectionMenuValue : Command {
   }
   
   func run() {
-    target.setNoteValueMenuSelectedItem(segmentationIndex, subIndex: subSegmentationIndex)
+    //target.setNoteValueMenuSelectedItem(segmentationIndex, subIndex: subSegmentationIndex)
   }
 }

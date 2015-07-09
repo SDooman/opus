@@ -13,6 +13,10 @@ class RepositionSelectedNote: Command {
   let translation: CGPoint
   let invoker: StaffEditorViewController
   
+  init(translation: CGPoint, invoker: StaffEditorViewController){
+    self.translation = translation
+    self.invoker = invoker
+  }
   
   func run() {
     

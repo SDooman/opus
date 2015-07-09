@@ -18,9 +18,9 @@ class StaffContainerViewController: UIViewController {
   private var editorIndex = 1
   private var playbackMenuIndex = 2
   
-  //TODO: Refactor so that Staff View Constructors
+  //TODO: Refactor so that Staff View Controllers
   //      are constructed with a ViewModel passed in
-  //      useful for
+  //      useful for making custom staffs (key sig, time sig)
   
   var staffViewModel : StaffViewModel = StaffViewModel()
   
@@ -68,6 +68,21 @@ class StaffContainerViewController: UIViewController {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  
+  //MARK: - Simultaneous Scroll Editor & Navigation
+  
+  func updateStaffNavigationView(x_ratio: CGFloat){
+    staffNavigator.updatePosition(x_ratio)
+  }
+  
+  func updateStaffEditorView(x_ratio: CGFloat){
+    staffEditor.updatePosition(x_ratio)
+  }
+  
+  func elongateStaff(){
+    staffNavigator.elongateStaff()
+    staffEditor.elongateStaff()
   }
   
 }

@@ -18,7 +18,7 @@ class DisplayAccidentalMenu: Command {
   
   func run() {
     
-    invoker.presentAccidentalMenuOnNote(note)
+    //invoker.presentAccidentalMenuOnNote(note)
     
   }
 }

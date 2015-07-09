@@ -20,6 +20,6 @@ class DisplayNoteSelectionMenu: Command {
   }
   
   func run() {
-    invoker.presentNoteValueSelectionMenuAt(location: location)
+    //invoker.presentNoteValueSelectionMenuAt(location: location)
   }
 }
