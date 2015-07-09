@@ -21,6 +21,7 @@ class StaffNavigationViewController: UIViewController {
   var viewControllerFrame: CGRect?
   var imageViewFrame: CGRect?
   
+  
   var container : StaffContainerViewController {
     
     return parentViewController as! StaffContainerViewController

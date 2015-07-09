@@ -13,8 +13,8 @@ import UIKit
 class StaffContainerViewController: UIViewController {
   
   
-  var staffViewModel : StaffViewModel = StaffViewModel()
-  
+
+  /*
   //MARK: - Properties
   //MARK: FIRST WAY OF HANDLING INSTANCES
   // ===================================================
@@ -73,14 +73,29 @@ class StaffContainerViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  
+  */
   // ===================================================
 
-  /*
+  
   //MARK: SECOND WAY OF HANDLING CHILDREN
   
-  let staffNavigator = StaffNavigationViewController()
-  let staffEditor = StaffEditorViewController()
+  let staffNavigator : StaffNavigationViewController
+  let staffEditor : StaffEditorViewController
+  let staffViewModel : StaffViewModel
+
+  init() {
+    staffViewModel = StaffViewModel()
+    staffNavigator = StaffNavigationViewController()
+    staffEditor = StaffEditorViewController()
+    super.init(nibName: nil, bundle: nil)
+  }
+
+  required init(coder aDecoder: NSCoder) {
+    staffViewModel = StaffViewModel()
+    staffNavigator = StaffNavigationViewController()
+    staffEditor = StaffEditorViewController()
+    super.init(coder: aDecoder)
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -95,7 +110,9 @@ class StaffContainerViewController: UIViewController {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
-  */
+  
+  
+  
   // ===================================================
   
   //MARK: - Simultaneous Scroll Editor & Navigation
