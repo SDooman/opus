@@ -24,7 +24,6 @@ class StaffEditorScrollView: UIScrollView {
   }
   
   
-  
   override func layoutSubviews() {
     super.layoutSubviews()
     
@@ -46,5 +45,9 @@ class StaffEditorScrollView: UIScrollView {
         owningVCParent.elongateStaff()
       }
     }
+  }
+  
+  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    println("StaffEditorScrollView got touches")
   }
 }

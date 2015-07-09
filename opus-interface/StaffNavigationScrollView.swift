@@ -30,4 +30,8 @@ class StaffNavigationScrollView: UIScrollView {
       owningVCParent.updateStaffEditorView((contentOffset.x + owningVC!.contentInsetConstant!)/contentSize.width)
     }
   }
+  
+  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    println("StaffNavigationScrollView got touches")
+  }
 }

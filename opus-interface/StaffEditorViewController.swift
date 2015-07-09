@@ -304,6 +304,10 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     currentSubSegControlIndex = subIndex
   }
   */
+  
+  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    println("StaffEditorViewController got touches")
+  }
 
 
 
