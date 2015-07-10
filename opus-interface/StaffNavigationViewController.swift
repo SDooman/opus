@@ -42,13 +42,12 @@ class StaffNavigationViewController: UIViewController {
     initialImageViewFrame = CGRect(x: 0, y: 0, width: initialStaffWidth, height: Opus.NAVIGATION_HEIGHT)
     elongationConstant = Opus.NAVIGATION_HEIGHT * CGFloat(Opus.STAFF_IMAGE_WIDTH_HEIGHT_RATIO)
     contentInsetConstant = Opus.NAVIGATION_WIDTH/2 - initialStaffWidth/2
-    
+
     let staffImage = UIImage(named: "staff_vector")
     staffImageView = UIImageView(image: staffImage)
     staffImageView.frame = initialImageViewFrame
 
     super.init(nibName: nil, bundle: nil)
-    
   }
 
   required init(coder aDecoder: NSCoder) {
@@ -63,9 +62,6 @@ class StaffNavigationViewController: UIViewController {
     staffImageView.frame = initialImageViewFrame
     
     super.init(coder: aDecoder)
-    
-    
-    
   }
   
   override func viewDidLoad() {
