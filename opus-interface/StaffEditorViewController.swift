@@ -21,19 +21,25 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   var notes : Set<UINote> = []
   var selectedNote : UINote?
   
+  // Scrolling Objects
   var staffEditorScrollView: StaffEditorScrollView?
-  var staffImageView: UIImageView?
-  var elongationConstant: CGFloat?
-  var initialStaffWidth: CGFloat?
-  var viewControllerFrame: CGRect?
-  var imageViewFrame: CGRect?
+  let staffImageView: UIImageView!
+  let elongationConstant: CGFloat!
+  let initialStaffWidth: CGFloat!
+  let viewControllerFrame: CGRect!
+  let imageViewFrame: CGRect!
   
-  //  Constants
+  //  Note Drawing Constants
   let horizontalSpaces = GraphicConstants().myHorizontalGridArray!
   let verticalSpaces = GraphicConstants().myVertLineSpaceArray!
   
+  // Used for NoteValueSelectionVC - indices for previously selected element.
+  var currentSegControlIndex: Int = -1
+  var currentSubSegControlIndex: Int = -1
+  
+  // Computed Properties
+
   var container : StaffContainerViewController {
-    
     return parentViewController as! StaffContainerViewController
   }
   
@@ -41,9 +47,37 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     return container.staffViewModel
   }
   
-  // Used for NoteValueSelectionVC - indices for previously selected element.
-  var currentSegControlIndex: Int = -1
-  var currentSubSegControlIndex: Int = -1
+  
+  //MARK: - Initializers
+  init() {
+    elongationConstant = Opus.EDITOR_WIDTH
+    initialStaffWidth = Opus.EDITOR_WIDTH * 2
+    var frameTopLeftCorner = CGPointMake(0, Opus.EDITOR_HEIGHT)
+    viewControllerFrame = CGRect(x: frameTopLeftCorner.x, y: frameTopLeftCorner.y, width: Opus.EDITOR_WIDTH, height: Opus.EDITOR_HEIGHT)
+    imageViewFrame = CGRect(x: 0, y: 0, width: initialStaffWidth!, height: Opus.EDITOR_HEIGHT)
+    
+    let staffImage = UIImage(named: "staff_vector")
+    staffImageView = UIImageView(image: staffImage)
+    staffImageView!.frame = imageViewFrame
+    
+    super.init(nibName: nil, bundle: nil)
+    
+  }
+
+  required init(coder aDecoder: NSCoder) {
+    elongationConstant = Opus.EDITOR_WIDTH
+    initialStaffWidth = Opus.EDITOR_WIDTH * 2
+    var frameTopLeftCorner = CGPointMake(0, Opus.EDITOR_HEIGHT)
+    viewControllerFrame = CGRect(x: frameTopLeftCorner.x, y: frameTopLeftCorner.y, width: Opus.EDITOR_WIDTH, height: Opus.EDITOR_HEIGHT)
+    imageViewFrame = CGRect(x: 0, y: 0, width: initialStaffWidth!, height: Opus.EDITOR_HEIGHT)
+    
+    let staffImage = UIImage(named: "staff_vector")
+    staffImageView = UIImageView(image: staffImage)
+    staffImageView!.frame = imageViewFrame
+
+    super.init(coder: aDecoder)
+  
+  }
   
   
   //MARK: - Lifecycle
@@ -51,7 +85,9 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    setConstants()
+    view.frame = viewControllerFrame!
+    
+    //setConstants()
     setUpStaff()
     
     staffEditorScrollView!.addSubview(staffImageView!)
@@ -62,7 +98,7 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     super.didReceiveMemoryWarning()
     
   }
-  
+  /*
   func setConstants(){
     elongationConstant = Opus.EDITOR_WIDTH
     initialStaffWidth = Opus.EDITOR_WIDTH * 2
@@ -71,12 +107,9 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     view.frame = viewControllerFrame!
     imageViewFrame = CGRect(x: 0, y: 0, width: initialStaffWidth!, height: Opus.EDITOR_HEIGHT)
   }
+  */
   
   func setUpStaff(){
-    
-    let staffImage = UIImage(named: "staff_vector")
-    staffImageView = UIImageView(image: staffImage)
-    staffImageView!.frame = imageViewFrame!
     
     staffEditorScrollView = StaffEditorScrollView(size: viewControllerFrame!.size, owner: self)
     //staffEditorScrollView!.showsHorizontalScrollIndicator = false

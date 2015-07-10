@@ -20,6 +20,7 @@ class StaffEditorScrollView: UIScrollView {
   }
   
   required init(coder aDecoder: NSCoder) {
+    println("called coder in StaffEditorScrollView")
     super.init(coder: aDecoder)
   }
   

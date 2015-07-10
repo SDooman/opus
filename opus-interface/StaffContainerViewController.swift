@@ -12,8 +12,6 @@ import UIKit
 
 class StaffContainerViewController: UIViewController {
   
-  
-
   /*
   //MARK: - Properties
   //MARK: FIRST WAY OF HANDLING INSTANCES
@@ -94,6 +92,7 @@ class StaffContainerViewController: UIViewController {
     staffViewModel = StaffViewModel()
     staffNavigator = StaffNavigationViewController()
     staffEditor = StaffEditorViewController()
+    println("called coder in containerVC")
     super.init(coder: aDecoder)
   }
   
@@ -110,8 +109,6 @@ class StaffContainerViewController: UIViewController {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
-  
-  
   
   // ===================================================
   

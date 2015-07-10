@@ -377,11 +377,11 @@
 		22FE61231B4AFEC700310FBA /* new-views */ = {
 			isa = PBXGroup;
 			children = (
-				CB2219F01B4EEDC600B761F0 /* StaffEditorScrollView.swift */,
 				22FE60C21B4AFB6500310FBA /* UINote.swift */,
 				22FE60C81B4AFB6500310FBA /* PlaybackMenuViewController.swift */,
 				22FE60C91B4AFB6500310FBA /* StaffContainerViewController.swift */,
 				22FE60CA1B4AFB6500310FBA /* StaffEditorViewController.swift */,
+				CB2219F01B4EEDC600B761F0 /* StaffEditorScrollView.swift */,
 				22FE60CB1B4AFB6500310FBA /* StaffNavigationViewController.swift */,
 				CB2219F71B4EEF8500B761F0 /* StaffNavigationScrollView.swift */,
 				22FE60CC1B4AFB6500310FBA /* StaffScrollView.swift */,

@@ -10,18 +10,21 @@ import UIKit
 
 class StaffNavigationViewController: UIViewController {
   
+  //MARK: - Constants:
+  
+  let numberOfStartingMeasures: Int = 2
+  let elongationConstant: CGFloat!
+  let initialStaffWidth: CGFloat!
+  let contentInsetConstant: CGFloat!
+  let initialImageViewFrame: CGRect!
+  let locationIndicatorSquare = UIView()
+  let staffImageView: UIImageView!
+  let viewControllerFrame: CGRect!
+  
   //MARK: - Properties
   
   var staffNavigationScrollView: StaffNavigationScrollView?
-  var staffImageView: UIImageView?
-  var elongationConstant: CGFloat?
-  var contentInsetConstant: CGFloat?
-  let locationIndicatorSquare = UIView()
-  var initialStaffWidth: CGFloat?
-  var viewControllerFrame: CGRect?
-  var imageViewFrame: CGRect?
-  
-  
+
   var container : StaffContainerViewController {
     
     return parentViewController as! StaffContainerViewController
@@ -33,17 +36,48 @@ class StaffNavigationViewController: UIViewController {
   
   //MARK: - Lifecycle
   
+  init() {
+    viewControllerFrame = CGRect(x: 0, y: Opus.SCREEN_HEIGHT * 0.05, width: Opus.NAVIGATION_WIDTH, height: Opus.NAVIGATION_HEIGHT)
+    initialStaffWidth = Opus.NAVIGATION_HEIGHT * CGFloat(Opus.STAFF_IMAGE_WIDTH_HEIGHT_RATIO)
+    initialImageViewFrame = CGRect(x: 0, y: 0, width: initialStaffWidth!, height: Opus.NAVIGATION_HEIGHT)
+    elongationConstant = Opus.NAVIGATION_HEIGHT * CGFloat(Opus.STAFF_IMAGE_WIDTH_HEIGHT_RATIO)
+    contentInsetConstant = Opus.NAVIGATION_WIDTH/2 - initialStaffWidth!/2
+    
+    let staffImage = UIImage(named: "staff_vector")
+    staffImageView = UIImageView(image: staffImage)
+    staffImageView!.frame = initialImageViewFrame!
+
+    super.init(nibName: nil, bundle: nil)
+    
+  }
+
+  required init(coder aDecoder: NSCoder) {
+    viewControllerFrame = CGRect(x: 0, y: Opus.SCREEN_HEIGHT * 0.05, width: Opus.NAVIGATION_WIDTH, height: Opus.NAVIGATION_HEIGHT)
+    initialStaffWidth = Opus.NAVIGATION_HEIGHT * CGFloat(Opus.STAFF_IMAGE_WIDTH_HEIGHT_RATIO)
+    initialImageViewFrame = CGRect(x: 0, y: 0, width: initialStaffWidth!, height: Opus.NAVIGATION_HEIGHT)
+    elongationConstant = Opus.NAVIGATION_HEIGHT * CGFloat(Opus.STAFF_IMAGE_WIDTH_HEIGHT_RATIO)
+    contentInsetConstant = Opus.NAVIGATION_WIDTH/2 - initialStaffWidth!/2
+    
+    let staffImage = UIImage(named: "staff_vector")
+    staffImageView = UIImageView(image: staffImage)
+    staffImageView!.frame = initialImageViewFrame!
+    
+    super.init(coder: aDecoder)
+    
+    
+    
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 
     // Do any additional setup after loading the view.
-    setConstants()
+    //setConstants()
+    
+    view.frame = viewControllerFrame
+    
     setUpStaff()
     setUpSquare()
-    
-    //sets up the number of initialized "measures"
-    staffNavigationScrollView!.contentSize.width *= 2
-    staffImageView!.frame.size.width *= 2
     
     staffNavigationScrollView!.addSubview(staffImageView!)
     self.view.addSubview(staffNavigationScrollView!)
@@ -55,6 +89,7 @@ class StaffNavigationViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  /*
   func setConstants(){
     viewControllerFrame = CGRect(x: 0, y: Opus.SCREEN_HEIGHT * 0.05, width: Opus.NAVIGATION_WIDTH, height: Opus.NAVIGATION_HEIGHT)
     initialStaffWidth = Opus.NAVIGATION_HEIGHT * CGFloat(Opus.STAFF_IMAGE_WIDTH_HEIGHT_RATIO)
@@ -62,21 +97,15 @@ class StaffNavigationViewController: UIViewController {
     elongationConstant = Opus.NAVIGATION_HEIGHT * CGFloat(Opus.STAFF_IMAGE_WIDTH_HEIGHT_RATIO)
     view.frame = viewControllerFrame!
     contentInsetConstant = Opus.NAVIGATION_WIDTH/2 - initialStaffWidth!/2
-  }
-  
-  
+  }*/
   
   func setUpStaff(){
-    let staffImage = UIImage(named: "staff_vector")
-    staffImageView = UIImageView(image: staffImage)
-    staffImageView!.frame = imageViewFrame!
-    
     /*
     / the size of the UIScrollView's frame is the same as the frame of its container, StaffNavigationViewController.view
     / the inital size of the UIScrollView's content size is the same as the size of the _staffImageView
     / contentSize.width gets updated as the staff gets longer, while contentSize.height stays constant
     */
-    staffNavigationScrollView = StaffNavigationScrollView(size: viewControllerFrame!.size, owner: self)
+    staffNavigationScrollView = StaffNavigationScrollView(size: viewControllerFrame.size, owner: self)
     staffNavigationScrollView!.userInteractionEnabled = true
     staffNavigationScrollView!.showsHorizontalScrollIndicator = false
     staffNavigationScrollView!.bounces = false
@@ -85,16 +114,19 @@ class StaffNavigationViewController: UIViewController {
     //the above line centers the nav-staff that is initialized. THIS LINE CENTERS PROPERLY IFF ONE STAFF'S WORTH OF LENGTH IS INSTANTIATED
     //this implementation makes the inital contentOffset == (-412, 0)
     
+    //sets up the number of initialized "measures"
+    staffNavigationScrollView!.contentSize.width *= CGFloat(self.numberOfStartingMeasures)
+    staffImageView!.frame.size.width *= CGFloat(self.numberOfStartingMeasures)
+    
   }
   
   
   
   func setUpSquare(){
-    /*
-    / creates the central square
-    */
+    // creates the central square
+    
     locationIndicatorSquare.userInteractionEnabled = false
-    locationIndicatorSquare.frame = CGRect(x: contentInsetConstant!-2.5, y:-15, width: staffImageView!.frame.size.width+5, height: staffImageView!.frame.size.height+30)
+    locationIndicatorSquare.frame = CGRect(x: contentInsetConstant!-2.5, y:-15, width: initialImageViewFrame.width+5, height: initialImageViewFrame.height+30)
     locationIndicatorSquare.backgroundColor = UIColor.cyanColor().colorWithAlphaComponent(0.1)
     locationIndicatorSquare.layer.borderWidth = 5
     locationIndicatorSquare.layer.cornerRadius = 5
