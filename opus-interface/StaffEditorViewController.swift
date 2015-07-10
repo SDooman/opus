@@ -23,11 +23,11 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   
   // Scrolling Objects
   var staffEditorScrollView: StaffEditorScrollView?
-  let staffImageView: UIImageView!
-  let elongationConstant: CGFloat!
-  let initialStaffWidth: CGFloat!
-  let viewControllerFrame: CGRect!
-  let imageViewFrame: CGRect!
+  let staffImageView: UIImageView
+  let elongationConstant: CGFloat
+  let initialStaffWidth: CGFloat
+  let viewControllerFrame: CGRect
+  let imageViewFrame: CGRect
   
   //  Note Drawing Constants
   let horizontalSpaces = GraphicConstants().myHorizontalGridArray!
@@ -54,11 +54,11 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     initialStaffWidth = Opus.EDITOR_WIDTH * 2
     var frameTopLeftCorner = CGPointMake(0, Opus.EDITOR_HEIGHT)
     viewControllerFrame = CGRect(x: frameTopLeftCorner.x, y: frameTopLeftCorner.y, width: Opus.EDITOR_WIDTH, height: Opus.EDITOR_HEIGHT)
-    imageViewFrame = CGRect(x: 0, y: 0, width: initialStaffWidth!, height: Opus.EDITOR_HEIGHT)
+    imageViewFrame = CGRect(x: 0, y: 0, width: initialStaffWidth, height: Opus.EDITOR_HEIGHT)
     
     let staffImage = UIImage(named: "staff_vector")
     staffImageView = UIImageView(image: staffImage)
-    staffImageView!.frame = imageViewFrame
+    staffImageView.frame = imageViewFrame
     
     super.init(nibName: nil, bundle: nil)
     
@@ -69,11 +69,11 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     initialStaffWidth = Opus.EDITOR_WIDTH * 2
     var frameTopLeftCorner = CGPointMake(0, Opus.EDITOR_HEIGHT)
     viewControllerFrame = CGRect(x: frameTopLeftCorner.x, y: frameTopLeftCorner.y, width: Opus.EDITOR_WIDTH, height: Opus.EDITOR_HEIGHT)
-    imageViewFrame = CGRect(x: 0, y: 0, width: initialStaffWidth!, height: Opus.EDITOR_HEIGHT)
+    imageViewFrame = CGRect(x: 0, y: 0, width: initialStaffWidth, height: Opus.EDITOR_HEIGHT)
     
     let staffImage = UIImage(named: "staff_vector")
     staffImageView = UIImageView(image: staffImage)
-    staffImageView!.frame = imageViewFrame
+    staffImageView.frame = imageViewFrame
 
     super.init(coder: aDecoder)
   
@@ -85,12 +85,12 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    view.frame = viewControllerFrame!
+    view.frame = viewControllerFrame
     
     //setConstants()
     setUpStaff()
     
-    staffEditorScrollView!.addSubview(staffImageView!)
+    staffEditorScrollView!.addSubview(staffImageView)
     self.view.addSubview(staffEditorScrollView!)
   }
 
@@ -111,13 +111,13 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   
   func setUpStaff(){
     
-    staffEditorScrollView = StaffEditorScrollView(size: viewControllerFrame!.size, owner: self)
+    staffEditorScrollView = StaffEditorScrollView(size: viewControllerFrame.size, owner: self)
     //staffEditorScrollView!.showsHorizontalScrollIndicator = false
     staffEditorScrollView!.userInteractionEnabled = true
     staffEditorScrollView!.bounces = false
     staffEditorScrollView!.indicatorStyle = UIScrollViewIndicatorStyle.White
-    staffEditorScrollView!.frame.size = viewControllerFrame!.size
-    staffEditorScrollView!.contentSize = imageViewFrame!.size
+    staffEditorScrollView!.frame.size = viewControllerFrame.size
+    staffEditorScrollView!.contentSize = imageViewFrame.size
   }
   
   //TODO: Fill in method stub
@@ -249,8 +249,8 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   }
   
   func elongateStaff(){
-    staffEditorScrollView!.contentSize.width += elongationConstant!
-    staffImageView!.frame.size.width += elongationConstant!
+    staffEditorScrollView!.contentSize.width += elongationConstant
+    staffImageView.frame.size.width += elongationConstant
   }
   
   

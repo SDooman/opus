@@ -27,7 +27,7 @@ class StaffNavigationScrollView: UIScrollView {
     super.layoutSubviews()
     
     if self.dragging{
-      owningVCParent.updateStaffEditorView((contentOffset.x + owningVC!.contentInsetConstant!)/contentSize.width)
+      owningVCParent.updateStaffEditorView((contentOffset.x + owningVC!.contentInsetConstant)/contentSize.width)
     }
   }
 }
