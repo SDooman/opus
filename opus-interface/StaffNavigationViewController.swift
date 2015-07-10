@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StaffNavigationViewController: UIViewController {
+class StaffNavigationViewController: UIViewController, UIScrollViewDelegate {
   
   //MARK: - Constants:
   
@@ -63,8 +63,6 @@ class StaffNavigationViewController: UIViewController {
     staffImageView.frame = initialImageViewFrame
     
     super.init(coder: aDecoder)
-    
-    
     
   }
   
@@ -131,7 +129,7 @@ class StaffNavigationViewController: UIViewController {
     locationIndicatorSquare.layer.borderWidth = 5
     locationIndicatorSquare.layer.cornerRadius = 5
     locationIndicatorSquare.layer.borderColor = UIColor.blueColor().colorWithAlphaComponent(0.7).CGColor
-    //note that the measure lines overlap the square on the left
+
   }
   
   //MARK: - Gesture Event Callbacks

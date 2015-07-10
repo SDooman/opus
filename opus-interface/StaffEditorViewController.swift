@@ -10,7 +10,7 @@ import UIKit
 import MusicKit
 import AudioToolbox
 
-class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
+class StaffEditorViewController: UIViewController {
   
   //MARK: - Properties
   //TODO: [SD] Figure out best data structure for this
