@@ -167,9 +167,5 @@ class StaffNavigationViewController: UIViewController {
   func updatePosition(x_ratio: CGFloat){
     staffNavigationScrollView!.contentOffset = CGPointMake(x_ratio*staffNavigationScrollView!.contentSize.width - contentInsetConstant!, 0)
   }
-  
-  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-    println("StaffNavigationViewController got touches")
-  }
-  
+
 }

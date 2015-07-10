@@ -127,17 +127,4 @@ class StaffContainerViewController: UIViewController {
     staffEditor.elongateStaff()
   }
   
-  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-    println("StaffContainerViewController got touches")
-    
-    for item in self.view.subviews {
-      println(item)
-      if let theView = item as? UIView {
-        println(theView.nextResponder()!)
-      }
-      println("------")
-    }
-    println("==========")
-  }
-  
 }

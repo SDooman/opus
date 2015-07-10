@@ -20,7 +20,6 @@ class StaffEditorScrollView: UIScrollView {
   }
   
   required init(coder aDecoder: NSCoder) {
-    println("called coder in StaffEditorScrollView")
     super.init(coder: aDecoder)
   }
   
@@ -47,8 +46,5 @@ class StaffEditorScrollView: UIScrollView {
       }
     }
   }
-  
-  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-    println("StaffEditorScrollView got touches")
-  }
+
 }
