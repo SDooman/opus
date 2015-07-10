@@ -10,45 +10,52 @@ import AudioToolbox
 
 class OpusMIDIAdapter {
   
-  var _musicSequence: MusicSequence = nil
-  var _track: MusicTrack = nil
+  var musicSequence: MusicSequence = nil
+  
+  var track : MusicTrack {
+    var t = MusicTrack()
+    MusicSequenceGetIndTrack(musicSequence, 0, &t)
+    
+    return t
+  }
   
   //MARK: Lifecycle
   
   init(auGraph: AUGraph) {
     
-    _musicSequence = createMusicSequence(auGraph)
+    musicSequence = createMusicSequence(auGraph)
     
   }
 
   func createMusicSequence(auGraph: AUGraph) -> MusicSequence {
     
-    var musicSequence = MusicSequence()
-    var status: OSStatus = NewMusicSequence(&musicSequence)
+    var seq = MusicSequence()
+    var status: OSStatus = NewMusicSequence(&seq)
     
     AudioToolboxError.handle(status)
     
-    _track = MusicTrack()
-    status = MusicSequenceNewTrack(_musicSequence, &_track)
+    var t = MusicTrack()
+    status = MusicSequenceNewTrack(seq, &t)
     
     AudioToolboxError.handle(status)
     
     //Associate AUGraph
-    MusicSequenceSetAUGraph(musicSequence, auGraph)
+    status = MusicSequenceSetAUGraph(seq, auGraph)
+    AudioToolboxError.handle(status)
     
-    return musicSequence
+    return seq
   }
   
   deinit {
     var status = OSStatus(noErr)
-    DisposeMusicSequence(_musicSequence)
+    DisposeMusicSequence(musicSequence)
     AudioToolboxError.handle(status)
   }
   
   //MARK: Accessors
   
   func getSequence() -> MusicSequence {
-    return _musicSequence
+    return musicSequence
   }
   
   
@@ -107,7 +114,7 @@ class OpusMIDIAdapter {
       var noteToInsert = MIDINoteMessage(channel: 0, note: note,
         velocity: 64, releaseVelocity: 0, duration: duration)
       
-      status = MusicTrackNewMIDINoteEvent(_track, time, &noteToInsert)
+      status = MusicTrackNewMIDINoteEvent(track, time, &noteToInsert)
       AudioToolboxError.handle(status)
       
       return true
@@ -200,7 +207,7 @@ class OpusMIDIAdapter {
       var iterator = MusicEventIterator()
       
       var status = OSStatus(noErr)
-      status = NewMusicEventIterator(_track, &iterator)
+      status = NewMusicEventIterator(track, &iterator)
       AudioToolboxError.handle(status)
       
       var hasCurrentEvent = Boolean()

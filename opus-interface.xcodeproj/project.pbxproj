@@ -110,6 +110,11 @@
 		BBDECB921B4C594200B29638 /* NoteValueSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB8F1B4C594200B29638 /* NoteValueSelectionViewController.swift */; };
 		BBDECB951B4C603100B29638 /* UpdateNoteSelectionMenuValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB941B4C603100B29638 /* UpdateNoteSelectionMenuValue.swift */; };
 		BBFCACD61B307CA3003E0BDD /* MusicKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = BBFCACD11B307C8B003E0BDD /* MusicKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CB9314181B501FDD00F64BAB /* UpdateNoteSelectionMenuValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB941B4C603100B29638 /* UpdateNoteSelectionMenuValue.swift */; };
+		CB9314191B501FDD00F64BAB /* PopoverAccidentalMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB7F1B4C531300B29638 /* PopoverAccidentalMenuViewController.swift */; };
+		CB93141A1B501FDD00F64BAB /* NoteValueSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB8D1B4C594200B29638 /* NoteValueSelectionTableViewCell.swift */; };
+		CB93141B1B501FDD00F64BAB /* NoteValueSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB8F1B4C594200B29638 /* NoteValueSelectionViewController.swift */; };
+		CB93141C1B501FDD00F64BAB /* ClefKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB791B4C4DB800B29638 /* ClefKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -681,6 +686,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB9314181B501FDD00F64BAB /* UpdateNoteSelectionMenuValue.swift in Sources */,
+				CB9314191B501FDD00F64BAB /* PopoverAccidentalMenuViewController.swift in Sources */,
+				CB93141A1B501FDD00F64BAB /* NoteValueSelectionTableViewCell.swift in Sources */,
+				CB93141B1B501FDD00F64BAB /* NoteValueSelectionViewController.swift in Sources */,
+				CB93141C1B501FDD00F64BAB /* ClefKey.swift in Sources */,
 				22FE61311B4B68BC00310FBA /* SelectNote.swift in Sources */,
 				22FE613A1B4B6B3300310FBA /* DisplayAccidentalMenu.swift in Sources */,
 				22FE60F31B4AFB6500310FBA /* OldStaffViewController.swift in Sources */,

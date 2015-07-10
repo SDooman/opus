@@ -10,7 +10,7 @@ import UIKit
 import MusicKit
 import AudioToolbox
 
-class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
+class StaffEditorViewController: UIViewController {
   
   //MARK: - Properties
   //TODO: [SD] Figure out best data structure for this
@@ -21,14 +21,25 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   var notes : Set<UINote> = []
   var selectedNote : UINote?
   
-
+  // Scrolling Objects
+  var staffEditorScrollView: StaffEditorScrollView?
+  let staffImageView: UIImageView
+  let elongationConstant: CGFloat
+  let initialStaffWidth: CGFloat
+  let viewControllerFrame: CGRect
+  let imageViewFrame: CGRect
   
-  //  Constants
+  //  Note Drawing Constants
   let horizontalSpaces = GraphicConstants().myHorizontalGridArray!
   let verticalSpaces = GraphicConstants().myVertLineSpaceArray!
   
+  // Used for NoteValueSelectionVC - indices for previously selected element.
+  var currentSegControlIndex: Int = -1
+  var currentSubSegControlIndex: Int = -1
+  
+  // Computed Properties
+
   var container : StaffContainerViewController {
-    
     return parentViewController as! StaffContainerViewController
   }
   
@@ -36,9 +47,37 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     return container.staffViewModel
   }
   
-  // Used for NoteValueSelectionVC - indices for previously selected element.
-  var currentSegControlIndex: Int = -1
-  var currentSubSegControlIndex: Int = -1
+  
+  //MARK: - Initializers
+  init() {
+    elongationConstant = Opus.EDITOR_WIDTH
+    initialStaffWidth = Opus.EDITOR_WIDTH * 2
+    var frameTopLeftCorner = CGPointMake(0, Opus.EDITOR_HEIGHT)
+    viewControllerFrame = CGRect(x: frameTopLeftCorner.x, y: frameTopLeftCorner.y, width: Opus.EDITOR_WIDTH, height: Opus.EDITOR_HEIGHT)
+    imageViewFrame = CGRect(x: 0, y: 0, width: initialStaffWidth, height: Opus.EDITOR_HEIGHT)
+    
+    let staffImage = UIImage(named: "staff_vector")
+    staffImageView = UIImageView(image: staffImage)
+    staffImageView.frame = imageViewFrame
+    
+    super.init(nibName: nil, bundle: nil)
+    
+  }
+
+  required init(coder aDecoder: NSCoder) {
+    elongationConstant = Opus.EDITOR_WIDTH
+    initialStaffWidth = Opus.EDITOR_WIDTH * 2
+    var frameTopLeftCorner = CGPointMake(0, Opus.EDITOR_HEIGHT)
+    viewControllerFrame = CGRect(x: frameTopLeftCorner.x, y: frameTopLeftCorner.y, width: Opus.EDITOR_WIDTH, height: Opus.EDITOR_HEIGHT)
+    imageViewFrame = CGRect(x: 0, y: 0, width: initialStaffWidth, height: Opus.EDITOR_HEIGHT)
+    
+    let staffImage = UIImage(named: "staff_vector")
+    staffImageView = UIImageView(image: staffImage)
+    staffImageView.frame = imageViewFrame
+
+    super.init(coder: aDecoder)
+  
+  }
   
   
   //MARK: - Lifecycle
@@ -46,11 +85,39 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    view.frame = viewControllerFrame
+    
+    //setConstants()
+    setUpStaff()
+    
+    staffEditorScrollView!.addSubview(staffImageView)
+    self.view.addSubview(staffEditorScrollView!)
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     
+  }
+  /*
+  func setConstants(){
+    elongationConstant = Opus.EDITOR_WIDTH
+    initialStaffWidth = Opus.EDITOR_WIDTH * 2
+    var frameTopLeftCorner = CGPointMake(0, Opus.EDITOR_HEIGHT)
+    viewControllerFrame = CGRect(x: frameTopLeftCorner.x, y: frameTopLeftCorner.y, width: Opus.EDITOR_WIDTH, height: Opus.EDITOR_HEIGHT)
+    view.frame = viewControllerFrame!
+    imageViewFrame = CGRect(x: 0, y: 0, width: initialStaffWidth!, height: Opus.EDITOR_HEIGHT)
+  }
+  */
+  
+  func setUpStaff(){
+    
+    staffEditorScrollView = StaffEditorScrollView(size: viewControllerFrame.size, owner: self)
+    //staffEditorScrollView!.showsHorizontalScrollIndicator = false
+    staffEditorScrollView!.userInteractionEnabled = true
+    staffEditorScrollView!.bounces = false
+    staffEditorScrollView!.indicatorStyle = UIScrollViewIndicatorStyle.White
+    staffEditorScrollView!.frame.size = viewControllerFrame.size
+    staffEditorScrollView!.contentSize = imageViewFrame.size
   }
   
   //TODO: Fill in method stub
@@ -181,6 +248,24 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     return CGPoint(x: returnX!, y: returnY!)
   }
   
+  func elongateStaff(){
+    staffEditorScrollView!.contentSize.width += elongationConstant
+    staffImageView.frame.size.width += elongationConstant
+  }
+  
+  
+  func updatePosition(x_ratio: CGFloat){
+    var updatedPosition = x_ratio * staffEditorScrollView!.contentSize.width
+    if updatedPosition < 0{
+      staffEditorScrollView!.contentOffset = CGPointMake(0, 0)
+    }else{
+      staffEditorScrollView!.contentOffset = CGPointMake(updatedPosition, 0)
+    }
+  }
+  
+  
+  
+  /*
   func pitchFromBarLineIndex(barLineIndex: Int) -> Pitch {
     // replace this with current harmonic
     let key = Scale.Major
@@ -193,6 +278,11 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     
     return trebleClefNotes[barLineIndex]
   }
+  */
+  
+  
+  
+
   
   func beatLocationFrom(#location: CGPoint) -> MusicTimeStamp {
     let adjustedLocation = closestValidPositionFrom(location: location)
@@ -216,6 +306,11 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
   
   //MARK: - Presenting Modular Popover Menus
   
+  
+  
+  
+  
+  /*
   func presentAccidentalMenuOnNote(note: UINote) {
     var contentViewController = PopoverAccidentalMenuViewController(nibName: "PopoverAccidentalMenuView", bundle: nil)
     var popController = UIPopoverController(contentViewController: contentViewController)
@@ -241,7 +336,6 @@ class StaffEditorViewController: UIViewController, UIScrollViewDelegate {
     currentSegControlIndex = segControlIndex
     currentSubSegControlIndex = subIndex
   }
-  
-  
-  
+  */
+
 }

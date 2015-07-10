@@ -108,6 +108,7 @@ class AudioToolboxError: NSObject {
       
     default:
       println("huh?")
+      println("\(error)")
     }
 
   }

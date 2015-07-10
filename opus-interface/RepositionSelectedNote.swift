@@ -1,24 +1,25 @@
 //
-//  DisplayAccidentalMenu.swift
+//  RepositionNote.swift
 //  opus-interface
 //
 //  Created by Samuel Dooman on 7/6/15.
 //  Copyright (c) 2015 Sam Dooman. All rights reserved.
 //
+/*
+import UIKit
 
-class DisplayAccidentalMenu: Command {
+class RepositionSelectedNote: Command {
   
-  let note: UINote
+  let translation: CGPoint
   let invoker: StaffEditorViewController
   
-  init(note: UINote, invoker: StaffEditorViewController) {
-    self.note = note
+  init(translation: CGPoint, invoker: StaffEditorViewController){
+    self.translation = translation
     self.invoker = invoker
   }
   
   func run() {
     
-    //invoker.presentAccidentalMenuOnNote(note)
-    
   }
 }
+*/
