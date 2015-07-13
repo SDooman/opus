@@ -92,7 +92,7 @@ class StaffContainerViewController: UIViewController {
     staffViewModel = StaffViewModel()
     staffNavigator = StaffNavigationViewController()
     staffEditor = StaffEditorViewController()
-    println("called coder in containerVC")
+    //println("called coder in containerVC")
     super.init(coder: aDecoder)
   }
   

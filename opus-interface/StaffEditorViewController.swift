@@ -10,7 +10,7 @@ import UIKit
 import MusicKit
 import AudioToolbox
 
-class StaffEditorViewController: UIViewController {
+class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
   
   //MARK: - Properties
   //TODO: [SD] Figure out best data structure for this
@@ -30,8 +30,9 @@ class StaffEditorViewController: UIViewController {
   let imageViewFrame: CGRect
   
   //  Note Drawing Constants
-  let horizontalSpaces = GraphicConstants().myHorizontalGridArray!
-  let verticalSpaces = GraphicConstants().myVertLineSpaceArray!
+  // THESE ARE NOW USELESS. DO NOT USE GRAPHICCONSTANTS(), the math used is old.
+  //let horizontalSpaces = GraphicConstants().myHorizontalGridArray!
+  let verticalSpaces: [Float] = [177, 218, 259, 300, 340]
   
   // Used for NoteValueSelectionVC - indices for previously selected element.
   var currentSegControlIndex: Int = -1
@@ -52,9 +53,22 @@ class StaffEditorViewController: UIViewController {
   init() {
     elongationConstant = Opus.EDITOR_WIDTH
     initialStaffWidth = Opus.EDITOR_WIDTH * 2
-    var frameTopLeftCorner = CGPointMake(0, Opus.EDITOR_HEIGHT)
-    viewControllerFrame = CGRect(x: frameTopLeftCorner.x, y: frameTopLeftCorner.y, width: Opus.EDITOR_WIDTH, height: Opus.EDITOR_HEIGHT)
-    imageViewFrame = CGRect(x: 0, y: 0, width: initialStaffWidth, height: Opus.EDITOR_HEIGHT)
+    
+    let ratio = Opus.EDITOR_TO_SCREEN_RATIO
+    let editorHeight = Opus.EDITOR_HEIGHT
+    let editorWidth = Opus.EDITOR_WIDTH
+    
+    var frameTopLeftCorner = CGPointMake(0, (Opus.SCREEN_HEIGHT - Opus.EDITOR_HEIGHT) / 2)
+    
+    viewControllerFrame = CGRect(x: frameTopLeftCorner.x,
+      y: frameTopLeftCorner.y,
+      width: editorWidth,
+      height: editorHeight)
+    
+    imageViewFrame = CGRect(x: 0,
+      y: ((editorHeight - Opus.STAFF_HEIGHT) / 2),
+      width: initialStaffWidth,
+      height: Opus.STAFF_HEIGHT)
     
     let staffImage = UIImage(named: "staff_vector")
     staffImageView = UIImageView(image: staffImage)
@@ -67,9 +81,22 @@ class StaffEditorViewController: UIViewController {
   required init(coder aDecoder: NSCoder) {
     elongationConstant = Opus.EDITOR_WIDTH
     initialStaffWidth = Opus.EDITOR_WIDTH * 2
-    var frameTopLeftCorner = CGPointMake(0, Opus.EDITOR_HEIGHT)
-    viewControllerFrame = CGRect(x: frameTopLeftCorner.x, y: frameTopLeftCorner.y, width: Opus.EDITOR_WIDTH, height: Opus.EDITOR_HEIGHT)
-    imageViewFrame = CGRect(x: 0, y: 0, width: initialStaffWidth, height: Opus.EDITOR_HEIGHT)
+    
+    let ratio = Opus.EDITOR_TO_SCREEN_RATIO
+    let editorHeight = Opus.EDITOR_HEIGHT
+    let editorWidth = Opus.EDITOR_WIDTH
+    
+    var frameTopLeftCorner = CGPointMake(0, (Opus.SCREEN_HEIGHT - Opus.EDITOR_HEIGHT) / 2)
+    
+    viewControllerFrame = CGRect(x: frameTopLeftCorner.x,
+      y: frameTopLeftCorner.y,
+      width: editorWidth,
+      height: editorHeight)
+    
+    imageViewFrame = CGRect(x: 0,
+      y: ((editorHeight - Opus.STAFF_HEIGHT) / 2),
+      width: initialStaffWidth,
+      height: Opus.STAFF_HEIGHT)
     
     let staffImage = UIImage(named: "staff_vector")
     staffImageView = UIImageView(image: staffImage)
@@ -89,6 +116,8 @@ class StaffEditorViewController: UIViewController {
     
     //setConstants()
     setUpStaff()
+    setupGestureRecognizers()
+    self.view.backgroundColor = UIColor.redColor()
     
     staffEditorScrollView!.addSubview(staffImageView)
     self.view.addSubview(staffEditorScrollView!)
@@ -122,7 +151,11 @@ class StaffEditorViewController: UIViewController {
   
   //TODO: Fill in method stub
   func setupGestureRecognizers() {
-    
+    let singleSelector: Selector = "oneFingerSingleTap:"
+    var singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: singleSelector)
+    singleTap.numberOfTapsRequired = 1
+    singleTap.delegate = self
+    self.view.addGestureRecognizer(singleTap)
   }
   
   //MARK: - Gesture Event Callbacks
@@ -132,10 +165,39 @@ class StaffEditorViewController: UIViewController {
   func oneFingerSingleTap(gestureRecognizer: UITapGestureRecognizer) {
     
     let touchLocation = gestureRecognizer.locationInView(view)
+    let adjustedLocation = closestValidPositionFrom(location: touchLocation)
+    //println("original location \(touchLocation) converted to \(adjustedLocation)")
     
-    //TODO: Launch command for selecting note
     
+    let barLineIndex: Int
+    let pitch: Pitch
+    let noteValue: OpusNoteValue
+    let beatLocation: MusicTimeStamp
+    
+    selectNoteAt(adjustedLocation)
+
+    if selectedNote == nil {
+      barLineIndex = barLineIndexFrom(adjustedLocation: adjustedLocation)
+      pitch = pitchFromBarLineIndex(barLineIndex)
+      noteValue = staffViewModel.currentNoteValue
+      beatLocation = beatLocationFrom(location: adjustedLocation)
+      /*
+      println(barLineIndex)
+      println(pitch)
+      println(noteValue)
+      println(beatLocation)
+      println("adjusted location is \(adjustedLocation)")
+      */
+      
+      InsertNote(note: OpusNote(pitch: pitch, beatLocation: beatLocation, noteValue: noteValue),
+        location: adjustedLocation,
+        invoker: self,
+        target: self.staffViewModel).run()
+    }
   }
+
+  
+  
   
   func twoFingerSingleTap(gestureRecognizer: UITapGestureRecognizer) {
     
@@ -182,8 +244,9 @@ class StaffEditorViewController: UIViewController {
   
   func displayNewNote(note: UINote) {
     notes.insert(note)
-    // TODO: - Handle graphics of removing note?
-
+    note.imageView.frame = CGRectMake(note.location.x, note.location.y, note.size.width, note.size.height)
+    note.updateLocation(note.location)
+    self.staffEditorScrollView!.addSubview(note.imageView)
   }
   
   func removeExistingNote(note: UINote){
@@ -220,32 +283,19 @@ class StaffEditorViewController: UIViewController {
   
   //      Gives vertical and horizontal grid locked coordinate
   func closestValidPositionFrom(#location: CGPoint) -> CGPoint {
-    let touchX = Float(location.x); let touchY = Float(location.y)
-    var returnX: CGFloat? = nil;    var returnY: CGFloat? = nil
-
-    for index in 0...horizontalSpaces.count - 1 {
-      if touchX < horizontalSpaces[index] {
-        returnX = CGFloat(horizontalSpaces[index])
-        break
-      }
-    }
-
+    var returnX: Int = Int(location.x) + (Opus.BUCKET_WIDTH / 2)
+    var returnY: Int = 0
+    returnX /= Opus.BUCKET_WIDTH
+    returnX *= Opus.BUCKET_WIDTH
+    
     for index in 0...verticalSpaces.count - 1 {
-      if touchY < verticalSpaces[index]{
-        returnY = CGFloat(verticalSpaces[index])
-        break
+      if (location.y) < CGFloat(verticalSpaces[index]) {
+        returnY = Int(verticalSpaces[index])
+        return CGPoint(x: CGFloat(returnX), y: CGFloat(verticalSpaces[index]))
       }
     }
+    return CGPoint(x: CGFloat(returnX), y: CGFloat(verticalSpaces[verticalSpaces.count-1]))
     
-    if returnX == nil {
-      returnX = CGFloat(horizontalSpaces.last!)
-    }
-    
-    if returnY == nil {
-      returnY = CGFloat(verticalSpaces.last!)
-    }
-    
-    return CGPoint(x: returnX!, y: returnY!)
   }
   
   func elongateStaff(){
@@ -265,7 +315,7 @@ class StaffEditorViewController: UIViewController {
   
   
   
-  /*
+  
   func pitchFromBarLineIndex(barLineIndex: Int) -> Pitch {
     // replace this with current harmonic
     let key = Scale.Major
@@ -278,24 +328,26 @@ class StaffEditorViewController: UIViewController {
     
     return trebleClefNotes[barLineIndex]
   }
-  */
   
-  
-  
+  func barLineIndexFrom(#adjustedLocation: CGPoint) -> Int {
+    let myY = Float(adjustedLocation.y)
+    //println(adjustedLocation)
+    for index in 0...verticalSpaces.count - 1 {
+      if myY == verticalSpaces[index] {
+        //println(verticalSpaces)
+        //println("returning \(index) for \(verticalSpaces[index]) = \(myY)")
+        return index
+      }
+    }
+    return 0
+  }
 
   
   func beatLocationFrom(#location: CGPoint) -> MusicTimeStamp {
     let adjustedLocation = closestValidPositionFrom(location: location)
-    var myBucket: Int!
+    var myBucket: Int = Int(location.x) / Opus.BUCKET_WIDTH
     
-    for i in 0...horizontalSpaces.count - 1 {
-      if Float(adjustedLocation.x) == horizontalSpaces[i]{
-        myBucket = i
-        break
-      }
-    }
-    
-    return Float64(myBucket / 4)
+    return Float64(myBucket)
     
   }
 

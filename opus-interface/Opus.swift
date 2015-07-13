@@ -38,12 +38,30 @@ struct Opus {
   
   static let EDITOR_WIDTH = SCREEN_WIDTH
   
-  static let EDITOR_HEIGHT = SCREEN_HEIGHT / 3
+  // AS OF 7.13.15 static let EDITOR_HEIGHT = SCREEN_HEIGHT / 3
+  
+  static let EDITOR_TO_SCREEN_RATIO: CGFloat = CGFloat(1.5)
+  
+  static let STAFF_TO_EDITOR_RATIO: CGFloat = CGFloat(3)
+  
+  static let EDITOR_HEIGHT = SCREEN_HEIGHT / EDITOR_TO_SCREEN_RATIO
+  
+  static let STAFF_HEIGHT = EDITOR_HEIGHT / STAFF_TO_EDITOR_RATIO
   
   static let NAVIGATION_WIDTH = SCREEN_WIDTH
   
   static let NAVIGATION_HEIGHT = SCREEN_HEIGHT / 15
   
   static let STAFF_IMAGE_WIDTH_HEIGHT_RATIO = 4
+  
+  
+  
+  //MARK: - Calculating "bucket" locations
+  
+  static let BUCKET_WIDTH = 64
+
+  
+  
+  
   
 }

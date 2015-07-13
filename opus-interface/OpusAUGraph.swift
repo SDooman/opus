@@ -82,8 +82,8 @@ class OpusAUGraph: NSObject {
     var status = OSStatus(noErr)
     var outIsInitialized:Boolean = 0
     status = AUGraphIsInitialized(_processingGraph, &outIsInitialized)
-    println("isinit status is \(status)")
-    println("bool is \(outIsInitialized)")
+    //println("isinit status is \(status)")
+    //println("bool is \(outIsInitialized)")
     if outIsInitialized == 0 {
       status = AUGraphInitialize(_processingGraph)
       AudioToolboxError.handle(status)
@@ -91,7 +91,7 @@ class OpusAUGraph: NSObject {
     
     var isRunning = Boolean(0)
     AUGraphIsRunning(_processingGraph, &isRunning)
-    println("running bool is \(isRunning)")
+    //println("running bool is \(isRunning)")
     if isRunning == 0 {
       status = AUGraphStart(_processingGraph)
       AudioToolboxError.handle(status)

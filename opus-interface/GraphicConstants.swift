@@ -54,7 +54,7 @@ struct GraphicConstants {
         
         let bucketSize: Float = (screenWidth! - myLeftWallCushion!) / Float(numberOfHorizontalBuckets!)
         myTempHorizontalGridArray = [Float]()
-        myTempHorizontalGridArray?.append(myLeftWallCushion!)
+        //myTempHorizontalGridArray?.append(myLeftWallCushion!)
         
         for i in 0...(numberOfHorizontalBuckets! - 1) {
             let toAdd = (Float(i) * bucketSize) + myLeftWallCushion!
