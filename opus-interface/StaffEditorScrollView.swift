@@ -17,6 +17,16 @@ class StaffEditorScrollView: UIScrollView {
     super.init(frame: CGRect(origin: CGPoint(x: 0,y: 0), size: size))
     owningVC = owner as! StaffEditorViewController
     owningVCParent = owningVC.parentViewController as! StaffContainerViewController
+    
+    var gestureRecognizers = self.gestureRecognizers as! [UIGestureRecognizer]
+    for gesture in gestureRecognizers {
+      if let panGesture = gesture as? UIPanGestureRecognizer{
+        panGesture.maximumNumberOfTouches = 2
+        panGesture.minimumNumberOfTouches = 2
+      }
+    }
+    
+    
   }
   
   required init(coder aDecoder: NSCoder) {
