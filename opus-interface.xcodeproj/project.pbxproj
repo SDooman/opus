@@ -384,14 +384,14 @@
 			isa = PBXGroup;
 			children = (
 				CBC4FF4C1B503C88007B7449 /* RepositionSelectedNote.swift */,
+				22FE60CA1B4AFB6500310FBA /* StaffEditorViewController.swift */,
 				CBC4FF4D1B503C88007B7449 /* StaffEditorScrollView.swift */,
+				22FE60CB1B4AFB6500310FBA /* StaffNavigationViewController.swift */,
 				CBC4FF4E1B503C88007B7449 /* StaffNavigationScrollView.swift */,
 				22FE60C21B4AFB6500310FBA /* UINote.swift */,
 				22FE60C81B4AFB6500310FBA /* PlaybackMenuViewController.swift */,
 				22FE60C91B4AFB6500310FBA /* StaffContainerViewController.swift */,
-				22FE60CA1B4AFB6500310FBA /* StaffEditorViewController.swift */,
 				BBDECB831B4C533900B29638 /* popover-menus */,
-				22FE60CB1B4AFB6500310FBA /* StaffNavigationViewController.swift */,
 				22FE60CC1B4AFB6500310FBA /* StaffScrollView.swift */,
 			);
 			name = "new-views";

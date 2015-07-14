@@ -174,7 +174,6 @@ class StaffEditorViewController: UIViewController {
   }
   
   func twoFingerDrag(gestureRecognizer: UIPanGestureRecognizer) {
-    
   }
   
   //MARK: - Graphics Helper Functions
