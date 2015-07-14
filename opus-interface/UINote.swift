@@ -75,8 +75,11 @@ class UINote: NSObject {
     size = CGSizeMake(
       Opus.UINOTE_WIDTH,
       Opus.UINOTE_HEIGHT)
-      
+    
     self.location = location
+    //println("UINote Sets location to \(location)")
+    
+    super.init()
   }
   
   //MARK: - Accessors
@@ -85,6 +88,6 @@ class UINote: NSObject {
     
     imageView.center = CGPoint(
       x: location.x - noteValueOffset!.x,
-      y: location.y)
+      y: location.y - noteValueOffset!.y)
   }
 }

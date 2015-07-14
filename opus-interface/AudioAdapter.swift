@@ -20,7 +20,7 @@ class AudioAdapter {
     _audioGraph = OpusAUGraph()
     _midiSequenceEditor = OpusMIDIAdapter(auGraph: _audioGraph.getAUGraph())
     
-    println("finished creating sequence editor")
+    //println("finished creating sequence editor")
     _midiPlayer = OpusAudioPlayer(sequence: _midiSequenceEditor.getSequence())
     
   }
