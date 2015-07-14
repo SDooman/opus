@@ -10,11 +10,24 @@ import UIKit
 
 class UpdateNote: Command {
   
-  init() {
-    
-  }
+  let invoker: StaffEditorViewController
+  let target: StaffViewModel
   
+  let oldNote: OpusNote
+  let newNote: OpusNote
+  
+  init(oldNote: OpusNote, newNote: OpusNote,
+    invoker: StaffEditorViewController,
+    target: StaffViewModel) {
+      
+      self.oldNote = oldNote
+      self.newNote = newNote
+      self.invoker = invoker
+      self.target = target
+
+  }
   func run() {
-    // do stuff
+    
+    target.edit(oldNote, newStaffEvent: newNote)
   }
 }
