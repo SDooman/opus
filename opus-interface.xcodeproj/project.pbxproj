@@ -102,6 +102,7 @@
 		22FE61431B4B6C4400310FBA /* ResetPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61411B4B6C4400310FBA /* ResetPlayback.swift */; };
 		22FE61451B4B6CF800310FBA /* StopPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61441B4B6CF800310FBA /* StopPlayback.swift */; };
 		22FE61461B4B6CF800310FBA /* StopPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61441B4B6CF800310FBA /* StopPlayback.swift */; };
+		BB43E9621B55A3BD00E84134 /* UpdateNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB43E9611B55A3BD00E84134 /* UpdateNote.swift */; };
 		BBDECB7A1B4C4DB800B29638 /* ClefKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB791B4C4DB800B29638 /* ClefKey.swift */; };
 		BBDECB811B4C531300B29638 /* PopoverAccidentalMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB7F1B4C531300B29638 /* PopoverAccidentalMenuViewController.swift */; };
 		BBDECB821B4C531400B29638 /* PopoverAccidentalMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBDECB801B4C531300B29638 /* PopoverAccidentalMenuViewController.xib */; };
@@ -231,6 +232,7 @@
 		22FE613E1B4B6C2900310FBA /* StartPlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartPlayback.swift; sourceTree = "<group>"; };
 		22FE61411B4B6C4400310FBA /* ResetPlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPlayback.swift; sourceTree = "<group>"; };
 		22FE61441B4B6CF800310FBA /* StopPlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopPlayback.swift; sourceTree = "<group>"; };
+		BB43E9611B55A3BD00E84134 /* UpdateNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateNote.swift; sourceTree = "<group>"; };
 		BBDECB791B4C4DB800B29638 /* ClefKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClefKey.swift; sourceTree = "<group>"; };
 		BBDECB7F1B4C531300B29638 /* PopoverAccidentalMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAccidentalMenuViewController.swift; sourceTree = "<group>"; };
 		BBDECB801B4C531300B29638 /* PopoverAccidentalMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopoverAccidentalMenuViewController.xib; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				22FE61291B4B2B3B00310FBA /* Command.swift */,
 				22FE612C1B4B373D00310FBA /* InsertNote.swift */,
 				22FE612F1B4B68BC00310FBA /* SelectNote.swift */,
+				BB43E9611B55A3BD00E84134 /* UpdateNote.swift */,
 				22FE61321B4B6A4000310FBA /* RemoveNote.swift */,
 				22FE61381B4B6B3300310FBA /* DisplayAccidentalMenu.swift */,
 				22FE613B1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift */,
@@ -651,6 +654,7 @@
 				22FE61201B4AFB6500310FBA /* StaffViewModel.swift in Sources */,
 				22FE610A1B4AFB6500310FBA /* opus_interface.xcdatamodeld in Sources */,
 				22FE611E1B4AFB6500310FBA /* OpusTimeSignature.swift in Sources */,
+				BB43E9621B55A3BD00E84134 /* UpdateNote.swift in Sources */,
 				225D215D1B1F8AB0007DD37B /* ViewController.swift in Sources */,
 				22FE60DE1B4AFB6500310FBA /* DMDynamicViewController.swift in Sources */,
 				CBC4FF4F1B503C88007B7449 /* RepositionSelectedNote.swift in Sources */,

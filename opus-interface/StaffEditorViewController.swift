@@ -161,7 +161,6 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let touchLocation = gestureRecognizer.locationInView(self.staffEditorScrollView!)
     let adjustedLocation = closestValidPositionFrom(location: touchLocation)
-    println(touchLocation)
     
     
     let barLineIndex: Int
@@ -184,9 +183,6 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     }
   }
 
-  
-  
-  
   func twoFingerSingleTap(gestureRecognizer: UITapGestureRecognizer) {
     
     let midpointLocation =
@@ -205,13 +201,12 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
   }
   
   func oneFingerDrag(gestureRecognizer: UIPanGestureRecognizer) {
-    println(gestureRecognizer.locationInView(self.staffEditorScrollView!))
     
     switch gestureRecognizer.state {
       
     case UIGestureRecognizerState.Began:
       selectNoteAt(gestureRecognizer.locationInView(self.staffEditorScrollView!))
-      gestureRecognizer.setTranslation(CGPointZero, inView: self.staffEditorScrollView!)
+      //gestureRecognizer.setTranslation(CGPointZero, inView: self.staffEditorScrollView!)
       
     case UIGestureRecognizerState.Changed:
       if selectedNote != nil {
@@ -229,6 +224,22 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
       }
       
     case UIGestureRecognizerState.Ended:
+      if selectedNote != nil {
+        
+        let location = selectedNote!.location
+        let adjustedLocation = closestValidPositionFrom(location: location)
+        
+        let barLineIndex = barLineIndexFrom(adjustedLocation: adjustedLocation)
+        let pitch = pitchFromBarLineIndex(barLineIndex)
+        let noteValue = staffViewModel.currentNoteValue
+        let beatLocation = beatLocationFrom(location: adjustedLocation)
+        
+        // command to update note
+        
+        selectedNote = nil
+      }
+
+
       selectedNote = nil
       
     default:
