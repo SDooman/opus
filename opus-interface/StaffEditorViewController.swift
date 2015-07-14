@@ -32,7 +32,7 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
   //  Note Drawing Constants
   // THESE ARE NOW USELESS. DO NOT USE GRAPHICCONSTANTS(), the math used is old.
   //let horizontalSpaces = GraphicConstants().myHorizontalGridArray!
-  let verticalSpaces: [Float] = [177, 218, 259, 300, 340]
+  let verticalSpaces: [Float] = [179, 199.5, 220, 240.5, 261, 281.5, 302, 322, 342]
   
   // Used for NoteValueSelectionVC - indices for previously selected element.
   var currentSegControlIndex: Int = -1
@@ -156,6 +156,15 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     singleTap.numberOfTapsRequired = 1
     singleTap.delegate = self
     self.view.addGestureRecognizer(singleTap)
+    
+    let dragSelector: Selector = "oneFingerDrag:"
+    var dragRecognizer: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: dragSelector)
+    dragRecognizer.minimumNumberOfTouches = 1
+    dragRecognizer.maximumNumberOfTouches = 1
+    dragRecognizer.delegate = self
+    self.view.addGestureRecognizer(dragRecognizer)
+    
+    
   }
   
   //MARK: - Gesture Event Callbacks
@@ -216,18 +225,32 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     }
   }
   
-  func oneFingerDrag(gestureRecognizer: UITapGestureRecognizer) {
+  func oneFingerDrag(gestureRecognizer: UIPanGestureRecognizer) {
+    println(gestureRecognizer.locationInView(self.staffEditorScrollView!))
     
     switch gestureRecognizer.state {
       
     case UIGestureRecognizerState.Began:
-      println("")
+      selectNoteAt(gestureRecognizer.locationInView(self.view))
+      gestureRecognizer.setTranslation(CGPointZero, inView: self.staffEditorScrollView!)
       
     case UIGestureRecognizerState.Changed:
-      println("")
+      if selectedNote != nil {
+        let translation = gestureRecognizer.translationInView(self.staffEditorScrollView!)
+        let currentLocation = selectedNote!.location
+        let newLocation = CGPoint(x: currentLocation.x + translation.x, y: currentLocation.y + translation.y)
+
+        let adjustedLocation = closestValidPositionFrom(location: newLocation)
+        
+        if adjustedLocation != currentLocation { // note has visually moved. reset translation.
+          gestureRecognizer.setTranslation(CGPointZero, inView: self.staffEditorScrollView!)
+        }
+        
+        selectedNote!.updateLocation(adjustedLocation)
+      }
       
     case UIGestureRecognizerState.Ended:
-      println("")
+      selectedNote = nil
       
     default:
       println("")
@@ -258,7 +281,7 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let noteX = note.noteCenter.x
     let noteY = note.noteCenter.y
-    
+
     let touchX = location.x
     let touchY = location.y
     
@@ -289,7 +312,7 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     returnX *= Opus.BUCKET_WIDTH
     
     for index in 0...verticalSpaces.count - 1 {
-      if (location.y) < CGFloat(verticalSpaces[index]) {
+      if (location.y) <= CGFloat(verticalSpaces[index]) + CGFloat(10) { // adding a vertical note cushion! Abstract later.
         returnY = Int(verticalSpaces[index])
         return CGPoint(x: CGFloat(returnX), y: CGFloat(verticalSpaces[index]))
       }
@@ -323,7 +346,6 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     // replace this with current key
     let cMajor = key(Pitch(chroma: Chroma.C, octave: 1))
 
-    
     let trebleClefNotes = ClefKey.pitchesForScaleOnClef(scale: cMajor, clef: .Treble)
     
     return trebleClefNotes[barLineIndex]
