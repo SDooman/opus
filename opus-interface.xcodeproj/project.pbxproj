@@ -14,12 +14,6 @@
 		225D21651B1F8AB0007DD37B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225D21631B1F8AB0007DD37B /* LaunchScreen.xib */; };
 		225D21711B1F8AB0007DD37B /* opus_interfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D21701B1F8AB0007DD37B /* opus_interfaceTests.swift */; };
 		226C4DEA1B238583005DD6A3 /* grand_piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 226C4DE91B238583005DD6A3 /* grand_piano.sf2 */; };
-		22A4DB551B54058A007FA846 /* RepositionSelectedNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A4DB521B54058A007FA846 /* RepositionSelectedNote.swift */; };
-		22A4DB561B54058A007FA846 /* RepositionSelectedNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A4DB521B54058A007FA846 /* RepositionSelectedNote.swift */; };
-		22A4DB571B54058A007FA846 /* StaffEditorScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A4DB531B54058A007FA846 /* StaffEditorScrollView.swift */; };
-		22A4DB581B54058A007FA846 /* StaffEditorScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A4DB531B54058A007FA846 /* StaffEditorScrollView.swift */; };
-		22A4DB591B54058A007FA846 /* StaffNavigationScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A4DB541B54058A007FA846 /* StaffNavigationScrollView.swift */; };
-		22A4DB5A1B54058A007FA846 /* StaffNavigationScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A4DB541B54058A007FA846 /* StaffNavigationScrollView.swift */; };
 		22D60F4E1B45940C00755C8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D21571B1F8AB0007DD37B /* AppDelegate.swift */; };
 		22D60F4F1B45940C00755C8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D215C1B1F8AB0007DD37B /* ViewController.swift */; };
 		22FE60DE1B4AFB6500310FBA /* DMDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE60BB1B4AFB6500310FBA /* DMDynamicViewController.swift */; };
@@ -121,6 +115,12 @@
 		CB93141A1B501FDD00F64BAB /* NoteValueSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB8D1B4C594200B29638 /* NoteValueSelectionTableViewCell.swift */; };
 		CB93141B1B501FDD00F64BAB /* NoteValueSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB8F1B4C594200B29638 /* NoteValueSelectionViewController.swift */; };
 		CB93141C1B501FDD00F64BAB /* ClefKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB791B4C4DB800B29638 /* ClefKey.swift */; };
+		CBC4FF4F1B503C88007B7449 /* RepositionSelectedNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4FF4C1B503C88007B7449 /* RepositionSelectedNote.swift */; };
+		CBC4FF501B503C88007B7449 /* RepositionSelectedNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4FF4C1B503C88007B7449 /* RepositionSelectedNote.swift */; };
+		CBC4FF511B503C88007B7449 /* StaffEditorScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4FF4D1B503C88007B7449 /* StaffEditorScrollView.swift */; };
+		CBC4FF521B503C88007B7449 /* StaffEditorScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4FF4D1B503C88007B7449 /* StaffEditorScrollView.swift */; };
+		CBC4FF531B503C88007B7449 /* StaffNavigationScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4FF4E1B503C88007B7449 /* StaffNavigationScrollView.swift */; };
+		CBC4FF541B503C88007B7449 /* StaffNavigationScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4FF4E1B503C88007B7449 /* StaffNavigationScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,9 +188,6 @@
 		225D216F1B1F8AB0007DD37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		225D21701B1F8AB0007DD37B /* opus_interfaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = opus_interfaceTests.swift; sourceTree = "<group>"; };
 		226C4DE91B238583005DD6A3 /* grand_piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = grand_piano.sf2; sourceTree = "<group>"; };
-		22A4DB521B54058A007FA846 /* RepositionSelectedNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositionSelectedNote.swift; sourceTree = "<group>"; };
-		22A4DB531B54058A007FA846 /* StaffEditorScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffEditorScrollView.swift; sourceTree = "<group>"; };
-		22A4DB541B54058A007FA846 /* StaffNavigationScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffNavigationScrollView.swift; sourceTree = "<group>"; };
 		22FE60BB1B4AFB6500310FBA /* DMDynamicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDynamicViewController.swift; sourceTree = "<group>"; };
 		22FE60BC1B4AFB6500310FBA /* FloatingMenuPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatingMenuPopView.xib; sourceTree = "<group>"; };
 		22FE60BD1B4AFB6500310FBA /* FloatingMenuPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingMenuPopViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +239,9 @@
 		BBDECB8F1B4C594200B29638 /* NoteValueSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteValueSelectionViewController.swift; sourceTree = "<group>"; };
 		BBDECB941B4C603100B29638 /* UpdateNoteSelectionMenuValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateNoteSelectionMenuValue.swift; sourceTree = "<group>"; };
 		BBFCACC71B307C8B003E0BDD /* MusicKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MusicKit.xcodeproj; path = MusicKit/MusicKit.xcodeproj; sourceTree = "<group>"; };
+		CBC4FF4C1B503C88007B7449 /* RepositionSelectedNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositionSelectedNote.swift; sourceTree = "<group>"; };
+		CBC4FF4D1B503C88007B7449 /* StaffEditorScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffEditorScrollView.swift; sourceTree = "<group>"; };
+		CBC4FF4E1B503C88007B7449 /* StaffNavigationScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffNavigationScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,14 +383,15 @@
 		22FE61231B4AFEC700310FBA /* new-views */ = {
 			isa = PBXGroup;
 			children = (
-				22A4DB531B54058A007FA846 /* StaffEditorScrollView.swift */,
-				22A4DB541B54058A007FA846 /* StaffNavigationScrollView.swift */,
+				CBC4FF4C1B503C88007B7449 /* RepositionSelectedNote.swift */,
+				22FE60CA1B4AFB6500310FBA /* StaffEditorViewController.swift */,
+				CBC4FF4D1B503C88007B7449 /* StaffEditorScrollView.swift */,
+				22FE60CB1B4AFB6500310FBA /* StaffNavigationViewController.swift */,
+				CBC4FF4E1B503C88007B7449 /* StaffNavigationScrollView.swift */,
 				22FE60C21B4AFB6500310FBA /* UINote.swift */,
 				22FE60C81B4AFB6500310FBA /* PlaybackMenuViewController.swift */,
 				22FE60C91B4AFB6500310FBA /* StaffContainerViewController.swift */,
-				22FE60CA1B4AFB6500310FBA /* StaffEditorViewController.swift */,
 				BBDECB831B4C533900B29638 /* popover-menus */,
-				22FE60CB1B4AFB6500310FBA /* StaffNavigationViewController.swift */,
 				22FE60CC1B4AFB6500310FBA /* StaffScrollView.swift */,
 			);
 			name = "new-views";
@@ -399,7 +400,6 @@
 		22FE61241B4AFED400310FBA /* commands */ = {
 			isa = PBXGroup;
 			children = (
-				22A4DB521B54058A007FA846 /* RepositionSelectedNote.swift */,
 				22FE61291B4B2B3B00310FBA /* Command.swift */,
 				22FE612C1B4B373D00310FBA /* InsertNote.swift */,
 				22FE612F1B4B68BC00310FBA /* SelectNote.swift */,
@@ -653,19 +653,19 @@
 				22FE611E1B4AFB6500310FBA /* OpusTimeSignature.swift in Sources */,
 				225D215D1B1F8AB0007DD37B /* ViewController.swift in Sources */,
 				22FE60DE1B4AFB6500310FBA /* DMDynamicViewController.swift in Sources */,
-				22A4DB551B54058A007FA846 /* RepositionSelectedNote.swift in Sources */,
+				CBC4FF4F1B503C88007B7449 /* RepositionSelectedNote.swift in Sources */,
 				BBDECB921B4C594200B29638 /* NoteValueSelectionViewController.swift in Sources */,
 				22FE61061B4AFB6500310FBA /* AudioToolboxError.swift in Sources */,
 				22FE613C1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift in Sources */,
 				22FE61101B4AFB6500310FBA /* OpusKeySignature.swift in Sources */,
 				22FE60EC1B4AFB6500310FBA /* UINote.swift in Sources */,
 				22FE610C1B4AFB6500310FBA /* OpusAudioPlayer.swift in Sources */,
-				22A4DB571B54058A007FA846 /* StaffEditorScrollView.swift in Sources */,
+				CBC4FF511B503C88007B7449 /* StaffEditorScrollView.swift in Sources */,
 				22FE612D1B4B373D00310FBA /* InsertNote.swift in Sources */,
 				22FE61001B4AFB6500310FBA /* StaffScrollView.swift in Sources */,
 				22FE60FC1B4AFB6500310FBA /* StaffEditorViewController.swift in Sources */,
 				22FE60F41B4AFB6500310FBA /* Opus.swift in Sources */,
-				22A4DB591B54058A007FA846 /* StaffNavigationScrollView.swift in Sources */,
+				CBC4FF531B503C88007B7449 /* StaffNavigationScrollView.swift in Sources */,
 				22FE61331B4B6A4000310FBA /* RemoveNote.swift in Sources */,
 				22FE60F01B4AFB6500310FBA /* NoteSelectedPopViewController.swift in Sources */,
 				22FE611C1B4AFB6500310FBA /* OpusStaffEvent.swift in Sources */,
@@ -711,19 +711,19 @@
 				22FE60F31B4AFB6500310FBA /* OldStaffViewController.swift in Sources */,
 				22FE61211B4AFB6500310FBA /* StaffViewModel.swift in Sources */,
 				22FE610B1B4AFB6500310FBA /* opus_interface.xcdatamodeld in Sources */,
-				22A4DB561B54058A007FA846 /* RepositionSelectedNote.swift in Sources */,
+				CBC4FF501B503C88007B7449 /* RepositionSelectedNote.swift in Sources */,
 				22FE611F1B4AFB6500310FBA /* OpusTimeSignature.swift in Sources */,
 				22D60F4E1B45940C00755C8F /* AppDelegate.swift in Sources */,
 				22FE60DF1B4AFB6500310FBA /* DMDynamicViewController.swift in Sources */,
 				22FE61071B4AFB6500310FBA /* AudioToolboxError.swift in Sources */,
 				22FE613D1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift in Sources */,
 				22FE61111B4AFB6500310FBA /* OpusKeySignature.swift in Sources */,
-				22A4DB581B54058A007FA846 /* StaffEditorScrollView.swift in Sources */,
+				CBC4FF521B503C88007B7449 /* StaffEditorScrollView.swift in Sources */,
 				22FE60ED1B4AFB6500310FBA /* UINote.swift in Sources */,
 				22FE610D1B4AFB6500310FBA /* OpusAudioPlayer.swift in Sources */,
 				22FE612E1B4B373D00310FBA /* InsertNote.swift in Sources */,
 				22FE61011B4AFB6500310FBA /* StaffScrollView.swift in Sources */,
-				22A4DB5A1B54058A007FA846 /* StaffNavigationScrollView.swift in Sources */,
+				CBC4FF541B503C88007B7449 /* StaffNavigationScrollView.swift in Sources */,
 				22FE60FD1B4AFB6500310FBA /* StaffEditorViewController.swift in Sources */,
 				22FE60F51B4AFB6500310FBA /* Opus.swift in Sources */,
 				22FE61341B4B6A4000310FBA /* RemoveNote.swift in Sources */,

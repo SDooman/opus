@@ -31,5 +31,7 @@ class InsertNote: Command {
     target.insert(note)
     
     invoker.displayNewNote(UINote(note: note, location: location))
+    
+    invoker.container.staffNavigator.insertNote(UINote(note: note, location: location))
   }
 }

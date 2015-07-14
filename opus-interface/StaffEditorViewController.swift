@@ -238,7 +238,7 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
   }
   
   func twoFingerDrag(gestureRecognizer: UIPanGestureRecognizer) {
-    // shouldn't have to do this in this class.
+
   }
   
   //MARK: - Graphics Helper Functions

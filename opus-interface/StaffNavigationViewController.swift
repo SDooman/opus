@@ -20,6 +20,7 @@ class StaffNavigationViewController: UIViewController, UIScrollViewDelegate {
   let locationIndicatorSquare = UIView()
   let staffImageView: UIImageView
   let viewControllerFrame: CGRect
+  var notes: Set<UINote> = []
   
   //MARK: - Properties
   
@@ -80,6 +81,8 @@ class StaffNavigationViewController: UIViewController, UIScrollViewDelegate {
     staffNavigationScrollView!.addSubview(staffImageView)
     self.view.addSubview(staffNavigationScrollView!)
     self.view.addSubview(locationIndicatorSquare)
+    
+    
   }
 
   override func didReceiveMemoryWarning() {
@@ -164,6 +167,12 @@ class StaffNavigationViewController: UIViewController, UIScrollViewDelegate {
   
   func updatePosition(x_ratio: CGFloat){
     staffNavigationScrollView!.contentOffset = CGPointMake(x_ratio*staffNavigationScrollView!.contentSize.width - contentInsetConstant, 0)
+  }
+  
+  func insertNote(note: UINote){
+    
+    
+    
   }
 
 }
