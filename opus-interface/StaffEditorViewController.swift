@@ -234,13 +234,13 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         let noteValue = staffViewModel.currentNoteValue
         let beatLocation = beatLocationFrom(location: adjustedLocation)
         
-        // command to update note
+        UpdateNote(oldNote: selectedNote!.note!,
+          newNote: OpusNote(pitch: pitch, beatLocation: beatLocation, noteValue: noteValue),
+          invoker: self,
+          target: self.staffViewModel)
         
         selectedNote = nil
       }
-
-
-      selectedNote = nil
       
     default:
       println("")

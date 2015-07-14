@@ -103,6 +103,7 @@
 		22FE61451B4B6CF800310FBA /* StopPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61441B4B6CF800310FBA /* StopPlayback.swift */; };
 		22FE61461B4B6CF800310FBA /* StopPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61441B4B6CF800310FBA /* StopPlayback.swift */; };
 		BB43E9621B55A3BD00E84134 /* UpdateNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB43E9611B55A3BD00E84134 /* UpdateNote.swift */; };
+		BB43E9671B55A64400E84134 /* UpdateNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB43E9611B55A3BD00E84134 /* UpdateNote.swift */; };
 		BBDECB7A1B4C4DB800B29638 /* ClefKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB791B4C4DB800B29638 /* ClefKey.swift */; };
 		BBDECB811B4C531300B29638 /* PopoverAccidentalMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB7F1B4C531300B29638 /* PopoverAccidentalMenuViewController.swift */; };
 		BBDECB821B4C531400B29638 /* PopoverAccidentalMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBDECB801B4C531300B29638 /* PopoverAccidentalMenuViewController.xib */; };
@@ -705,6 +706,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB43E9671B55A64400E84134 /* UpdateNote.swift in Sources */,
 				CB9314181B501FDD00F64BAB /* UpdateNoteSelectionMenuValue.swift in Sources */,
 				CB9314191B501FDD00F64BAB /* PopoverAccidentalMenuViewController.swift in Sources */,
 				CB93141A1B501FDD00F64BAB /* NoteValueSelectionTableViewCell.swift in Sources */,
