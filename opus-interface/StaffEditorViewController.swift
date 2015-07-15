@@ -200,16 +200,16 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     
     if twoTouchesAreAdjacent(touchOne: touch1Location,
       touchTwo: touch2Location) {
-        println("we're doing something!")
+
         let adjustedLocation = closestValidPositionFrom(location: midpointLocation)
         selectNoteAt(adjustedLocation)
         
         if selectedNote == nil {
-          println("selected is nil")
+
           // important: not at adjusted, but actual touch location!
           DisplayNoteSelectionMenu(invoker: self, target: self.container, location: midpointLocation).run()
         } else {
-          println("selected is not nil")
+          
           DisplayAccidentalMenu(note: selectedNote!, invoker: self).run()
         }
     }
@@ -251,11 +251,13 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         let noteValue = staffViewModel.currentNoteValue
         let beatLocation = beatLocationFrom(location: adjustedLocation)
         
+        println(beatLocation)
+        
         UpdateNote(oldNote: selectedNote!.note!,
           newNote: OpusNote(pitch: pitch, beatLocation: beatLocation, noteValue: noteValue),
           invoker: self,
-          target: self.staffViewModel)
-        
+          target: self.staffViewModel).run()
+            
         selectedNote = nil
       }
       
@@ -380,8 +382,10 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
   func beatLocationFrom(#location: CGPoint) -> MusicTimeStamp {
     let adjustedLocation = closestValidPositionFrom(location: location)
     var myBucket: Int = Int(location.x) / Opus.BUCKET_WIDTH
+  
+    let toReturn: Float = (Float(myBucket) - 1.0) / 4.0
     
-    return Float64(myBucket)
+    return Float64(toReturn)
     
   }
 
@@ -411,6 +415,8 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     var popoverController = UIPopoverController(contentViewController: contentViewController)
     
     popoverController.presentPopoverFromRect(targetRect, inView: self.view, permittedArrowDirections: UIPopoverArrowDirection.allZeros, animated: true)
+    
+    self.staffViewModel.printStaff()
     
   }
 

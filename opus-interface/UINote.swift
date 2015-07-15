@@ -11,7 +11,7 @@ import UIKit
 
 class UINote: NSObject {
   
-  let note : OpusNote?
+  var note : OpusNote?
   
   let image: UIImage?
   let imageView: UIImageView

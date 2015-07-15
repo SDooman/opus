@@ -27,7 +27,7 @@ class UpdateNote: Command {
 
   }
   func run() {
-    
     target.edit(oldNote, newStaffEvent: newNote)
+    invoker.selectedNote!.note = self.newNote
   }
 }

@@ -53,7 +53,7 @@ class StaffViewModel {
       let oldNote = oldStaffEvent as! OpusNote
       let newNote = newStaffEvent as! OpusNote
       
-      _staff.edit(oldNote, newStaffEvent: newNote)
+      _staff.edit(oldNote, newNote: newNote)
       
       _audioAdapter.edit(
         Convert.opusNoteToMIDIInformation(oldNote,
@@ -114,5 +114,29 @@ class StaffViewModel {
   //MARK: Exercise Management
   //TODO: We need to disucss this/figure out how it will work
   
+  func printStaff() {
+    var notes: [OpusNote] = []
+    for event in _staff._staffEvents {
+      notes.append(event)
+    }
+    
+    println("there are \(_staff._staffEvents.count)")
+    
+    let sortedNotes = sorted(notes, sortFunc)
+    
+    for index in 0...sortedNotes.count - 1 {
+      println("---Note \(index)---")
+      println("Note at beat location: \(sortedNotes[index].beatLocation)")
+      println("Has pitch: \(sortedNotes[index].pitch)")
+      println("Has value: \(sortedNotes[index].noteValue.rawValue)")
+      println("------------")
+      
+    }
+    
+  }
+  
+  func sortFunc(note1: OpusNote, note2: OpusNote) -> Bool {
+    return note1.beatLocation < note2.beatLocation
+  }
   
 }

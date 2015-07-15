@@ -63,8 +63,15 @@ class OpusStaff: NSObject {
     }
   }
   
+  func edit(oldNote: OpusNote, newNote: OpusNote) -> Bool {
+    println("Old Note: \(oldNote.pitch), \(oldNote.beatLocation)")
+    println("New Note: \(newNote.pitch), \(newNote.beatLocation)")
+    return insert(newNote) && remove(oldNote)
+  }
+  
   func remove(note: OpusNote) -> Bool {
     if let target = containsNote(note) {
+      println("happened")
       _staffEvents.remove(note)
       return true
       
@@ -75,7 +82,7 @@ class OpusStaff: NSObject {
   
   //MARK: Accessing/Modifying Staff Events
   
-  func hasEvent(staffEvent: OpusStaffEvent) -> Bool {
+  /*func hasEvent(staffEvent: OpusStaffEvent) -> Bool {
     //TODO: (Sam) implement
     return true
   }
@@ -99,5 +106,5 @@ class OpusStaff: NSObject {
     
     //TODO: (Sam) implement
     return true
-  }
+  }*/
 }

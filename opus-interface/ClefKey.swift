@@ -12,9 +12,9 @@ import MusicKit
 struct ClefKey {
   //MARK: - Getting Valid Locations on TrebleClef
   
-  static let TREBLE_CLEF_MIDI_MIN : Int = 74 // D4
+  static let TREBLE_CLEF_MIDI_MIN : Int = 64 // E4
   
-  static let TREBLE_CLEF_MIDI_MAX : Int = 91 // G5
+  static let TREBLE_CLEF_MIDI_MAX : Int = 77 // F5
   
   static let BASS_CLEF_MIDI_MIN : Int = -1 // TO BE IMPLEMENTED LATER
   
@@ -43,7 +43,7 @@ struct ClefKey {
       }
     }
     
-    return myPitches
+    return myPitches.reverse()
   }
   
   /* HOW TO CALL THIS METHOD:
