@@ -20,9 +20,9 @@ struct Opus {
   
   static let UINOTE_WIDTH = UIScreen.mainScreen().bounds.width / 17
   
-  static let NAVNOTE_HEIGHT = UINOTE_HEIGHT / 15
+  static let NAVNOTE_HEIGHT = UINOTE_HEIGHT / 3
   
-  static let NAVNOTE_WIDTH = UINOTE_WIDTH / 15
+  static let NAVNOTE_WIDTH = UINOTE_WIDTH / 3
   
   //MARK: - Offsets for drawing notes to staff
   static let WHOLE_NOTE_OFFSET : CGPoint = CGPoint(x: 0, y: 0)
@@ -57,9 +57,7 @@ struct Opus {
   
   static let NAVIGATION_HEIGHT = SCREEN_HEIGHT / 15
   
-  //static let EDITOR_TO_NAVIGATION_WIDTH_RATIO = EDITOR_WIDTH / NAVIGATION_WIDTH
-  
-  static let EDITOR_TO_NAVIGATION_HEIGHT_RATIO = EDITOR_HEIGHT / NAVIGATION_HEIGHT
+  static let EDITOR_TO_NAVIGATION_RATIO = EDITOR_HEIGHT / NAVIGATION_HEIGHT
   
   static let STAFF_IMAGE_WIDTH_HEIGHT_RATIO = 4
   

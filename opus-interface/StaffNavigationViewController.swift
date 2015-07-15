@@ -49,7 +49,6 @@ class StaffNavigationViewController: UIViewController, UIScrollViewDelegate {
     staffImageView.frame = initialImageViewFrame
 
     super.init(nibName: nil, bundle: nil)
-    
   }
 
   required init(coder aDecoder: NSCoder) {
@@ -171,16 +170,31 @@ class StaffNavigationViewController: UIViewController, UIScrollViewDelegate {
   
   func insertNote(note: UINote){
     
-    note.imageView.frame = CGRectMake(note.location.x / Opus.EDITOR_TO_NAVIGATION_WIDTH_RATIO, note.location.y / Opus.EDITOR_TO_NAVIGATION_HEIGHT_RATIO, Opus.NAVNOTE_WIDTH, Opus.NAVNOTE_HEIGHT)
+    note.imageView.frame = CGRectMake(note.location.x / Opus.EDITOR_TO_NAVIGATION_RATIO, note.location.y / Opus.EDITOR_TO_NAVIGATION_RATIO, Opus.NAVNOTE_WIDTH, Opus.NAVNOTE_HEIGHT)
     
-    println(Opus.EDITOR_TO_NAVIGATION_WIDTH_RATIO)
-    println(Opus.EDITOR_TO_NAVIGATION_HEIGHT_RATIO)
+    println("______________")
+    println(note.location.x / Opus.EDITOR_TO_NAVIGATION_RATIO)
+    println(note.location.y / Opus.EDITOR_TO_NAVIGATION_RATIO)
+    println(Opus.NAVNOTE_HEIGHT)
+    println(Opus.NAVNOTE_WIDTH)
+    println("______________")
     
     note.updateLocation(note.location)
     staffNavigationScrollView!.addSubview(note.imageView)
     
-    println("yyayy")
+    let image = UIImage(named: "quarter_note")
+    let imageView = UIImageView(image: image)
+    imageView.frame = CGRect(x: 13, y: 4.6, width: Opus.NAVNOTE_WIDTH, height: Opus.NAVNOTE_HEIGHT)
+    staffNavigationScrollView!.addSubview(imageView)
     
+    
+  }
+  
+  func makeNote(location: CGPoint){
+    let image = UIImage(named: "quarter_note")
+    let imageView = UIImageView(image: image)
+    imageView.frame = CGRect(x: location.x, y: location.y, width: Opus.NAVNOTE_WIDTH, height: Opus.NAVNOTE_HEIGHT)
+    staffNavigationScrollView!.addSubview(imageView)
   }
 
 }

@@ -30,4 +30,21 @@ class StaffNavigationScrollView: UIScrollView {
       owningVCParent.updateStaffEditorView((contentOffset.x + owningVC!.contentInsetConstant)/contentSize.width)
     }
   }
+  
+  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    super.touchesBegan(touches, withEvent: event)
+    let touch = touches.first as! UITouch
+    println(touch.locationInView(self))
+    owningVC.makeNote(touch.locationInView(self))
+  }
+  
+  func takeSnapshot() -> UIImage {
+    UIGraphicsBeginImageContextWithOptions(contentSize, false, UIScreen.mainScreen().scale)
+    
+    drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true)
+    
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return image
+  }
 }
