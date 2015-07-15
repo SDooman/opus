@@ -36,6 +36,9 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
   var currentSegControlIndex: Int = -1
   var currentSubSegControlIndex: Int = -1
   
+  // USed for Drag Gesture: Stores where the mouse began"
+  var dragBeganAt: CGPoint?
+  
   // Computed Properties
 
   var container : StaffContainerViewController {
@@ -150,7 +153,6 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     dragRecognizer.delegate = self
     self.view.addGestureRecognizer(dragRecognizer)
     
-    
   }
   
   //MARK: - Gesture Event Callbacks
@@ -161,7 +163,6 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let touchLocation = gestureRecognizer.locationInView(self.staffEditorScrollView!)
     let adjustedLocation = closestValidPositionFrom(location: touchLocation)
-    
     
     let barLineIndex: Int
     let pitch: Pitch
@@ -206,21 +207,25 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
       
     case UIGestureRecognizerState.Began:
       selectNoteAt(gestureRecognizer.locationInView(self.staffEditorScrollView!))
-      //gestureRecognizer.setTranslation(CGPointZero, inView: self.staffEditorScrollView!)
+      self.dragBeganAt = gestureRecognizer.locationInView(self.staffEditorScrollView!)
+      
       
     case UIGestureRecognizerState.Changed:
       if selectedNote != nil {
         let translation = gestureRecognizer.translationInView(self.staffEditorScrollView!)
-        let currentLocation = selectedNote!.location
+        //println(translation)
+        //let currentLocation = selectedNote!.location
+        let currentLocation = self.dragBeganAt!
         let newLocation = CGPoint(x: currentLocation.x + translation.x, y: currentLocation.y + translation.y)
 
         let adjustedLocation = closestValidPositionFrom(location: newLocation)
         
         if adjustedLocation != currentLocation { // note has visually moved. reset translation.
           gestureRecognizer.setTranslation(CGPointZero, inView: self.staffEditorScrollView!)
+          selectedNote!.updateLocation(adjustedLocation)
         }
         
-        selectedNote!.updateLocation(adjustedLocation)
+        
       }
       
     case UIGestureRecognizerState.Ended:
@@ -241,6 +246,8 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         
         selectedNote = nil
       }
+      
+      self.dragBeganAt = nil
       
     default:
       println("")
