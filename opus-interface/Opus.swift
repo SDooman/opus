@@ -21,11 +21,11 @@ struct Opus {
   static let UINOTE_WIDTH = UIScreen.mainScreen().bounds.width / 17
   
   //MARK: - Offsets for drawing notes to staff
-  static let WHOLE_NOTE_OFFSET : CGPoint = CGPoint(x: 0, y: 0)
+  static let WHOLE_NOTE_OFFSET : CGPoint = CGPoint(x: -3, y: 70) // Good!
   
-  static let HALF_NOTE_OFFSET : CGPoint = CGPoint(x: 0, y: 35)
+  static let HALF_NOTE_OFFSET : CGPoint = CGPoint(x: 0, y: 70) // Good!
   
-  static let QUARTER_NOTE_OFFSET : CGPoint = CGPoint(x: 0, y: 70)
+  static let QUARTER_NOTE_OFFSET : CGPoint = CGPoint(x: 0, y: 70) // Good!
   
   static let EIGHTH_NOTE_OFFSET : CGPoint = CGPoint(x: -15, y: 35)
   
