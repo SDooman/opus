@@ -21,7 +21,8 @@ class NoteValueSelectionViewController: UIViewController, UITableViewDelegate, U
     let initialSubSegIndex: Int!                    // 0/1 whether note or rest of that seg was selected
     
     var container : StaffEditorViewController {
-        return presentingViewController as! StaffEditorViewController
+        let pres = presentingViewController as! StaffContainerViewController
+        return pres.staffEditor
     }
     
     init(currentSeg: Int, currentSubSeg: Int) {
@@ -155,12 +156,55 @@ class NoteValueSelectionViewController: UIViewController, UITableViewDelegate, U
             if mySeg !== sender {
                 mySeg.selectedSegmentIndex = -1 // deselect all other segmented controls
             } else {
-                let command = UpdateNoteSelectionMenuValue(segIndex: index, subSegIndex: mySeg.selectedSegmentIndex, target: container)
+                let newValue = self.opusNoteValueFrom(firstIndex: index, secondIndex: mySeg.selectedSegmentIndex)
+              let command = UpdateNoteSelectionMenuValue(segIndex: index, subSegIndex: mySeg.selectedSegmentIndex, target: container, newValue: newValue)
                 command.run()
             }
         }
     // comment this out to require the user to click away from menu to dismiss it. 
     self.dismissViewControllerAnimated(true, completion: nil)
     }
+  
+  func opusNoteValueFrom(#firstIndex: Int, secondIndex: Int) -> OpusNoteValue {
     
+    if secondIndex == 0 {
+      switch firstIndex {
+      case 0:
+        println("Sixteenth Note")
+        return OpusNoteValue.Sixteenth
+      case 1:
+        println("Eighth Note")
+        return OpusNoteValue.Eighth
+      case 2:
+        println("Quarter Note")
+        return OpusNoteValue.Quarter
+      case 3:
+        println("Half Note")
+        return OpusNoteValue.Half
+      case 4:
+        println("Whole Note")
+        return OpusNoteValue.Whole
+      default:
+        println("default")
+        return OpusNoteValue.Quarter
+      }
+    } else if secondIndex == 1 {
+      switch firstIndex {
+      case 0:
+        println("Sixteenth Rest")
+      case 1:
+        println("Eighth Rest")
+      case 2:
+        println("Quarter Rest")
+      case 3:
+        println("Half Rest")
+      case 4:
+        println("Whole Rest")
+      default:
+        println("default")
+      }
+    }
+      return OpusNoteValue.DottedQuarter
+  }
+
 }

@@ -11,7 +11,7 @@ import UIKit
 class NoteValueSelectionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var beatRestSegment: UISegmentedControl!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -5,7 +5,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopoverAccidentalMenuViewController" customModule="opus_interface" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopoverAccidentalMenuViewController" customModule="opus_interface" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="uua-7P-L52" id="PPw-s8-XNz"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="uua-7P-L52">
             <rect key="frame" x="0.0" y="0.0" width="90" height="206"/>
@@ -24,8 +28,8 @@
                     </state>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="f9H-H4-UgZ"/>
                             <exclude reference="9ya-vh-nn2"/>
+                            <exclude reference="f9H-H4-UgZ"/>
                         </mask>
                     </variation>
                     <connections>
@@ -73,10 +77,10 @@
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="dNS-jG-CvX"/>
-                    <exclude reference="it5-bZ-Nx5"/>
-                    <exclude reference="viW-ur-L0t"/>
-                    <exclude reference="jhO-hK-OQQ"/>
                     <exclude reference="X8P-wD-DSR"/>
+                    <exclude reference="it5-bZ-Nx5"/>
+                    <exclude reference="jhO-hK-OQQ"/>
+                    <exclude reference="viW-ur-L0t"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="281" y="150"/>

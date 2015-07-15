@@ -13,13 +13,15 @@ class DisplayNoteSelectionMenu: Command {
   
   let location: CGPoint!
   let invoker: StaffEditorViewController!
+  let target: StaffContainerViewController!
   
-  init(invoker: StaffEditorViewController, location: CGPoint) {
+  init(invoker: StaffEditorViewController, target: StaffContainerViewController, location: CGPoint) {
     self.location = location
     self.invoker = invoker
+    self.target = target
   }
   
   func run() {
-    //invoker.presentNoteValueSelectionMenuAt(location: location)
+    invoker.presentNoteValueSelectionMenuAt(location: location)
   }
 }

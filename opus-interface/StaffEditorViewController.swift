@@ -30,8 +30,6 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
   let imageViewFrame: CGRect
   
   //  Note Drawing Constants
-  // THESE ARE NOW USELESS. DO NOT USE GRAPHICCONSTANTS(), the math used is old.
-  //let horizontalSpaces = GraphicConstants().myHorizontalGridArray!
   let verticalSpaces: [Float] = [179, 199.5, 220, 240.5, 261, 281.5, 302, 322, 342]
   
   // Used for NoteValueSelectionVC - indices for previously selected element.
@@ -114,7 +112,6 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
 
     view.frame = viewControllerFrame
     
-    //setConstants()
     setUpStaff()
     setupGestureRecognizers()
     self.view.backgroundColor = UIColor.redColor()
@@ -127,17 +124,6 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     super.didReceiveMemoryWarning()
     
   }
-  /*
-  func setConstants(){
-    elongationConstant = Opus.EDITOR_WIDTH
-    initialStaffWidth = Opus.EDITOR_WIDTH * 2
-    var frameTopLeftCorner = CGPointMake(0, Opus.EDITOR_HEIGHT)
-    viewControllerFrame = CGRect(x: frameTopLeftCorner.x, y: frameTopLeftCorner.y, width: Opus.EDITOR_WIDTH, height: Opus.EDITOR_HEIGHT)
-    view.frame = viewControllerFrame!
-    imageViewFrame = CGRect(x: 0, y: 0, width: initialStaffWidth!, height: Opus.EDITOR_HEIGHT)
-  }
-  */
-  
   func setUpStaff(){
     
     staffEditorScrollView = StaffEditorScrollView(size: viewControllerFrame.size, owner: self)
@@ -164,6 +150,11 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     dragRecognizer.delegate = self
     self.view.addGestureRecognizer(dragRecognizer)
     
+    let twoFingerSingleTapSelector: Selector = "twoFingerSingleTap:"
+    var twoFingerSingleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: twoFingerSingleTapSelector)
+    twoFingerSingleTap.numberOfTouchesRequired = 2
+    twoFingerSingleTap.delegate = self
+    self.view.addGestureRecognizer(twoFingerSingleTap)
     
   }
   
@@ -173,10 +164,8 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
   
   func oneFingerSingleTap(gestureRecognizer: UITapGestureRecognizer) {
     
-    let touchLocation = gestureRecognizer.locationInView(view)
+    let touchLocation = gestureRecognizer.locationInView(self.staffEditorScrollView!)
     let adjustedLocation = closestValidPositionFrom(location: touchLocation)
-    //println("original location \(touchLocation) converted to \(adjustedLocation)")
-    
     
     let barLineIndex: Int
     let pitch: Pitch
@@ -190,13 +179,6 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
       pitch = pitchFromBarLineIndex(barLineIndex)
       noteValue = staffViewModel.currentNoteValue
       beatLocation = beatLocationFrom(location: adjustedLocation)
-      /*
-      println(barLineIndex)
-      println(pitch)
-      println(noteValue)
-      println(beatLocation)
-      println("adjusted location is \(adjustedLocation)")
-      */
       
       InsertNote(note: OpusNote(pitch: pitch, beatLocation: beatLocation, noteValue: noteValue),
         location: adjustedLocation,
@@ -205,52 +187,78 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     }
   }
 
-  
-  
-  
   func twoFingerSingleTap(gestureRecognizer: UITapGestureRecognizer) {
     
     let midpointLocation =
-      gestureRecognizer.locationInView(view)
+      gestureRecognizer.locationInView(self.staffEditorScrollView!)
+    println(midpointLocation)
     
     let touch1Location =
-      gestureRecognizer.locationOfTouch(0, inView: view)
+      gestureRecognizer.locationOfTouch(0, inView: self.staffEditorScrollView!)
     let touch2Location =
-      gestureRecognizer.locationOfTouch(1, inView: view)
+      gestureRecognizer.locationOfTouch(1, inView: self.staffEditorScrollView!)
     
     if twoTouchesAreAdjacent(touchOne: touch1Location,
       touchTwo: touch2Location) {
+        println("we're doing something!")
+        let adjustedLocation = closestValidPositionFrom(location: midpointLocation)
+        selectNoteAt(adjustedLocation)
         
-        //TODO: Command for displaying menu goes here
+        if selectedNote == nil {
+          println("selected is nil")
+          // important: not at adjusted, but actual touch location!
+          DisplayNoteSelectionMenu(invoker: self, target: self.container, location: midpointLocation).run()
+        } else {
+          println("selected is not nil")
+          DisplayAccidentalMenu(note: selectedNote!, invoker: self).run()
+        }
     }
   }
   
   func oneFingerDrag(gestureRecognizer: UIPanGestureRecognizer) {
-    println(gestureRecognizer.locationInView(self.staffEditorScrollView!))
     
     switch gestureRecognizer.state {
       
     case UIGestureRecognizerState.Began:
-      selectNoteAt(gestureRecognizer.locationInView(self.view))
-      gestureRecognizer.setTranslation(CGPointZero, inView: self.staffEditorScrollView!)
+      selectNoteAt(gestureRecognizer.locationInView(self.staffEditorScrollView!))
       
+
     case UIGestureRecognizerState.Changed:
       if selectedNote != nil {
-        let translation = gestureRecognizer.translationInView(self.staffEditorScrollView!)
+        
+        let mouseLocation = gestureRecognizer.locationInView(self.staffEditorScrollView!)
+        
         let currentLocation = selectedNote!.location
-        let newLocation = CGPoint(x: currentLocation.x + translation.x, y: currentLocation.y + translation.y)
-
-        let adjustedLocation = closestValidPositionFrom(location: newLocation)
+        
+        let adjustedLocation = closestValidPositionFrom(location: mouseLocation)
         
         if adjustedLocation != currentLocation { // note has visually moved. reset translation.
           gestureRecognizer.setTranslation(CGPointZero, inView: self.staffEditorScrollView!)
+          selectedNote!.updateLocation(adjustedLocation)
         }
         
-        selectedNote!.updateLocation(adjustedLocation)
+        
       }
       
     case UIGestureRecognizerState.Ended:
-      selectedNote = nil
+      if selectedNote != nil {
+        
+        let location = selectedNote!.location
+        let adjustedLocation = closestValidPositionFrom(location: location)
+        
+        let barLineIndex = barLineIndexFrom(adjustedLocation: adjustedLocation)
+        let pitch = pitchFromBarLineIndex(barLineIndex)
+        let noteValue = staffViewModel.currentNoteValue
+        let beatLocation = beatLocationFrom(location: adjustedLocation)
+        
+        UpdateNote(oldNote: selectedNote!.note!,
+          newNote: OpusNote(pitch: pitch, beatLocation: beatLocation, noteValue: noteValue),
+          invoker: self,
+          target: self.staffViewModel)
+        
+        selectedNote = nil
+      }
+      
       
     default:
       println("")
@@ -259,6 +267,7 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
   }
   
   func twoFingerDrag(gestureRecognizer: UIPanGestureRecognizer) {
+
   }
   
   //MARK: - Graphics Helper Functions
@@ -309,6 +318,10 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     var returnY: Int = 0
     returnX /= Opus.BUCKET_WIDTH
     returnX *= Opus.BUCKET_WIDTH
+    
+    if returnX < Opus.BUCKET_WIDTH {
+      returnX = Opus.BUCKET_WIDTH // So we don't go off the edge.
+    }
     
     for index in 0...verticalSpaces.count - 1 {
       if (location.y) <= CGFloat(verticalSpaces[index]) + CGFloat(10) { // adding a vertical note cushion! Abstract later.
@@ -380,12 +393,8 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
   //MARK: - Presenting Modular Popover Menus
   
   
-  
-  
-  
-  /*
   func presentAccidentalMenuOnNote(note: UINote) {
-    var contentViewController = PopoverAccidentalMenuViewController(nibName: "PopoverAccidentalMenuView", bundle: nil)
+    var contentViewController = PopoverAccidentalMenuViewController(nibName: "PopoverAccidentalMenuViewController", bundle: nil)
     var popController = UIPopoverController(contentViewController: contentViewController)
     let frame = note.imageView.frame
     
@@ -404,11 +413,22 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     popoverController.presentPopoverFromRect(targetRect, inView: self.view, permittedArrowDirections: UIPopoverArrowDirection.allZeros, animated: true)
     
   }
-  // Helper method for NoteValueSelection Menu - stores previously clicked element.
-  func setNoteValueMenuSelectedItem(segControlIndex: Int, subIndex: Int){
+
+  func setNoteValueMenuSelectedItem(segControlIndex: Int, subIndex: Int, newRawValue: OpusNoteValue.RawValue){
     currentSegControlIndex = segControlIndex
     currentSubSegControlIndex = subIndex
+    
+    if let check = OpusNoteValue(rawValue: newRawValue) {
+      self.staffViewModel.currentNoteValue = OpusNoteValue(rawValue: newRawValue)!
+    }
+    
   }
-  */
 
+  
+  
+  
+  
+  
+  
+  
 }
