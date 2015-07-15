@@ -49,7 +49,6 @@ class StaffNavigationViewController: UIViewController, UIScrollViewDelegate {
     staffImageView.frame = initialImageViewFrame
 
     super.init(nibName: nil, bundle: nil)
-    
   }
 
   required init(coder aDecoder: NSCoder) {
@@ -168,19 +167,13 @@ class StaffNavigationViewController: UIViewController, UIScrollViewDelegate {
   func updatePosition(x_ratio: CGFloat){
     staffNavigationScrollView!.contentOffset = CGPointMake(x_ratio*staffNavigationScrollView!.contentSize.width - contentInsetConstant, 0)
   }
+
   
-  func insertNote(note: UINote){
-    /*
-    note.imageView.frame = CGRectMake(note.location.x / Opus.EDITOR_TO_NAVIGATION_WIDTH_RATIO, note.location.y / Opus.EDITOR_TO_NAVIGATION_HEIGHT_RATIO, Opus.NAVNOTE_WIDTH, Opus.NAVNOTE_HEIGHT)
-    
-    println(Opus.EDITOR_TO_NAVIGATION_RATIO)
-    println(Opus.EDITOR_TO_NAVIGATION_RATIO)
-    
-    note.updateLocation(note.location)
-    staffNavigationScrollView!.addSubview(note.imageView)
-    
-    println("yyayy")
-    */
+  func makeNote(location: CGPoint){
+    let image = UIImage(named: "quarter_note")
+    let imageView = UIImageView(image: image)
+    imageView.frame = CGRect(x: location.x, y: location.y, width: Opus.NAVNOTE_WIDTH, height: Opus.NAVNOTE_HEIGHT)
+    staffNavigationScrollView!.addSubview(imageView)
   }
 
 }

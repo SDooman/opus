@@ -104,6 +104,9 @@ class StaffContainerViewController: UIViewController {
     
     self.view.addSubview(staffNavigator.view)
     self.view.addSubview(staffEditor.view)
+    
+    let pbBar: PlaybackBar = PlaybackBar(frame: CGRect(x: 15, y: self.view.frame.height-100, width: 200, height: 85))
+    self.view.addSubview(pbBar)
   }
   
   override func didReceiveMemoryWarning() {
