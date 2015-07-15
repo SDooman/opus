@@ -36,9 +36,6 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
   var currentSegControlIndex: Int = -1
   var currentSubSegControlIndex: Int = -1
   
-  // USed for Drag Gesture: Stores where the mouse began"
-  var dragBeganAt: CGPoint?
-  
   // Computed Properties
 
   var container : StaffContainerViewController {
@@ -207,18 +204,16 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
       
     case UIGestureRecognizerState.Began:
       selectNoteAt(gestureRecognizer.locationInView(self.staffEditorScrollView!))
-      self.dragBeganAt = gestureRecognizer.locationInView(self.staffEditorScrollView!)
       
-      
+
     case UIGestureRecognizerState.Changed:
       if selectedNote != nil {
-        let translation = gestureRecognizer.translationInView(self.staffEditorScrollView!)
-        //println(translation)
-        //let currentLocation = selectedNote!.location
-        let currentLocation = self.dragBeganAt!
-        let newLocation = CGPoint(x: currentLocation.x + translation.x, y: currentLocation.y + translation.y)
-
-        let adjustedLocation = closestValidPositionFrom(location: newLocation)
+        
+        let mouseLocation = gestureRecognizer.locationInView(self.staffEditorScrollView!)
+        
+        let currentLocation = selectedNote!.location
+        
+        let adjustedLocation = closestValidPositionFrom(location: mouseLocation)
         
         if adjustedLocation != currentLocation { // note has visually moved. reset translation.
           gestureRecognizer.setTranslation(CGPointZero, inView: self.staffEditorScrollView!)
@@ -247,7 +242,6 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         selectedNote = nil
       }
       
-      self.dragBeganAt = nil
       
     default:
       println("")
@@ -307,6 +301,10 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     var returnY: Int = 0
     returnX /= Opus.BUCKET_WIDTH
     returnX *= Opus.BUCKET_WIDTH
+    
+    if returnX < Opus.BUCKET_WIDTH {
+      returnX = Opus.BUCKET_WIDTH // So we don't go off the edge.
+    }
     
     for index in 0...verticalSpaces.count - 1 {
       if (location.y) <= CGFloat(verticalSpaces[index]) + CGFloat(10) { // adding a vertical note cushion! Abstract later.
