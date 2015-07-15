@@ -401,6 +401,7 @@
 				22FE60C21B4AFB6500310FBA /* UINote.swift */,
 				22FE60C81B4AFB6500310FBA /* PlaybackMenuViewController.swift */,
 				22FE60C91B4AFB6500310FBA /* StaffContainerViewController.swift */,
+				BBBD39391B57015400A7464F /* playback-bar */,
 				BBDECB831B4C533900B29638 /* popover-menus */,
 			);
 			name = "new-views";
@@ -411,8 +412,6 @@
 			children = (
 				22FE61291B4B2B3B00310FBA /* Command.swift */,
 				22FE612C1B4B373D00310FBA /* InsertNote.swift */,
-				227FF3571B57002A0099F618 /* PlaybackBar.swift */,
-				227FF3581B57002A0099F618 /* PlaybackBar.xib */,
 				22FE612F1B4B68BC00310FBA /* SelectNote.swift */,
 				22FE61321B4B6A4000310FBA /* RemoveNote.swift */,
 				22FE61381B4B6B3300310FBA /* DisplayAccidentalMenu.swift */,
@@ -476,6 +475,15 @@
 				22FE60DD1B4AFB6500310FBA /* StaffViewModel.swift */,
 			);
 			name = "view-models";
+			sourceTree = "<group>";
+		};
+		BBBD39391B57015400A7464F /* playback-bar */ = {
+			isa = PBXGroup;
+			children = (
+				227FF3571B57002A0099F618 /* PlaybackBar.swift */,
+				227FF3581B57002A0099F618 /* PlaybackBar.xib */,
+			);
+			name = "playback-bar";
 			sourceTree = "<group>";
 		};
 		BBDECB831B4C533900B29638 /* popover-menus */ = {
