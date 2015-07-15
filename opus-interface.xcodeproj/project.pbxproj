@@ -14,8 +14,6 @@
 		225D21651B1F8AB0007DD37B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225D21631B1F8AB0007DD37B /* LaunchScreen.xib */; };
 		225D21711B1F8AB0007DD37B /* opus_interfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D21701B1F8AB0007DD37B /* opus_interfaceTests.swift */; };
 		226C4DEA1B238583005DD6A3 /* grand_piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 226C4DE91B238583005DD6A3 /* grand_piano.sf2 */; };
-		227FF3591B57002A0099F618 /* PlaybackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227FF3571B57002A0099F618 /* PlaybackBar.swift */; };
-		227FF35A1B57002A0099F618 /* PlaybackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227FF3571B57002A0099F618 /* PlaybackBar.swift */; };
 		227FF35B1B57002A0099F618 /* PlaybackBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227FF3581B57002A0099F618 /* PlaybackBar.xib */; };
 		227FF35C1B57002A0099F618 /* PlaybackBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227FF3581B57002A0099F618 /* PlaybackBar.xib */; };
 		22D60F4E1B45940C00755C8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225D21571B1F8AB0007DD37B /* AppDelegate.swift */; };
@@ -194,7 +192,6 @@
 		225D216F1B1F8AB0007DD37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		225D21701B1F8AB0007DD37B /* opus_interfaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = opus_interfaceTests.swift; sourceTree = "<group>"; };
 		226C4DE91B238583005DD6A3 /* grand_piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = grand_piano.sf2; sourceTree = "<group>"; };
-		227FF3571B57002A0099F618 /* PlaybackBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackBar.swift; sourceTree = "<group>"; };
 		227FF3581B57002A0099F618 /* PlaybackBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaybackBar.xib; sourceTree = "<group>"; };
 		22FE60BB1B4AFB6500310FBA /* DMDynamicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMDynamicViewController.swift; sourceTree = "<group>"; };
 		22FE60BC1B4AFB6500310FBA /* FloatingMenuPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatingMenuPopView.xib; sourceTree = "<group>"; };
@@ -480,7 +477,6 @@
 		BBBD39391B57015400A7464F /* playback-bar */ = {
 			isa = PBXGroup;
 			children = (
-				227FF3571B57002A0099F618 /* PlaybackBar.swift */,
 				227FF3581B57002A0099F618 /* PlaybackBar.xib */,
 			);
 			name = "playback-bar";
@@ -683,7 +679,6 @@
 				22FE61101B4AFB6500310FBA /* OpusKeySignature.swift in Sources */,
 				22FE60EC1B4AFB6500310FBA /* UINote.swift in Sources */,
 				22FE610C1B4AFB6500310FBA /* OpusAudioPlayer.swift in Sources */,
-				227FF3591B57002A0099F618 /* PlaybackBar.swift in Sources */,
 				CBC4FF511B503C88007B7449 /* StaffEditorScrollView.swift in Sources */,
 				22FE612D1B4B373D00310FBA /* InsertNote.swift in Sources */,
 				22FE61001B4AFB6500310FBA /* StaffScrollView.swift in Sources */,
@@ -743,7 +738,6 @@
 				22FE61071B4AFB6500310FBA /* AudioToolboxError.swift in Sources */,
 				22FE613D1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift in Sources */,
 				22FE61111B4AFB6500310FBA /* OpusKeySignature.swift in Sources */,
-				227FF35A1B57002A0099F618 /* PlaybackBar.swift in Sources */,
 				CBC4FF521B503C88007B7449 /* StaffEditorScrollView.swift in Sources */,
 				22FE60ED1B4AFB6500310FBA /* UINote.swift in Sources */,
 				22FE610D1B4AFB6500310FBA /* OpusAudioPlayer.swift in Sources */,
