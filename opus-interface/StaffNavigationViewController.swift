@@ -171,7 +171,15 @@ class StaffNavigationViewController: UIViewController, UIScrollViewDelegate {
   
   func insertNote(note: UINote){
     
+    note.imageView.frame = CGRectMake(note.location.x / Opus.EDITOR_TO_NAVIGATION_WIDTH_RATIO, note.location.y / Opus.EDITOR_TO_NAVIGATION_HEIGHT_RATIO, Opus.NAVNOTE_WIDTH, Opus.NAVNOTE_HEIGHT)
     
+    println(Opus.EDITOR_TO_NAVIGATION_WIDTH_RATIO)
+    println(Opus.EDITOR_TO_NAVIGATION_HEIGHT_RATIO)
+    
+    note.updateLocation(note.location)
+    staffNavigationScrollView!.addSubview(note.imageView)
+    
+    println("yyayy")
     
   }
 
