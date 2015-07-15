@@ -41,40 +41,55 @@ class UINote: NSObject {
       
       imageName = "whole_note"
       noteValueOffset = Opus.WHOLE_NOTE_OFFSET
+      size = CGSizeMake(
+        Opus.UINOTE_WIDTH_UNFLAGGED,
+        Opus.UINOTE_HEIGHT)
       
     case OpusNoteValue.Half:
       
       imageName = "half_note"
       noteValueOffset = Opus.HALF_NOTE_OFFSET
+      size = CGSizeMake(
+        Opus.UINOTE_WIDTH_UNFLAGGED,
+        Opus.UINOTE_HEIGHT)
       
     case OpusNoteValue.Quarter:
       
       imageName = "quarter_note"
       noteValueOffset = Opus.QUARTER_NOTE_OFFSET
+      size = CGSizeMake(
+        Opus.UINOTE_WIDTH_UNFLAGGED,
+        Opus.UINOTE_HEIGHT)
       
     case OpusNoteValue.Eighth:
       
       imageName = "eighth_note"
       noteValueOffset = Opus.EIGHTH_NOTE_OFFSET
+      size = CGSizeMake(
+        Opus.UINOTE_WIDTH_FLAGGED,
+        Opus.UINOTE_HEIGHT)
       
     case OpusNoteValue.Sixteenth:
       
       imageName = "sixteenth_note"
       noteValueOffset = Opus.SIXTEENTH_NOTE_OFFSET
+      size = CGSizeMake(
+        Opus.UINOTE_WIDTH_FLAGGED,
+        Opus.UINOTE_HEIGHT)
       
     default:
       //TODO: [SD] Implement error handling
       //println("huh?")
       imageName = ""
       noteValueOffset = nil
+      size = CGSizeMake(
+        Opus.UINOTE_WIDTH_UNFLAGGED,
+        Opus.UINOTE_HEIGHT)
     }
     
     image = UIImage(named: imageName)
     imageView = UIImageView(image: image)
     
-    size = CGSizeMake(
-      Opus.UINOTE_WIDTH,
-      Opus.UINOTE_HEIGHT)
     
     self.location = location
     //println("UINote Sets location to \(location)")

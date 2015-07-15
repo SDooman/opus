@@ -18,12 +18,14 @@ struct Opus {
   //MARK: - Note dimensions
   static let UINOTE_HEIGHT = UIScreen.mainScreen().bounds.height / 4.5
   
-  static let UINOTE_WIDTH = UIScreen.mainScreen().bounds.width / 17
+  static let UINOTE_WIDTH_UNFLAGGED = UIScreen.mainScreen().bounds.width / 17
   
+  static let UINOTE_WIDTH_FLAGGED = UIScreen.mainScreen().bounds.width / 9.4
+  /*
   static let NAVNOTE_HEIGHT = UINOTE_HEIGHT / 15
   
-  static let NAVNOTE_WIDTH = UINOTE_WIDTH / 15
-  
+  static let NAVNOTE_WIDTH = UINOTE_WIDTH_UNFLAGGED / 15
+  */
   //MARK: - Offsets for drawing notes to staff
   static let WHOLE_NOTE_OFFSET : CGPoint = CGPoint(x: -3, y: 70) // Good!
   
@@ -31,9 +33,9 @@ struct Opus {
   
   static let QUARTER_NOTE_OFFSET : CGPoint = CGPoint(x: 0, y: 70) // Good!
   
-  static let EIGHTH_NOTE_OFFSET : CGPoint = CGPoint(x: -15, y: 35)
+  static let EIGHTH_NOTE_OFFSET : CGPoint = CGPoint(x: -23, y: 70)
   
-  static let SIXTEENTH_NOTE_OFFSET : CGPoint = CGPoint(x: -15, y: 35)
+  static let SIXTEENTH_NOTE_OFFSET : CGPoint = CGPoint(x: -23, y: 70)
   
   //MARK: - Screen and Editor/Navigator Dimensions
   static let SCREEN_WIDTH = UIScreen.mainScreen().bounds.width
@@ -47,7 +49,6 @@ struct Opus {
   static let EDITOR_TO_SCREEN_RATIO: CGFloat = CGFloat(1.5)
   
   static let STAFF_TO_EDITOR_RATIO: CGFloat = CGFloat(3)
-  //^can we rename this constant?^
   
   static let EDITOR_HEIGHT = SCREEN_HEIGHT / EDITOR_TO_SCREEN_RATIO
   
