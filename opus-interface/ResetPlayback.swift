@@ -8,7 +8,21 @@
 
 class ResetPlayback: Command {
   
-  func run() {
+  let invoker: PlaybackMenuViewController
+  let target: StaffViewModel
+  let editor: StaffEditorViewController
+  
+  init(invoker: PlaybackMenuViewController, target: StaffViewModel, editor: StaffEditorViewController) {
     
+    self.invoker = invoker
+    self.target = target
+    self.editor = editor
+  }
+  
+  func run() {
+
+    target.resetPlayback()
+    
+    // set button image appropriately (invoker)
   }
 }
