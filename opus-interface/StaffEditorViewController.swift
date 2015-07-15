@@ -414,9 +414,21 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     
   }
 
-  func setNoteValueMenuSelectedItem(segControlIndex: Int, subIndex: Int){
+  func setNoteValueMenuSelectedItem(segControlIndex: Int, subIndex: Int, newRawValue: OpusNoteValue.RawValue){
     currentSegControlIndex = segControlIndex
     currentSubSegControlIndex = subIndex
+    
+    if let check = OpusNoteValue(rawValue: newRawValue) {
+      self.staffViewModel.currentNoteValue = OpusNoteValue(rawValue: newRawValue)!
+    }
+    
   }
 
+  
+  
+  
+  
+  
+  
+  
 }
