@@ -150,6 +150,12 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     dragRecognizer.delegate = self
     self.view.addGestureRecognizer(dragRecognizer)
     
+    let twoFingerSingleTapSelector: Selector = "twoFingerSingleTap:"
+    var twoFingerSingleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: twoFingerSingleTapSelector)
+    twoFingerSingleTap.numberOfTouchesRequired = 2
+    twoFingerSingleTap.delegate = self
+    self.view.addGestureRecognizer(twoFingerSingleTap)
+    
   }
   
   //MARK: - Gesture Event Callbacks
@@ -185,6 +191,7 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let midpointLocation =
       gestureRecognizer.locationInView(self.staffEditorScrollView!)
+    println(midpointLocation)
     
     let touch1Location =
       gestureRecognizer.locationOfTouch(0, inView: self.staffEditorScrollView!)
@@ -193,8 +200,18 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     
     if twoTouchesAreAdjacent(touchOne: touch1Location,
       touchTwo: touch2Location) {
+        println("we're doing something!")
+        let adjustedLocation = closestValidPositionFrom(location: midpointLocation)
+        selectNoteAt(adjustedLocation)
         
-        //TODO: Command for displaying menu goes here
+        if selectedNote == nil {
+          println("selected is nil")
+          // important: not at adjusted, but actual touch location!
+          DisplayNoteSelectionMenu(invoker: self, target: self.container, location: midpointLocation).run()
+        } else {
+          println("selected is not nil")
+          DisplayAccidentalMenu(note: selectedNote!, invoker: self).run()
+        }
     }
   }
   
@@ -376,12 +393,8 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
   //MARK: - Presenting Modular Popover Menus
   
   
-  
-  
-  
-  /*
   func presentAccidentalMenuOnNote(note: UINote) {
-    var contentViewController = PopoverAccidentalMenuViewController(nibName: "PopoverAccidentalMenuView", bundle: nil)
+    var contentViewController = PopoverAccidentalMenuViewController(nibName: "PopoverAccidentalMenuViewController", bundle: nil)
     var popController = UIPopoverController(contentViewController: contentViewController)
     let frame = note.imageView.frame
     
@@ -400,11 +413,10 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     popoverController.presentPopoverFromRect(targetRect, inView: self.view, permittedArrowDirections: UIPopoverArrowDirection.allZeros, animated: true)
     
   }
-  // Helper method for NoteValueSelection Menu - stores previously clicked element.
+
   func setNoteValueMenuSelectedItem(segControlIndex: Int, subIndex: Int){
     currentSegControlIndex = segControlIndex
     currentSubSegControlIndex = subIndex
   }
-  */
 
 }

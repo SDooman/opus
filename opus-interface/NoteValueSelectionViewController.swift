@@ -21,7 +21,8 @@ class NoteValueSelectionViewController: UIViewController, UITableViewDelegate, U
     let initialSubSegIndex: Int!                    // 0/1 whether note or rest of that seg was selected
     
     var container : StaffEditorViewController {
-        return presentingViewController as! StaffEditorViewController
+        let pres = presentingViewController as! StaffContainerViewController
+        return pres.staffEditor
     }
     
     init(currentSeg: Int, currentSubSeg: Int) {
