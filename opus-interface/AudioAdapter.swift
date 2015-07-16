@@ -40,6 +40,10 @@ class AudioAdapter {
   func edit(oldNoteInformation: (UInt8, Float32, MusicTimeStamp),
     newNoteInformation: (UInt8, Float32, MusicTimeStamp)) -> Bool {
       
+      //TODO: Remove this
+      println("Old: \(oldNoteInformation)")
+      println("New: \(newNoteInformation)")
+      
       return _midiSequenceEditor.editNote(oldNoteInformation.0,
         duration: oldNoteInformation.1, time: oldNoteInformation.2,
         newNote: newNoteInformation.0,

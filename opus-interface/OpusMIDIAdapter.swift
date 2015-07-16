@@ -221,7 +221,8 @@ class OpusMIDIAdapter {
       var eventData : UnsafePointer<Void> = nil
       var eventDataSize : UInt32 = 0
       
-      while hasCurrentEvent != 0 && hasPerformedTargetAction {
+      while hasCurrentEvent != 0 &&
+        hasPerformedTargetAction == false {
         
         status = MusicEventIteratorGetEventInfo(iterator, &currentTimeStamp,
           &eventType, &eventData, &eventDataSize)
@@ -242,6 +243,9 @@ class OpusMIDIAdapter {
         }
         
         status = MusicEventIteratorNextEvent(iterator)
+        AudioToolboxError.handle(status)
+        
+        status = MusicEventIteratorHasCurrentEvent(iterator, &hasCurrentEvent)
         AudioToolboxError.handle(status)
       }
       

@@ -55,6 +55,9 @@ class StaffViewModel {
       
       _staff.edit(oldNote, newNote: newNote)
       
+      //TODO: Remove this
+      _staff.printStaff()
+      
       _audioAdapter.edit(
         Convert.opusNoteToMIDIInformation(oldNote,
           timeSignature: _staff.timeSignature()),

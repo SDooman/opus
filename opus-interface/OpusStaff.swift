@@ -107,4 +107,14 @@ class OpusStaff: NSObject {
     //TODO: (Sam) implement
     return true
   }*/
+  
+  //TODO: Remove this method
+  func printStaff() {
+    for note in _staffEvents {
+      println("------")
+      println("Pitch: \(note.pitch)")
+      println("Beat: \(note.beatLocation)")
+      println("------")
+    }
+  }
 }
