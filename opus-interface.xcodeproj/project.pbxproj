@@ -125,6 +125,8 @@
 		CBC4FF521B503C88007B7449 /* StaffEditorScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4FF4D1B503C88007B7449 /* StaffEditorScrollView.swift */; };
 		CBC4FF531B503C88007B7449 /* StaffNavigationScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4FF4E1B503C88007B7449 /* StaffNavigationScrollView.swift */; };
 		CBC4FF541B503C88007B7449 /* StaffNavigationScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4FF4E1B503C88007B7449 /* StaffNavigationScrollView.swift */; };
+		CBDEE8381B5808D700653441 /* ResumePlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDEE8371B5808D700653441 /* ResumePlayback.swift */; };
+		CBDEE83D1B58094A00653441 /* ResumePlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDEE8371B5808D700653441 /* ResumePlayback.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -248,6 +250,7 @@
 		CBC4FF4C1B503C88007B7449 /* RepositionSelectedNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositionSelectedNote.swift; sourceTree = "<group>"; };
 		CBC4FF4D1B503C88007B7449 /* StaffEditorScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffEditorScrollView.swift; sourceTree = "<group>"; };
 		CBC4FF4E1B503C88007B7449 /* StaffNavigationScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffNavigationScrollView.swift; sourceTree = "<group>"; };
+		CBDEE8371B5808D700653441 /* ResumePlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumePlayback.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -418,6 +421,7 @@
 				22FE613E1B4B6C2900310FBA /* StartPlayback.swift */,
 				22FE61411B4B6C4400310FBA /* ResetPlayback.swift */,
 				22FE61441B4B6CF800310FBA /* PausePlayback.swift */,
+				CBDEE8371B5808D700653441 /* ResumePlayback.swift */,
 			);
 			name = commands;
 			sourceTree = "<group>";
@@ -675,6 +679,7 @@
 				CBC4FF4F1B503C88007B7449 /* RepositionSelectedNote.swift in Sources */,
 				BBDECB921B4C594200B29638 /* NoteValueSelectionViewController.swift in Sources */,
 				22FE61061B4AFB6500310FBA /* AudioToolboxError.swift in Sources */,
+				CBDEE8381B5808D700653441 /* ResumePlayback.swift in Sources */,
 				22FE613C1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift in Sources */,
 				22FE61101B4AFB6500310FBA /* OpusKeySignature.swift in Sources */,
 				22FE60EC1B4AFB6500310FBA /* UINote.swift in Sources */,
@@ -720,6 +725,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBDEE83D1B58094A00653441 /* ResumePlayback.swift in Sources */,
 				BBBD39371B56CF1800A7464F /* UpdateNote.swift in Sources */,
 				CB9314181B501FDD00F64BAB /* UpdateNoteSelectionMenuValue.swift in Sources */,
 				CB9314191B501FDD00F64BAB /* PopoverAccidentalMenuViewController.swift in Sources */,
