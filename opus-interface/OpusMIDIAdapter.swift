@@ -124,6 +124,7 @@ class OpusMIDIAdapter {
   func editNote(note: UInt8, duration: Float32, time: MusicTimeStamp,
     newNote: UInt8, newDuration: Float32, newTime: MusicTimeStamp) -> Bool {
       
+      
       func editTargetNode(currentMIDINoteInfo: (UInt8, Float32, MusicTimeStamp),
         iterator: MusicEventIterator,
         targetNoteInformation: [(UInt8, Float32, MusicTimeStamp)]) -> Bool {
@@ -159,7 +160,6 @@ class OpusMIDIAdapter {
               
               return true
           }
-          
           return false
       }
       
@@ -221,7 +221,8 @@ class OpusMIDIAdapter {
       var eventData : UnsafePointer<Void> = nil
       var eventDataSize : UInt32 = 0
       
-      while hasCurrentEvent != 0 && hasPerformedTargetAction {
+      while hasCurrentEvent != 0 &&
+        hasPerformedTargetAction == false {
         
         status = MusicEventIteratorGetEventInfo(iterator, &currentTimeStamp,
           &eventType, &eventData, &eventDataSize)
@@ -242,6 +243,9 @@ class OpusMIDIAdapter {
         }
         
         status = MusicEventIteratorNextEvent(iterator)
+        AudioToolboxError.handle(status)
+        
+        status = MusicEventIteratorHasCurrentEvent(iterator, &hasCurrentEvent)
         AudioToolboxError.handle(status)
       }
       

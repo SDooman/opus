@@ -54,6 +54,11 @@ class StaffViewModel {
       let newNote = newStaffEvent as! OpusNote
       
       _staff.edit(oldNote, newNote: newNote)
+
+      //ND: Edit in the AudioAdapter class takes three parameters per note,
+      //    UInt, Float32, and MusicTimeStamp. 
+      //    Is this supposed to only pass two of those parameters?
+      
       
       _audioAdapter.edit(
         Convert.opusNoteToMIDIInformation(oldNote,
@@ -62,6 +67,7 @@ class StaffViewModel {
         Convert.opusNoteToMIDIInformation(newNote,
           timeSignature: _staff.timeSignature()))
       
+            
       return true
   }
   

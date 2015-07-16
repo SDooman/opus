@@ -153,13 +153,16 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         switch selectedAccidental {
         case "sharp":
             // make current note sharp
-            println("Note Sharped!")
+          return
+
         case "natural":
             // make current note natural
-            println("Note Naturaled!")
+          return
+
         case "flat":
             // make current note flat
-            println("Note Flatted!")
+          return
+
         default:
             return
         }
@@ -277,7 +280,7 @@ class MeasureViewController: UIViewController, UIGestureRecognizerDelegate, Prin
         if let myCenter = currentNote?.imageView?.center {
             for note in noteArray{
                 if (myCenter == note.imageView?.center) && !(note === currentNote){
-                    //println("OVERLAP")
+
                     // do action we want to deal with overlaps, either color red, show error, etc
                 }
             }
