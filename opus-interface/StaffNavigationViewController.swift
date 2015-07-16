@@ -168,6 +168,8 @@ class StaffNavigationViewController: UIViewController, UIScrollViewDelegate {
     staffNavigationScrollView!.contentOffset = CGPointMake(x_ratio*staffNavigationScrollView!.contentSize.width - contentInsetConstant, 0)
   }
 
+  func insertNote(note: UINote){
+  }
   
   func makeNote(location: CGPoint){
     let image = UIImage(named: "quarter_note")
