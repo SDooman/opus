@@ -189,9 +189,12 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
 
   func twoFingerSingleTap(gestureRecognizer: UITapGestureRecognizer) {
     
+    StartPlayback(invoker: PlaybackMenuViewController(), target: staffViewModel, editor: self).run()
+    
+    return
+    
     let midpointLocation =
       gestureRecognizer.locationInView(self.staffEditorScrollView!)
-    println(midpointLocation)
     
     let touch1Location =
       gestureRecognizer.locationOfTouch(0, inView: self.staffEditorScrollView!)
