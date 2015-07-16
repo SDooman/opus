@@ -124,6 +124,7 @@ class OpusMIDIAdapter {
   func editNote(note: UInt8, duration: Float32, time: MusicTimeStamp,
     newNote: UInt8, newDuration: Float32, newTime: MusicTimeStamp) -> Bool {
       
+      
       func editTargetNode(currentMIDINoteInfo: (UInt8, Float32, MusicTimeStamp),
         iterator: MusicEventIterator,
         targetNoteInformation: [(UInt8, Float32, MusicTimeStamp)]) -> Bool {
@@ -159,7 +160,6 @@ class OpusMIDIAdapter {
               
               return true
           }
-          
           return false
       }
       

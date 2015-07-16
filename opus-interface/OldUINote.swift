@@ -73,22 +73,6 @@ class OldUINote {
         let myWidth = screenSizeWidth / 17
         mySize = CGSizeMake(myWidth, myHeight)
         
-        /*
-        println("------BEGIN------")
-        println()
-        
-        println("My height: \(myHeight)")
-        println("My width: \(myWidth)")
-        println("My height / screen height \(myHeight / screenSizeHeight)")
-        println("My width / screen width \(myWidth / screenSizeWidth)")
-        println("Middle line: 321")
-        println("Spaces \(spaces)")
-        println("Screen Height: \(screenSizeHeight)")
-        println("Screen Width: \(screenSizeWidth)")
-        println(Constants.myVerticalLineSpacing!)
-        println()
-        println("------END------")
-        */
     }
     
     func getNoteCenter() -> CGPoint {

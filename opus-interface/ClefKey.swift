@@ -50,7 +50,6 @@ struct ClefKey {
   
   let major = Scale.Major
   let cMajor = major(Pitch(chroma: Chroma.C, octave: 1)) // Octave is arbitrary, checking on treble clef only.
-  println(ClefKey.pitchesForScaleOnClef(scale: cMajor, clef: .Treble))
   */
   
   static func createClefRangeFrom(#minMidi: Int, maxMidi: Int) -> [Pitch] {

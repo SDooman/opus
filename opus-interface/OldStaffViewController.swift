@@ -23,15 +23,9 @@ class OldStaffViewController: ViewController {
         pageController = DMDynamicViewController(viewControllers: viewControllers)
         
         let testView = pageController!.view //as! OpusMenuUIScrollView
-        println(testView)
         
         let scrollView = pageController?.containerScrollView
-        
-        println("---")
-        
-        println(scrollView)
-        
-        println(testView === scrollView)
+      
         //testView.alwaysBounceHorizontal = true
         
         

@@ -170,24 +170,24 @@ class NoteValueSelectionViewController: UIViewController, UITableViewDelegate, U
     if secondIndex == 0 {
       switch firstIndex {
       case 0:
-        println("Sixteenth Note")
         return OpusNoteValue.Sixteenth
+      
       case 1:
-        println("Eighth Note")
         return OpusNoteValue.Eighth
+      
       case 2:
-        println("Quarter Note")
         return OpusNoteValue.Quarter
+      
       case 3:
-        println("Half Note")
         return OpusNoteValue.Half
+      
       case 4:
-        println("Whole Note")
         return OpusNoteValue.Whole
+      
       default:
-        println("default")
         return OpusNoteValue.Quarter
       }
+      
     } else if secondIndex == 1 {
       switch firstIndex {
       case 0:
