@@ -80,11 +80,13 @@ class StaffContainerViewController: UIViewController {
   let staffNavigator : StaffNavigationViewController
   let staffEditor : StaffEditorViewController
   let staffViewModel : StaffViewModel
+  let playBackMenu : PlaybackMenuViewController
 
   init() {
     staffViewModel = StaffViewModel()
     staffNavigator = StaffNavigationViewController()
     staffEditor = StaffEditorViewController()
+    playBackMenu = PlaybackMenuViewController()
     super.init(nibName: nil, bundle: nil)
   }
 
@@ -92,6 +94,7 @@ class StaffContainerViewController: UIViewController {
     staffViewModel = StaffViewModel()
     staffNavigator = StaffNavigationViewController()
     staffEditor = StaffEditorViewController()
+    playBackMenu = PlaybackMenuViewController()
     //println("called coder in containerVC")
     super.init(coder: aDecoder)
   }
@@ -101,12 +104,12 @@ class StaffContainerViewController: UIViewController {
     
     self.addChildViewController(staffNavigator)
     self.addChildViewController(staffEditor)
+    self.addChildViewController(playBackMenu)
     
     self.view.addSubview(staffNavigator.view)
     self.view.addSubview(staffEditor.view)
+    self.view.addSubview(playBackMenu.view)
     
-    let playBackBar = PlaybackMenuViewController()
-    self.view.addSubview(playBackBar.view)
     
     
   }

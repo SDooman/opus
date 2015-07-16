@@ -31,8 +31,8 @@ class PlaybackMenuViewController: UIViewController {
     super.viewDidLoad()
     view.frame = menu_frame
     
-    create_play_pause_button()
-    create_stop_button()
+    createPlayPauseButton()
+    createStopButton()
   }
 
   @IBAction func stop_button_pressed() {
@@ -52,32 +52,52 @@ class PlaybackMenuViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  func create_play_pause_button(){
-    play_pause_button = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-    play_pause_button.frame = CGRectMake((menu_frame.width-button_width)/2, (menu_frame.height-button_height)/2, button_width, button_height)
+  func createPlayPauseButton(){
+    play_pause_button = UIButton()
+    play_pause_button.adjustsImageWhenHighlighted = false
+    play_pause_button.frame = CGRectMake((menu_frame.width/2) + menu_frame.width/2-button_width-(menu_frame.width/2-button_width)/2, (menu_frame.height-button_height)/2, button_width, button_height)
+    
     let play_button_image = UIImage(named: "play-button")
     let pause_button_image = UIImage(named: "pause-button")
     play_pause_button.setImage(play_button_image, forState: UIControlState.Normal)
+    play_pause_button.setImage(pause_button_image, forState: UIControlState.Highlighted)
     play_pause_button.setImage(pause_button_image, forState: UIControlState.Selected)
-    play_pause_button.addTarget(self, action: "clearMeasure", forControlEvents: UIControlEvents.TouchUpInside)
-  
+    
+    play_pause_button.addTarget(self, action: "playPauseButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+    
     self.view.addSubview(play_pause_button)
   }
   
-  func create_stop_button(){
-    stop_button = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-    stop_button.frame = CGRectMake(menu_frame.width-button_width-((menu_frame.width-button_width)/2), (menu_frame.height-button_height)/2, button_width, button_height)
+  func createStopButton(){
+    stop_button = UIButton()
+    stop_button.adjustsImageWhenHighlighted = false
+    stop_button.frame = CGRectMake(menu_frame.width/2-button_width-(menu_frame.width/2-button_width)/2, (menu_frame.height-button_height)/2, button_width, button_height)
+    
     let stop_button_image = UIImage(named: "stop-button")
-    let stop_button_pressed = UIImage(named: "stop-button-highlighted")
+    let stop_button_pressed_image = UIImage(named: "stop-button-highlighted")
     stop_button.setImage(stop_button_image, forState: UIControlState.Normal)
-    stop_button.addTarget(self, action: "clearMeasure", forControlEvents: UIControlEvents.TouchUpInside)
+    stop_button.setImage(stop_button_pressed_image, forState: UIControlState.Highlighted)
+    
+    stop_button.addTarget(self, action: "stopButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
     
     self.view.addSubview(stop_button)
   }
   
- 
+  func playPauseButtonClicked(sender: UIButton!){
+    
+    if play_pause_button.selected{
+      play_pause_button.selected = false
+    }else{
+      play_pause_button.selected = true
+    }
+  }
   
-  
+  func stopButtonClicked(sender: UIButton!){
+  }
+
+  func playBackHasStopped(){
+    play_pause_button.selected = false
+  }
   
   
 }
