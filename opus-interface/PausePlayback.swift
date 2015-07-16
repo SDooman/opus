@@ -21,7 +21,9 @@ class PausePlayback: Command {
   
   func run() {
     
-    target.stopPlayback()
+    println("pause called")
+    target.pausePlayBack()
+    println(target._audioAdapter.getPlaybackTime())
     
     // set button image appropriately (invoker)
   }

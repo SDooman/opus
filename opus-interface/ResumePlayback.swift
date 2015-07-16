@@ -20,7 +20,7 @@ class ResumePlayback: Command {
   }
   
   func run() {
-    
+    println("resume called")
     //target.preparePlayback()
     target.resumePlayback()
     

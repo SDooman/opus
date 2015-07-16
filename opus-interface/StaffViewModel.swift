@@ -97,6 +97,10 @@ class StaffViewModel {
     return _audioAdapter.stopPlayback()
   }
   
+  func pausePlayBack() -> Bool {
+    return _audioAdapter.pausePlayback()
+  }
+  
   func resumePlayback() -> Bool {
     return _audioAdapter.resumePlayback()
   }

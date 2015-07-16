@@ -85,12 +85,13 @@ class PlaybackMenuViewController: UIViewController {
   
   func playPauseButtonClicked(sender: UIButton!){
     
-    if play_pause_button.selected{
+    if play_pause_button.selected{ // displaying pause, is playing
       play_pause_button.selected = false
       PausePlayback(invoker: self, target: staffViewModel, editor: container.staffEditor).run()
-    }else{
+    }else{ // displaying play, is paused.
+      
       play_pause_button.selected = true
-      StartPlayback(invoker: self, target: staffViewModel, editor: container.staffEditor).run()
+      ResumePlayback(invoker: self, target: staffViewModel, editor: container.staffEditor).run()
     }
     
   }

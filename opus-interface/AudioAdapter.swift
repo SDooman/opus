@@ -70,7 +70,11 @@ class AudioAdapter {
   }
   
   func resumePlayback() -> Bool {
-    return _midiPlayer.resetPlayback()
+    return _midiPlayer.resumePlayback()
+  }
+  
+  func pausePlayback() -> Bool {
+    return _midiPlayer.pausePlayback()
   }
   
   func getPlaybackTime() -> MusicTimeStamp {

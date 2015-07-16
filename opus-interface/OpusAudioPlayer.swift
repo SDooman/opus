@@ -98,6 +98,21 @@ class OpusAudioPlayer {
     return true
   }
   
+  func pausePlayback() -> Bool {
+    var status = OSStatus(noErr)
+    let time = getPlaybackTime()
+    status = MusicPlayerStop(_player)
+    
+    if status != OSStatus(noErr) {
+      AudioToolboxError.handle(status)
+      return false
+    }
+    
+    setPlaybackTime(time)
+    
+    return true
+  }
+  
   func resumePlayback() -> Bool {
     var status = OSStatus(noErr)
     status = MusicPlayerStart(_player)
