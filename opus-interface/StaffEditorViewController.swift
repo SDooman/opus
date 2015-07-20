@@ -114,7 +114,8 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     
     setUpStaff()
     setupGestureRecognizers()
-    self.view.backgroundColor = UIColor.redColor()
+    self.view.backgroundColor = UIColor.cyanColor().colorWithAlphaComponent(0.2)
+    
     
     staffEditorScrollView!.addSubview(staffImageView)
     self.view.addSubview(staffEditorScrollView!)
@@ -189,7 +190,6 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     UpdateStaffNavigatorImage(invoker: self, target: container.staffNavigator).run()
-    
   }
 
   func twoFingerSingleTap(gestureRecognizer: UITapGestureRecognizer) {
