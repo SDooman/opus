@@ -188,7 +188,6 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         target: self.staffViewModel).run()
     }
     
-    
     UpdateStaffNavigatorImage(invoker: self, target: container.staffNavigator).run()
   }
 
@@ -255,14 +254,14 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         let noteValue = staffViewModel.currentNoteValue
         let beatLocation = beatLocationFrom(location: adjustedLocation)
         
-        /*
         UpdateNote(oldNote: selectedNote!.note!,
           newNote: OpusNote(pitch: pitch, beatLocation: beatLocation, noteValue: noteValue),
           invoker: self,
           target: self.staffViewModel).run()
+        
+        UpdateStaffNavigatorImage(invoker: self, target: container.staffNavigator).run()
             
         selectedNote = nil
-        */
       }
       
       

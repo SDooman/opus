@@ -74,9 +74,6 @@ class StaffEditorScrollView: UIScrollView {
     
     UIGraphicsEndImageContext()
     
-    //println(contentSize.width)
-    
     return image
-    
   }
 }
