@@ -27,24 +27,7 @@ class StaffNavigationScrollView: UIScrollView {
     super.layoutSubviews()
     
     if self.dragging{
-      owningVCParent.updateStaffEditorView((contentOffset.x + owningVC!.contentInsetConstant)/contentSize.width)
+      UpdateStaffEditorPosition(x_ratio: (contentOffset.x + owningVC!.contentInsetConstant)/contentSize.width, target: owningVCParent.staffEditor).run()
     }
-  }
-  
-  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-    super.touchesBegan(touches, withEvent: event)
-    let touch = touches.first as! UITouch
-    println(touch.locationInView(self))
-    owningVC.makeNote(touch.locationInView(self))
-  }
-  
-  func takeSnapshot() -> UIImage {
-    UIGraphicsBeginImageContextWithOptions(contentSize, false, UIScreen.mainScreen().scale)
-    
-    drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true)
-    
-    let image = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-    return image
   }
 }

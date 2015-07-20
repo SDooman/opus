@@ -164,6 +164,7 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
   
   func oneFingerSingleTap(gestureRecognizer: UITapGestureRecognizer) {
     
+    
     let touchLocation = gestureRecognizer.locationInView(self.staffEditorScrollView!)
     let adjustedLocation = closestValidPositionFrom(location: touchLocation)
     
@@ -185,6 +186,10 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         invoker: self,
         target: self.staffViewModel).run()
     }
+    
+    
+    UpdateStaffNavigatorImage(invoker: self, target: container.staffNavigator).run()
+    
   }
 
   func twoFingerSingleTap(gestureRecognizer: UITapGestureRecognizer) {
@@ -252,7 +257,6 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         let beatLocation = beatLocationFrom(location: adjustedLocation)
         
         /*
->>>>>>> c20776a6dd8aa5b7439d964f54330b81327fe514
         UpdateNote(oldNote: selectedNote!.note!,
           newNote: OpusNote(pitch: pitch, beatLocation: beatLocation, noteValue: noteValue),
           invoker: self,
@@ -428,7 +432,40 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     if let check = OpusNoteValue(rawValue: newRawValue) {
       self.staffViewModel.currentNoteValue = OpusNoteValue(rawValue: newRawValue)!
     }
-    
   }
+  
+  
+  
+  
+  
+  
+  
+  /*
+  func staffSnapshot() -> UIImage {
+    
+    UIGraphicsBeginImageContextWithOptions(staffEditorScrollView!.contentSize, false, UIScreen.mainScreen().scale)
+    
+    staffImageView.drawViewHierarchyInRect(staffEditorScrollView!.bounds, afterScreenUpdates: true)
+    
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    return image
+  }
+  */
+  
+  func staffSnapshot() -> UIImage{
+    return staffEditorScrollView!.takeSnapshot()
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
 }

@@ -83,15 +83,17 @@ class StaffContainerViewController: UIViewController {
 
   init() {
     staffViewModel = StaffViewModel()
-    staffNavigator = StaffNavigationViewController()
+    
     staffEditor = StaffEditorViewController()
+    staffNavigator = StaffNavigationViewController()
     super.init(nibName: nil, bundle: nil)
   }
 
   required init(coder aDecoder: NSCoder) {
     staffViewModel = StaffViewModel()
-    staffNavigator = StaffNavigationViewController()
+    
     staffEditor = StaffEditorViewController()
+    staffNavigator = StaffNavigationViewController()
     //println("called coder in containerVC")
     super.init(coder: aDecoder)
   }
@@ -99,36 +101,18 @@ class StaffContainerViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.addChildViewController(staffNavigator)
+    
     self.addChildViewController(staffEditor)
+    self.addChildViewController(staffNavigator)
     
-    self.view.addSubview(staffNavigator.view)
+    
     self.view.addSubview(staffEditor.view)
+    self.view.addSubview(staffNavigator.view)
     
-    let pbBar: PlaybackBar = PlaybackBar(frame: CGRect(x: 15, y: self.view.frame.height-100, width: 200, height: 85))
-    self.view.addSubview(pbBar)
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
-  
-  // ===================================================
-  
-  //MARK: - Simultaneous Scroll Editor & Navigation
-  
-  func updateStaffNavigationView(x_ratio: CGFloat){
-    staffNavigator.updatePosition(x_ratio)
-  }
-  
-  func updateStaffEditorView(x_ratio: CGFloat){
-    staffEditor.updatePosition(x_ratio)
-  }
-  
-  func elongateStaff(){
-    staffNavigator.elongateStaff()
-    staffEditor.elongateStaff()
-  }
-
   
 }
