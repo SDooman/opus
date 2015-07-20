@@ -27,10 +27,9 @@ class StaffNavigationScrollView: UIScrollView {
     super.layoutSubviews()
     
     if self.dragging{
-      owningVCParent.updateStaffEditorView((contentOffset.x + owningVC!.contentInsetConstant)/contentSize.width)
+      UpdateStaffEditorPosition(x_ratio: (contentOffset.x + owningVC!.contentInsetConstant)/contentSize.width, target: owningVCParent.staffEditor).run()
     }
   }
-  
   
   func takeSnapshot() -> UIImage {
     UIGraphicsBeginImageContextWithOptions(contentSize, false, UIScreen.mainScreen().scale)

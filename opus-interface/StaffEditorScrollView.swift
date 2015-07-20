@@ -49,12 +49,34 @@ class StaffEditorScrollView: UIScrollView {
     }
     
     if self.dragging{
-      owningVCParent.updateStaffNavigationView(contentOffset.x/contentSize.width)
+      UpdateStaffNavigatorPosition(x_ratio: contentOffset.x/contentSize.width, target: owningVCParent.staffNavigator).run()
       
       if contentSize.width-contentOffset.x < Opus.EDITOR_WIDTH{
-        owningVCParent.elongateStaff()
+        ElongateStaff(invoker: owningVC, target: owningVCParent.staffNavigator).run()
       }
     }
   }
-
+  
+  func takeSnapshot() -> UIImage{
+    
+    UIGraphicsBeginImageContext(CGSizeMake(contentSize.width, frame.height))
+    
+    var savedContentOffset = contentOffset
+    var savedFrame = frame
+    
+    contentOffset = CGPointZero
+    frame = CGRectMake(0, 0, contentSize.width, frame.height)
+    layer.renderInContext(UIGraphicsGetCurrentContext())
+    var image = UIGraphicsGetImageFromCurrentImageContext()
+    
+    contentOffset = savedContentOffset
+    frame = savedFrame
+    
+    UIGraphicsEndImageContext()
+    
+    //println(contentSize.width)
+    
+    return image
+    
+  }
 }

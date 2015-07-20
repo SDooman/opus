@@ -101,7 +101,6 @@
 		22FE61451B4B6CF800310FBA /* PausePlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61441B4B6CF800310FBA /* PausePlayback.swift */; };
 		22FE61461B4B6CF800310FBA /* PausePlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE61441B4B6CF800310FBA /* PausePlayback.swift */; };
 		BB732B381B5D5D3400C6BD67 /* opus_interface.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB732B361B5D5D3400C6BD67 /* opus_interface.xcdatamodeld */; };
-		BB732B3A1B5D5F6200C6BD67 /* grand_piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = BB732B391B5D5F6200C6BD67 /* grand_piano.sf2 */; };
 		BBBD39321B56CEEA00A7464F /* UpdateNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBD39311B56CEEA00A7464F /* UpdateNote.swift */; };
 		BBBD39371B56CF1800A7464F /* UpdateNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBD39311B56CEEA00A7464F /* UpdateNote.swift */; };
 		BBDECB7A1B4C4DB800B29638 /* ClefKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDECB791B4C4DB800B29638 /* ClefKey.swift */; };
@@ -125,6 +124,15 @@
 		CBC4FF541B503C88007B7449 /* StaffNavigationScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4FF4E1B503C88007B7449 /* StaffNavigationScrollView.swift */; };
 		CBDEE8381B5808D700653441 /* ResumePlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDEE8371B5808D700653441 /* ResumePlayback.swift */; };
 		CBDEE83D1B58094A00653441 /* ResumePlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDEE8371B5808D700653441 /* ResumePlayback.swift */; };
+		CBEA56B31B5D79BD00BE8E70 /* UpdateStaffEditorPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA56B01B5D79BD00BE8E70 /* UpdateStaffEditorPosition.swift */; };
+		CBEA56B41B5D79BD00BE8E70 /* UpdateStaffNavigatorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA56B11B5D79BD00BE8E70 /* UpdateStaffNavigatorImage.swift */; };
+		CBEA56B51B5D79BD00BE8E70 /* UpdateStaffNavigatorPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA56B21B5D79BD00BE8E70 /* UpdateStaffNavigatorPosition.swift */; };
+		CBEA56BA1B5D79C400BE8E70 /* UpdateStaffEditorPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA56B01B5D79BD00BE8E70 /* UpdateStaffEditorPosition.swift */; };
+		CBEA56BB1B5D79C400BE8E70 /* UpdateStaffNavigatorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA56B11B5D79BD00BE8E70 /* UpdateStaffNavigatorImage.swift */; };
+		CBEA56BC1B5D79C400BE8E70 /* UpdateStaffNavigatorPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA56B21B5D79BD00BE8E70 /* UpdateStaffNavigatorPosition.swift */; };
+		CBEA56BE1B5D79DD00BE8E70 /* ElongateStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA56BD1B5D79DD00BE8E70 /* ElongateStaff.swift */; };
+		CBEA56BF1B5D79E300BE8E70 /* ElongateStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA56BD1B5D79DD00BE8E70 /* ElongateStaff.swift */; };
+		CBEA56C11B5D7B4700BE8E70 /* grand_piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = CBEA56C01B5D7B4700BE8E70 /* grand_piano.sf2 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,7 +242,6 @@
 		22FE61411B4B6C4400310FBA /* ResetPlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPlayback.swift; sourceTree = "<group>"; };
 		22FE61441B4B6CF800310FBA /* PausePlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausePlayback.swift; sourceTree = "<group>"; };
 		BB732B371B5D5D3400C6BD67 /* opus_interface.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = opus_interface.xcdatamodel; sourceTree = "<group>"; };
-		BB732B391B5D5F6200C6BD67 /* grand_piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; name = grand_piano.sf2; path = "opus-interface/grand_piano.sf2"; sourceTree = SOURCE_ROOT; };
 		BBBD39311B56CEEA00A7464F /* UpdateNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateNote.swift; sourceTree = "<group>"; };
 		BBDECB791B4C4DB800B29638 /* ClefKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClefKey.swift; sourceTree = "<group>"; };
 		BBDECB7F1B4C531300B29638 /* PopoverAccidentalMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAccidentalMenuViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +255,11 @@
 		CBC4FF4D1B503C88007B7449 /* StaffEditorScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffEditorScrollView.swift; sourceTree = "<group>"; };
 		CBC4FF4E1B503C88007B7449 /* StaffNavigationScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffNavigationScrollView.swift; sourceTree = "<group>"; };
 		CBDEE8371B5808D700653441 /* ResumePlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumePlayback.swift; sourceTree = "<group>"; };
+		CBEA56B01B5D79BD00BE8E70 /* UpdateStaffEditorPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateStaffEditorPosition.swift; sourceTree = "<group>"; };
+		CBEA56B11B5D79BD00BE8E70 /* UpdateStaffNavigatorImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateStaffNavigatorImage.swift; sourceTree = "<group>"; };
+		CBEA56B21B5D79BD00BE8E70 /* UpdateStaffNavigatorPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateStaffNavigatorPosition.swift; sourceTree = "<group>"; };
+		CBEA56BD1B5D79DD00BE8E70 /* ElongateStaff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElongateStaff.swift; sourceTree = "<group>"; };
+		CBEA56C01B5D7B4700BE8E70 /* grand_piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = grand_piano.sf2; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,7 +383,7 @@
 		226C4DE81B238583005DD6A3 /* instruments */ = {
 			isa = PBXGroup;
 			children = (
-				BB732B391B5D5F6200C6BD67 /* grand_piano.sf2 */,
+				CBEA56C01B5D7B4700BE8E70 /* grand_piano.sf2 */,
 			);
 			path = instruments;
 			sourceTree = "<group>";
@@ -406,6 +418,10 @@
 		22FE61241B4AFED400310FBA /* commands */ = {
 			isa = PBXGroup;
 			children = (
+				CBEA56BD1B5D79DD00BE8E70 /* ElongateStaff.swift */,
+				CBEA56B01B5D79BD00BE8E70 /* UpdateStaffEditorPosition.swift */,
+				CBEA56B11B5D79BD00BE8E70 /* UpdateStaffNavigatorImage.swift */,
+				CBEA56B21B5D79BD00BE8E70 /* UpdateStaffNavigatorPosition.swift */,
 				22FE61291B4B2B3B00310FBA /* Command.swift */,
 				22FE612C1B4B373D00310FBA /* InsertNote.swift */,
 				22FE612F1B4B68BC00310FBA /* SelectNote.swift */,
@@ -635,9 +651,9 @@
 				225D21601B1F8AB0007DD37B /* Main.storyboard in Resources */,
 				227FF35B1B57002A0099F618 /* PlaybackBar.xib in Resources */,
 				22FE60EE1B4AFB6500310FBA /* NoteSelectedPopView.xib in Resources */,
-				BB732B3A1B5D5F6200C6BD67 /* grand_piano.sf2 in Resources */,
 				225D21651B1F8AB0007DD37B /* LaunchScreen.xib in Resources */,
 				BBDECB821B4C531400B29638 /* PopoverAccidentalMenuViewController.xib in Resources */,
+				CBEA56C11B5D7B4700BE8E70 /* grand_piano.sf2 in Resources */,
 				22FE60E61B4AFB6500310FBA /* Images.xcassets in Resources */,
 				22FE60E01B4AFB6500310FBA /* FloatingMenuPopView.xib in Resources */,
 			);
@@ -670,6 +686,7 @@
 				BB732B381B5D5D3400C6BD67 /* opus_interface.xcdatamodeld in Sources */,
 				22FE611E1B4AFB6500310FBA /* OpusTimeSignature.swift in Sources */,
 				BBBD39321B56CEEA00A7464F /* UpdateNote.swift in Sources */,
+				CBEA56B41B5D79BD00BE8E70 /* UpdateStaffNavigatorImage.swift in Sources */,
 				225D215D1B1F8AB0007DD37B /* ViewController.swift in Sources */,
 				22FE60DE1B4AFB6500310FBA /* DMDynamicViewController.swift in Sources */,
 				CBC4FF4F1B503C88007B7449 /* RepositionSelectedNote.swift in Sources */,
@@ -677,7 +694,9 @@
 				22FE61061B4AFB6500310FBA /* AudioToolboxError.swift in Sources */,
 				CBDEE8381B5808D700653441 /* ResumePlayback.swift in Sources */,
 				22FE613C1B4B6BCB00310FBA /* DisplayNoteSelectionMenu.swift in Sources */,
+				CBEA56B51B5D79BD00BE8E70 /* UpdateStaffNavigatorPosition.swift in Sources */,
 				22FE61101B4AFB6500310FBA /* OpusKeySignature.swift in Sources */,
+				CBEA56B31B5D79BD00BE8E70 /* UpdateStaffEditorPosition.swift in Sources */,
 				22FE60EC1B4AFB6500310FBA /* UINote.swift in Sources */,
 				22FE610C1B4AFB6500310FBA /* OpusAudioPlayer.swift in Sources */,
 				CBC4FF511B503C88007B7449 /* StaffEditorScrollView.swift in Sources */,
@@ -691,6 +710,7 @@
 				22FE611C1B4AFB6500310FBA /* OpusStaffEvent.swift in Sources */,
 				22FE60FA1B4AFB6500310FBA /* StaffContainerViewController.swift in Sources */,
 				BBDECB7A1B4C4DB800B29638 /* ClefKey.swift in Sources */,
+				CBEA56BE1B5D79DD00BE8E70 /* ElongateStaff.swift in Sources */,
 				22FE61451B4B6CF800310FBA /* PausePlayback.swift in Sources */,
 				22FE60E21B4AFB6500310FBA /* FloatingMenuPopViewController.swift in Sources */,
 				22FE61141B4AFB6500310FBA /* OpusNote.swift in Sources */,
@@ -720,6 +740,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBEA56BF1B5D79E300BE8E70 /* ElongateStaff.swift in Sources */,
+				CBEA56BA1B5D79C400BE8E70 /* UpdateStaffEditorPosition.swift in Sources */,
+				CBEA56BB1B5D79C400BE8E70 /* UpdateStaffNavigatorImage.swift in Sources */,
+				CBEA56BC1B5D79C400BE8E70 /* UpdateStaffNavigatorPosition.swift in Sources */,
 				CBDEE83D1B58094A00653441 /* ResumePlayback.swift in Sources */,
 				BBBD39371B56CF1800A7464F /* UpdateNote.swift in Sources */,
 				CB9314181B501FDD00F64BAB /* UpdateNoteSelectionMenuValue.swift in Sources */,
