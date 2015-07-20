@@ -23,7 +23,6 @@ class PausePlayback: Command {
     
     //println("pause called")
     target.pausePlayBack()
-    println(target._audioAdapter.getPlaybackTime())
     
     // set button image appropriately (invoker)
   }

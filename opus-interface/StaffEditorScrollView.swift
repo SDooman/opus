@@ -56,24 +56,4 @@ class StaffEditorScrollView: UIScrollView {
       }
     }
   }
-  
-  func takeSnapshot() -> UIImage{
-    
-    UIGraphicsBeginImageContext(CGSizeMake(contentSize.width, frame.height))
-    
-    var savedContentOffset = contentOffset
-    var savedFrame = frame
-    
-    contentOffset = CGPointZero
-    frame = CGRectMake(0, 0, contentSize.width, frame.height)
-    layer.renderInContext(UIGraphicsGetCurrentContext())
-    var image = UIGraphicsGetImageFromCurrentImageContext()
-    
-    contentOffset = savedContentOffset
-    frame = savedFrame
-    
-    UIGraphicsEndImageContext()
-    
-    return image
-  }
 }

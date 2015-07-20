@@ -455,7 +455,24 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
   */
   
   func staffSnapshot() -> UIImage{
-    return staffEditorScrollView!.takeSnapshot()
+    //return staffEditorScrollView!.takeSnapshot()
+    
+    UIGraphicsBeginImageContext(CGSizeMake(staffEditorScrollView!.contentSize.width, staffEditorScrollView!.frame.height))
+    
+    var savedContentOffset = staffEditorScrollView!.contentOffset
+    var savedFrame = staffEditorScrollView!.frame
+    
+    staffEditorScrollView!.contentOffset = CGPointZero
+    staffEditorScrollView!.frame = CGRectMake(0, 0, staffEditorScrollView!.contentSize.width, staffEditorScrollView!.frame.height)
+    staffEditorScrollView!.layer.renderInContext(UIGraphicsGetCurrentContext())
+    var image = UIGraphicsGetImageFromCurrentImageContext()
+    
+    staffEditorScrollView!.contentOffset = savedContentOffset
+    staffEditorScrollView!.frame = savedFrame
+    
+    UIGraphicsEndImageContext()
+    
+    return image
   }
   
   
