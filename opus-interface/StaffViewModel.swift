@@ -124,7 +124,7 @@ class StaffViewModel {
   //MARK: Exercise Management
   //TODO: We need to disucss this/figure out how it will work
   
-  func printStaff() {
+  func printStaff() {/*
     var notes: [OpusNote] = []
     for event in _staff._staffEvents {
       notes.append(event)
@@ -135,6 +135,7 @@ class StaffViewModel {
     let sortedNotes = sorted(notes, sortFunc)
     
     for index in 0...sortedNotes.count - 1 {
+      
       println("---Note \(index)---")
       println("Note at beat location: \(sortedNotes[index].beatLocation)")
       println("Has pitch: \(sortedNotes[index].pitch)")
@@ -143,7 +144,7 @@ class StaffViewModel {
       
     }
     
-  }
+  */}
   
   func sortFunc(note1: OpusNote, note2: OpusNote) -> Bool {
     return note1.beatLocation < note2.beatLocation

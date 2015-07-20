@@ -21,7 +21,7 @@ class PausePlayback: Command {
   
   func run() {
     
-    println("pause called")
+    //println("pause called")
     target.pausePlayBack()
     println(target._audioAdapter.getPlaybackTime())
     

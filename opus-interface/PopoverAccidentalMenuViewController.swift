@@ -22,12 +22,12 @@ class PopoverAccidentalMenuViewController: UIViewController {
     }
   
   @IBAction func sharpButtonPressed(sender: AnyObject) {
-    println("Sharp selected")
+    //println("Sharp selected")
     // TODO: send command to sharp current note
   }
 
   @IBAction func flatButtonPressed(sender: AnyObject) {
-    println("Flat selected")
+    //println("Flat selected")
     // TODO: send command to flat current note
   }
 }

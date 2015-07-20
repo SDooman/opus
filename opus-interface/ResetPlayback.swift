@@ -20,7 +20,7 @@ class ResetPlayback: Command {
   }
   
   func run() {
-    println("reset called")
+    //println("reset called")
     target.resetPlayback()
     
     // set button image appropriately (invoker)

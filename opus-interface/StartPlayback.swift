@@ -21,7 +21,7 @@ class StartPlayback: Command {
   
   func run() {
 
-    println("start called")
+    //println("start called")
     target.preparePlayback()
     target.startPlayback()
     

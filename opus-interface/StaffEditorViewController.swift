@@ -260,7 +260,8 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
       
       
     default:
-      println("")
+      return
+      //println("")
       
     }
   }
@@ -308,7 +309,8 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
   
   func twoTouchesAreAdjacent(#touchOne: CGPoint, touchTwo: CGPoint) -> Bool {
     let distance = pow((touchOne.x - touchTwo.x), 2) + pow((touchOne.y - touchTwo.y), 2)
-    return sqrt(distance) < 60.0
+    //println("Returning: \(sqrt(distance) < 60.0)")
+    return sqrt(distance) < 80.0
   }
   
   //      Gives vertical and horizontal grid locked coordinate
