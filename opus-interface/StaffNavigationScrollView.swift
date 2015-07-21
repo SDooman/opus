@@ -31,13 +31,8 @@ class StaffNavigationScrollView: UIScrollView {
     }
   }
   
-  func takeSnapshot() -> UIImage {
-    UIGraphicsBeginImageContextWithOptions(contentSize, false, UIScreen.mainScreen().scale)
-    
-    drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true)
-    
-    let image = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-    return image
+  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    var touch = touches.first as! UITouch
+    println(touch.locationInView(self))
   }
 }

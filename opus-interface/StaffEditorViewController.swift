@@ -188,7 +188,9 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
         target: self.staffViewModel).run()
     }
     
-    UpdateStaffNavigatorImage(invoker: self, target: container.staffNavigator).run()
+    var index = Int(adjustedLocation.x/Opus.EDITOR_WIDTH)
+    
+    UpdateStaffNavigatorImage(index: index, invoker: self, target: container.staffNavigator)
   }
 
   func twoFingerSingleTap(gestureRecognizer: UITapGestureRecognizer) {
@@ -258,8 +260,6 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
           newNote: OpusNote(pitch: pitch, beatLocation: beatLocation, noteValue: noteValue),
           invoker: self,
           target: self.staffViewModel).run()
-        
-        UpdateStaffNavigatorImage(invoker: self, target: container.staffNavigator).run()
             
         selectedNote = nil
       }
@@ -434,15 +434,17 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     }
   }
   
-  func staffSnapshot() -> UIImage{
+  func staffSnapshot(index: Int) -> UIImage{
     
     UIGraphicsBeginImageContext(CGSizeMake(staffEditorScrollView!.contentSize.width, staffEditorScrollView!.frame.height))
     
     var savedContentOffset = staffEditorScrollView!.contentOffset
     var savedFrame = staffEditorScrollView!.frame
     
+    var x = CGFloat(index) * Opus.EDITOR_WIDTH
+    
     staffEditorScrollView!.contentOffset = CGPointZero
-    staffEditorScrollView!.frame = CGRectMake(0, 0, staffEditorScrollView!.contentSize.width, staffEditorScrollView!.frame.height)
+    staffEditorScrollView!.frame = CGRectMake(x, 0, Opus.EDITOR_WIDTH, staffEditorScrollView!.frame.height)
     staffEditorScrollView!.layer.renderInContext(UIGraphicsGetCurrentContext())
     var image = UIGraphicsGetImageFromCurrentImageContext()
     

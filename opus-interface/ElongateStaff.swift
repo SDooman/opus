@@ -23,6 +23,5 @@ class ElongateStaff: Command {
   func run() {
     invoker.elongateStaff()
     target.elongateStaff()
-    UpdateStaffNavigatorImage(invoker: invoker, target: target).run()
   }
 }

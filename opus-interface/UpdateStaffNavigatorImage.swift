@@ -11,16 +11,19 @@ import UIKit
 
 class UpdateStaffNavigatorImage: Command {
   
+  let index: Int
   let invoker: StaffEditorViewController
   let target: StaffNavigationViewController
   
-  init(invoker: StaffEditorViewController,
+  init(index: Int, invoker: StaffEditorViewController,
     target: StaffNavigationViewController) {
+      self.index = index
       self.invoker = invoker
       self.target = target
       
   }
   func run() {
-    target.updateImageView(invoker.staffSnapshot())
+    target.updateImageView(invoker.staffSnapshot(index), index: index)
+    println(index)
   }
 }
