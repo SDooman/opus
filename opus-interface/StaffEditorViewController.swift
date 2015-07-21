@@ -434,28 +434,7 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     }
   }
   
-  
-  
-  
-  
-  
-  
-  /*
-  func staffSnapshot() -> UIImage {
-    
-    UIGraphicsBeginImageContextWithOptions(staffEditorScrollView!.contentSize, false, UIScreen.mainScreen().scale)
-    
-    staffImageView.drawViewHierarchyInRect(staffEditorScrollView!.bounds, afterScreenUpdates: true)
-    
-    let image = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-    
-    return image
-  }
-  */
-  
   func staffSnapshot() -> UIImage{
-    //return staffEditorScrollView!.takeSnapshot()
     
     UIGraphicsBeginImageContext(CGSizeMake(staffEditorScrollView!.contentSize.width, staffEditorScrollView!.frame.height))
     
@@ -474,15 +453,4 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     
     return image
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 }
