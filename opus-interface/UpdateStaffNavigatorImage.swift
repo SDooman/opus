@@ -24,6 +24,5 @@ class UpdateStaffNavigatorImage: Command {
   }
   func run() {
     target.updateImageView(invoker.staffSnapshot(index), index: index)
-    println(index)
   }
 }

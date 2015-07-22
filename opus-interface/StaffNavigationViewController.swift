@@ -75,10 +75,12 @@ class StaffNavigationViewController: UIViewController, UIScrollViewDelegate {
     
     setUpStaff()
     setUpSquare()
-    
+    /*
     for var i = 0; i < numberOfStartingMeasures; i++ {
       staffNavigationScrollView!.addSubview(imageViews[i])
     }
+    */
+    staffNavigationScrollView!.addSubview(imageViews[0])
     self.view.addSubview(staffNavigationScrollView!)
     self.view.addSubview(locationIndicatorSquare)
   }
@@ -97,7 +99,8 @@ class StaffNavigationViewController: UIViewController, UIScrollViewDelegate {
     for var i = 0; i < numberOfStartingMeasures; i++ {
       var tempX = CGFloat(i) * initialStaffWidth
       var imageViewFrame = CGRect(x: tempX, y: frameYOffset, width: initialImageViewFrame.width, height: initialImageViewFrame.height)
-      var staffImageView = UIImageView(frame: initialImageViewFrame)
+      var staffImageView = UIImageView(frame: imageViewFrame)
+      staffImageView.contentMode = UIViewContentMode.ScaleAspectFill
       imageViews.append(staffImageView)
       UpdateStaffNavigatorImage(index: i, invoker: container.staffEditor, target: self).run()
       currentIndex++
@@ -149,9 +152,10 @@ class StaffNavigationViewController: UIViewController, UIScrollViewDelegate {
   func elongateStaff(){
     staffNavigationScrollView!.contentSize.width += elongationConstant
     currentIndex++
-    var tempX = CGFloat(currentIndex) * initialImageViewFrame.minX
+    var tempX = CGFloat(currentIndex) * initialImageViewFrame.width
     var imageViewFrame = CGRect(x: tempX, y: frameYOffset, width: initialImageViewFrame.width, height: initialImageViewFrame.height)
     var staffImageView = UIImageView(frame: initialImageViewFrame)
+    staffImageView.contentMode = UIViewContentMode.ScaleAspectFill
     imageViews.append(staffImageView)
     UpdateStaffNavigatorImage(index: currentIndex, invoker: container.staffEditor, target: self).run()
     staffNavigationScrollView!.addSubview(imageViews[currentIndex])
@@ -173,6 +177,11 @@ class StaffNavigationViewController: UIViewController, UIScrollViewDelegate {
   
   func updateImageView(image: UIImage, index: Int){
     imageViews[index].image = image
+    if index==0{
+      imageViews[index].backgroundColor = UIColor.blueColor().colorWithAlphaComponent(0.5)
+    }else{
+      imageViews[index].backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.5)
+    }
   }
 
 }

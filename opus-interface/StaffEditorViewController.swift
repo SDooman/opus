@@ -189,8 +189,8 @@ class StaffEditorViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     var index = Int(adjustedLocation.x/Opus.EDITOR_WIDTH)
-    
-    UpdateStaffNavigatorImage(index: index, invoker: self, target: container.staffNavigator)
+    println(index)
+    UpdateStaffNavigatorImage(index: index, invoker: self, target: container.staffNavigator).run()
   }
 
   func twoFingerSingleTap(gestureRecognizer: UITapGestureRecognizer) {
