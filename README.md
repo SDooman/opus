@@ -5,7 +5,7 @@ The Opus Education Platform
 
 Opus is a sheet music writing application, with an interface designed for new musicians to learn the early tenets of theory. The code in this repository was written by the Opus team comprised of Samuel Dooman, Peter Bowden, and Nick DeMarco during the summer of 2015, through the B-Lab Entreprenurial Accellerator at Brown University. The application is currently considered to be in beta, though it has been placed on indefinite hiatus.
 
-Copyright (c) <2015> <Bowden, DeMarco, Dooman>
+Copyright (c) <2015> "<Bowden, DeMarco, Dooman>"
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
