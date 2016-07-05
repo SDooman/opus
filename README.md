@@ -3,13 +3,15 @@ The Opus Education Platform
 
 ## Motivation
 
-We'll use this repo for you guys to get a hang of 
-working on the same codebase using Git, and to build the
-staff interface.  Once we iterate on this interface, then
-we'll move on to a new repo to build the full app.  This 
-will give us flexibility to learn all of the tools we'll
-need for effective testing, versioning, etc. and then
-be able to design the app architecture around them.
+Opus is a sheet music writing application, with an interface designed for new musicians to learn the early tenets of theory. The code in this repository was written by the Opus team comprised of Samuel Dooman, Peter Bowden, and Nick DeMarco during the summer of 2015, through the B-Lab Entreprenurial Accellerator at Brown University. The application is currently considered to be in beta, though it has been placed on indefinite hiatus.
+
+Copyright (c) <2015> <Bowden, DeMarco, Dooman>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Local Setup
 ============================
